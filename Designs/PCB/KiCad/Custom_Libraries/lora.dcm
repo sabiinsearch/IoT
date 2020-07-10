@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LoRa
+D LoRa 
+K wireless communication chip LoRa
+$ENDCMP
+#
+#End Doc Library
