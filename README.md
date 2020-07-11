@@ -8,4 +8,4 @@ Infomation related to Internet of Things (I of Things)
     - include GUI(external) and PCB designs
 
 ##  Projects
-  - Includes Projects with Internet Of Things
+  - Includes Projects with Internet Of Things 
