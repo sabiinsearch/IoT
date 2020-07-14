@@ -5,7 +5,11 @@ int echoPin = 8;    //echo on pin 8
 
 void setup() {
 
-  Serial.begin(115200);  //we'll start serial comunication, so we can see the distance on the serial monitor
+//  Serial.begin(115200);  //we'll start serial comunication, so we can see the distance on the serial monitor
+  Serial1 .begin(115200);
+
+//  Serial1.begin(115200);
+
 
   pinMode(triggerPin, OUTPUT); //defining pins
   pinMode(echoPin, INPUT);
@@ -27,10 +31,10 @@ void loop() {
   Serial.print("cm");       //and the unit
   Serial.println(" ");      //just printing to a new line
 */
+Serial1.print("SerualUART1");
+//Serial2.print("Serial_2");
 
-  Serial1.print("Serial_1");
-  Serial1.print("Serial_2");
-  Serial3.print("Serial_3");
+
   //IF YOU WANT THE PORGRAM SPITTING OUT INFORMATION SLOWER, JUST UNCOMMENT(DELETE THE 2 //) THE NEXT LINE AND CHANGE THE NUMBER
   //delay(500);
 
