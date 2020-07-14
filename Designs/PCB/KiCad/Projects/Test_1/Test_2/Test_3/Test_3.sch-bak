@@ -1,0 +1,116 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L stm32:STM32 U1
+U 1 1 5F0CCE3D
+P 2000 3250
+F 0 "U1" H 3194 3146 60  0000 L CNN
+F 1 "STM32" H 3194 2997 118 0000 L CNN
+F 2 "Custom_Libraries:STM32(LQFP48)" H 2000 3250 60  0001 C CNN
+F 3 "" H 2000 3250 60  0001 C CNN
+	1    2000 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L lora:LoRa U2
+U 1 1 5F0CE21D
+P 5200 3600
+F 0 "U2" H 5200 4337 60  0000 C CNN
+F 1 "LoRa" H 5200 4231 60  0000 C CNN
+F 2 "Custom_Libraries:LoRa" H 5200 3150 60  0001 C CNN
+F 3 "" H 5200 3150 60  0001 C CNN
+	1    5200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR01
+U 1 1 5F0CE900
+P 3950 3400
+F 0 "#PWR01" H 3950 3250 50  0001 C CNN
+F 1 "+3V3" H 3965 3573 50  0000 C CNN
+F 2 "" H 3950 3400 50  0001 C CNN
+F 3 "" H 3950 3400 50  0001 C CNN
+	1    3950 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3400 3950 3450
+Wire Wire Line
+	3950 3450 4500 3450
+NoConn ~ 4500 3250
+NoConn ~ 4500 3350
+NoConn ~ 4500 3550
+NoConn ~ 4500 3650
+NoConn ~ 4500 3750
+NoConn ~ 4500 3850
+NoConn ~ 4500 3950
+NoConn ~ 5900 3950
+NoConn ~ 5900 3850
+NoConn ~ 5900 3750
+NoConn ~ 5900 3650
+NoConn ~ 5900 3550
+NoConn ~ 5900 3450
+NoConn ~ 5900 3350
+NoConn ~ 5900 3250
+NoConn ~ 1500 4500
+NoConn ~ 1600 4500
+NoConn ~ 1700 4500
+NoConn ~ 1800 4500
+NoConn ~ 1900 4500
+NoConn ~ 2000 4500
+NoConn ~ 2100 4500
+NoConn ~ 2200 4500
+NoConn ~ 2300 4500
+NoConn ~ 2400 4500
+NoConn ~ 2500 4500
+NoConn ~ 2600 4500
+NoConn ~ 950  2900
+NoConn ~ 950  3000
+NoConn ~ 950  3100
+NoConn ~ 950  3200
+NoConn ~ 950  3300
+NoConn ~ 950  3400
+NoConn ~ 950  3500
+NoConn ~ 950  3600
+NoConn ~ 950  3700
+NoConn ~ 950  3800
+NoConn ~ 950  3900
+NoConn ~ 950  4000
+NoConn ~ 3150 4000
+NoConn ~ 3150 3900
+NoConn ~ 3150 3800
+NoConn ~ 3150 3700
+NoConn ~ 3150 3600
+NoConn ~ 3150 3500
+NoConn ~ 3150 3400
+NoConn ~ 3150 3300
+NoConn ~ 3150 3200
+NoConn ~ 3150 3100
+NoConn ~ 3150 3000
+NoConn ~ 3150 2900
+NoConn ~ 1500 2400
+NoConn ~ 1600 2400
+NoConn ~ 1700 2400
+NoConn ~ 1800 2400
+NoConn ~ 1900 2400
+NoConn ~ 2000 2400
+NoConn ~ 2100 2400
+NoConn ~ 2200 2400
+NoConn ~ 2300 2400
+NoConn ~ 2400 2400
+NoConn ~ 2500 2400
+NoConn ~ 2600 2400
+$EndSCHEMATC
