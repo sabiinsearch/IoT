@@ -136,20 +136,6 @@ Wire Wire Line
 Wire Wire Line
 	3850 4750 3450 4750
 $Comp
-L power:GNDREF #PWR?
-U 1 1 5F0FB70B
-P 2750 4750
-F 0 "#PWR?" H 2755 4577 50  0001 C CNN
-F 1 "GNDREF" H 2755 4577 50  0000 C CNN
-F 2 "" H 2750 4750 50  0001 C CNN
-F 3 "" H 2750 4750 50  0001 C CNN
-	1    2750 4750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3150 4750 2750 4750
-Connection ~ 3150 4750
-$Comp
 L Connector_Generic:Conn_02x03_Top_Bottom J?
 U 1 1 5F0FF079
 P 3000 1750
@@ -375,4 +361,14 @@ Text Label 2250 3750 2    50   ~ 0
 VCC3V3
 Wire Wire Line
 	1950 3750 2250 3750
+Text Label 1850 4150 0    50   ~ 0
+GND
+Wire Wire Line
+	1650 4150 1850 4150
+Connection ~ 1650 4150
+Text Label 2800 4750 0    50   ~ 0
+GND
+Wire Wire Line
+	2800 4750 3150 4750
+Connection ~ 3150 4750
 $EndSCHEMATC
