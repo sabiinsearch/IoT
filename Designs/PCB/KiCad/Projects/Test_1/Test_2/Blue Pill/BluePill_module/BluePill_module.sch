@@ -17,8 +17,8 @@ $Comp
 L stm32:STM32 U?
 U 1 1 5F0D833D
 P 6400 3350
-F 0 "U?" H 7594 3246 60  0000 L CNN
-F 1 "STM32" H 7594 3097 118 0000 L CNN
+F 0 "U?" H 7400 4250 60  0000 L CNN
+F 1 "STM32" H 6250 3050 118 0000 L CNN
 F 2 "" H 6400 3350 60  0001 C CNN
 F 3 "" H 6400 3350 60  0001 C CNN
 	1    6400 3350
@@ -371,4 +371,48 @@ GND
 Wire Wire Line
 	2800 4750 3150 4750
 Connection ~ 3150 4750
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 5F0DE12E
+P 8150 1750
+F 0 "J?" H 8068 1325 50  0000 C CNN
+F 1 "Prog Hdr" H 8068 1416 50  0000 C CNN
+F 2 "" H 8150 1750 50  0001 C CNN
+F 3 "~" H 8150 1750 50  0001 C CNN
+	1    8150 1750
+	-1   0    0    1   
+$EndComp
+Text Label 8550 1550 2    50   ~ 0
+GND
+Text Label 950  3750 0    50   ~ 0
+5V
+Wire Wire Line
+	950  3750 1150 3750
+Connection ~ 1150 3750
+Text Label 8650 1650 2    50   ~ 0
+5V
+Text Label 8850 1750 2    50   ~ 0
+VCC3V3
+Wire Wire Line
+	8350 1550 8550 1550
+Wire Wire Line
+	8650 1650 8350 1650
+Wire Wire Line
+	8350 1750 8850 1750
+Text Label 7900 3600 2    50   ~ 0
+TX0
+Wire Wire Line
+	7550 3600 7900 3600
+Text Label 7900 3500 2    50   ~ 0
+RX0
+Wire Wire Line
+	7900 3500 7550 3500
+Text Label 8700 1850 2    50   ~ 0
+RX0
+Text Label 8700 1950 2    50   ~ 0
+TX0
+Wire Wire Line
+	8700 1950 8350 1950
+Wire Wire Line
+	8350 1850 8700 1850
 $EndSCHEMATC
