@@ -1,0 +1,17 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Touch_Pad
+#
+DEF Touch_Pad T 0 40 Y Y 1 F N
+F0 "T" 200 200 50 H V C CNN
+F1 "Touch_Pad" 10 -32 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C 0 0 224 0 1 0 N
+X Touch 1 0 361 138 D 31 28 1 1 B
+ENDDRAW
+ENDDEF
+#
+#End Library
