@@ -13,7 +13,7 @@ G01*
 G04 APERTURE LIST*
 G04 #@! TA.AperFunction,ComponentPad*
 %ADD10R,1.700000X1.700000*%
-G04 #@! TD*
+G04 #@! TD* 
 G04 #@! TA.AperFunction,SMDPad,CuDef*
 %ADD11R,1.300000X0.700000*%
 G04 #@! TD*
