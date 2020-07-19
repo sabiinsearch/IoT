@@ -11,18 +11,18 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 2654)
+    (start_pass_no 3020)
     (layer_rule F.Cu
-      (active on)
-      (preferred_direction vertical)
-      (preferred_direction_trace_costs 1.0)
-      (against_preferred_direction_trace_costs 2.2)
-    )
-    (layer_rule B.Cu
       (active on)
       (preferred_direction horizontal)
       (preferred_direction_trace_costs 1.0)
-      (against_preferred_direction_trace_costs 1.8)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
     )
   )
   (rule
@@ -63,13 +63,13 @@
     )
   )
   (class "kicad_default"
-    "Net-(AE1-Pad1)" GNDREF /RESET /PC14 /PC15 /OSCIN /OSCOUT "/BAT_+ve"
-    "/Supply_Reg" "/BAT_IN" "/Solar_+ve" /BOOT0 /BOOT1 /5V /RX0 /TX0
-    /SWIO /SWCLK "/LDR_IN" "Net-(U1-Pad4)" "Net-(U2-Pad38)" "Net-(U2-Pad1)" "/Touch_3" "/Touch_1"
-    /DIO0 /DIO1 /NSS /MISO /MOSI /Energy "Net-(U2-Pad27)" "Net-(U2-Pad28)"
-    "Net-(U2-Pad29)" "Net-(U2-Pad41)" "Net-(U2-Pad42)" "Net-(U2-Pad43)" /SCL /SDA "/Touch_2" /SCK
-    "Net-(U3-Pad7)" "Net-(U3-Pad8)" "Net-(U3-Pad10)" "Net-(U3-Pad11)" "Net-(D1-Pad1)" /Slide /Echo /Trig
-    /EchoToStm32 "Net-(U2-Pad21)" "Net-(U2-Pad22)" "Net-(U2-Pad32)" "Net-(U2-Pad33)" /EchoToStm "/Reset_LoRa"
+    "Net-(AE1-Pad1)" GNDREF /RESET /PC14 /PC15 /OSCIN /OSCOUT "/Supply_Reg"
+    "/BAT_IN" "/Solar_+ve" /VCC3V3 /BOOT0 /BOOT1 /5V /RX0 /TX0
+    /SWIO /SWCLK "/LDR_IN" "Net-(U1-Pad4)" "Net-(U2-Pad38)" "Net-(U2-Pad1)" /DIO0 /DIO1
+    /NSS /MISO /MOSI /Energy "Net-(U2-Pad27)" "Net-(U2-Pad28)" "Net-(U2-Pad29)" "Net-(U2-Pad41)"
+    "Net-(U2-Pad42)" "Net-(U2-Pad43)" /SCL /SDA /SCK "Net-(U3-Pad7)" "Net-(U3-Pad8)" "Net-(U3-Pad10)"
+    "Net-(U3-Pad11)" "Net-(D1-Pad1)" /Slide /Echo /Trig /EchoToStm32 "Net-(U2-Pad21)" "Net-(U2-Pad22)"
+    "Net-(U2-Pad32)" "Net-(U2-Pad33)" /EchoToStm "/Reset_LoRa" "Net-(U2-Pad2)" "Net-(U2-Pad10)" "Net-(U2-Pad26)" "Net-(U2-Pad25)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
