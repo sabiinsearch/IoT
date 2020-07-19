@@ -62,26 +62,14 @@ Text Label 4364 1590 0    50   ~ 0
 PC14
 Text Label 4364 1690 0    50   ~ 0
 PC15
-Wire Wire Line
-	4664 1590 4364 1590
-Wire Wire Line
-	4364 1690 4664 1690
 Text Label 4364 1790 0    50   ~ 0
 OSCIN
 Text Label 4364 1890 0    50   ~ 0
 OSCOUT
-Wire Wire Line
-	4364 1790 4664 1790
-Wire Wire Line
-	4664 1890 4364 1890
 Text Label 4314 2190 0    50   ~ 0
 VCC3V3
-Wire Wire Line
-	4314 2190 4664 2190
 Text Label 4364 1990 0    50   ~ 0
 RESET
-Wire Wire Line
-	4364 1990 4664 1990
 $Comp
 L Switch:SW_Push SW1
 U 1 1 5F125580
@@ -176,8 +164,6 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2775 4702 50  0001 C C
 $EndComp
 Wire Wire Line
 	2375 4852 2375 4952
-Wire Wire Line
-	2175 4852 2375 4852
 Connection ~ 2375 4852
 $Comp
 L power:GNDREF #PWR03
@@ -210,9 +196,6 @@ F 3 "~" H 10269 5607 50  0001 C CNN
 $EndComp
 Text Label 10669 5407 2    50   ~ 0
 GND
-Text Label 1275 4852 2    50   ~ 0
-BAT_IN
-Connection ~ 2175 4852
 Text Label 10769 5507 2    50   ~ 0
 5V
 Text Label 10969 5607 2    50   ~ 0
@@ -256,38 +239,8 @@ Text Label 9696 5687 2    50   ~ 0
 GND
 Wire Wire Line
 	9696 5687 9446 5687
-$Comp
-L Device:LED D1
-U 1 1 5F13F264
-P 1875 5152
-F 0 "D1" H 1868 4897 50  0000 C CNN
-F 1 "LED" H 1868 4988 50  0000 C CNN
-F 2 "Diodes_SMD:D_0805" H 1875 5152 50  0001 C CNN
-F 3 "~" H 1875 5152 50  0001 C CNN
-	1    1875 5152
-	0    1    1    0   
-$EndComp
 Text Label 9746 5387 2    50   ~ 0
 VCC3V3
-Text Label 1175 5402 2    50   ~ 0
-GND
-$Comp
-L Device:R R3
-U 1 1 5F141954
-P 1525 5402
-F 0 "R3" V 1425 5352 50  0000 L CNN
-F 1 "510 R" V 1625 5302 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805" V 1455 5402 50  0001 C CNN
-F 3 "~" H 1525 5402 50  0001 C CNN
-	1    1525 5402
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	1875 5002 1875 4852
-Wire Wire Line
-	1875 5402 1675 5402
-Wire Wire Line
-	1375 5402 1175 5402
 $Comp
 L Device:C C7
 U 1 1 5F14D815
@@ -318,8 +271,6 @@ Wire Wire Line
 	2675 5202 2675 5252
 Text Label 4414 2090 0    50   ~ 0
 GND
-Wire Wire Line
-	4414 2090 4664 2090
 Text Label 2993 2494 0    50   ~ 0
 GND
 Wire Wire Line
@@ -383,10 +334,10 @@ Text Label 4661 6940 0    50   ~ 0
 DIO1
 Wire Wire Line
 	4911 6940 4661 6940
-Text Label 4661 6740 0    50   ~ 0
-Reset
+Text Label 4501 6737 0    50   ~ 0
+Reset_LoRa
 Wire Wire Line
-	4661 6740 4911 6740
+	4661 6740 4662 6740
 Text Label 6511 6540 2    50   ~ 0
 NSS
 Wire Wire Line
@@ -395,12 +346,8 @@ Wire Wire Line
 	6311 6440 6511 6440
 Text Label 4414 2490 0    50   ~ 0
 DIO0
-Wire Wire Line
-	4414 2490 4664 2490
-Text Label 4414 2390 0    50   ~ 0
-Reset
-Wire Wire Line
-	4414 2390 4664 2390
+Text Label 4295 2392 0    50   ~ 0
+Reset_LoRa
 NoConn ~ 6311 6940
 NoConn ~ 6311 7040
 NoConn ~ 4911 7140
@@ -411,7 +358,7 @@ U 1 1 5F2C5F88
 P 4411 6090
 F 0 "AE1" H 4491 6079 50  0000 L CNN
 F 1 "Antenna" H 4491 5988 50  0000 L CNN
-F 2 "SMD_Packages:1Pin" H 4411 6090 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4411 6090 50  0001 C CNN
 F 3 "~" H 4411 6090 50  0001 C CNN
 	1    4411 6090
 	1    0    0    -1  
@@ -424,49 +371,30 @@ Text Notes 9556 4199 0    50   Italic 0
 Sensors\n
 Text Label 4364 2290 0    50   ~ 0
 Touch_1
-Wire Wire Line
-	4364 2290 4664 2290
 Text Label 4364 1490 0    50   ~ 0
 Touch_3
-Wire Wire Line
-	4364 1490 4664 1490
 NoConn ~ 4664 1390
 Text Notes 9768 2065 0    50   Italic 0
 Temp / Hum
 Text Notes 8373 2097 0    50   Italic 0
 Light_sensor
-Text Notes 9434 3524 0    50   Italic 0
+Text Notes 10230 3370 0    50   Italic 0
 Air Quality
 $Comp
 L Switch:SW_Push SW2
 U 1 1 5F213119
-P 1525 4852
-F 0 "SW2" H 1525 5052 50  0000 R CNN
-F 1 "SW_Push" V 1425 5302 50  0001 R CNN
-F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h5mm" H 1525 5052 50  0001 C CNN
-F 3 "~" H 1525 5052 50  0001 C CNN
-	1    1525 4852
-	1    0    0    -1  
+P 3377 6353
+F 0 "SW2" H 3377 6553 50  0000 R CNN
+F 1 "SW_Push" V 3277 6803 50  0001 R CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h5mm" H 3377 6553 50  0001 C CNN
+F 3 "~" H 3377 6553 50  0001 C CNN
+	1    3377 6353
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	1725 4852 1875 4852
-Wire Wire Line
-	1275 4852 1325 4852
-Connection ~ 1875 4852
-Wire Wire Line
-	1875 4852 2175 4852
-Wire Wire Line
-	1875 5302 1875 5402
 Wire Wire Line
 	2175 5202 2175 5252
 Wire Wire Line
 	2175 5252 2675 5252
-Text Label 2075 4652 2    50   ~ 0
-BAT_+ve
-Wire Wire Line
-	1875 4852 1875 4652
-Wire Wire Line
-	1875 4652 2075 4652
 Wire Wire Line
 	2975 4852 3225 4852
 Wire Wire Line
@@ -571,41 +499,8 @@ Text Label 5714 3290 1    50   ~ 0
 LDR_IN
 Text Label 5914 3290 1    50   ~ 0
 BOOT1
-Wire Wire Line
-	6864 2490 7214 2490
-Wire Wire Line
-	7214 2390 6864 2390
-Wire Wire Line
-	6214 2990 6214 3240
-Wire Wire Line
-	6114 3290 6114 2990
-Text Label 6114 3290 1    50   ~ 0
-DSW_4
-Wire Wire Line
-	6014 3290 6014 2990
-Text Label 6014 3290 1    50   ~ 0
-DSW_3
-Wire Wire Line
-	7214 1790 6864 1790
-Text Label 7214 1790 2    50   ~ 0
-DSW_2
-Wire Wire Line
-	7214 1690 6864 1690
-Text Label 7214 1690 2    50   ~ 0
-DSW_1
 Text Label 7214 2390 2    50   ~ 0
 Touch_3
-$Comp
-L stm32:STM32 U2
-U 1 1 5F0D833D
-P 5714 1740
-F 0 "U2" H 6714 2640 60  0000 L CNN
-F 1 "STM32" H 5564 1440 118 0000 L CNN
-F 2 "Custom_Libraries:STM32(LQFP48)" H 5714 1740 60  0001 C CNN
-F 3 "" H 5714 1740 60  0001 C CNN
-	1    5714 1740
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5414 3290 5414 2990
 Wire Wire Line
@@ -614,8 +509,6 @@ Wire Wire Line
 	5614 2990 5614 3290
 Wire Wire Line
 	5914 2990 5914 3290
-Wire Wire Line
-	6314 3340 6314 2990
 Text Label 7214 2490 2    50   ~ 0
 Touch_2
 Wire Wire Line
@@ -634,18 +527,12 @@ Text Label 5314 3290 1    50   ~ 0
 NSS
 Text Notes 5303 3583 0    79   Italic 0
 STM32FXXX\n
-Wire Wire Line
-	7164 1490 6864 1490
 Text Label 7164 1490 2    50   ~ 0
 GND
 Wire Wire Line
 	5314 690  5314 890 
 Text Label 5314 690  3    50   ~ 0
 GND
-Text Label 6214 3240 1    50   ~ 0
-GND
-Text Label 6314 3340 1    50   ~ 0
-VCC3V3
 Wire Wire Line
 	5214 640  5214 890 
 Text Label 5214 640  3    50   ~ 0
@@ -654,25 +541,16 @@ Wire Wire Line
 	6314 590  6314 890 
 Text Label 6314 590  3    50   ~ 0
 SWCLK
-Wire Wire Line
-	6864 1590 7214 1590
 Text Label 7214 1590 2    50   ~ 0
 SWIO
-Wire Wire Line
-	7214 1890 6864 1890
 Text Label 7214 1890 2    50   ~ 0
 RX0
-Wire Wire Line
-	6864 1990 7214 1990
 Text Label 7214 1990 2    50   ~ 0
 TX0
-Connection ~ 4903 5094
 Wire Wire Line
 	4903 5444 4903 5094
 Text Label 4903 5444 1    50   ~ 0
 GND
-Wire Wire Line
-	6864 1390 7264 1390
 Text Label 7264 1390 2    50   ~ 0
 VCC3V3
 Wire Wire Line
@@ -689,15 +567,6 @@ Wire Wire Line
 	5303 4094 5303 4394
 Text Label 5303 4094 3    50   ~ 0
 PC15
-Connection ~ 4903 4394
-Wire Wire Line
-	4903 4394 4903 4094
-Text Label 4903 4094 3    50   ~ 0
-PC14
-Wire Wire Line
-	4903 4394 4903 4794
-Wire Wire Line
-	4953 4394 4903 4394
 Wire Wire Line
 	5303 4394 5253 4394
 Wire Wire Line
@@ -708,17 +577,6 @@ Wire Wire Line
 Connection ~ 5303 5094
 Wire Wire Line
 	4903 5094 5303 5094
-$Comp
-L Device:C C2
-U 1 1 5F0E9AA7
-P 4903 4944
-F 0 "C2" V 4651 4944 50  0000 C CNN
-F 1 "20pf" V 4742 4944 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805" H 4941 4794 50  0001 C CNN
-F 3 "~" H 4903 4944 50  0001 C CNN
-	1    4903 4944
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C C3
 U 1 1 5F0E94E8
@@ -779,17 +637,6 @@ F 3 "~" H 6103 4244 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:Crystal Y1
-U 1 1 5F0DAA87
-P 5103 4394
-F 0 "Y1" V 5057 4525 50  0000 L CNN
-F 1 "32.768K" V 5148 4525 50  0000 L CNN
-F 2 "Crystals:Crystal_HC49-4H_Vertical" H 5103 4394 50  0001 C CNN
-F 3 "~" H 5103 4394 50  0001 C CNN
-	1    5103 4394
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:Crystal Y2
 U 1 1 5F0D9577
 P 6103 4744
@@ -802,14 +649,10 @@ F 3 "~" H 6103 4744 50  0001 C CNN
 $EndComp
 Wire Notes Line
 	10521 11270 10519 11263
-Text Label 2200 6000 0    50   ~ 0
+Text Label 1630 6230 0    50   ~ 0
 Supply_Reg
-Text Label 2400 5800 0    50   ~ 0
-BAT_+ve
 Text Notes 5267 5556 0    79   Italic 0
 Crystals for Clock\n
-Wire Notes Line
-	3809 482  3870 7798
 Wire Notes Line
 	469  4000 3831 3991
 Wire Notes Line
@@ -820,39 +663,23 @@ Wire Notes Line
 	7680 6558 7680 6579
 Wire Notes Line
 	7680 4885 11280 4885
-Text Label 2400 5900 0    50   ~ 0
-VCC3V3
-Text Label 3700 5900 2    50   ~ 0
-VCC3V3
-Wire Wire Line
-	2400 5900 2700 5900
-Text Label 3700 5800 2    50   ~ 0
-BAT_+ve
-Wire Wire Line
-	2400 5800 2700 5800
-Text Label 3800 6000 2    50   ~ 0
-Supply_Reg
-Wire Wire Line
-	2200 6000 2700 6000
+Text Label 1830 6130 0    50   ~ 0
+Slide
+Text Label 3110 6130 2    50   ~ 0
+Slide
 Text Label 3300 6700 2    50   ~ 0
 Solar_+ve
-Wire Wire Line
-	3800 6000 3400 6000
-Wire Wire Line
-	3700 5900 3400 5900
-Wire Wire Line
-	3700 5800 3400 5800
 Text Label 2800 7280 2    50   ~ 0
 GND
 $Comp
 L Switch:Slide_switch U5
 U 1 1 5F77381B
-P 3200 5900
-F 0 "U5" H 3200 6200 50  0000 C CNN
-F 1 "Slide_switch" H 3100 5600 50  0000 C CNN
-F 2 "Buttons_Switches_THT:SW_DIP_x3_W7.62mm_Slide_LowProfile" H 3200 5900 50  0001 C CNN
-F 3 "" H 3200 5900 50  0001 C CNN
-	1    3200 5900
+P 2620 6130
+F 0 "U5" H 2340 6380 50  0000 C CNN
+F 1 "Slide_switch" H 2520 5830 50  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_DIP_x3_W7.62mm_Slide_LowProfile" H 2620 6130 50  0001 C CNN
+F 3 "" H 2620 6130 50  0001 C CNN
+	1    2620 6130
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -861,7 +688,7 @@ U 1 1 5F191EAA
 P 1275 7002
 F 0 "J3" H 875 6802 50  0000 L CNN
 F 1 "Solar_input" H 1075 7102 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 1275 7002 50  0001 C CNN
+F 2 "Custom_Libraries:Battery_holder" H 1275 7002 50  0001 C CNN
 F 3 "~" H 1275 7002 50  0001 C CNN
 	1    1275 7002
 	-1   0    0    1   
@@ -882,7 +709,7 @@ U 1 1 5F1AA8B3
 P 2350 7030
 F 0 "J5" H 2250 6830 50  0000 L CNN
 F 1 "Battery_input" H 1900 7130 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 2350 7030 50  0001 C CNN
+F 2 "Custom_Libraries:Battery_holder" H 2350 7030 50  0001 C CNN
 F 3 "~" H 2350 7030 50  0001 C CNN
 	1    2350 7030
 	-1   0    0    1   
@@ -919,4 +746,254 @@ Wire Wire Line
 Wire Wire Line
 	2550 7280 2800 7280
 Connection ~ 2550 7080
+NoConn ~ 6870 1690
+NoConn ~ 6870 1790
+Wire Wire Line
+	4414 2490 4664 2490
+Wire Wire Line
+	4364 2290 4664 2290
+Wire Wire Line
+	4314 2190 4664 2190
+Wire Wire Line
+	4414 2090 4664 2090
+Wire Wire Line
+	4364 1990 4664 1990
+Wire Wire Line
+	4664 1890 4364 1890
+Wire Wire Line
+	4364 1790 4664 1790
+Wire Wire Line
+	4364 1690 4664 1690
+Wire Wire Line
+	4664 1590 4364 1590
+Wire Wire Line
+	4364 1490 4664 1490
+Wire Wire Line
+	6864 1390 7264 1390
+Wire Wire Line
+	7214 2390 6864 2390
+Wire Wire Line
+	7164 1490 6864 1490
+Wire Wire Line
+	6864 2490 7214 2490
+Wire Wire Line
+	6864 1590 7214 1590
+Wire Wire Line
+	7214 1890 6864 1890
+Wire Wire Line
+	6864 1990 7214 1990
+$Comp
+L stm32:STM32 U2
+U 1 1 5F0D833D
+P 5714 1740
+F 0 "U2" H 6714 2640 60  0000 L CNN
+F 1 "STM32" H 5564 1440 118 0000 L CNN
+F 2 "Custom_Libraries:STM32(LQFP48)" H 5714 1740 60  0001 C CNN
+F 3 "" H 5714 1740 60  0001 C CNN
+	1    5714 1740
+	1    0    0    -1  
+$EndComp
+Text Label 6314 3340 1    50   ~ 0
+VCC3V3
+Text Label 6214 3240 1    50   ~ 0
+GND
+Wire Wire Line
+	6314 3340 6314 2990
+Wire Wire Line
+	6214 2990 6214 3240
+NoConn ~ 6014 2990
+NoConn ~ 6114 2990
+NoConn ~ 5914 890 
+NoConn ~ 5814 890 
+NoConn ~ 5714 890 
+NoConn ~ 6214 890 
+Text Label 3450 6553 0    50   ~ 0
+VCC3V3
+Wire Notes Line
+	3809 482  3870 7798
+Text Label 2740 5770 2    50   ~ 0
+GND
+$Comp
+L Device:LED D1
+U 1 1 5F13F264
+P 3270 5960
+F 0 "D1" V 3250 6060 50  0000 C CNN
+F 1 "Pwr_L.E.D" H 3200 6150 50  0000 C CNN
+F 2 "Diodes_SMD:D_0805" H 3270 5960 50  0001 C CNN
+F 3 "~" H 3270 5960 50  0001 C CNN
+	1    3270 5960
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5F141954
+P 2990 5770
+F 0 "R3" V 2890 5720 50  0000 L CNN
+F 1 "510 R" V 3090 5670 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 2920 5770 50  0001 C CNN
+F 3 "~" H 2990 5770 50  0001 C CNN
+	1    2990 5770
+	0    1    1    0   
+$EndComp
+Text Label 1820 6030 0    50   ~ 0
+BAT_IN
+Wire Wire Line
+	1630 6230 2120 6230
+Wire Wire Line
+	2120 6130 1830 6130
+Wire Wire Line
+	1820 6030 2120 6030
+Text Label 3270 6230 2    50   ~ 0
+Supply_Reg
+Wire Wire Line
+	2820 6230 3270 6230
+Text Label 3160 6030 2    50   ~ 0
+BAT_IN
+Wire Wire Line
+	3160 6030 2820 6030
+Wire Wire Line
+	2820 6130 3270 6130
+Wire Wire Line
+	2740 5770 2840 5770
+Wire Wire Line
+	3140 5770 3270 5770
+Wire Wire Line
+	3270 5770 3270 5810
+Connection ~ 4903 5094
+$Comp
+L Device:Crystal Y1
+U 1 1 5F0DAA87
+P 5103 4394
+F 0 "Y1" V 5057 4525 50  0000 L CNN
+F 1 "32.768K" V 5148 4525 50  0000 L CNN
+F 2 "Crystals:Crystal_HC49-4H_Vertical" H 5103 4394 50  0001 C CNN
+F 3 "~" H 5103 4394 50  0001 C CNN
+	1    5103 4394
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5F0E9AA7
+P 4903 4944
+F 0 "C2" V 4651 4944 50  0000 C CNN
+F 1 "20pf" V 4742 4944 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 4941 4794 50  0001 C CNN
+F 3 "~" H 4903 4944 50  0001 C CNN
+	1    4903 4944
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4953 4394 4903 4394
+Wire Wire Line
+	4903 4394 4903 4794
+Text Label 4903 4094 3    50   ~ 0
+PC14
+Wire Wire Line
+	4903 4394 4903 4094
+Connection ~ 4903 4394
+Text Notes 8380 3390 0    50   Italic 0
+Ultra Sonic
+$Comp
+L Connector:Conn_01x04_Female J6
+U 1 1 5FB05D28
+P 8350 3240
+F 0 "J6" V 8260 3450 50  0000 L CNN
+F 1 "Distance /" V 8460 2850 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 8350 3240 50  0001 C CNN
+F 3 "~" H 8350 3240 50  0001 C CNN
+	1    8350 3240
+	0    1    1    0   
+$EndComp
+Text Label 8450 2820 3    50   ~ 0
+GND
+Wire Wire Line
+	8450 2820 8450 3040
+Text Label 8350 2840 3    50   ~ 0
+Echo
+Wire Wire Line
+	8350 2840 8350 2850
+Text Label 8250 2840 3    50   ~ 0
+Trig
+Wire Wire Line
+	8250 2840 8250 3040
+Text Label 8150 2730 3    50   ~ 0
+VCC3V3
+Wire Wire Line
+	8150 3040 8150 2730
+$Comp
+L Device:R R6
+U 1 1 5FB350AF
+P 8530 2570
+F 0 "R6" V 8430 2520 50  0000 L CNN
+F 1 "2.7K" V 8630 2470 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 8460 2570 50  0001 C CNN
+F 3 "~" H 8530 2570 50  0001 C CNN
+	1    8530 2570
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5FB36A65
+P 8930 2570
+F 0 "R7" V 8830 2520 50  0000 L CNN
+F 1 "4.7K" V 9030 2470 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 8860 2570 50  0001 C CNN
+F 3 "~" H 8930 2570 50  0001 C CNN
+	1    8930 2570
+	0    1    1    0   
+$EndComp
+Text Label 9270 2570 2    50   ~ 0
+GND
+Wire Wire Line
+	9270 2570 9080 2570
+Wire Wire Line
+	8680 2570 8730 2570
+Wire Wire Line
+	8380 2570 8380 2850
+Wire Wire Line
+	8380 2850 8350 2850
+Connection ~ 8350 2850
+Wire Wire Line
+	8350 2850 8350 3040
+Text Label 8730 2340 0    50   ~ 0
+EchoToStm32
+Wire Wire Line
+	8730 2340 8730 2570
+Connection ~ 8730 2570
+Wire Wire Line
+	8730 2570 8780 2570
+Text Label 6114 860  1    50   ~ 0
+EchoToStm
+Wire Wire Line
+	6114 890  6114 860 
+Text Label 6011 724  3    50   ~ 0
+Trig
+Wire Wire Line
+	6011 724  6014 891 
+Wire Wire Line
+	6014 891  6014 890 
+Connection ~ 6014 890 
+Wire Wire Line
+	4295 2392 4664 2390
+Wire Wire Line
+	4501 6737 4662 6740
+Connection ~ 4662 6740
+Wire Wire Line
+	4662 6740 4911 6740
+Wire Wire Line
+	3270 6110 3270 6130
+Wire Wire Line
+	3377 6130 3377 6153
+Wire Wire Line
+	3270 6130 3377 6130
+Connection ~ 3270 6130
+Wire Wire Line
+	3450 6553 3377 6553
+Text Label 2027 4852 0    50   ~ 0
+BAT_IN
+Wire Wire Line
+	2027 4852 2175 4852
+Connection ~ 2175 4852
+Wire Wire Line
+	2175 4852 2375 4852
 $EndSCHEMATC
