@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "5.1.6-c6e7f7d~87~ubuntu18.04.1"
     },
-    "CreationDate":  "2020-07-19T23:01:31+05:30"
+    "CreationDate":  "2020-07-22T22:23:17+05:30"
   },
   "GeneralSpecs":
   {
@@ -29,10 +29,12 @@
   [
     {
       "Layers": "Outer",
-      "PadToPad":  0.200,
-      "PadToTrack":  0.200,
-      "TrackToTrack":  0.200,
-      "MinLineWidth":  0.250
+      "PadToPad":  0.250,
+      "PadToTrack":  0.250,
+      "TrackToTrack":  0.250,
+      "MinLineWidth":  0.250,
+      "TrackToRegion":  0.508,
+      "RegionToRegion":  0.508
     }
   ],
   "FilesAttributes":
@@ -45,6 +47,16 @@
     {
       "Path":  "Sensor_pcb_v1-B_Cu.gbl",
       "FileFunction":  "Copper,L2,Bot",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "Sensor_pcb_v1-F_Adhes.gta",
+      "FileFunction":  "Glue,Top",
+      "FilePolarity":  "Positive"
+    },
+    {
+      "Path":  "Sensor_pcb_v1-B_Adhes.gba",
+      "FileFunction":  "Glue,Bot",
       "FilePolarity":  "Positive"
     },
     {

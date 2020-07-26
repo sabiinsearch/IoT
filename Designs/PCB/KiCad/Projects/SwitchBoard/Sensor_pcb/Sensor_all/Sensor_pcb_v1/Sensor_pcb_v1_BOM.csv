@@ -1,0 +1,29 @@
+Id,Designator,Package,Quantity,Designation,Supplier,and,ref,Source,Cost per head ,Total Cost
+1,U2,STM32(LQFP48),1,STM32F108C8T6,,,,Robu.com,199,199
+2,SW1,SW_SPST_B3U-1000P,1,Tacticle_Switch,,,,,0,0
+3,U3,LoRa,1,LoRa,,,,Robu.com,449,449
+4,AE1,Pin_Header_Straight_1x01_Pitch2.54mm,1,Antenna,,,,,0,0
+5,R7,R_0805,1,4.7K,,,,Amazon.com,1,1
+6,R6,R_0805,1,2.7K,,,,Amazon.com,1,1
+7,J6,Pin_Header_Straight_1x04_Pitch2.54mm,1,Male,Headers_01x04_Pitch_2.54mm,,,Amazon.com,2,2
+8,"J5,J3",JST XH 2.54mm pitch ,2,Lipo_Battery_Connector,,,,Amazon.com,7,14
+9,SW2,SW_PUSH_6mm_h5mm,1,Slide_Switch,,,,Amazon.com,8,79
+10,U5,SW_DIP_x3_W7.62mm_Slide_LowProfile,1,Slide_switch,,,,Amazon.com,8,8
+11,C1,C_0805,1,1.0uf,,,,Amazon.com,1,1
+12,"C2,C3,C4,C5",C_0805,4,20pf,,,,Amazon.com,2,8
+13,"C6,C7",C_0805,2,100,nf,,,Amazon.com,1,2
+14,D1,D_0805,1,Pwr_L.E.D,,,,Amazon.com,1,1
+15,D2,D_0805,1,IN4007,,,,Amazon.com,1,1
+16,J1,Pin_Header_02x03,1,Boot,,,,Amazon.com,3,3
+17,J2,Pin_Header_Straight_1x05_Pitch2.54mm,1,Headers_1x05_Pitch_2.54mm,,,,Amazon.com,2.5,2.5
+18,J4,Pin_Header_Straight_1x04_Pitch2.54mm,1,SWD,,,,Amazon.com,2,2
+19,"R1,R4",R_0805,2,10K,,,,Amazon.com,1,2
+20,R2,R_0805,1,1M,,,,Amazon.com,1,1
+21,R3,R_0805,1,510,R,,,Amazon.com,1,1
+22,R5,D_A-405_P5.08mm_Vertical_AnodeUp,1,LDR,,,,Amazon.com,6,6
+23,U1,SOT-23-5,1,APK2112.K-3.3,,,,Amazon.com,5,5
+24,U4,BME280,1,BME_280,,,,Amazon.com,495,495
+25,Y1,Crystal_HC49-4H_Vertical,1,32.768K,,,,Robu.com,59,59
+26,Y2,Crystal_HC49-4H_Vertical,1,8Mhz,,,,Robu.com,59,59
+,,,,,,,,,,
+,,,,,,,,,Total Cost,1401.5

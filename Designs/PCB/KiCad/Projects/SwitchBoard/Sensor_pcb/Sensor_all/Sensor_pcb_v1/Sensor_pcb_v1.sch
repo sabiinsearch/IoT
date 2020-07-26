@@ -40,12 +40,7 @@ Wire Wire Line
 Wire Wire Line
 	1143 2244 1143 2544
 Wire Wire Line
-	1143 2544 1343 2544
-Wire Wire Line
-	1343 2544 1743 2544
-Wire Wire Line
 	1743 2544 1743 2244
-Connection ~ 1343 2544
 Text Label 1993 2144 2    50   ~ 0
 BOOT1
 Text Label 943  2144 0    50   ~ 0
@@ -76,7 +71,7 @@ U 1 1 5F125580
 P 2393 2294
 F 0 "SW1" V 2393 2244 50  0000 R CNN
 F 1 "SW_Push" V 2293 2744 50  0001 R CNN
-F 2 "Buttons_Switches_SMD:SW_DIP_x1_W7.62mm_Slide_Copal_CHS-B" H 2393 2494 50  0001 C CNN
+F 2 "Buttons_Switches_SMD:SW_SPST_B3U-1000P" H 2393 2494 50  0001 C CNN
 F 3 "~" H 2393 2494 50  0001 C CNN
 	1    2393 2294
 	0    -1   -1   0   
@@ -85,21 +80,6 @@ Text Label 2893 2094 2    50   ~ 0
 RESET
 Wire Wire Line
 	2393 2094 2693 2094
-$Comp
-L power:GNDREF #PWR04
-U 1 1 5F102D01
-P 1343 2544
-F 0 "#PWR04" H 1348 2371 50  0001 C CNN
-F 1 "GNDREF" H 1348 2371 50  0000 C CNN
-F 2 "" H 1343 2544 50  0001 C CNN
-F 3 "" H 1343 2544 50  0001 C CNN
-	1    1343 2544
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2393 2494 2693 2494
-Wire Wire Line
-	2793 2494 2793 2544
 $Comp
 L Device:C C1
 U 1 1 5F129E71
@@ -113,9 +93,6 @@ F 3 "~" H 2693 2294 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2693 2444 2693 2494
-Connection ~ 2693 2494
-Wire Wire Line
-	2693 2494 2793 2494
 Wire Wire Line
 	2693 2144 2693 2094
 Connection ~ 2693 2094
@@ -141,17 +118,6 @@ Wire Wire Line
 Wire Wire Line
 	2693 1994 2693 2094
 $Comp
-L power:GNDREF #PWR02
-U 1 1 5F1282A4
-P 2793 2544
-F 0 "#PWR02" H 2798 2371 50  0001 C CNN
-F 1 "GNDREF" H 2798 2371 50  0000 C CNN
-F 2 "" H 2793 2544 50  0001 C CNN
-F 3 "" H 2793 2544 50  0001 C CNN
-	1    2793 2544
-	1    0    0    -1  
-$EndComp
-$Comp
 L Regulator_Linear:AP2112K-3.3 U1
 U 1 1 5F13570F
 P 2675 4952
@@ -166,11 +132,11 @@ Wire Wire Line
 	2375 4852 2375 4952
 Connection ~ 2375 4852
 $Comp
-L power:GNDREF #PWR03
+L power:GND #PWR03
 U 1 1 5F13CA0F
 P 2675 5302
 F 0 "#PWR03" H 2680 5129 50  0001 C CNN
-F 1 "GNDREF" H 2680 5129 50  0000 C CNN
+F 1 "GND" H 2680 5129 50  0000 C CNN
 F 2 "" H 2675 5302 50  0001 C CNN
 F 3 "" H 2675 5302 50  0001 C CNN
 	1    2675 5302
@@ -183,17 +149,6 @@ Supply_Reg
 Text Label 2875 5252 0    50   ~ 0
 GND
 Connection ~ 2675 5252
-$Comp
-L Connector_Generic:Conn_01x05 J2
-U 1 1 5F0DE12E
-P 10269 5607
-F 0 "J2" H 10187 5182 50  0000 C CNN
-F 1 "Prog Hdr" H 10187 5273 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 10269 5607 50  0001 C CNN
-F 3 "~" H 10269 5607 50  0001 C CNN
-	1    10269 5607
-	-1   0    0    1   
-$EndComp
 Text Label 10669 5407 2    50   ~ 0
 GND
 Text Label 10769 5507 2    50   ~ 0
@@ -273,9 +228,6 @@ Text Label 4414 2090 0    50   ~ 0
 GND
 Text Label 2993 2494 0    50   ~ 0
 GND
-Wire Wire Line
-	2793 2494 2993 2494
-Connection ~ 2793 2494
 Text Label 1893 2544 0    50   ~ 0
 GND
 Wire Wire Line
@@ -369,10 +321,6 @@ Wire Wire Line
 	4411 6440 4911 6440
 Text Notes 9556 4199 0    50   Italic 0
 Sensors\n
-Text Label 4364 2290 0    50   ~ 0
-Touch_1
-Text Label 4364 1490 0    50   ~ 0
-Touch_3
 NoConn ~ 4664 1390
 Text Notes 9768 2065 0    50   Italic 0
 Temp / Hum
@@ -499,8 +447,6 @@ Text Label 5714 3290 1    50   ~ 0
 LDR_IN
 Text Label 5914 3290 1    50   ~ 0
 BOOT1
-Text Label 7214 2390 2    50   ~ 0
-Touch_3
 Wire Wire Line
 	5414 3290 5414 2990
 Wire Wire Line
@@ -509,8 +455,6 @@ Wire Wire Line
 	5614 2990 5614 3290
 Wire Wire Line
 	5914 2990 5914 3290
-Text Label 7214 2490 2    50   ~ 0
-Touch_2
 Wire Wire Line
 	5214 3290 5214 2990
 Text Label 5214 3290 1    50   ~ 0
@@ -746,12 +690,8 @@ Wire Wire Line
 Wire Wire Line
 	2550 7280 2800 7280
 Connection ~ 2550 7080
-NoConn ~ 6870 1690
-NoConn ~ 6870 1790
 Wire Wire Line
 	4414 2490 4664 2490
-Wire Wire Line
-	4364 2290 4664 2290
 Wire Wire Line
 	4314 2190 4664 2190
 Wire Wire Line
@@ -767,15 +707,9 @@ Wire Wire Line
 Wire Wire Line
 	4664 1590 4364 1590
 Wire Wire Line
-	4364 1490 4664 1490
-Wire Wire Line
 	6864 1390 7264 1390
 Wire Wire Line
-	7214 2390 6864 2390
-Wire Wire Line
 	7164 1490 6864 1490
-Wire Wire Line
-	6864 2490 7214 2490
 Wire Wire Line
 	6864 1590 7214 1590
 Wire Wire Line
@@ -996,4 +930,54 @@ Wire Wire Line
 Connection ~ 2175 4852
 Wire Wire Line
 	2175 4852 2375 4852
+NoConn ~ 6864 2490
+NoConn ~ 6864 2390
+NoConn ~ 6864 1690
+NoConn ~ 6864 1790
+NoConn ~ 4664 2290
+NoConn ~ 4664 1490
+$Comp
+L Connector_Generic:Conn_01x05 J2
+U 1 1 5F0DE12E
+P 10269 5607
+F 0 "J2" H 10187 5182 50  0000 C CNN
+F 1 "Prog Hdr" H 10244 5934 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 10269 5607 50  0001 C CNN
+F 3 "~" H 10269 5607 50  0001 C CNN
+	1    10269 5607
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F1737D3
+P 1741 2632
+F 0 "#PWR?" H 1746 2459 50  0001 C CNN
+F 1 "GND" H 1746 2459 50  0000 C CNN
+F 2 "" H 1741 2632 50  0001 C CNN
+F 3 "" H 1741 2632 50  0001 C CNN
+	1    1741 2632
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1143 2544 1743 2544
+Wire Wire Line
+	1743 2543 1741 2632
+$Comp
+L power:GND #PWR?
+U 1 1 5F17DC84
+P 2695 2607
+F 0 "#PWR?" H 2700 2434 50  0001 C CNN
+F 1 "GND" H 2700 2434 50  0000 C CNN
+F 2 "" H 2695 2607 50  0001 C CNN
+F 3 "" H 2695 2607 50  0001 C CNN
+	1    2695 2607
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2393 2494 2695 2494
+Wire Wire Line
+	2695 2607 2695 2494
+Connection ~ 2695 2494
+Wire Wire Line
+	2695 2494 2993 2494
 $EndSCHEMATC
