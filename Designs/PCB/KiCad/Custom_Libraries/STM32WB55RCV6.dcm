@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP STM32WB55RCV6
+D Bluetooth v5.0 and 802.15.4 With Microcontroller Combo module
+K
+F https://www.mouser.com/datasheet/2/389/stm32wb55rc-1588898.pdf
+$ENDCMP
+#
+#End Doc Library

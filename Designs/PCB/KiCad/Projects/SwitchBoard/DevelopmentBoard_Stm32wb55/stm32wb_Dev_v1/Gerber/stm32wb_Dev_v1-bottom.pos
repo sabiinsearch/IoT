@@ -1,0 +1,28 @@
+### Module positions - created on Sat Aug 15 23:03:11 2020 ###
+### Printed by Pcbnew version kicad 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val          Package                    PosX       PosY       Rot  Side
+C1        100nf        C_0805                 -85.9112   -87.3557    0.0000  bottom
+C2        22p          C_0805                -114.2620   -88.3133   90.0000  bottom
+C3        22p          C_0805                -105.4720   -82.9742    0.0000  bottom
+C4        100nf        C_0805                 -88.8517   -69.2429    0.0000  bottom
+C5        10p          C_0805                -117.0460   -63.0860    0.0000  bottom
+C6        10p          C_0805                -117.2410   -76.6928    0.0000  bottom
+C7        1.2p         C_0805                -121.3460   -91.8159  270.0000  bottom
+C8        NM           C_0805                -121.4500   -85.7395   90.0000  bottom
+C9        10nf         C_0805                -125.3820   -80.9429  270.0000  bottom
+C10       100nf        C_0805                -108.7420   -55.2501    0.0000  bottom
+C11       100p         C_0805                 -85.6419   -77.4776    0.0000  bottom
+C12       100nf        C_0805                 -88.7679   -63.4136    0.0000  bottom
+C13       100nf        C_0805                 -88.5038   -79.8068    0.0000  bottom
+C14       0.3p         C_0805                 -97.3125   -86.2178  270.0000  bottom
+C15       0.8p         C_0805                 -96.2210   -89.1565  180.0000  bottom
+C16       100nf        C_0805                 -85.7580   -66.5556    0.0000  bottom
+C17       4.7uf        C_1206_HandSoldering   -87.2566   -83.0224    0.0000  bottom
+C18       100p         C_0805                 -85.8520   -72.2986    0.0000  bottom
+C20       100nf        C_0805                 -88.4791   -75.1484    0.0000  bottom
+L1        3.6nH        L_0805_HandSoldering  -125.4350   -85.9574  270.0000  bottom
+L2        2.7nH        L_0805_HandSoldering  -101.4200   -86.0857  270.0000  bottom
+U1        AP2112K-3.3  SOT-23-5               -91.2597   -86.6040  270.0000  bottom
+## End

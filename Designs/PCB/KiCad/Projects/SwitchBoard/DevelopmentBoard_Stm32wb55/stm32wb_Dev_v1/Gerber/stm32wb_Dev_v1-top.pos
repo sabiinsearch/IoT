@@ -1,0 +1,12 @@
+### Module positions - created on Sat Aug 15 23:03:11 2020 ###
+### Printed by Pcbnew version kicad 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val            Package                      PosX       PosY       Rot  Side
+C19       4.7uf          C_1206_HandSoldering      99.4029   -63.4050  270.0000  top
+IC1       STM32WB55CEU6  QFN50P700X700X65-49N-D   108.3060   -63.3476  270.0000  top
+L3        10nH           L_0805_HandSoldering      96.0044   -62.9577   90.0000  top
+L4        10uH           L_0805_HandSoldering      97.7481   -57.3557  180.0000  top
+R1        10K            R_0805                   125.2630   -50.7543  270.0000  top
+SW1       SW_Push        SW_SPST_B3U-1000P        114.8280   -52.9075   90.0000  top
+## End

@@ -2,7 +2,6 @@ EESchema-DOCLIB  Version 2.0
 #
 $CMP STM32WB55CEU6
 D STMICROELECTRONICS - STM32WB55CEU6 - MCU, 32BIT, 64MHZ
-K
 F https://www.st.com/resource/en/datasheet/stm32wb55rg.pdf
 $ENDCMP
 #

@@ -1,0 +1,27 @@
+### Module positions - created on Sat Oct 10 14:26:27 2020 ###
+### Printed by Pcbnew version kicad 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val          Package                                 PosX       PosY       Rot  Side
+C7        2.2uf        C_0805_HandSoldering               -126.9670  -106.1620   90.0000  bottom
+D1        LED1         D_0805                             -146.2030  -127.2840    0.0000  bottom
+D2        IN4148       D_0805                             -137.2290  -117.6270   90.0000  bottom
+D3        SR360        D_0805                             -117.9860  -104.6630  270.0000  bottom
+D4        FR107        D_0805                             -146.2840   -94.3000  180.0000  bottom
+D5        IN4007       D_0805                             -121.7450  -109.2760    0.0000  bottom
+D6        IN4007       D_0805                             -121.6580  -113.0630    0.0000  bottom
+D7        IN4148       D_0805                             -126.0810  -113.1820    0.0000  bottom
+D8        PH_C4V3      D_0805                             -144.7190  -100.3960    0.0000  bottom
+D11       IN4007       D_0805                             -141.5030   -93.5584   90.0000  bottom
+D12       IN4007       D_0805                             -125.7810  -110.0150    0.0000  bottom
+J1        AP8022       DIP-8_W7.62mm_SMDSocket_SmallPads  -146.1620  -108.6150    0.0000  bottom
+R1        220K         R_0805_HandSoldering               -137.9630   -92.0953  180.0000  bottom
+R2        100E         R_0805_HandSoldering               -124.5060  -106.1390   90.0000  bottom
+R3        2.2K         R_0805_HandSoldering               -151.2390   -97.2668    0.0000  bottom
+R4        330_R        R_0805_HandSoldering               -146.5300   -88.9965    0.0000  bottom
+R5        330_R        R_0805_HandSoldering               -145.1740   -97.3734    0.0000  bottom
+R6        100K         R_0805_HandSoldering               -146.6700   -91.6483    0.0000  bottom
+R7        470E         R_0805_HandSoldering               -139.2420  -126.5200    0.0000  bottom
+U3        4N35         DIP-6_W8.89mm_SMDSocket_LongPads   -146.9090  -119.8700    0.0000  bottom
+U4        AP2112K-3.3  SOT-23-5_HandSoldering             -130.2160   -98.3717  270.0000  bottom
+## End

@@ -1,0 +1,22 @@
+### Module positions - created on Wed Oct 14 05:15:32 2020 ###
+### Printed by Pcbnew version kicad 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val       Package                PosX       PosY       Rot  Side
+C2        100_nf    C_0805            -104.1210   -96.5124  180.0000  bottom
+C8        100_nf    C_0805             -99.3800   -93.0430  180.0000  bottom
+C9        100_nf    C_0805             -99.4207   -89.7150  180.0000  bottom
+C10       100_nf    C_0805             -99.3470   -96.4235  180.0000  bottom
+C13       10uf      C_0805            -104.3940   -93.0246  180.0000  bottom
+C15       10uf      C_0805            -104.4980   -89.6086  180.0000  bottom
+D3        LED       D_0805             -95.4532   -77.5182  270.0000  bottom
+D4        LED       D_0805             -96.2711  -104.4650   90.0000  bottom
+D5        LED       D_0805            -141.9100   -76.0146  270.0000  bottom
+D6        LED       D_0805            -141.6810  -104.3530  270.0000  bottom
+R4        510_R     R_0805            -104.5570   -85.4735    0.0000  bottom
+U2        STM32     STM32(LQFP48)     -119.8550   -82.0420  270.0000  bottom
+U4        TTP223    SOT-23-6          -116.9920   -74.1350  180.0000  bottom
+U5        TTP223    SOT-23-6          -121.8590   -74.7852  270.0000  bottom
+U6        TTP223    SOT-23-6          -123.3250  -104.1320  180.0000  bottom
+U7        TTP223    SOT-23-6          -117.4720  -104.2700    0.0000  bottom
+## End

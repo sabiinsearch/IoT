@@ -1,0 +1,15 @@
+### Module positions - created on Tue Oct 13 20:33:48 2020 ###
+### Printed by Pcbnew version pcbnew 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val       Package                                 PosX       PosY       Rot  Side
+D1        LED1      D_0805                              172.2810   -48.3337   90.0000  top
+J1        AP8022    DIP-8_W7.62mm_SMDSocket_SmallPads   184.8590   -51.7144   90.0000  top
+R2        100E      R_0805_HandSoldering                199.1790   -72.0979  270.0000  top
+R10       100E      R_0805_HandSoldering                204.8990   -46.6979  270.0000  top
+U1        EL817     DIP-4_W8.89mm_SMDSocket_LongPads    194.3400   -52.8142  270.0000  top
+U5        MOC3021   DIP-6_W8.89mm_SMDSocket_LongPads    208.7980   -64.1299    0.0000  top
+U6        MOC3021   DIP-6_W8.89mm_SMDSocket_LongPads    208.7980   -74.6836    0.0000  top
+U7        MOC3021   DIP-6_W8.89mm_SMDSocket_LongPads    207.6150   -54.3128  180.0000  top
+U8        MOC3021   DIP-6_W8.89mm_SMDSocket_LongPads    176.9200   -69.5122  270.0000  top
+## End

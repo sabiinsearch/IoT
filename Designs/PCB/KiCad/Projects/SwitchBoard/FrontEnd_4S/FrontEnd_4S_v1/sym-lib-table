@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name FrontEnd_4S-rescue)(type Legacy)(uri ${KIPRJMOD}/FrontEnd_4S-rescue.lib)(options "")(descr ""))
+)
