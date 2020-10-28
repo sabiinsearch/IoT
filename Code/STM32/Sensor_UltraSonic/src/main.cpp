@@ -1,6 +1,6 @@
 /*
  circuitdigest.com
- Sample STM32 Blink Program for Blue Pill board 
+ Sample STM32 Blink Program for Blue Pill board
  */
 
 #include <Arduino.h>
@@ -46,8 +46,8 @@ void measureDistance() {
   digitalWrite(trigPin, LOW);
 
   uint32_t duration = pulseIn(echoPin, HIGH, 25000); // We wait for the echo to come back, with a timeout of 20ms, which corresponds approximately to 3m
-  // long duration = pulseIn(echoPin, HIGH); 
-  
+  // long duration = pulseIn(echoPin, HIGH);
+
   // pulseIn will only return 0 if it timed out. (or if echoPin was already to 1, but it should not happen)
   // If we timed out
   if(duration == 0) {
@@ -58,17 +58,17 @@ void measureDistance() {
   }
 
   // float distance = (duration/2) / 29.1; // We calculate the distance (sound speed in air is aprox. 291m/s), /2 because of the pulse going and coming
-  float distance = duration * 0.034 / 2; 
-  // float distance = duration / 58.138f; 
+  float distance = duration * 0.034 / 2;
+  // float distance = duration / 58.138f;
 
   // String payload = "{\"type\":\"" BOARD_TYPE "\", \"uniqueId\":\"" +BOARD_ID+"\", \"deviceIndex\":1, \"deviceValue\": " +String(sw1Val)+"}";
   String payload;
   StaticJsonDocument<200> data;
   // JsonObject& jsonOut = dataJsonBuffer.createObject();
-  data["distance"] = distance;  
+  data["distance"] = distance;
   String output;
   serializeJson(data, output);
-  sendMessage(output); 
+  sendMessage(output);
 }
 
 // the setup function runs once when you press reset or power the board
@@ -90,7 +90,7 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);   
+  delay(1000);
   // sendMessage("Hello World...");           // wait for a second
   measureDistance();
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
