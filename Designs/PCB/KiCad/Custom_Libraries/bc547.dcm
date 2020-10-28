@@ -1,0 +1,45 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BC337
+D 0.8A Ic, 45V Vce, NPN Transistor, TO-92
+K NPN Transistor
+F https://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337.pdf
+$ENDCMP
+#
+$CMP BC338
+D 0.8A Ic, 25V Vce, NPN Transistor, TO-92
+K NPN Transistor
+F http://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337
+$ENDCMP
+#
+$CMP BC546
+D 0.1A Ic, 65V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F http://www.fairchildsemi.com/ds/BC/BC547.pdf
+$ENDCMP
+#
+$CMP BC547
+D 0.1A Ic, 45V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F http://www.fairchildsemi.com/ds/BC/BC547.pdf
+$ENDCMP
+#
+$CMP BC548
+D 0.1A Ic, 30V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F http://www.fairchildsemi.com/ds/BC/BC547.pdf
+$ENDCMP
+#
+$CMP BC549
+D 0.1A Ic, 30V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F http://www.fairchildsemi.com/ds/BC/BC547.pdf
+$ENDCMP
+#
+$CMP BC550
+D 0.1A Ic, 45V Vce, Small Signal NPN Transistor, TO-92
+K NPN Transistor
+F http://www.fairchildsemi.com/ds/BC/BC547.pdf
+$ENDCMP
+#
+#End Doc Library
