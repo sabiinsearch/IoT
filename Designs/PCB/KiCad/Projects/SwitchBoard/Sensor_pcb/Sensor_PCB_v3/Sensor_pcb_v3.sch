@@ -322,10 +322,6 @@ Wire Wire Line
 	5614 2990 5614 3290
 Wire Wire Line
 	5914 2990 5914 3290
-Wire Wire Line
-	5214 3290 5214 2990
-Text Label 5214 3290 1    50   ~ 0
-DIO1
 Text Label 5414 3290 1    50   ~ 0
 SCK
 Text Label 5514 3290 1    50   ~ 0
@@ -1097,4 +1093,5 @@ OUT_5V
 Wire Wire Line
 	3247 2714 3435 2714
 Connection ~ 3247 2714
+NoConn ~ 5214 2990
 $EndSCHEMATC
