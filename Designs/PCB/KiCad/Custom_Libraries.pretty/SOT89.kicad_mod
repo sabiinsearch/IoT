@@ -1,0 +1,70 @@
+
+(module SOT89 (layer F.Cu) (tedit 5F9DB3EC)
+  (descr "<b>SOT-89 Plastic Small Outline</b>")
+  (fp_text reference REF** (at -3.285 -2.225 900) (layer F.SilkS)
+    (effects (font (size 1.0 1.0) (thickness 0.015)))
+  )
+  (fp_text value SOT89 (at 3.315 -2.225 900) (layer F.Fab)
+    (effects (font (size 1.0 1.0) (thickness 0.015)))
+  )
+  (fp_line (start 2.25 -1.5) (end 2.25 1.0) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 0.68 1.0) (end 2.25 1.0) (layer F.SilkS) (width 0.1524))
+  (fp_line (start -2.25 1.0) (end -0.68 1.0) (layer F.SilkS) (width 0.1524))
+  (fp_line (start -2.25 1.0) (end -2.25 -1.5) (layer F.SilkS) (width 0.1524))
+  (fp_line (start -2.25 -1.5) (end -1.28 -1.5) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 1.28 -1.5) (end 2.25 -1.5) (layer F.SilkS) (width 0.1524))
+  (fp_poly
+    (pts
+      (xy -0.25 1.0)
+      (xy 0.25 1.0)
+      (xy 0.25 2.0)
+      (xy -0.25 2.0)
+    ) (layer F.Fab) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -1.75 1.0)
+      (xy -1.25 1.0)
+      (xy -1.25 1.14)
+      (xy -1.75 1.14)
+    ) (layer F.SilkS) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy -0.8 -2.0)
+      (xy 0.8 -2.0)
+      (xy 0.8 -1.5)
+      (xy -0.8 -1.5)
+    ) (layer F.Fab) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 1.25 1.0)
+      (xy 1.75 1.0)
+      (xy 1.75 1.14)
+      (xy 1.25 1.14)
+    ) (layer F.SilkS) (width 0.01)
+  )
+  (fp_line (start -0.68 1.0) (end 0.68 1.0) (layer F.Fab) (width 0.1524))
+  (fp_line (start -1.28 -1.5) (end 1.28 -1.5) (layer F.Fab) (width 0.1524))
+  (fp_poly
+    (pts
+      (xy -1.75 1.14)
+      (xy -1.25 1.14)
+      (xy -1.25 2.0)
+      (xy -1.75 2.0)
+    ) (layer F.Fab) (width 0.01)
+  )
+  (fp_poly
+    (pts
+      (xy 1.25 1.14)
+      (xy 1.75 1.14)
+      (xy 1.75 2.0)
+      (xy 1.25 2.0)
+    ) (layer F.Fab) (width 0.01)
+  )
+  (pad 1 smd rect (at -1.5 2.0) (size 1.0 1.5) (layers F.Cu F.Mask F.Paste))
+  (pad 2 smd rect (at 0.0 0.0) (size 1.0 5.5) (layers F.Cu F.Mask F.Paste))
+  (pad 3 smd rect (at 1.5 2.0) (size 1.0 1.5) (layers F.Cu F.Mask F.Paste))
+  (pad 2@1 smd rect (at 0.0 -1.25) (size 2.2 3.0) (layers F.Cu F.Mask F.Paste))
+)

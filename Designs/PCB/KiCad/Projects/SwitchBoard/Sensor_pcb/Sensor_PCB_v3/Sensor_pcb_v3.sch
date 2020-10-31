@@ -81,17 +81,6 @@ F 3 "" H 2675 5302 50  0001 C CNN
 $EndComp
 Text Label 2875 5252 0    50   ~ 0
 GND
-$Comp
-L Connector:Conn_01x04_Female J4
-U 1 1 5F12B0FD
-P 9246 5587
-F 0 "J4" H 9346 5337 50  0000 C CNN
-F 1 "SWD" H 9096 5837 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 9246 5587 50  0001 C CNN
-F 3 "~" H 9246 5587 50  0001 C CNN
-	1    9246 5587
-	-1   0    0    1   
-$EndComp
 Text Label 9796 5487 2    50   ~ 0
 SWIO
 Text Label 9796 5587 2    50   ~ 0
@@ -100,13 +89,11 @@ Wire Wire Line
 	9446 5487 9796 5487
 Wire Wire Line
 	9796 5587 9446 5587
-Wire Wire Line
-	9746 5387 9446 5387
 Text Label 9696 5687 2    50   ~ 0
 GND
 Wire Wire Line
 	9696 5687 9446 5687
-Text Label 9746 5387 2    50   ~ 0
+Text Label 9746 5187 2    50   ~ 0
 VCC3V3
 $Comp
 L Device:C C1
@@ -174,10 +161,6 @@ Text Label 4661 6840 0    50   ~ 0
 DIO0
 Wire Wire Line
 	4661 6840 4911 6840
-Text Label 4661 6940 0    50   ~ 0
-DIO1
-Wire Wire Line
-	4911 6940 4661 6940
 Text Label 4501 6737 0    50   ~ 0
 Reset_LoRa
 Wire Wire Line
@@ -188,7 +171,7 @@ Wire Wire Line
 	6511 6540 6311 6540
 Wire Wire Line
 	6311 6440 6511 6440
-Text Label 4414 2390 0    50   ~ 0
+Text Label 4414 2290 0    50   ~ 0
 DIO0
 Text Label 4216 1490 0    50   ~ 0
 Reset_LoRa
@@ -527,7 +510,7 @@ Wire Wire Line
 	2550 7280 2800 7280
 Connection ~ 2550 7080
 Wire Wire Line
-	4414 2390 4664 2390
+	4414 2290 4664 2290
 Wire Wire Line
 	4314 2190 4664 2190
 Wire Wire Line
@@ -643,10 +626,6 @@ Text Label 8450 2820 3    50   ~ 0
 GND
 Wire Wire Line
 	8450 2820 8450 3040
-Text Label 8350 2840 3    50   ~ 0
-Echo
-Wire Wire Line
-	8350 2840 8350 2850
 Text Label 8250 2840 3    50   ~ 0
 Trig
 Wire Wire Line
@@ -655,48 +634,8 @@ Text Label 8150 2730 3    50   ~ 0
 OUT_5V
 Wire Wire Line
 	8150 3040 8150 2730
-$Comp
-L Device:R R6
-U 1 1 5FB350AF
-P 8530 2570
-F 0 "R6" V 8430 2520 50  0000 L CNN
-F 1 "2.7K" V 8630 2470 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805" V 8460 2570 50  0001 C CNN
-F 3 "~" H 8530 2570 50  0001 C CNN
-	1    8530 2570
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R7
-U 1 1 5FB36A65
-P 8930 2570
-F 0 "R7" V 8830 2520 50  0000 L CNN
-F 1 "4.7K" V 9030 2470 50  0000 L CNN
-F 2 "Resistors_SMD:R_0805" V 8860 2570 50  0001 C CNN
-F 3 "~" H 8930 2570 50  0001 C CNN
-	1    8930 2570
-	0    1    1    0   
-$EndComp
-Text Label 9270 2570 2    50   ~ 0
-GND
-Wire Wire Line
-	9270 2570 9080 2570
-Wire Wire Line
-	8680 2570 8730 2570
-Wire Wire Line
-	8380 2570 8380 2850
-Wire Wire Line
-	8380 2850 8350 2850
-Connection ~ 8350 2850
-Wire Wire Line
-	8350 2850 8350 3040
-Text Label 8730 2340 0    50   ~ 0
+Text Label 8349 2486 3    50   ~ 0
 EchoToStm32
-Wire Wire Line
-	8730 2340 8730 2570
-Connection ~ 8730 2570
-Wire Wire Line
-	8730 2570 8780 2570
 Text Label 6013 3463 1    50   ~ 0
 EchoToStm32
 Text Label 6117 3157 1    50   ~ 0
@@ -794,8 +733,6 @@ Wire Wire Line
 	1625 5740 1625 5847
 Text Label 1625 5847 2    50   ~ 0
 GND
-NoConn ~ 6864 1890
-NoConn ~ 6864 1990
 NoConn ~ 825  5440
 Wire Wire Line
 	1625 5540 1625 5433
@@ -838,8 +775,8 @@ Air_in
 Text Label 10270 2766 3    50   ~ 0
 Air_in
 Wire Wire Line
-	4664 2290 4312 2290
-Text Label 4312 2290 0    50   ~ 0
+	4664 2390 4312 2390
+Text Label 4312 2390 0    50   ~ 0
 BAT_IN
 $Comp
 L Transistor_BJT:BC547 Q1
@@ -847,7 +784,7 @@ U 1 1 5F65CFC3
 P 3439 6700
 F 0 "Q1" V 3675 6700 50  0000 C CNN
 F 1 "BC547" V 3765 6700 50  0001 C CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 3639 6625 50  0001 L CIN
+F 2 "Custom_Libraries:BC547-SOT23" H 3639 6625 50  0001 L CIN
 F 3 "http://www.fairchildsemi.com/ds/BC/BC547.pdf" H 3439 6700 50  0001 L CNN
 	1    3439 6700
 	0    1    1    0   
@@ -924,32 +861,9 @@ F 3 "~" H 7545 2187 50  0001 C CNN
 $EndComp
 Text Label 7695 2034 1    50   ~ 0
 GND
-Text Label 4664 7040 0    50   ~ 0
-DIO2
-Wire Wire Line
-	4911 7040 4664 7040
 Wire Wire Line
 	4664 1490 4216 1490
-Text Label 7075 2390 2    50   ~ 0
-DIO1
-Wire Wire Line
-	6864 2390 7075 2390
-Text Label 7071 2490 2    50   ~ 0
-DIO2
-Wire Wire Line
-	6864 2490 7071 2490
 NoConn ~ 4664 2490
-$Comp
-L Converter_DCDC:MAX756 U?
-U 1 1 5F97731E
-P 1809 2914
-F 0 "U?" H 2142 3430 50  0000 C CNN
-F 1 "MAX756" H 1907 2755 50  0000 C CNN
-F 2 "Custom_Libraries:SO08" H 1809 2914 50  0001 C CNN
-F 3 "" H 1809 2914 50  0001 C CNN
-	1    1809 2914
-	1    0    0    -1  
-$EndComp
 Connection ~ 3225 4852
 Wire Wire Line
 	3225 4852 3475 4852
@@ -968,130 +882,144 @@ F 3 "~" H 3225 5002 50  0001 C CNN
 $EndComp
 Text Label 3475 4802 2    50   ~ 0
 Supply_Reg
-Text Label 857  2814 0    50   ~ 0
-Supply_Reg
-Wire Wire Line
-	1309 2814 857  2814
-$Comp
-L capacitor_electolytic:ECA-1EM102 C?
-U 1 1 5F9A0AD2
-P 857 2599
-F 0 "C?" V 854 2380 50  0000 L CNN
-F 1 "100 uF" V 902 2729 50  0001 L CNN
-F 2 "Custom_Libraries:CAPAE660X550N" H 857 2599 50  0001 L BNN
-F 3 "PANASONIC" H 857 2599 50  0001 L BNN
-	1    857  2599
-	0    -1   -1   0   
-$EndComp
-Text Label 857  2384 2    50   ~ 0
-GND
-$Comp
-L 1248AS-H-220M_P3:Inductor_22uH L?
-U 1 1 5F99245A
-P 1891 2185
-F 0 "L?" H 1891 2277 50  0000 C CNN
-F 1 "Inductor_22uH" H 1491 2385 50  0001 L BNN
-F 2 "Custom_Libraries:IND_1248AS-H-220M=P3" H 1427 2042 50  0001 L BNN
-F 3 "N/A" H 1722 2269 50  0001 L BNN
-	1    1891 2185
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1309 2814 1309 2186
-Connection ~ 1309 2814
-Wire Wire Line
-	1309 2186 1391 2186
-Wire Wire Line
-	1391 2186 1391 2185
-Wire Wire Line
-	2509 2714 2510 2185
-Wire Wire Line
-	2510 2185 2391 2185
-$Comp
-L Diode:1N5817 D?
-U 1 1 5F9BF005
-P 2679 2714
-F 0 "D?" H 2677 2805 50  0000 C CNN
-F 1 "1N5817" H 2679 2588 50  0001 C CNN
-F 2 "Diodes_SMD:D_1206" H 2679 2539 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 2679 2714 50  0001 C CNN
-	1    2679 2714
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	2509 2714 2529 2714
-Connection ~ 2509 2714
-Wire Wire Line
-	2509 2914 2831 2913
-Wire Wire Line
-	2831 2913 2831 2721
-Wire Wire Line
-	2831 2721 2829 2721
-Wire Wire Line
-	2829 2721 2829 2714
-Text Label 1909 3514 0    50   ~ 0
-GND
-$Comp
-L Device:C C?
-U 1 1 5F9EEA22
-P 1309 3364
-F 0 "C?" H 1444 3369 50  0000 C CNN
-F 1 "1 uf" V 1148 3364 50  0001 C CNN
-F 2 "Capacitors_SMD:C_0805" H 1347 3214 50  0001 C CNN
-F 3 "~" H 1309 3364 50  0001 C CNN
-	1    1309 3364
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	1309 3514 1909 3514
-$Comp
-L capacitor_electolytic:ECA-1EM102 C?
-U 1 1 5F9FE3F0
-P 3013 2929
-F 0 "C?" V 3010 2710 50  0000 L CNN
-F 1 "100 uF" V 3058 3059 50  0001 L CNN
-F 2 "Custom_Libraries:CAPAE660X550N" H 3013 2929 50  0001 L BNN
-F 3 "PANASONIC" H 3013 2929 50  0001 L BNN
-	1    3013 2929
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5FA0BCEA
-P 3247 2864
-F 0 "C?" H 3095 2862 50  0000 C CNN
-F 1 "1 uf" V 3086 2864 50  0001 C CNN
-F 2 "Capacitors_SMD:C_0805" H 3285 2714 50  0001 C CNN
-F 3 "~" H 3247 2864 50  0001 C CNN
-	1    3247 2864
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	2829 2714 3013 2714
-Connection ~ 2829 2714
-Wire Wire Line
-	3013 2714 3247 2714
-Connection ~ 3013 2714
-Wire Wire Line
-	3247 3014 3246 3148
-Wire Wire Line
-	3246 3148 3017 3148
-Wire Wire Line
-	3017 3148 3017 3144
-Wire Wire Line
-	3017 3144 3013 3144
-Text Label 3245 3148 0    50   ~ 0
-GND
-NoConn ~ 2509 3114
-NoConn ~ 1909 2314
-Text Label 1309 3014 2    50   ~ 0
-GND
 Text Notes 1087 3755 0    79   Italic 0
 Step up to for Ultrasonic
-Text Label 3435 2714 2    50   ~ 0
+NoConn ~ 5214 2990
+NoConn ~ 6864 2390
+NoConn ~ 6864 2490
+Wire Wire Line
+	8350 3040 8349 2486
+$Comp
+L Power_Management:BL8530 U5
+U 1 1 5FA6D060
+P 2610 2932
+F 0 "U5" H 2854 3061 50  0000 C CNN
+F 1 "BL8530" H 2610 3083 50  0001 C CNN
+F 2 "Custom_Libraries:SOT89" H 2635 2782 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 2610 2882 50  0001 C CNN
+	1    2610 2932
+	1    0    0    -1  
+$EndComp
+$Comp
+L 1248AS-H-220M_P3:Inductor_22uH L1
+U 1 1 5FA7A56F
+P 1750 2589
+F 0 "L1" H 1750 2681 50  0000 C CNN
+F 1 "Inductor_22uH" H 1350 2789 50  0001 L BNN
+F 2 "Custom_Libraries:IND_1248AS-H-220M=P3" H 1286 2446 50  0001 L BNN
+F 3 "N/A" H 1581 2673 50  0001 L BNN
+	1    1750 2589
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitor_electolytic:ECA-1EM102 C8
+U 1 1 5FA80259
+P 1263 3016
+F 0 "C8" V 1260 2797 50  0000 L CNN
+F 1 "100 uF" V 1308 3146 50  0001 L CNN
+F 2 "Custom_Libraries:CAPAE660X550N" H 1263 3016 50  0001 L BNN
+F 3 "PANASONIC" H 1263 3016 50  0001 L BNN
+	1    1263 3016
+	0    -1   -1   0   
+$EndComp
+$Comp
+L capacitor_electolytic:ECA-1EM102 C9
+U 1 1 5FA81C57
+P 3308 3008
+F 0 "C9" V 3305 2789 50  0000 L CNN
+F 1 "100 uF" V 3353 3138 50  0001 L CNN
+F 2 "Custom_Libraries:CAPAE660X550N" H 3308 3008 50  0001 L BNN
+F 3 "PANASONIC" H 3308 3008 50  0001 L BNN
+	1    3308 3008
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D_Zener D5
+U 1 1 5FA83197
+P 2549 2589
+F 0 "D5" H 2549 2464 50  0000 C CNN
+F 1 "SS14" H 2549 2715 50  0001 C CNN
+F 2 "Diodes_SMD:D_1206" H 2549 2589 50  0001 C CNN
+F 3 "~" H 2549 2589 50  0001 C CNN
+	1    2549 2589
+	-1   0    0    1   
+$EndComp
+Text Label 1035 2589 2    50   ~ 0
+Supply_Reg
+Text Label 2610 3386 2    50   ~ 0
+GND
+Wire Wire Line
+	2310 2932 2310 2589
+Wire Wire Line
+	2310 2589 2250 2589
+Wire Wire Line
+	2310 2589 2399 2589
+Connection ~ 2310 2589
+Wire Wire Line
+	2699 2589 2904 2589
+Wire Wire Line
+	2904 2589 2904 2793
+Wire Wire Line
+	2904 2927 2910 2927
+Wire Wire Line
+	2910 2927 2910 2932
+Wire Wire Line
+	3308 2793 2904 2793
+Connection ~ 2904 2793
+Wire Wire Line
+	2904 2793 2904 2927
+Wire Wire Line
+	2610 3232 3308 3232
+Wire Wire Line
+	3308 3232 3308 3223
+Wire Wire Line
+	1250 2589 1250 2801
+Wire Wire Line
+	1250 2801 1263 2801
+Wire Wire Line
+	1250 2589 1035 2589
+Connection ~ 1250 2589
+Wire Wire Line
+	1263 3231 2610 3230
+Wire Wire Line
+	2610 3230 2610 3232
+Connection ~ 2610 3232
+Wire Wire Line
+	2610 3232 2610 3386
+Text Label 3600 2793 2    50   ~ 0
 OUT_5V
 Wire Wire Line
-	3247 2714 3435 2714
-Connection ~ 3247 2714
-NoConn ~ 5214 2990
+	3308 2793 3600 2793
+Connection ~ 3308 2793
+NoConn ~ 4911 6940
+NoConn ~ 4911 7040
+Wire Wire Line
+	6864 1990 7028 1990
+Text Label 7028 1990 2    50   ~ 0
+TX
+Text Label 6999 1890 2    50   ~ 0
+RX
+Wire Wire Line
+	6864 1890 6999 1890
+$Comp
+L Connector:Conn_01x06_Female J4
+U 1 1 5FB978B5
+P 9246 5487
+F 0 "J4" H 9138 5054 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 9138 5053 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 9246 5487 50  0001 C CNN
+F 3 "~" H 9246 5487 50  0001 C CNN
+	1    9246 5487
+	-1   0    0    1   
+$EndComp
+Text Label 9624 5287 2    50   ~ 0
+TX
+Text Label 9621 5387 2    50   ~ 0
+RX
+Wire Wire Line
+	9446 5187 9746 5187
+Wire Wire Line
+	9446 5287 9624 5287
+Wire Wire Line
+	9446 5387 9621 5387
 $EndSCHEMATC

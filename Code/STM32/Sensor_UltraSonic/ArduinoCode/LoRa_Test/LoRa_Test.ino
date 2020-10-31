@@ -4,16 +4,16 @@
  */
 
 // #include <Arduino.h>
-//#include <ArduinoJson.h>
+#include <ArduinoJson.h>
 //#include <SPI.h>              // include libraries
 #include <LoRa_STM32.h>
 
-#define LED_BUILTIN PC13
+//#define LED_BUILTIN PC13
 #define echoPin PA8 // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPin PA9 //attach pin D3 Arduino to pin Trig of HC-SR04
 
 const int csPin = PA4;          // LoRa radio chip select
-const int resetPin = PC14;       // LoRa radio reset
+const int resetPin = PC13;       // LoRa radio reset
 const int irqPin = PA0;         // change for your board; must be a hardware interrupt pin
 
 String outgoing;              // outgoing message
@@ -63,18 +63,18 @@ void measureDistance() {
 
   // String payload = "{\"type\":\"" BOARD_TYPE "\", \"uniqueId\":\"" +BOARD_ID+"\", \"deviceIndex\":1, \"deviceValue\": " +String(sw1Val)+"}";
   String payload;
-//  StaticJsonDocument<200> data;
-  // JsonObject& jsonOut = dataJsonBuffer.createObject();
-//  data["distance"] = distance;
+  StaticJsonDocument<200> data;
+//  JsonObject& jsonOut = dataJsonBuffer.createObject();
+  data["distance"] = distance;
   String output="Hello World";
-  //serializeJson(data, output);
+  serializeJson(data, output);
   sendMessage(output);
 }
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin PC13 as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
+  //pinMode(LED_BUILTIN, OUTPUT);
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
 
@@ -89,10 +89,10 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+ // digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);
-  sendMessage("Hello World...");           // wait for a second
+  //sendMessage("Hello World...");           // wait for a second
   measureDistance();
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+ // digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(500);              // wait for a second
 }

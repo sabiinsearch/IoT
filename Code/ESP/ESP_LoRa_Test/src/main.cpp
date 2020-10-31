@@ -129,7 +129,10 @@ void checkDataOnRadio(){
 }
 
 void setup() {
-  delay(500);
+
+  Serial.begin(115200);
+  while (!Serial);
+  delay(1000);
 	// Send some device info
 	Serial.print("Build: ");
 
@@ -141,19 +144,14 @@ void setup() {
   initRadio();
   //digitalWrite(touch1, 0);
   digitalWrite(SW2, 1);
-
-
-
   // Init Lora
   if(enableRadio){
+
       SPI.begin(SCK, MISO, MOSI, CS);
       LoRa.setPins(SS, RST, DI0);
       delay(1000);
+      Serial.print(" Ready to print ");
   }
-
-  Serial.begin(115200);
-  while (!Serial);
-  delay(1000);
 
 }
 
