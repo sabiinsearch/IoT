@@ -8,13 +8,13 @@
 #include <SPI.h>              // include libraries
 #include <LoRa_STM32.h>
 
-#define LED_BUILTIN PC13
+#define LED_BUILTIN PB14
 #define echoPin PA8 // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPin PA9 //attach pin D3 Arduino to pin Trig of HC-SR04
 
 const int csPin = PA4;          // LoRa radio chip select
-const int resetPin = PC14;       // LoRa radio reset
-const int irqPin = PA1;         // change for your board; must be a hardware interrupt pin
+const int resetPin = PC13;       // LoRa radio reset
+const int irqPin = PA0;         // change for your board; must be a hardware interrupt pin
 
 String outgoing;              // outgoing message
 
@@ -74,6 +74,7 @@ void measureDistance() {
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin PC13 as an output.
+  Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
@@ -90,9 +91,9 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);
-  sendMessage("Hello World...");           // wait for a second
+  delay(100);
+  sendMessage("Hello World...from Atom");           // wait for a second
   measureDistance();
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);              // wait for a second
+  delay(100);              // wait for a second
 }

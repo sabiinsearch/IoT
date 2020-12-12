@@ -1,0 +1,13 @@
+### Module positions - created on Mon Nov  2 00:44:15 2020 ###
+### Printed by Pcbnew version pcbnew 5.1.6-c6e7f7d~87~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val            Package                    PosX       PosY       Rot  Side
+C8        100_uF         CAPAE660X550N           43.2232   -31.5519    0.0000  top
+D1        Pwr_L.E.D      D_0805                  36.2150   -26.2433  270.0000  top
+D3        Pwr_L.E.D      D_0805                  36.6776   -38.6029  270.0000  top
+D4        Bat_Low        D_0805                  37.4650   -50.4088  270.0000  top
+L1        Inductor_22uH  IND_1248AS-H-220M=P3    44.3154   -39.6037    0.0000  top
+SW1       MLL1200S       SW_MLL1200S             46.8224   -21.6332  180.0000  top
+U2        LoRa           LoRa                    32.2047   -80.2564   90.0000  top
+## End

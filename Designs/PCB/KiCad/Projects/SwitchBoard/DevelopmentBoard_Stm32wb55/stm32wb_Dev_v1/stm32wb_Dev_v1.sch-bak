@@ -246,29 +246,8 @@ Text Label 5236 4813 2    50   ~ 0
 GND
 Wire Wire Line
 	5772 3687 5771 4355
-$Comp
-L Device:C C14
-U 1 1 5F2F20CB
-P 5236 4568
-F 0 "C14" H 5351 4614 50  0000 L CNN
-F 1 "0.3p" H 5351 4523 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 5274 4418 50  0001 C CNN
-F 3 "~" H 5236 4568 50  0001 C CNN
-	1    5236 4568
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5236 4355 5236 4418
 Wire Wire Line
 	5171 4355 5236 4355
-Connection ~ 5236 4418
-Wire Wire Line
-	5236 4418 5236 4420
-Wire Wire Line
-	5236 4718 5236 4813
-Wire Wire Line
-	5236 4655 5236 4718
-Connection ~ 5236 4718
 $Comp
 L Device:C C15
 U 1 1 5F303363
@@ -281,8 +260,6 @@ F 3 "~" H 5771 4505 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 5771 4355
-Wire Wire Line
-	5236 4655 5771 4655
 $Comp
 L Fixed_Inductor_0805:MLF2012DR33MT000 L2
 U 1 1 5F2E7812
@@ -362,7 +339,7 @@ U 1 1 5F382DEC
 P 6816 1790
 F 0 "C17" H 6722 1869 50  0000 L CNN
 F 1 "4.7uf" H 6820 1696 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 6854 1640 50  0001 C CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 6854 1640 50  0001 C CNN
 F 3 "~" H 6816 1790 50  0001 C CNN
 	1    6816 1790
 	1    0    0    -1  
@@ -637,7 +614,7 @@ U 1 1 5F46FE53
 P 7047 2530
 F 0 "C19" H 6953 2609 50  0000 L CNN
 F 1 "4.7uf" H 7148 2521 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805" H 7085 2380 50  0001 C CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 7085 2380 50  0001 C CNN
 F 3 "~" H 7047 2530 50  0001 C CNN
 	1    7047 2530
 	1    0    0    -1  
@@ -940,11 +917,6 @@ F 3 "" H 4871 4455 50  0001 L BNN
 	1    4871 4455
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4871 4655 5236 4654
-Wire Wire Line
-	5236 4654 5236 4655
-Connection ~ 5236 4655
 Connection ~ 6472 1887
 Wire Wire Line
 	5672 3686 5672 3687
@@ -987,7 +959,7 @@ U 1 1 5F2E2378
 P 1467 7072
 F 0 "U1" H 1467 7414 50  0000 C CNN
 F 1 "AP2112K-3.3" H 1467 7323 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1467 7397 50  0001 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 1467 7397 50  0001 C CNN
 F 3 "https://www.diodes.com/assets/Datasheets/AP2112.pdf" H 1467 7172 50  0001 C CNN
 	1    1467 7072
 	1    0    0    -1  
@@ -1034,4 +1006,34 @@ $EndComp
 Wire Wire Line
 	1911 1759 1587 1759
 Connection ~ 1911 1759
+Wire Wire Line
+	4871 4655 4871 4692
+Wire Wire Line
+	4871 4692 5236 4692
+Connection ~ 5236 4418
+Wire Wire Line
+	5236 4355 5236 4418
+Wire Wire Line
+	5236 4418 5236 4420
+Connection ~ 5236 4718
+Wire Wire Line
+	5236 4718 5236 4813
+$Comp
+L Device:C C14
+U 1 1 5F2F20CB
+P 5236 4568
+F 0 "C14" H 5351 4614 50  0000 L CNN
+F 1 "0.3p" H 5351 4523 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805" H 5274 4418 50  0001 C CNN
+F 3 "~" H 5236 4568 50  0001 C CNN
+	1    5236 4568
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5771 4655 5236 4655
+Wire Wire Line
+	5236 4655 5236 4692
+Connection ~ 5236 4692
+Wire Wire Line
+	5236 4692 5236 4718
 $EndSCHEMATC

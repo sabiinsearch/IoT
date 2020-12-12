@@ -1,4 +1,4 @@
-(module SMD_Packages:1Pin (layer F.Cu) (tedit 5F48888E)
+(module Custom_Libraries:Anntenna (layer F.Cu) (tedit 5FB93E52)
   (descr "module 1 pin (ou trou mecanique de percage)")
   (tags DEV)
   (fp_text reference REF** (at 0 -3.50012) (layer F.SilkS)
@@ -11,5 +11,5 @@
   (fp_line (start 0.8 0.8) (end -0.8 0.8) (layer F.SilkS) (width 0.15))
   (fp_line (start 0.8 -0.8) (end 0.8 0.8) (layer F.SilkS) (width 0.15))
   (fp_line (start -0.8 -0.8) (end 0.8 -0.8) (layer F.SilkS) (width 0.15))
-  (pad 1 thru_hole rect (at 0 0) (size 1.524 1.524) (drill 0.762) (layers *.Cu *.Mask))
+  (pad 1 thru_hole rect (at 0 0) (size 1.524 1.524) (drill 1.2) (layers *.Cu *.Mask))
 )

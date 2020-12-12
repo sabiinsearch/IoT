@@ -1,0 +1,30 @@
+Reference,Value,Quantity,Footprint
+AE1,Antenna,1,Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm
+"C1, C3",100nf,2,Capacitors_SMD:C_0805
+C2,1.0uf,1,Capacitors_SMD:C_0805
+"C4, C5, C6, C7",20pf,4,Capacitors_SMD:C_0805
+"C8, C9",100uf,2,Custom_Libraries:CAPAE660X550N
+"D1, D3",Pwr_L.E.D,2,Diodes_SMD:D_0805
+D2,IN4007,1,Diodes_SMD:D_1206
+D4,Bat_Low,1,Diodes_SMD:D_0805
+D5,SS14,1,Diodes_SMD:D_1206
+J1,Solar_input,1,Custom_Libraries:Battery_holder
+J2,Battery_input,1,Custom_Libraries:Battery_holder
+J3,Distance,1,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm
+J4,Conn_01x06_Female,1,Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm
+J5,Airquality,1,Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm
+L1,Inductor_22uH,1,Custom_Libraries:IND_1248AS-H-220M=P3
+Q1,BC547,1,Custom_Libraries:BC547-SOT23
+"R1, R8, R9",510R,3,Resistors_SMD:R_0805
+"R2, R4 ",10K,2,Resistors_SMD:R_0805
+R3,1M,1,Resistors_SMD:R_0805
+R5,LDR,1,Diodes_THT:D_A-405_P5.08mm_Vertical_AnodeUp
+SW1,MLL1200S,1,Custom_Libraries:SW_MLL1200S
+SW2,SW_Push,1,Buttons_Switches_THT:SW_PUSH_6mm_h5mm
+U1,APK2112.K-3.3,1,TO_SOT_Packages_SMD:SOT-23-5
+U2,LoRa,1,Custom_Libraries:LoRa
+U3,STM32,1,Custom_Libraries:STM32(LQFP48)
+U4,BME_280,1,Custom_Libraries:BME280
+U5,BL8530,1,Custom_Libraries:SOT89
+Y1,32.768K,1,Crystals:Crystal_HC49-4H_Vertical
+Y2,8Mhz,1,Crystals:Crystal_HC49-4H_Vertical
