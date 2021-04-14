@@ -1,4 +1,4 @@
-(module Custom_Libraries:MountingHole1.5mm (layer F.Cu) (tedit 5F9F0730)
+(module Custom_Libraries:MountingHole1.5mm (layer F.Cu) (tedit 5FD76541)
   (descr "Mounting Hole 2.2mm, no annular, M2")
   (tags "mounting hole 2.2mm no annular m2")
   (attr virtual)

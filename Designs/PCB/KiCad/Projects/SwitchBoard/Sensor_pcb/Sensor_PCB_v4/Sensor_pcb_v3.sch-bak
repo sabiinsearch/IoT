@@ -1,0 +1,992 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Label 6453 3894 3    50   ~ 0
+OSCOUT
+Text Label 4364 1590 0    50   ~ 0
+PC14
+Text Label 4364 1690 0    50   ~ 0
+PC15
+Text Label 4364 1790 0    50   ~ 0
+OSCIN
+Text Label 4364 1890 0    50   ~ 0
+OSCOUT
+Text Label 4314 2190 0    50   ~ 0
+VCC3V3
+Text Label 4364 1990 0    50   ~ 0
+RESET
+$Comp
+L Switch:SW_Push SW2
+U 1 1 5F125580
+P 1527 1241
+F 0 "SW2" V 1527 1191 50  0000 R CNN
+F 1 "SW_Push" V 1427 1691 50  0001 R CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h5mm" H 1527 1441 50  0001 C CNN
+F 3 "~" H 1527 1441 50  0001 C CNN
+	1    1527 1241
+	0    -1   -1   0   
+$EndComp
+Text Label 2027 1041 2    50   ~ 0
+RESET
+Wire Wire Line
+	1527 1041 1827 1041
+Wire Wire Line
+	1827 1091 1827 1041
+Connection ~ 1827 1041
+Wire Wire Line
+	1827 1041 2027 1041
+Text Label 2077 591  2    50   ~ 0
+VCC3V3
+$Comp
+L Device:R R2
+U 1 1 5F12CF37
+P 1827 791
+F 0 "R2" H 1897 837 50  0000 L CNN
+F 1 "10K" H 1897 746 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 1757 791 50  0001 C CNN
+F 3 "~" H 1827 791 50  0001 C CNN
+	1    1827 791 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1827 641  1827 591 
+Wire Wire Line
+	1827 591  2077 591 
+Wire Wire Line
+	1827 941  1827 1041
+Wire Wire Line
+	2375 4852 2375 4952
+$Comp
+L power:GND #PWR01
+U 1 1 5F13CA0F
+P 2675 5302
+F 0 "#PWR01" H 2680 5129 50  0001 C CNN
+F 1 "GND" H 2680 5129 50  0000 C CNN
+F 2 "" H 2675 5302 50  0001 C CNN
+F 3 "" H 2675 5302 50  0001 C CNN
+	1    2675 5302
+	1    0    0    -1  
+$EndComp
+Text Label 2875 5252 0    50   ~ 0
+GND
+Text Label 9796 5487 2    50   ~ 0
+SWIO
+Text Label 9796 5587 2    50   ~ 0
+SWCLK
+Wire Wire Line
+	9446 5487 9796 5487
+Wire Wire Line
+	9796 5587 9446 5587
+Text Label 9696 5687 2    50   ~ 0
+GND
+Wire Wire Line
+	9696 5687 9446 5687
+Text Label 9746 5187 2    50   ~ 0
+VCC3V3
+$Comp
+L Device:C C1
+U 1 1 5F152167
+P 2175 5052
+F 0 "C1" H 2325 5052 50  0000 C CNN
+F 1 "100 nf" V 2075 5052 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 2213 4902 50  0001 C CNN
+F 3 "~" H 2175 5052 50  0001 C CNN
+	1    2175 5052
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2175 4852 2175 4902
+Text Label 4414 2090 0    50   ~ 0
+GND
+Text Label 2127 1441 0    50   ~ 0
+GND
+$Comp
+L lora:LoRa U2
+U 1 1 5F21A746
+P 5611 6790
+F 0 "U2" H 5611 7527 60  0000 C CNN
+F 1 "LoRa" H 5611 7421 60  0000 C CNN
+F 2 "Custom_Libraries:LoRa" H 5611 6340 60  0001 C CNN
+F 3 "" H 5611 6340 60  0001 C CNN
+	1    5611 6790
+	1    0    0    -1  
+$EndComp
+Text Label 6511 6440 2    50   ~ 0
+GND
+Text Label 4611 6540 0    50   ~ 0
+GND
+Wire Wire Line
+	4611 6540 4911 6540
+Text Label 4611 6640 0    50   ~ 0
+VCC3V3
+Wire Wire Line
+	4611 6640 4911 6640
+Text Label 6511 7140 2    50   ~ 0
+GND
+Wire Wire Line
+	6311 7140 6511 7140
+Text Notes 9074 6302 0    79   Italic 0
+Programming Headers
+Text Notes 1500 7500 0    79   Italic 0
+Power
+Text Notes 1422 1845 0    79   Italic 0
+ Reset
+Text Notes 5161 7490 0    79   Italic 0
+LoRa Module
+Text Label 6511 6740 2    50   ~ 0
+MISO
+Text Label 6511 6640 2    50   ~ 0
+MOSI
+Text Label 6511 6840 2    50   ~ 0
+SCK
+Wire Wire Line
+	6311 6840 6511 6840
+Wire Wire Line
+	6511 6740 6311 6740
+Wire Wire Line
+	6311 6640 6511 6640
+Text Label 4661 6840 0    50   ~ 0
+DIO0
+Wire Wire Line
+	4661 6840 4911 6840
+Text Label 4501 6737 0    50   ~ 0
+Reset_LoRa
+Wire Wire Line
+	4661 6740 4662 6740
+Text Label 6511 6540 2    50   ~ 0
+NSS
+Wire Wire Line
+	6511 6540 6311 6540
+Wire Wire Line
+	6311 6440 6511 6440
+Text Label 4414 2290 0    50   ~ 0
+DIO0
+Text Label 4216 1490 0    50   ~ 0
+Reset_LoRa
+NoConn ~ 6311 6940
+NoConn ~ 6311 7040
+NoConn ~ 4911 7140
+$Comp
+L Device:Antenna AE1
+U 1 1 5F2C5F88
+P 4411 6090
+F 0 "AE1" H 4491 6079 50  0000 L CNN
+F 1 "Antenna" H 4491 5988 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x01_Pitch2.54mm" H 4411 6090 50  0001 C CNN
+F 3 "~" H 4411 6090 50  0001 C CNN
+	1    4411 6090
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4411 6290 4411 6440
+Wire Wire Line
+	4411 6440 4911 6440
+Text Notes 9556 4199 0    50   Italic 0
+Sensors\n
+NoConn ~ 4664 1390
+Text Notes 9768 2065 0    50   Italic 0
+Temp / Hum
+Text Notes 8373 2097 0    50   Italic 0
+Light_sensor
+Text Notes 10230 3370 0    50   Italic 0
+Air Quality
+Wire Wire Line
+	2175 5202 2175 5252
+Wire Wire Line
+	3225 5152 3225 5252
+Wire Wire Line
+	3475 4802 3475 4852
+$Comp
+L Sensor_Optical:LDR03 R5
+U 1 1 5F2B3D21
+P 8523 1447
+F 0 "R5" H 8593 1493 50  0000 L CNN
+F 1 "LDR" H 8523 1097 50  0000 L CNN
+F 2 "Diodes_THT:D_A-405_P5.08mm_Vertical_AnodeUp" V 8698 1447 50  0001 C CNN
+F 3 "" H 8523 1397 50  0001 C CNN
+	1    8523 1447
+	1    0    0    -1  
+$EndComp
+Text Label 9023 1597 2    50   ~ 0
+GND
+Wire Wire Line
+	8523 1597 9023 1597
+Text Label 8923 897  2    50   ~ 0
+VCC3V3
+$Comp
+L Device:R R4
+U 1 1 5F2C1175
+P 8523 1047
+F 0 "R4" H 8373 1097 50  0000 L CNN
+F 1 "10K" V 8623 947 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 8453 1047 50  0001 C CNN
+F 3 "~" H 8523 1047 50  0001 C CNN
+	1    8523 1047
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8523 897  8923 897 
+Wire Wire Line
+	8523 1297 8523 1247
+Text Label 8273 1247 2    50   ~ 0
+LDR_IN
+Wire Wire Line
+	8273 1247 8523 1247
+Connection ~ 8523 1247
+Wire Wire Line
+	8523 1247 8523 1197
+$Comp
+L Sensor_Humidity:BME_280 U4
+U 1 1 5F2EAD59
+P 10068 1265
+F 0 "U4" H 9868 1765 50  0000 C CNN
+F 1 "BME_280" H 10068 765 50  0000 C CNN
+F 2 "Custom_Libraries:BME280" H 10068 1365 50  0001 C CNN
+F 3 "" H 10068 1365 50  0001 C CNN
+	1    10068 1265
+	1    0    0    -1  
+$EndComp
+Text Label 10868 1165 2    50   ~ 0
+GND
+Wire Wire Line
+	10568 1165 10868 1165
+Text Label 10868 965  2    50   ~ 0
+VCC3V3
+Wire Wire Line
+	10568 965  10868 965 
+Text Label 10868 1365 2    50   ~ 0
+SCL
+Wire Wire Line
+	10868 1365 10568 1365
+Text Label 10868 1565 2    50   ~ 0
+SDA
+Wire Wire Line
+	10568 1565 10868 1565
+Wire Wire Line
+	6453 4244 6453 3894
+Connection ~ 6453 4244
+Connection ~ 6453 4744
+Wire Wire Line
+	6453 4794 6453 4744
+Wire Wire Line
+	6453 4744 6453 4244
+Wire Wire Line
+	5414 690  5414 890 
+Text Label 5414 690  3    50   ~ 0
+SDA
+Wire Wire Line
+	5514 690  5514 890 
+Text Label 5514 690  3    50   ~ 0
+SCL
+NoConn ~ 6864 2090
+Wire Wire Line
+	5714 3290 5714 2990
+Text Label 5714 3290 1    50   ~ 0
+LDR_IN
+Text Label 5914 3290 1    50   ~ 0
+GND
+Wire Wire Line
+	5414 3290 5414 2990
+Wire Wire Line
+	5514 3290 5514 2990
+Wire Wire Line
+	5614 2990 5614 3290
+Wire Wire Line
+	5914 2990 5914 3290
+Text Label 5414 3290 1    50   ~ 0
+SCK
+Text Label 5514 3290 1    50   ~ 0
+MISO
+Text Label 5614 3290 1    50   ~ 0
+MOSI
+Wire Wire Line
+	5314 2990 5314 3290
+Text Label 5314 3290 1    50   ~ 0
+NSS
+Text Notes 5303 3583 0    79   Italic 0
+STM32FXXX\n
+Text Label 7164 1490 2    50   ~ 0
+GND
+Wire Wire Line
+	5314 690  5314 890 
+Text Label 5314 690  3    50   ~ 0
+GND
+Wire Wire Line
+	5214 640  5214 890 
+Text Label 5214 640  3    50   ~ 0
+VCC3V3
+Wire Wire Line
+	6314 590  6314 890 
+Text Label 6314 590  3    50   ~ 0
+SWCLK
+Text Label 7214 1590 2    50   ~ 0
+SWIO
+Wire Wire Line
+	4903 5444 4903 5094
+Text Label 4903 5444 1    50   ~ 0
+GND
+Text Label 7264 1390 2    50   ~ 0
+VCC3V3
+Wire Wire Line
+	5614 890  5614 540 
+Text Label 5614 540  3    50   ~ 0
+GND
+Connection ~ 5753 4244
+Wire Wire Line
+	5753 4244 5753 3944
+Text Label 5753 3944 3    50   ~ 0
+OSCIN
+Connection ~ 5303 4394
+Wire Wire Line
+	5303 4094 5303 4394
+Text Label 5303 4094 3    50   ~ 0
+PC15
+Wire Wire Line
+	5303 4394 5253 4394
+Wire Wire Line
+	5303 4794 5303 4394
+Connection ~ 5753 5094
+Wire Wire Line
+	5303 5094 5753 5094
+Connection ~ 5303 5094
+Wire Wire Line
+	4903 5094 5303 5094
+$Comp
+L Device:C C5
+U 1 1 5F0E94E8
+P 5303 4944
+F 0 "C5" V 5051 4944 50  0000 C CNN
+F 1 "20pf" V 5142 4944 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 5341 4794 50  0001 C CNN
+F 3 "~" H 5303 4944 50  0001 C CNN
+	1    5303 4944
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5753 5094 6453 5094
+Connection ~ 5753 4744
+Wire Wire Line
+	5753 4794 5753 4744
+$Comp
+L Device:C C7
+U 1 1 5F0E6674
+P 6453 4944
+F 0 "C7" V 6201 4944 50  0000 C CNN
+F 1 "20pf" V 6292 4944 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 6491 4794 50  0001 C CNN
+F 3 "~" H 6453 4944 50  0001 C CNN
+	1    6453 4944
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C6
+U 1 1 5F0E49DE
+P 5753 4944
+F 0 "C6" V 5501 4944 50  0000 C CNN
+F 1 "20pf" V 5592 4944 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 5791 4794 50  0001 C CNN
+F 3 "~" H 5753 4944 50  0001 C CNN
+	1    5753 4944
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5953 4244 5753 4244
+Wire Wire Line
+	6253 4244 6453 4244
+Wire Wire Line
+	6253 4744 6453 4744
+Wire Wire Line
+	5753 4744 5753 4244
+Wire Wire Line
+	5953 4744 5753 4744
+$Comp
+L Device:R R3
+U 1 1 5F0E2D13
+P 6103 4244
+F 0 "R3" H 6173 4290 50  0000 L CNN
+F 1 "1M" H 6173 4199 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 6033 4244 50  0001 C CNN
+F 3 "~" H 6103 4244 50  0001 C CNN
+	1    6103 4244
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Crystal Y2
+U 1 1 5F0D9577
+P 6103 4744
+F 0 "Y2" V 6057 4875 50  0000 L CNN
+F 1 "8Mhz" V 6148 4875 50  0000 L CNN
+F 2 "Crystals:Crystal_HC49-4H_Vertical" H 6103 4744 50  0001 C CNN
+F 3 "~" H 6103 4744 50  0001 C CNN
+	1    6103 4744
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	10521 11270 10519 11263
+Text Label 477  5640 0    50   ~ 0
+Supply_Reg
+Text Notes 5267 5556 0    79   Italic 0
+Crystals for Clock\n
+Wire Notes Line
+	469  4000 3831 3991
+Wire Notes Line
+	7659 6537 7680 6558
+Wire Notes Line
+	7680 6558 7680 6579
+Text Label 3239 7212 1    50   ~ 0
+Solar_+ve
+Text Label 2800 7280 2    50   ~ 0
+GND
+$Comp
+L Connector:Conn_01x02_Female J1
+U 1 1 5F191EAA
+P 1275 7002
+F 0 "J1" H 875 6802 50  0000 L CNN
+F 1 "Solar_input" H 1075 7102 50  0000 L CNN
+F 2 "Custom_Libraries:Battery_holder" H 1275 7002 50  0001 C CNN
+F 3 "~" H 1275 7002 50  0001 C CNN
+	1    1275 7002
+	-1   0    0    1   
+$EndComp
+Text Label 1925 7002 2    50   ~ 0
+Solar_-ve
+Wire Wire Line
+	1475 7002 1925 7002
+Text Label 1925 6902 2    50   ~ 0
+Solar_+ve
+Wire Wire Line
+	1925 6902 1475 6902
+Text Label 2580 6800 2    50   ~ 0
+BAT_IN
+$Comp
+L Connector:Conn_01x02_Female J2
+U 1 1 5F1AA8B3
+P 2350 7030
+F 0 "J2" H 2250 6830 50  0000 L CNN
+F 1 "Battery_input" H 1900 7130 50  0000 L CNN
+F 2 "Custom_Libraries:Battery_holder" H 2350 7030 50  0001 C CNN
+F 3 "~" H 2350 7030 50  0001 C CNN
+	1    2350 7030
+	-1   0    0    1   
+$EndComp
+$Comp
+L Simulation_SPICE:DIODE D2
+U 1 1 5F1B7D1B
+P 2800 6800
+F 0 "D2" H 2800 6583 50  0000 C CNN
+F 1 "IN4007" H 2800 6674 50  0000 C CNN
+F 2 "Diodes_SMD:D_1206" H 2800 6800 50  0001 C CNN
+F 3 "~" H 2800 6800 50  0001 C CNN
+F 4 "Y" H 2800 6800 50  0001 L CNN "Spice_Netlist_Enabled"
+F 5 "D" H 2800 6800 50  0001 L CNN "Spice_Primitive"
+	1    2800 6800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2550 6930 2550 6800
+Wire Wire Line
+	2550 6800 2650 6800
+Text Label 3000 7080 2    50   ~ 0
+Solar_-ve
+Wire Wire Line
+	2550 7030 2550 7080
+Wire Wire Line
+	2550 7080 3000 7080
+Wire Wire Line
+	2550 7080 2550 7280
+Wire Wire Line
+	2550 7280 2800 7280
+Connection ~ 2550 7080
+Wire Wire Line
+	4414 2290 4664 2290
+Wire Wire Line
+	4314 2190 4664 2190
+Wire Wire Line
+	4414 2090 4664 2090
+Wire Wire Line
+	4364 1990 4664 1990
+Wire Wire Line
+	4664 1890 4364 1890
+Wire Wire Line
+	4364 1790 4664 1790
+Wire Wire Line
+	4364 1690 4664 1690
+Wire Wire Line
+	4664 1590 4364 1590
+Wire Wire Line
+	6864 1390 7264 1390
+Wire Wire Line
+	7164 1490 6864 1490
+Wire Wire Line
+	6864 1590 7214 1590
+Text Label 6314 3340 1    50   ~ 0
+VCC3V3
+Text Label 6214 3240 1    50   ~ 0
+GND
+Wire Wire Line
+	6314 3340 6314 2990
+Wire Wire Line
+	6214 2990 6214 3240
+NoConn ~ 5914 890 
+NoConn ~ 5814 890 
+NoConn ~ 5714 890 
+NoConn ~ 6214 890 
+Text Label 1446 5433 0    50   ~ 0
+VCC3V3
+Wire Notes Line
+	3809 482  3870 7798
+Text Label 1965 6070 3    50   ~ 0
+GND
+$Comp
+L Device:LED D1
+U 1 1 5F13F264
+P 1775 5540
+F 0 "D1" V 1755 5640 50  0000 C CNN
+F 1 "Pwr_L.E.D" H 1705 5730 50  0001 C CNN
+F 2 "Diodes_SMD:D_0805" H 1775 5540 50  0001 C CNN
+F 3 "~" H 1775 5540 50  0001 C CNN
+	1    1775 5540
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5F141954
+P 1965 5820
+F 0 "R1" V 1865 5770 50  0000 L CNN
+F 1 "510 R" V 2065 5720 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805" V 1895 5820 50  0001 C CNN
+F 3 "~" H 1965 5820 50  0001 C CNN
+	1    1965 5820
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1965 6070 1965 5970
+Wire Wire Line
+	1965 5670 1965 5540
+Wire Wire Line
+	1965 5540 1925 5540
+Connection ~ 4903 5094
+$Comp
+L Device:Crystal Y1
+U 1 1 5F0DAA87
+P 5103 4394
+F 0 "Y1" V 5057 4525 50  0000 L CNN
+F 1 "32.768K" V 5148 4525 50  0000 L CNN
+F 2 "Crystals:Crystal_HC49-4H_Vertical" H 5103 4394 50  0001 C CNN
+F 3 "~" H 5103 4394 50  0001 C CNN
+	1    5103 4394
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5F0E9AA7
+P 4903 4944
+F 0 "C4" V 4651 4944 50  0000 C CNN
+F 1 "20pf" V 4742 4944 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 4941 4794 50  0001 C CNN
+F 3 "~" H 4903 4944 50  0001 C CNN
+	1    4903 4944
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4953 4394 4903 4394
+Wire Wire Line
+	4903 4394 4903 4794
+Text Label 4903 4094 3    50   ~ 0
+PC14
+Wire Wire Line
+	4903 4394 4903 4094
+Connection ~ 4903 4394
+Text Notes 8380 3390 0    50   Italic 0
+Ultra Sonic
+$Comp
+L Connector:Conn_01x04_Female J3
+U 1 1 5FB05D28
+P 8350 3240
+F 0 "J3" V 8260 3450 50  0000 L CNN
+F 1 "Distance /" V 8460 2850 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 8350 3240 50  0001 C CNN
+F 3 "~" H 8350 3240 50  0001 C CNN
+	1    8350 3240
+	0    1    1    0   
+$EndComp
+Text Label 8450 2820 3    50   ~ 0
+GND
+Wire Wire Line
+	8450 2820 8450 3040
+Text Label 8250 2840 3    50   ~ 0
+Trig
+Wire Wire Line
+	8250 2840 8250 3040
+Text Label 8150 2730 3    50   ~ 0
+OUT_5V
+Wire Wire Line
+	8150 3040 8150 2730
+Text Label 8349 2486 3    50   ~ 0
+EchoToStm32
+Text Label 6013 3463 1    50   ~ 0
+EchoToStm32
+Text Label 6117 3157 1    50   ~ 0
+Trig
+Wire Wire Line
+	6117 3157 6114 2990
+Wire Wire Line
+	4501 6737 4662 6740
+Connection ~ 4662 6740
+Wire Wire Line
+	4662 6740 4911 6740
+Text Label 2027 4852 0    50   ~ 0
+BAT_IN
+Wire Wire Line
+	2027 4852 2175 4852
+Connection ~ 2175 4852
+Wire Wire Line
+	2175 4852 2375 4852
+NoConn ~ 6864 1690
+NoConn ~ 6864 1790
+$Comp
+L power:GND #PWR02
+U 1 1 5F17DC84
+P 2127 1544
+F 0 "#PWR02" H 2132 1371 50  0001 C CNN
+F 1 "GND" H 2132 1371 50  0000 C CNN
+F 2 "" H 2127 1544 50  0001 C CNN
+F 3 "" H 2127 1544 50  0001 C CNN
+	1    2127 1544
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5F129E71
+P 1827 1241
+F 0 "C2" H 1712 1195 50  0000 R CNN
+F 1 "1.0uf" H 1712 1286 50  0000 R CNN
+F 2 "Capacitors_SMD:C_0805" H 1865 1091 50  0001 C CNN
+F 3 "~" H 1827 1241 50  0001 C CNN
+	1    1827 1241
+	-1   0    0    1   
+$EndComp
+$Comp
+L stm32:STM32 U3
+U 1 1 5F0D833D
+P 5714 1740
+F 0 "U3" H 6714 2640 60  0000 L CNN
+F 1 "STM32" H 5564 1440 118 0000 L CNN
+F 2 "Custom_Libraries:STM32(LQFP48)" H 5714 1740 60  0001 C CNN
+F 3 "" H 5714 1740 60  0001 C CNN
+	1    5714 1740
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1527 1441 1827 1441
+Wire Wire Line
+	2127 1441 2127 1544
+Wire Wire Line
+	1827 1391 1827 1441
+Connection ~ 1827 1441
+Wire Wire Line
+	1827 1441 2127 1441
+Wire Wire Line
+	2175 5252 2675 5252
+Connection ~ 2675 5252
+Wire Wire Line
+	2675 5252 3225 5252
+Wire Wire Line
+	2675 5252 2675 5302
+$Comp
+L Regulator_Linear:AP2112K-3.3 U1
+U 1 1 5F13570F
+P 2675 4952
+F 0 "U1" H 2675 5294 50  0000 C CNN
+F 1 "APK2112.K-3.3" H 2675 5203 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 2675 5152 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2775 4702 50  0001 C CNN
+	1    2675 4952
+	1    0    0    -1  
+$EndComp
+$Comp
+L Slide_switch:MLL1200S SW1
+U 1 1 5F40052F
+P 1225 5640
+F 0 "SW1" H 1225 6105 50  0000 C CNN
+F 1 "MLL1200S" H 1225 6014 50  0000 C CNN
+F 2 "Custom_Libraries:SW_MLL1200S" H 1225 5640 50  0001 L BNN
+F 3 "1437575-1" H 1225 5640 50  0001 L BNN
+	1    1225 5640
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	825  5640 477  5640
+Wire Wire Line
+	1625 5740 1625 5847
+Text Label 1625 5847 2    50   ~ 0
+GND
+NoConn ~ 825  5440
+Wire Wire Line
+	1625 5540 1625 5433
+Wire Wire Line
+	1625 5433 1446 5433
+Connection ~ 1625 5540
+Wire Wire Line
+	6014 2990 6013 3463
+NoConn ~ 6114 890 
+NoConn ~ 6014 890 
+$Comp
+L Connector:Conn_01x04_Female J5
+U 1 1 5F614E50
+P 10470 3280
+F 0 "J5" V 10380 3490 50  0000 L CNN
+F 1 "Airquality" V 10580 2890 50  0001 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 10470 3280 50  0001 C CNN
+F 3 "~" H 10470 3280 50  0001 C CNN
+	1    10470 3280
+	0    1    1    0   
+$EndComp
+Text Label 10570 2746 3    50   ~ 0
+VCC3V3
+Wire Wire Line
+	10570 3081 10570 3080
+Connection ~ 10570 3080
+Wire Wire Line
+	10570 3080 10570 2746
+Wire Wire Line
+	10270 3080 10270 2766
+NoConn ~ 10370 3080
+Wire Wire Line
+	10470 3080 10469 2775
+Text Label 10469 2775 3    50   ~ 0
+GND
+Wire Wire Line
+	5814 2990 5814 3283
+Text Label 5814 3283 1    50   ~ 0
+Air_in
+Text Label 10270 2766 3    50   ~ 0
+Air_in
+Wire Wire Line
+	4664 2390 4312 2390
+Text Label 4312 2390 0    50   ~ 0
+BAT_IN
+Wire Wire Line
+	3639 6800 3642 7229
+Wire Wire Line
+	6864 2290 7134 2290
+Text Label 3439 6417 0    50   ~ 0
+Charge
+Wire Wire Line
+	3439 6500 3439 6417
+Text Label 7134 2290 2    50   ~ 0
+Charge
+Wire Notes Line
+	7851 519  7856 6577
+Wire Notes Line
+	7856 4517 11223 4516
+Wire Wire Line
+	2950 6800 3239 6800
+Wire Wire Line
+	6864 2190 6998 2190
+Wire Wire Line
+	7297 2187 7298 2190
+Wire Wire Line
+	7395 2187 7297 2187
+$Comp
+L Device:R R9
+U 1 1 5F6F66E1
+P 7148 2190
+F 0 "R9" V 7233 2160 50  0000 L CNN
+F 1 "510 R" V 7248 2090 50  0001 L CNN
+F 2 "Resistors_SMD:R_0805" V 7078 2190 50  0001 C CNN
+F 3 "~" H 7148 2190 50  0001 C CNN
+	1    7148 2190
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	7695 2187 7695 2034
+$Comp
+L Device:LED D4
+U 1 1 5F6F66ED
+P 7545 2187
+F 0 "D4" V 7525 2287 50  0000 C CNN
+F 1 "Bat_Low" H 7475 2377 50  0001 C CNN
+F 2 "Diodes_SMD:D_0805" H 7545 2187 50  0001 C CNN
+F 3 "~" H 7545 2187 50  0001 C CNN
+	1    7545 2187
+	-1   0    0    -1  
+$EndComp
+Text Label 7695 2034 1    50   ~ 0
+GND
+Wire Wire Line
+	4664 1490 4216 1490
+NoConn ~ 4664 2490
+Connection ~ 3225 4852
+Wire Wire Line
+	3225 4852 3475 4852
+Wire Wire Line
+	2975 4852 3225 4852
+$Comp
+L Device:C C3
+U 1 1 5F14D815
+P 3225 5002
+F 0 "C3" H 2973 5002 50  0000 C CNN
+F 1 "100 nf" V 3064 5002 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0805" H 3263 4852 50  0001 C CNN
+F 3 "~" H 3225 5002 50  0001 C CNN
+	1    3225 5002
+	-1   0    0    1   
+$EndComp
+Text Label 3475 4802 2    50   ~ 0
+Supply_Reg
+Text Notes 1087 3755 0    79   Italic 0
+Step up to for Ultrasonic
+NoConn ~ 5214 2990
+NoConn ~ 6864 2390
+NoConn ~ 6864 2490
+Wire Wire Line
+	8350 3040 8349 2486
+$Comp
+L Power_Management:BL8530 U5
+U 1 1 5FA6D060
+P 2610 2932
+F 0 "U5" H 2854 3061 50  0000 C CNN
+F 1 "BL8530" H 2610 3083 50  0001 C CNN
+F 2 "Custom_Libraries:SOT89" H 2635 2782 50  0001 L CIN
+F 3 "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf" H 2610 2882 50  0001 C CNN
+	1    2610 2932
+	1    0    0    -1  
+$EndComp
+$Comp
+L 1248AS-H-220M_P3:Inductor_22uH L1
+U 1 1 5FA7A56F
+P 1750 2589
+F 0 "L1" H 1750 2681 50  0000 C CNN
+F 1 "Inductor_22uH" H 1350 2789 50  0001 L BNN
+F 2 "Custom_Libraries:IND_1248AS-H-220M=P3" H 1286 2446 50  0001 L BNN
+F 3 "N/A" H 1581 2673 50  0001 L BNN
+	1    1750 2589
+	1    0    0    -1  
+$EndComp
+$Comp
+L capacitor_electolytic:ECA-1EM102 C8
+U 1 1 5FA80259
+P 1263 3016
+F 0 "C8" V 1260 2797 50  0000 L CNN
+F 1 "100 uF" V 1308 3146 50  0001 L CNN
+F 2 "Custom_Libraries:CAPAE660X550N" H 1263 3016 50  0001 L BNN
+F 3 "PANASONIC" H 1263 3016 50  0001 L BNN
+	1    1263 3016
+	0    -1   -1   0   
+$EndComp
+$Comp
+L capacitor_electolytic:ECA-1EM102 C9
+U 1 1 5FA81C57
+P 3308 3008
+F 0 "C9" V 3305 2789 50  0000 L CNN
+F 1 "100 uF" V 3353 3138 50  0001 L CNN
+F 2 "Custom_Libraries:CAPAE660X550N" H 3308 3008 50  0001 L BNN
+F 3 "PANASONIC" H 3308 3008 50  0001 L BNN
+	1    3308 3008
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:D_Zener D5
+U 1 1 5FA83197
+P 2549 2589
+F 0 "D5" H 2549 2464 50  0000 C CNN
+F 1 "SS14" H 2549 2715 50  0001 C CNN
+F 2 "Diodes_SMD:D_1206" H 2549 2589 50  0001 C CNN
+F 3 "~" H 2549 2589 50  0001 C CNN
+	1    2549 2589
+	-1   0    0    1   
+$EndComp
+Text Label 1035 2589 2    50   ~ 0
+Supply_Reg
+Text Label 2610 3386 2    50   ~ 0
+GND
+Wire Wire Line
+	2310 2932 2310 2589
+Wire Wire Line
+	2310 2589 2250 2589
+Wire Wire Line
+	2310 2589 2399 2589
+Connection ~ 2310 2589
+Wire Wire Line
+	2699 2589 2904 2589
+Wire Wire Line
+	2904 2589 2904 2793
+Wire Wire Line
+	2904 2927 2910 2927
+Wire Wire Line
+	2910 2927 2910 2932
+Wire Wire Line
+	3308 2793 2904 2793
+Connection ~ 2904 2793
+Wire Wire Line
+	2904 2793 2904 2927
+Wire Wire Line
+	2610 3232 3308 3232
+Wire Wire Line
+	3308 3232 3308 3223
+Wire Wire Line
+	1250 2589 1250 2801
+Wire Wire Line
+	1250 2801 1263 2801
+Wire Wire Line
+	1250 2589 1035 2589
+Connection ~ 1250 2589
+Wire Wire Line
+	1263 3231 2610 3230
+Wire Wire Line
+	2610 3230 2610 3232
+Connection ~ 2610 3232
+Wire Wire Line
+	2610 3232 2610 3386
+Text Label 3600 2793 2    50   ~ 0
+OUT_5V
+Wire Wire Line
+	3308 2793 3600 2793
+Connection ~ 3308 2793
+NoConn ~ 4911 6940
+NoConn ~ 4911 7040
+Wire Wire Line
+	6864 1990 7028 1990
+Text Label 7028 1990 2    50   ~ 0
+TX
+Text Label 6999 1890 2    50   ~ 0
+RX
+Wire Wire Line
+	6864 1890 6999 1890
+$Comp
+L Connector:Conn_01x06_Female J4
+U 1 1 5FB978B5
+P 9246 5487
+F 0 "J4" H 9138 5054 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 9138 5053 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 9246 5487 50  0001 C CNN
+F 3 "~" H 9246 5487 50  0001 C CNN
+	1    9246 5487
+	-1   0    0    1   
+$EndComp
+Text Label 9624 5287 2    50   ~ 0
+TX
+Text Label 9621 5387 2    50   ~ 0
+RX
+Wire Wire Line
+	9446 5187 9746 5187
+Wire Wire Line
+	9446 5287 9624 5287
+Wire Wire Line
+	9446 5387 9621 5387
+Wire Wire Line
+	3239 6800 3239 7212
+$EndSCHEMATC

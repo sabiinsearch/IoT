@@ -1,13 +1,16 @@
 
 /*
- circuitdigest.com
- Sample STM32 Blink Program for Blue Pill board
+ By hukamtechnologies
+ Programm for sensor PCB
  */
 
-// #include <Arduino.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BME280.h>
 #include <ArduinoJson.h>
-//#include <SPI.h>              // include libraries
 #include <LoRa_STM32.h>
+
 
 #define LED_BUILTIN_1 PB15
 #define echoPin PB10 // attach pin D2 Arduino to pin Echo of HC-SR04
@@ -22,7 +25,11 @@
 
 boolean charge = false;
 
-String outgoing;              // outgoing message
+TwoWire Wire1(PB9,PB8);
+Adafruit_BME280 bme;
+
+String outgoing;  // outgoing message
+boolean status=false;
 
 byte msgCount = 0;            // count of outgoing messages
 byte localAddress = 0xBB;     // address of this device
@@ -30,7 +37,10 @@ byte destination = 0xFF;      // destination to send to
 long lastSendTime = 0;        // last send time
 int interval = 1000;          // interval between sends
 
-
+void sleep(int n) {
+  while(n-- > 0)
+    asm("wfi");
+}
 void sendMessage(String outgoing) {
   LoRa.beginPacket();                   // start packet
   // LoRa.write(destination);              // add destination address
@@ -41,6 +51,7 @@ void sendMessage(String outgoing) {
   LoRa.endPacket();                     // finish packet and send it
   // msgCount++;                           // increment message ID
 }
+
 
 
 // returns the distance (cm)
@@ -73,8 +84,9 @@ void measureDistance() {
   StaticJsonDocument<200> data;
 //  JsonObject& jsonOut = dataJsonBuffer.createObject();
   
-  data["distanc"] = distance;
+  data["distance"] = distance;
   data["light"]=analogRead(light_sensor);
+  data["Temp"]= (bme.readTemperature(),1);
   String output;
   serializeJson(data, output);
   sendMessage(output);
@@ -82,10 +94,12 @@ void measureDistance() {
 
 void checkBattery() {
    StaticJsonDocument<200> bat_status;
+   //float inputVoltage = (float(analogRead(bat_pin))/4096) * 3.3;
    bat_status["battery_status"]=analogRead(bat_pin);
-   String output=" ";
+   String output=" V";
    serializeJson(bat_status,output);
    sendMessage(output);  
+   
 }
 
 // the setup function runs once when you press reset or power the board
@@ -97,14 +111,21 @@ void setup() {
   pinMode(light_sensor,INPUT);
   pinMode(charge_pin,OUTPUT);
   pinMode(bat_pin,INPUT);
+  analogWrite(bat_pin,0);
+  
+  Wire1.begin();
+  Wire1.setClock(400000);
 
  // LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
-  
-  
+ 
   if (!LoRa.begin(433E6)) {             // initialize ratio at 915 MHz
      Serial.println("LoRa init failed. Check your connections.");
     while (true);                       // if failed, do nothing
   }
+// Initiate Temperature Sensor
+
+  bme.begin(0x76);   
+//  digitalWrite(charge_pin,HIGH);
 
 }
 
