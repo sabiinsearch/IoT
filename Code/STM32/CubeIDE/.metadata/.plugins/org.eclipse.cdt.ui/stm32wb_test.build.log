@@ -1,0 +1,10 @@
+00:01:26 **** Incremental Build of configuration Debug for project stm32wb_test ****
+make -j4 all 
+arm-none-eabi-size   stm32wb_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27100	    427	   4590	  32117	   7d75	stm32wb_test.elf
+Finished building: default.size.stdout
+ 
+
+00:01:27 Build Finished. 0 errors, 0 warnings. (took 786ms)
+

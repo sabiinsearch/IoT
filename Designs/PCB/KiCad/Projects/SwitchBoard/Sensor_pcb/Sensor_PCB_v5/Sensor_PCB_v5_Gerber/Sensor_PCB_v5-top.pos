@@ -1,0 +1,15 @@
+### Module positions - created on Mon May 31 17:25:59 2021 ###
+### Printed by Pcbnew version kicad 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val        Package                PosX       PosY       Rot  Side
+C10       10uf       C_0805              35.1561   -37.3659    0.0000  top
+D1        Pwr_L.E.D  D_0805              33.7337   -24.1351  270.0000  top
+D3        Pwr_L.E.D  D_0805              45.8851   -81.6712   90.0000  top
+D4        Bat_Low    D_0805              37.5412   -50.8838  270.0000  top
+D6        Pwr_L.E.D  D_0805              42.7076   -81.6864   90.0000  top
+Q1        BC547      BC547-SOT23         35.0926   -42.0522  180.0000  top
+R10       1K         R_0805              36.6750   -47.2465    0.0000  top
+SW1       MLL1200S   SW_MLL1200S         46.8325   -21.4249  180.0000  top
+U2        Ra-01      LoRa                32.2047   -80.2564   90.0000  top
+## End

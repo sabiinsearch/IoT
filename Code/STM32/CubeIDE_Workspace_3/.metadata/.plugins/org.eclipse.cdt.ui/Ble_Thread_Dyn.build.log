@@ -1,0 +1,10 @@
+19:11:32 **** Build of configuration Debug for project Ble_Thread_Dyn ****
+make -j4 all 
+arm-none-eabi-size   Ble_Thread_Dyn.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56836	    547	  14347	  71730	  11832	Ble_Thread_Dyn.elf
+Finished building: default.size.stdout
+ 
+
+19:11:33 Build Finished. 0 errors, 0 warnings. (took 1s.204ms)
+

@@ -1,0 +1,9 @@
+dataset.c:32:6:otDatasetIsCommissioned	24	static
+dataset.c:48:9:otDatasetGetActive	24	static
+dataset.c:65:9:otDatasetSetActive	24	static
+dataset.c:82:9:otDatasetGetPending	24	static
+dataset.c:99:9:otDatasetSetPending	24	static
+dataset.c:116:9:otDatasetSendMgmtActiveGet	32	static
+dataset.c:140:9:otDatasetSendMgmtActiveSet	32	static
+dataset.c:160:9:otDatasetSendMgmtPendingGet	32	static
+dataset.c:184:9:otDatasetSendMgmtPendingSet	32	static

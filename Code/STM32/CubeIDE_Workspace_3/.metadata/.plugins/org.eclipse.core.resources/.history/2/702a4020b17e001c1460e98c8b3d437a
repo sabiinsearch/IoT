@@ -1,0 +1,57 @@
+// Where is the LED connected
+// LED Blue : PB5
+// LED Green : PB0
+// LED Red : PB1
+
+#define AHB2_PERIPH_BASE		(0x48000000UL)
+#define AHB4_PERIPH_BASE		(0x58000000UL)
+
+#define GPIOB_PERIPH_OFFSET		(0x00000400UL)
+#define GPIOB_BASE				(AHB2_PERIPH_BASE +GPIOB_PERIPH_OFFSET)
+
+#define RCC_OFFSET				(0x0000UL)
+
+#define RCC_BASE				(AHB4_PERIPH_BASE + RCC_OFFSET)
+
+#define RCC_AHB2_OFFSET			(0x04CUL)
+
+#define RCC_AHB2_EN_R			(*(volatile unsigned int *)(RCC_BASE + RCC_AHB2_OFFSET))
+
+#define MODE_R_OFFSET			(0X00UL)
+#define GPIOB_MODE_R			(*(volatile unsigned int *)(GPIOB_BASE + MODE_R_OFFSET))
+
+#define GPIOB_EN 				(1U<<1)
+
+#define OD_R_OFFSET				(0x14UL)
+#define GPIOB_OD_R				(*(volatile unsigned int *)(GPIOB_BASE + OD_R_OFFSET))
+
+#define PIN5					(1U<<5)
+#define LED_BLUE_PIN			PIN5
+/*
+ * (1U<<10)      // Set bit 10 to 1
+ * &=~(1U<<11)   // Set bit 11 to 0
+ */
+
+int main(void)
+{
+   /*
+     1.   Enable clock access to GPIOB  */
+	RCC_AHB2_EN_R |= GPIOB_EN ;
+   /* 2.   Set PB5 as output pin   */
+
+//	GPIOB_MODE_R |= (1U<<10);      // Set bit 10 to 1
+//	GPIOB_MODE_R &=~(1U<<11);   // Set bit 11 to 0
+
+	GPIOB_MODE_R |= (1U<<0);      // Set bit 0 to 1
+	GPIOB_MODE_R &=~(1U<<1);   // Set bit 1 to 0
+
+	while(1) {
+
+	//  1.    Toggle pin PB0 to high
+		GPIOB_OD_R ^= (1U<<0);
+		for(int i=0;i<100000;i++) {}
+	}
+}
+
+
+

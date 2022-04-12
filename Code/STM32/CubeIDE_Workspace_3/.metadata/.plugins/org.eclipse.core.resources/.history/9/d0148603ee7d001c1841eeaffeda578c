@@ -1,0 +1,10 @@
+// Where is the LED connected
+// LED Blue : PB5
+// LED Green : PB0
+// LED Red : PB1
+
+#define AHB2_PERIPH_BASE		(0x48000000UL)
+#define AHB4_PERIPH_BASE		(0x58000000UL)
+#define GPIOB_PERIPH_OFFSET		(0x00000400UL)
+#define GPIOB_BASE				(AHB2_PERIPH_BASE +GPIOB_PERIPH_OFFSET)
+

@@ -1,0 +1,24 @@
+### Module positions - created on Sat Jul 31 18:49:08 2021 ###
+### Printed by Pcbnew version kicad 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val            Package                                   PosX       PosY       Rot  Side
+C1        100_nf         C_0805                                128.5880   -81.0870  180.0000  bottom
+C2        100_nf         C_0805                                129.3470   -85.7504  180.0000  bottom
+C3        1.0uf          C_0805                                138.6130   -87.1144  270.0000  bottom
+C4        10pf           C_0805                                124.1530  -113.7410   90.0000  bottom
+C5        10pf           C_0805                                119.2660  -111.6990  270.0000  bottom
+C6        20pf           C_0805                                125.6110  -107.9040  270.0000  bottom
+C7        20pf           C_0805                                121.1760  -107.5640  270.0000  bottom
+C8        100_nf         C_0805                                134.2900   -84.6811  270.0000  bottom
+C9        10uf           C_0805                                136.5380   -83.9437  270.0000  bottom
+D1        LED            D_0805                                125.4300  -101.8510   90.0000  bottom
+D2        LED            D_0805                                136.7380   -78.9864   90.0000  bottom
+R1        510_R          R_0805                                106.5560   -95.1687  180.0000  bottom
+R2        10K            R_0805                                138.6710   -99.1819  270.0000  bottom
+R3        510_R          R_0805                                131.3740   -78.5165  180.0000  bottom
+SW1       SW_Push        SW_DIP_x1_W7.62mm_Slide_Copal_CHS-B   133.8350  -116.5350    0.0000  bottom
+U1        APK2112.K-3.3  SOT-23-5                              124.4500   -84.4347  270.0000  bottom
+U2        STM32          STM32(LQFP48)                         132.9080   -93.6727   90.0000  bottom
+U4        TTP223         SOT-23-6                              124.2850   -91.8185   90.0000  bottom
+## End

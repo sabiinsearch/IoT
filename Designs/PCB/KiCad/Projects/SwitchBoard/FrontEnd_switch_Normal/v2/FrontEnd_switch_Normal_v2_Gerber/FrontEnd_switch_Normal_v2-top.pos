@@ -1,0 +1,29 @@
+### Module positions - created on Thu Dec  9 23:06:59 2021 ###
+### Printed by Pcbnew version pcbnew 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val            Package                                           PosX       PosY       Rot  Side
+C1        100_nf         C_0805_2012Metric                              98.4910   -81.3943    0.0000  top
+C2        100_nf         C_0805_2012Metric                             133.2330   -83.5812  270.0000  top
+C3        1.0uf          C_0805_2012Metric                             101.7370  -113.0220    0.0000  top
+C4        10pf           C_0805_2012Metric                             127.8460  -107.4170  270.0000  top
+C5        10pf           C_0805_2012Metric                             127.9120  -112.0240   90.0000  top
+C6        20pf           C_0805_2012Metric                             125.1740  -107.5410  270.0000  top
+C7        20pf           C_0805_2012Metric                             125.7000  -111.9840   90.0000  top
+C8        100_nf         C_0805_2012Metric                             107.6550   -99.3445    0.0000  top
+C9        10uf           C_0805_2012Metric                             128.8670   -81.2876    0.0000  top
+C10       100_nf         C_0805_2012Metric                             101.7550  -115.3190    0.0000  top
+C11       10uf           C_0805_2012Metric                             101.6580  -109.8320    0.0000  top
+D1        LED            D_0805_2012Metric_Pad1.15x1.40mm_HandSolder    98.5850   -84.2289    0.0000  top
+D2        LED            D_0805_2012Metric_Pad1.15x1.40mm_HandSolder   133.7440   -97.1181  270.0000  top
+R1        510_R          R_0805_2012Metric                             108.1230   -95.5853  180.0000  top
+R2        10K            R_0805_2012Metric                             133.3320   -87.3436  270.0000  top
+R3        510_R          R_0805_2012Metric                             126.2000  -104.0490  180.0000  top
+R4        510_R          R_0805_2012Metric                             114.6840  -100.9450  180.0000  top
+R5        510_R          R_0805_2012Metric                             114.8490   -88.2523  180.0000  top
+SW1       SW_Push        SW_DIP_x1_W7.62mm_Slide_Copal_CHS-B           129.9540  -117.2820    0.0000  top
+U1        APK2112.K-3.3  SOT-23-5                                      107.6550   -88.8568   90.0000  top
+U2        STM32          STM32(LQFP48)                                 128.0030   -96.3397  270.0000  top
+U3        LoRa           LoRa                                          109.9260  -110.5330    0.0000  top
+U4        TTP223         SOT-23-6                                      114.7550   -97.4319    0.0000  top
+## End

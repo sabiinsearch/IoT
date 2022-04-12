@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;BLE_Custom&apos;" deleteContents="true" description="Delete resource &apos;BLE_Custom&apos;" element1="/BLE_Custom" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1643106744186"/>
+</session>

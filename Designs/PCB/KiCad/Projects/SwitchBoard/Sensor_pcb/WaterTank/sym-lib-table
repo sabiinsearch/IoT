@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Sensor_PCB_v7-rescue)(type Legacy)(uri ${KIPRJMOD}/Sensor_PCB_v7-rescue.lib)(options "")(descr ""))
+  (lib (name WaterTank_module_v1-rescue)(type Legacy)(uri ${KIPRJMOD}/WaterTank_module_v1-rescue.lib)(options "")(descr ""))
+)

@@ -1,0 +1,10 @@
+23:44:41 **** Incremental Build of configuration Debug for project custom_bare_metal_gpio_output ****
+make -j4 all 
+arm-none-eabi-size   custom_bare_metal_gpio_output.elf 
+   text	   data	    bss	    dec	    hex	filename
+    684	      8	   1564	   2256	    8d0	custom_bare_metal_gpio_output.elf
+Finished building: default.size.stdout
+ 
+
+23:44:42 Build Finished. 0 errors, 0 warnings. (took 905ms)
+

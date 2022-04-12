@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/sarbjeet/github/IoT/Designs/PCB/KiCad/Projects/SwitchBoard/BackEnd_HeavyDevice/BackEnd_HeavyDevice_v5/BackEnd_HeavyDevice_v5.sch</source>
+    <date>Wed Nov 17 17:59:29 2021</date>
+    <tool>Eeschema 5.1.7-a382d34a8~88~ubuntu18.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>BackEnd_HeavyDevice_v5.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="F1">
+      <value>Fuse_Small</value>
+      <footprint>Fuse_Holders_and_Fuses:Fuse_TE5_Littlefuse-395Series</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Fuse_Small" description="Fuse, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F656F09</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>TerminalBlocks_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F66980C</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>AP2112K-3.3</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23-5_HandSoldering</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/AP2112.pdf</datasheet>
+      <libsource lib="Regulator_Linear" part="AP2112K-3.3" description="600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F678A39</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>4N35</value>
+      <footprint>Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads</footprint>
+      <datasheet>https://www.vishay.com/docs/81181/4n35.pdf</datasheet>
+      <libsource lib="Isolator" part="4N35" description="Optocoupler, Phototransistor Output, with Base Connection, Vce 70V, CTR 100%, Viso 5000V, DIP6"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F6907F0</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>IN14007</value>
+      <footprint>Diodes_SMD:D_0805</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F6922E0</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>220K</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F6968FD</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>MOC3021</value>
+      <footprint>Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads</footprint>
+      <datasheet>http://www.fairchildsemi.com/ds/MO/MOC3020M.pdf</datasheet>
+      <libsource lib="Relay_SolidState" part="MOC3021M" description="Random Phase Opto-Triac, Vdrm 400V, Ift 15mA, DIP6"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F759D7C</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>100E</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F76C623</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>BT136-500</value>
+      <footprint>Custom_Libraries:GN27120BN</footprint>
+      <datasheet>http://www.micropik.com/PDF/BT136-600.pdf</datasheet>
+      <libsource lib="Triac_Thyristor" part="BT136-500" description="4A RMS, 500V Off-State Voltage, Triac, TO-220"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F77F666</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>470E</value>
+      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F787825</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>Screw_Terminal_01x02</value>
+      <footprint>TerminalBlocks_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5F97D0BF</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>2.2uf</value>
+      <footprint>Capacitors_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FB031C3</tstamp>
+    </comp>
+    <comp ref="PS1">
+      <value>HLK-PM01</value>
+      <footprint>Custom_Libraries:277</footprint>
+      <datasheet>http://www.hlktech.net/product_detail.php?ProId=54</datasheet>
+      <libsource lib="RAC20-05SK_277" part="RAC20-05SK_277" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F8ACFB</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_01x06_Female</value>
+      <footprint>Pin_Headers:PinHeader_1x06_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Conn_01x06_Female" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6111B526</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>5K</value>
+      <footprint>Resistors_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>614E1714</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>5K</value>
+      <footprint>Resistors_SMD:R_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>614E2D98</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>ACS712-20</value>
+      <footprint>Custom_Libraries:ACS712_20</footprint>
+      <fields>
+        <field name="MANUFACTURER">Allegro microsystems</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">1.75mm</field>
+        <field name="PARTREV">19</field>
+        <field name="STANDARD">IPC-7351B</field>
+      </fields>
+      <libsource lib="ACS712_20" part="ACS712-20" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6194FE73</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>1nf</value>
+      <footprint>Capacitors_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61970715</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100nf</value>
+      <footprint>Capacitors_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6197312A</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="ACS712_20" part="ACS712-20">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ACS712-20</field>
+        <field name="Footprint">SOIC127P600X175-8N</field>
+        <field name="MANUFACTURER">Allegro microsystems</field>
+        <field name="STANDARD">IPC-7351B</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">1.75mm</field>
+        <field name="PARTREV">19</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IP+" type="input"/>
+        <pin num="2" name="IP+" type="input"/>
+        <pin num="3" name="IP-" type="input"/>
+        <pin num="4" name="IP-" type="input"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="FILTER" type="passive"/>
+        <pin num="7" name="VIOUT" type="output"/>
+        <pin num="8" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x06_Female">
+      <description>Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x06_Female</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Zener">
+      <description>Zener diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Fuse_Small">
+      <description>Fuse, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SM*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Isolator" part="4N25">
+      <aliases>
+        <alias>4N26</alias>
+        <alias>TIL111</alias>
+        <alias>4N27</alias>
+        <alias>4N28</alias>
+        <alias>4N35</alias>
+        <alias>4N36</alias>
+        <alias>4N37</alias>
+      </aliases>
+      <description>DC Optocoupler Base Connected, Vce 30V, CTR 20%, Viso 2500V, DIP6</description>
+      <docs>https://www.vishay.com/docs/83725/4n25.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">4N25</field>
+        <field name="Footprint">Package_DIP:DIP-6_W7.62mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="NC" type="NotConnected"/>
+        <pin num="4" name="~" type="passive"/>
+        <pin num="5" name="~" type="passive"/>
+        <pin num="6" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="RAC20-05SK_277" part="RAC20-05SK_277">
+      <fields>
+        <field name="Reference">PS</field>
+        <field name="Value">RAC20-05SK_277</field>
+        <field name="Footprint">CONV_RAC20-05SK/277</field>
+        <field name="MAXIMUM_PACKAGE_HEIGHT">23.0mm</field>
+        <field name="MANUFACTURER">RECOM</field>
+        <field name="PARTREV">4</field>
+        <field name="STANDARD">Manufacturer Recommendations</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VAC_IN(N)" type="input"/>
+        <pin num="2" name="VAC_IN(L)" type="input"/>
+        <pin num="4" name="-VOUT" type="output"/>
+        <pin num="5" name="+VOUT" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Regulator_Linear" part="AP2204K-1.5">
+      <aliases>
+        <alias>AP2204K-1.8</alias>
+        <alias>AP2204K-2.5</alias>
+        <alias>AP2204K-2.8</alias>
+        <alias>AP2204K-3.0</alias>
+        <alias>AP2204K-3.3</alias>
+        <alias>AP2204K-5.0</alias>
+        <alias>AP2127K-1.0</alias>
+        <alias>AP2127K-1.2</alias>
+        <alias>AP2127K-1.5</alias>
+        <alias>AP2127K-1.8</alias>
+        <alias>AP2127K-2.5</alias>
+        <alias>AP2127K-2.8</alias>
+        <alias>AP2127K-3.0</alias>
+        <alias>AP2127K-3.3</alias>
+        <alias>AP2127K-4.2</alias>
+        <alias>AP2127K-4.75</alias>
+        <alias>AP2112K-1.2</alias>
+        <alias>AP2112K-1.8</alias>
+        <alias>AP2112K-2.5</alias>
+        <alias>AP2112K-2.6</alias>
+        <alias>AP2112K-3.3</alias>
+      </aliases>
+      <description>150mA low dropout linear regulator, wide input voltage range, 1.5V fixed positive output, SOT-23-5</description>
+      <docs>https://www.diodes.com/assets/Datasheets/AP2204.pdf</docs>
+      <footprints>
+        <fp>SOT?23?5*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">AP2204K-1.5</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="NC" type="NotConnected"/>
+        <pin num="5" name="VOUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Relay_SolidState" part="MOC3010M">
+      <aliases>
+        <alias>MOC3011M</alias>
+        <alias>MOC3012M</alias>
+        <alias>MOC3020M</alias>
+        <alias>MOC3021M</alias>
+        <alias>MOC3022M</alias>
+        <alias>MOC3023M</alias>
+        <alias>MOC3051M</alias>
+        <alias>MOC3052M</alias>
+      </aliases>
+      <description>Random Phase Opto-Triac, Vdrm 250V, Ift 15mA, DIP6</description>
+      <docs>https://www.onsemi.com/pub/Collateral/MOC3023M-D.PDF</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>SMDIP*W9.53mm*</fp>
+        <fp>DIP*W10.16mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MOC3010M</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="NC" type="NotConnected"/>
+        <pin num="4" name="~" type="passive"/>
+        <pin num="5" name="NC" type="NotConnected"/>
+        <pin num="6" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Triac_Thyristor" part="TIC226">
+      <aliases>
+        <alias>TIC206</alias>
+        <alias>BT138-600</alias>
+        <alias>BT138-800</alias>
+        <alias>TIC216</alias>
+        <alias>BT136-500</alias>
+        <alias>BT136-600</alias>
+        <alias>BT136-800</alias>
+        <alias>BT139-600</alias>
+        <alias>BTA16-600B</alias>
+        <alias>BTA16-600BW</alias>
+        <alias>BTA16-600C</alias>
+        <alias>BTA16-600CW</alias>
+        <alias>BTA16-600SW</alias>
+        <alias>BTA16-800B</alias>
+        <alias>BTA16-800BW</alias>
+        <alias>BTA16-800C</alias>
+        <alias>BTA16-800CW</alias>
+        <alias>BTA16-800SW</alias>
+        <alias>BTB16-600B</alias>
+        <alias>BTB16-600BW</alias>
+        <alias>BTB16-600C</alias>
+        <alias>BTB16-600CW</alias>
+        <alias>BTB16-600SW</alias>
+        <alias>BTB16-800B</alias>
+        <alias>BTB16-800BW</alias>
+        <alias>BTB16-800C</alias>
+        <alias>BTB16-800CW</alias>
+        <alias>BTB16-800SW</alias>
+      </aliases>
+      <description>8A RMS, 400-800V Off-State Voltage, Triac, TO-220</description>
+      <docs>http://pdf.datasheetcatalog.com/datasheet/PowerInnovations/mXuqxvy.pdf</docs>
+      <footprints>
+        <fp>TO?220*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">TIC226</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-220-3_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A1" type="passive"/>
+        <pin num="2" name="A2" type="passive"/>
+        <pin num="3" name="G" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="ACS712_20">
+      <uri>/home/sarbjeet/github/IoT/Designs/PCB/KiCad/Custom_Libraries/ACS712-20.lib</uri>
+    </library>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/library/Connector.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="Isolator">
+      <uri>/usr/share/kicad/library/Isolator.lib</uri>
+    </library>
+    <library logical="RAC20-05SK_277">
+      <uri>/home/sarbjeet/github/IoT/Designs/PCB/KiCad/Custom_Libraries/RAC20-05SK_277.lib</uri>
+    </library>
+    <library logical="Regulator_Linear">
+      <uri>/usr/share/kicad/library/Regulator_Linear.lib</uri>
+    </library>
+    <library logical="Relay_SolidState">
+      <uri>/usr/share/kicad/library/Relay_SolidState.lib</uri>
+    </library>
+    <library logical="Triac_Thyristor">
+      <uri>/usr/share/kicad/library/Triac_Thyristor.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/Mains_Live_In">
+      <node ref="F1" pin="1"/>
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="2" name="/Mains_Neutral">
+      <node ref="R1" pin="2"/>
+      <node ref="PS1" pin="1"/>
+      <node ref="J2" pin="1"/>
+      <node ref="J5" pin="2"/>
+    </net>
+    <net code="3" name="/Mains_Live_Out">
+      <node ref="U5" pin="6"/>
+      <node ref="D2" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="U2" pin="2"/>
+      <node ref="U2" pin="1"/>
+      <node ref="Q1" pin="2"/>
+      <node ref="PS1" pin="2"/>
+    </net>
+    <net code="4" name="/5V">
+      <node ref="J3" pin="5"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U2" pin="8"/>
+      <node ref="U4" pin="1"/>
+      <node ref="U4" pin="3"/>
+      <node ref="PS1" pin="5"/>
+    </net>
+    <net code="5" name="/GND">
+      <node ref="U4" pin="2"/>
+      <node ref="J3" pin="6"/>
+      <node ref="R3" pin="1"/>
+      <node ref="U3" pin="4"/>
+      <node ref="U2" pin="5"/>
+      <node ref="C7" pin="1"/>
+      <node ref="C2" pin="1"/>
+      <node ref="C1" pin="2"/>
+      <node ref="PS1" pin="4"/>
+    </net>
+    <net code="6" name="Net-(Q1-Pad3)">
+      <node ref="Q1" pin="3"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="7" name="Net-(R7-Pad2)">
+      <node ref="U5" pin="4"/>
+      <node ref="R7" pin="2"/>
+    </net>
+    <net code="8" name="/Out1">
+      <node ref="J5" pin="1"/>
+      <node ref="Q1" pin="1"/>
+    </net>
+    <net code="9" name="Net-(C2-Pad2)">
+      <node ref="U2" pin="6"/>
+      <node ref="C2" pin="2"/>
+    </net>
+    <net code="10" name="/Energy_frmSensor">
+      <node ref="U2" pin="7"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="11" name="/Opto_In">
+      <node ref="U3" pin="5"/>
+      <node ref="J3" pin="3"/>
+    </net>
+    <net code="12" name="/Energy_toStm">
+      <node ref="R4" pin="1"/>
+      <node ref="R3" pin="2"/>
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="13" name="Net-(U3-Pad6)">
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="14" name="Net-(D2-Pad2)">
+      <node ref="R1" pin="1"/>
+      <node ref="D2" pin="2"/>
+      <node ref="U3" pin="2"/>
+    </net>
+    <net code="15" name="Net-(U3-Pad3)">
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="16" name="Net-(F1-Pad2)">
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="4"/>
+      <node ref="F1" pin="2"/>
+    </net>
+    <net code="17" name="Net-(U4-Pad4)">
+      <node ref="U4" pin="4"/>
+    </net>
+    <net code="18" name="Net-(U5-Pad5)">
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="19" name="/DSW1">
+      <node ref="U5" pin="2"/>
+      <node ref="J3" pin="1"/>
+    </net>
+    <net code="20" name="Net-(U5-Pad3)">
+      <node ref="U5" pin="3"/>
+    </net>
+    <net code="21" name="Net-(R2-Pad1)">
+      <node ref="R2" pin="1"/>
+      <node ref="U5" pin="1"/>
+    </net>
+    <net code="22" name="/3.3V">
+      <node ref="C7" pin="2"/>
+      <node ref="J3" pin="4"/>
+      <node ref="R2" pin="2"/>
+      <node ref="U4" pin="5"/>
+    </net>
+  </nets>
+</export>

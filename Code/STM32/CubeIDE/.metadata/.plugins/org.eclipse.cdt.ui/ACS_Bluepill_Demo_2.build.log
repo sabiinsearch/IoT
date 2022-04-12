@@ -1,0 +1,10 @@
+23:06:54 **** Incremental Build of configuration Debug for project ACS_Bluepill_Demo_2 ****
+make -j4 all 
+arm-none-eabi-size   ACS_Bluepill_Demo_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8204	     24	   1632	   9860	   2684	ACS_Bluepill_Demo_2.elf
+Finished building: default.size.stdout
+ 
+
+23:06:55 Build Finished. 0 errors, 0 warnings. (took 796ms)
+

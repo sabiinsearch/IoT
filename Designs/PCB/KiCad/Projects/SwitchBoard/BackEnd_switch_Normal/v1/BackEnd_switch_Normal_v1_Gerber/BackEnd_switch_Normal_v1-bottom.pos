@@ -1,0 +1,21 @@
+### Module positions - created on Sat Nov 20 10:26:37 2021 ###
+### Printed by Pcbnew version pcbnew 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val          Package                                           PosX       PosY       Rot  Side
+C1        100nf        C_0805_2012Metric_Pad1.18x1.45mm_HandSolder   133.8500  -121.4090    0.0000  bottom
+C2        1nf          C_0805_2012Metric_Pad1.18x1.45mm_HandSolder   133.8100  -129.8830    0.0000  bottom
+C7        2.2uf        C_0805_2012Metric_Pad1.18x1.45mm_HandSolder   133.3040   -99.5553  180.0000  bottom
+D2        IN14007      D_0805                                        138.9080  -131.3920  180.0000  bottom
+Q2        BT136-500    BT136S                                        142.8800  -120.9750  270.0000  bottom
+R1        220K         R_0805_HandSoldering                          127.8460   -99.6696  180.0000  bottom
+R2        100E         R_0805_2012Metric                             121.5540  -102.0800  180.0000  bottom
+R3        5K           R_0805_2012Metric                             119.3250  -110.4240    0.0000  bottom
+R4        5K           R_0805_2012Metric                             119.3110  -108.0240    0.0000  bottom
+R5        470E         R_0805_2012Metric                             139.8930  -126.8570   90.0000  bottom
+R6        100E         R_0805_2012Metric                             119.2760  -113.0100  180.0000  bottom
+R7        470E         R_0805_2012Metric                             138.9130  -133.5810    0.0000  bottom
+U1        MOC3021      OPTOCOUPLER_SMD                               132.0770  -115.3520    0.0000  bottom
+U3        4N35         DIP-6_W8.89mm_SMDSocket_LongPads              133.2790  -105.8270  180.0000  bottom
+U4        AP2112K-3.3  SOT-23-5_HandSoldering                        122.0880  -116.4840  180.0000  bottom
+## End

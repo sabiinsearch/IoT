@@ -1,0 +1,15 @@
+Reference, Quantity, Value, Footprint, Datasheet
+C7 ,1,2.2uf,Capacitors_SMD:C_0805_HandSoldering,~
+D2 ,1,IN4148,Diodes_SMD:D_0805,~
+F1 ,1,Fuse_Small,Fuse_Holders_and_Fuses:Fuse_TE5_Littlefuse-395Series,~
+J2 J5 ,2,Screw_Terminal_01x02,TerminalBlocks_Phoenix:TerminalBlock_Phoenix_MKDS1.5-2pol,~
+J3 ,1,Conn_01x06_Female,Pin_Headers:PinHeader_1x06_P2.54mm_Vertical,~
+PS1 ,1,HLK-PM01,Custom_Libraries:277,http://www.hlktech.net/product_detail.php?ProId=54
+Q1 ,1,BT136-500,Custom_Libraries:GN27120BN,http://www.micropik.com/PDF/BT136-600.pdf
+R1 ,1,220K,Resistors_SMD:R_0805_HandSoldering,~
+R2 ,1,100E,Resistors_SMD:R_0805_HandSoldering,~
+R7 ,1,470E,Resistors_SMD:R_0805_HandSoldering,~
+U2 ,1,ACS712,Custom_Libraries:ACS712,
+U3 ,1,4N35,Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads,https://www.vishay.com/docs/81181/4n35.pdf
+U4 ,1,AP2112K-3.3,TO_SOT_Packages_SMD:SOT-23-5_HandSoldering,https://www.diodes.com/assets/Datasheets/AP2112.pdf
+U5 ,1,MOC3021,Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads,http://www.fairchildsemi.com/ds/MO/MOC3020M.pdf

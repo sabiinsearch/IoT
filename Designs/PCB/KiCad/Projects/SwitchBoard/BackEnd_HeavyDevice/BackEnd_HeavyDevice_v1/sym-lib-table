@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name BackEnd_HeavyDevice_v1-rescue)(type Legacy)(uri ${KIPRJMOD}/BackEnd_HeavyDevice_v1-rescue.lib)(options "")(descr ""))
+)

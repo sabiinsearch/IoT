@@ -1,0 +1,32 @@
+#include "stm32wb55xx.h"
+
+
+
+#define GPIOB_EN 			(1U<<1)
+#define GPIOD_EN 			(1U<<3)
+
+
+int main(void) {
+
+// Enable clock
+   RCC->AHB2ENR |= GPIOB_EN;
+   RCC->AHB2ENR |= GPIOD_EN;
+
+// Set PB5 as output
+   GPIOB->MODER |= (1U<<10);
+   GPIOB->MODER &=~(1U<<11);
+
+//set PD0 as input
+   GPIOD->MODER &=~(1U<<0);
+   GPIOD->MODER &=~(1U<<1);
+
+	while(1) {
+		if(GPIOD->IDR & ~(1U<<0)) {
+//			GPIOB->ODR ^= (1U<<5);
+			GPIOB->BSRR = (1U<<5);
+		}
+		else {
+			GPIOB->BSRR &=~(1U<<5);
+		}
+	}
+}

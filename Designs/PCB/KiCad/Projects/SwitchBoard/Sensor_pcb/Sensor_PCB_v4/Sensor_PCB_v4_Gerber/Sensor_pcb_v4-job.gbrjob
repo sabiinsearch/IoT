@@ -5,9 +5,9 @@
     {
       "Vendor":      "KiCad",
       "Application": "Pcbnew",
-      "Version":     "5.1.6-c6e7f7d~87~ubuntu18.04.1"
+      "Version":     "5.1.7-a382d34a8~88~ubuntu18.04.1"
     },
-    "CreationDate":  "2021-04-09T16:44:34+05:30"
+    "CreationDate":  "2021-05-18T13:12:31+05:30"
   },
   "GeneralSpecs":
   {
@@ -40,57 +40,57 @@
   "FilesAttributes":
   [
     {
-      "Path":  "Sensor_pcb_v4-F_Cu.gbr",
+      "Path":  "Sensor_pcb_v4-F_Cu.gtl",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-B_Cu.gbr",
+      "Path":  "Sensor_pcb_v4-B_Cu.gbl",
       "FileFunction":  "Copper,L2,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-F_Adhes.gbr",
+      "Path":  "Sensor_pcb_v4-F_Adhes.gta",
       "FileFunction":  "Glue,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-B_Adhes.gbr",
+      "Path":  "Sensor_pcb_v4-B_Adhes.gba",
       "FileFunction":  "Glue,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-F_Paste.gbr",
+      "Path":  "Sensor_pcb_v4-F_Paste.gtp",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-B_Paste.gbr",
+      "Path":  "Sensor_pcb_v4-B_Paste.gbp",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-F_SilkS.gbr",
+      "Path":  "Sensor_pcb_v4-F_SilkS.gto",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-B_SilkS.gbr",
+      "Path":  "Sensor_pcb_v4-B_SilkS.gbo",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Sensor_pcb_v4-F_Mask.gbr",
+      "Path":  "Sensor_pcb_v4-F_Mask.gts",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Sensor_pcb_v4-B_Mask.gbr",
+      "Path":  "Sensor_pcb_v4-B_Mask.gbs",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Sensor_pcb_v4-Edge_Cuts.gbr",
+      "Path":  "Sensor_pcb_v4-Edge_Cuts.gm1",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     },

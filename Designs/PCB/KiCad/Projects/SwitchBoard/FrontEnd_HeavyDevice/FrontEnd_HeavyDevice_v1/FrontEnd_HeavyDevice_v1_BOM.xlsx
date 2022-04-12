@@ -1,0 +1,20 @@
+Ref,Value,Footprint
+"AE1, ",Antenna,Custom_Libraries:Anntenna
+"C1, C2, C8, ",100 nf,Capacitors_SMD:C_0805
+"C3, ",1.0uf,Capacitors_SMD:C_0805
+"C4, C5, ",10pf,Capacitors_SMD:C_0805
+"C6, C7, ",20pf,Capacitors_SMD:C_0805
+"C9, ",10uf,Capacitors_SMD:C_0805
+"D1, D2, D3, ",LED,Diodes_SMD:D_0805
+"J1, ",Conn_01x06_Female,Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm
+"J2, ",Conn_01x06_Female,Pin_Headers:PinHeader_1x06_P2.54mm_Vertical
+"R1, R3, R4, ",510 R,Resistors_SMD:R_0805
+"R2, ",10K,Resistors_SMD:R_0805
+"SW1, ",SW_Push,Buttons_Switches_SMD:SW_DIP_x1_W7.62mm_Slide_Copal_CHS-B
+"T1, ",Touch_Pad,Custom_Libraries:Touch_Pad
+"U1, ",APK2112.K-3.3,TO_SOT_Packages_SMD:SOT-23-5
+"U2, ",STM32,Custom_Libraries:STM32(LQFP48)
+"U3, ",LoRa,Custom_Libraries:LoRa
+"U4, ",TTP223,TO_SOT_Packages_SMD:SOT-23-6
+"Y1, ",32.768K,Crystals:Crystal_HC49-4H_Vertical
+"Y2, ",32Mhz,Crystals:Crystal_HC49-4H_Vertical

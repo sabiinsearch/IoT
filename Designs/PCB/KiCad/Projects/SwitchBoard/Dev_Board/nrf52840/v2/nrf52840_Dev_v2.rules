@@ -1,0 +1,123 @@
+
+(rules PCB nrf52840_Dev_v2
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 11)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 100.0)
+    (clear 100.2)
+    (clear 50.0 (type smd_to_turn_gap))
+    (clear 200.2 (type default_forAntenna))
+    (clear 25.0 (type smd_smd))
+    (clear 200.2 (type smd_forAntenna))
+    (clear 200.2 (type "kicad_default"_forAntenna))
+    (clear 200.2 (type forAntenna_forAntenna))
+  )
+  (padstack "Via[0-1]_400:300_um"
+    (shape
+      (circle F.Cu 400.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 400.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_700:400_um"
+    (shape
+      (circle F.Cu 700.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 700.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_400:300_um" "Via[0-1]_400:300_um" default
+  )
+  (via 
+    "Via[0-1]_700:400_um" "Via[0-1]_700:400_um" default
+  )
+  (via 
+    "Via[0-1]_400:300_um-kicad_default" "Via[0-1]_400:300_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_700:400_um-kicad_default" "Via[0-1]_700:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_400:300_um-forAntenna" "Via[0-1]_400:300_um" forAntenna
+  )
+  (via 
+    "Via[0-1]_700:400_um-forAntenna" "Via[0-1]_700:400_um" forAntenna
+  )
+  (via_rule
+    default "Via[0-1]_400:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_400:300_um-kicad_default"
+  )
+  (via_rule
+    forAntenna "Via[0-1]_700:400_um-forAntenna"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 100.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /5V "Net-(C8-Pad1)" /SWDIO /SWCLK "Net-(U1-Pad4)" /3V3 /B7 /XL1
+    /XL2 "Net-(C6-Pad1)" "Net-(C7-Pad1)" "Net-(C9-Pad1)" "Net-(C12-Pad2)" /xyl1 /xyl2 /Reset
+    /D+ "/D-" "Net-(U2-PadAB2)" "Net-(U2-PadA18)" "Net-(U2-PadN24)" "Net-(U2-PadE24)" "Net-(AE2-Pad3)" "Net-(AE2-Pad4)"
+    "Net-(AE2-Pad5)" "Net-(AE2-Pad6)" "Net-(U2-PadAC21)" "Net-(U2-PadAC19)" "Net-(U2-PadAC17)" "Net-(U2-PadAC15)" "Net-(U2-PadAC11)" "Net-(U2-PadAC9)"
+    "Net-(U2-PadAD22)" "Net-(U2-PadAD20)" "Net-(U2-PadAD18)" "Net-(U2-PadAD16)" "Net-(U2-PadAD12)" "Net-(U2-PadAD10)" "Net-(U2-PadAD8)" "Net-(U2-PadT2)"
+    "Net-(U2-PadP2)" "Net-(U2-PadM2)" "Net-(U2-PadK2)" "Net-(U2-PadU1)" "Net-(U2-PadR1)" "Net-(U2-PadN1)" "Net-(U2-PadL1)" "Net-(U2-PadJ1)"
+    "Net-(U2-PadH2)" "Net-(U2-PadG1)" "Net-(U2-PadB19)" "Net-(U2-PadB17)" "Net-(U2-PadB15)" "Net-(U2-PadB13)" "Net-(U2-PadB11)" "Net-(U2-PadB9)"
+    "Net-(U2-PadB3)" "Net-(U2-PadA20)" "Net-(U2-PadA16)" "Net-(U2-PadA14)" "Net-(U2-PadA12)" "Net-(U2-PadA10)" "Net-(U2-PadY23)" "Net-(U2-PadW24)"
+    "Net-(U2-PadV23)" "Net-(U2-PadU24)" "Net-(U2-PadT23)" "Net-(U2-PadR24)" "Net-(U2-PadP23)" "Net-(U2-PadL24)" "Net-(U2-PadJ24)" "Net-(U2-PadA8)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 100.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class forAntenna
+    /RF
+    (clearance_class forAntenna)
+    (via_rule forAntenna)
+    (rule
+      (width 800.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

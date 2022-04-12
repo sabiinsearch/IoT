@@ -1,0 +1,5 @@
+#include "stm32wb55xx.h"
+
+
+
+#define GPIOB_EN 				(1U<<1)

@@ -1,0 +1,6 @@
+server.c:35:9:otServerGetNetDataLocal	32	static
+server.c:54:9:otServerAddService	24	static
+server.c:71:9:otServerRemoveService	32	static
+server.c:93:9:otServerGetNextService	32	static
+server.c:111:9:otServerGetNextLeaderService	32	static
+server.c:129:9:otServerRegister	24	static

@@ -1,0 +1,87 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# AP2112K-3.3-Regulator_Linear-Sensor_PCB_v5-rescue
+#
+DEF AP2112K-3.3-Regulator_Linear-Sensor_PCB_v5-rescue U 0 10 Y Y 1 F N
+F0 "U" -200 225 50 H V L CNN
+F1 "AP2112K-3.3-Regulator_Linear-Sensor_PCB_v5-rescue" 0 225 50 H V L CNN
+F2 "Package_TO_SOT_SMD:SOT-23-5" 0 325 50 H I C CNN
+F3 "" 0 100 50 H I C CNN
+$FPLIST
+ SOT?23?5*
+$ENDFPLIST
+DRAW
+S -200 175 200 -200 0 1 10 f
+X VIN 1 -300 100 100 R 50 50 1 1 I
+X GND 2 0 -300 100 U 50 50 1 1 I
+X EN 3 -300 0 100 R 50 50 1 1 I
+X NC 4 300 0 100 L 50 50 1 1 N N
+X VOUT 5 300 100 100 L 50 50 1 1 O
+ENDDRAW
+ENDDEF
+#
+# Antenna-Device-Sensor_PCB_v5-rescue
+#
+DEF Antenna-Device-Sensor_PCB_v5-rescue AE 0 40 N N 1 F N
+F0 "AE" -75 75 50 H V R CNN
+F1 "Antenna-Device-Sensor_PCB_v5-rescue" -75 0 50 H V R CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 0 1 10 0 100 0 -150 N
+P 3 0 1 10 50 100 0 -100 -50 100 N
+X A 1 0 -200 100 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# BL8530-Power_Management-Sensor_PCB_v5-rescue
+#
+DEF BL8530-Power_Management-Sensor_PCB_v5-rescue U 0 10 Y Y 1 F N
+F0 "U" -150 125 50 H V C CNN
+F1 "BL8530-Power_Management-Sensor_PCB_v5-rescue" 0 125 50 H V L CNN
+F2 "" 25 -150 50 H I L CIN
+F3 "" 0 -50 50 H I C CNN
+$FPLIST
+ TO?252*
+ TO?263*
+ TO?220*
+$ENDFPLIST
+DRAW
+S -200 75 200 -200 0 1 10 f
+X GND 1 0 -300 100 U 50 50 1 1 P
+X OUT 2 300 0 100 L 50 50 1 1 P
+X LX 3 -300 0 100 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# BME_280-Sensor_Humidity-Sensor_PCB_v5-rescue
+#
+DEF BME_280-Sensor_Humidity-Sensor_PCB_v5-rescue U 0 40 Y Y 1 F N
+F0 "U" 300 500 50 H V C CNN
+F1 "BME_280-Sensor_Humidity-Sensor_PCB_v5-rescue" -100 -300 50 H V C CNN
+F2 "" 0 100 50 H I C CNN
+F3 "" 0 100 50 H I C CNN
+DRAW
+S -300 400 300 -400 0 1 0 N
+X VSS 1 500 300 200 L 50 50 1 1 I
+X GND 2 500 100 200 L 50 50 1 1 P
+X SCL 3 500 -100 200 L 50 50 1 1 I
+X SDA 4 500 -300 200 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# GND-power-Sensor_PCB_v5-rescue
+#
+DEF GND-power-Sensor_PCB_v5-rescue #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -250 50 H I C CNN
+F1 "GND-power-Sensor_PCB_v5-rescue" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
+X GND 1 0 0 0 D 50 50 1 1 I N
+ENDDRAW
+ENDDEF
+#
+#End Library

@@ -1,0 +1,973 @@
+(pcb /home/sarbjeet/github/IoT/Designs/PCB/KiCad/Projects/SwitchBoard/Dev_Board/nrf52840/nrf52840_dev_board_v1/nrf52840_Dev_v1_2.dsn
+  (parser
+    (string_quote ")
+    (space_in_quoted_tokens on)
+    (host_cad "KiCad's Pcbnew")
+    (host_version "5.1.7-a382d34a8~88~ubuntu18.04.1")
+  )
+  (resolution um 10)
+  (unit um)
+  (structure
+    (layer F.Cu
+      (type signal)
+      (property
+        (index 0)
+      )
+    )
+    (layer B.Cu
+      (type signal)
+      (property
+        (index 1)
+      )
+    )
+    (boundary
+      (path pcb 0  132770 -99517.7  62899.6 -99517.7  62899.6 -48662.5  132770 -48662.5
+            132770 -99517.7)
+    )
+    (via "Via[0-1]_700:400_um")
+    (rule
+      (width 200)
+      (clearance 150.1)
+      (clearance 150.1 (type default_smd))
+      (clearance 37.5 (type smd_smd))
+    )
+  )
+  (placement
+    (component Custom_Libraries:logo_hukam_technologies
+      (place G*** 105900 -55300 front 0 (PN LOGO))
+    )
+    (component "Custom_Libraries:usb_mini_TE_1734328-1"
+      (place J3 89800 -85550 front 0 (PN "1734328-1"))
+    )
+    (component Custom_Libraries:XTAL320X150X90
+      (place Y2 97700 -70300 front 270 (PN "ABS07-32.768KHZ-7-1-T"))
+    )
+    (component "Custom_Libraries:XTAL_ABM7-32.000MHZ-D2Y-T"
+      (place Y1 110750 -65750 front 180 (PN "ABM7-32.000MHZ-D2Y-T"))
+    )
+    (component "Custom_Libraries:NRF52840-QIAA-R"
+      (place U2 105950 -72750 front 0 (PN nRF52840))
+    )
+    (component Inductors_SMD:L_0805_2012Metric
+      (place L3 100350 -65700 front 90 (PN 15nH))
+      (place L2 102950 -65650 front 270 (PN 10nH))
+      (place L1 114600 -70400 front 270 (PN 3.3nH))
+    )
+    (component Capacitors_SMD:C_0805_2012Metric
+      (place C14 98700 -74450 front 0 (PN 12pf))
+      (place C13 97450 -65550 front 270 (PN 12pf))
+      (place C12 100350 -61300 front 270 (PN 100nf))
+      (place C11 99000 -77100 front 180 (PN 4.7uf))
+      (place C10 105350 -65650 front 270 (PN 100nf))
+      (place C9 103800 -79500 front 0 (PN 4.7uf))
+      (place C8 112000 -69700 front 270 (PN 100nf))
+      (place C7 100000 -69500 front 90 (PN 100nf))
+      (place C6 112600 -73350 front 0 (PN 0.8pf))
+      (place C5 112650 -61250 front 270 (PN 12pf))
+      (place C4 102800 -82800 front 0 (PN 100nf))
+      (place C3 116300 -51100 front 180 (PN 0.5pf))
+      (place C2 109700 -61350 front 270 (PN 12pf))
+      (place C1 99000 -79600 front 0 (PN 100nf))
+    )
+    (component Pin_Headers:PinHeader_1x01_P2.54mm_Vertical
+      (place AE1 124900 -51100 front 0 (PN Antenna))
+    )
+    (component Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm
+      (place J2 101112 -87215.6 front 90 (PN Conn_01x05_Female))
+    )
+    (component "TO_SOT_Packages_SMD:SOT-23-5"
+      (place U1 97900 -82700 front 0 (PN "AP2112K-3.3"))
+    )
+    (component Pin_Headers:PinHeader_1x12_P2.54mm_Vertical
+      (place J1 118400 -60100 front 0 (PN Conn_01x12_Female))
+      (place J6 88500 -51750 front 0 (PN Conn_01x12_Female))
+    )
+    (component Pin_Headers:PinHeader_1x12_P2.54mm_Vertical::1
+      (place J4 92800 -51750 front 0 (PN Conn_01x12_Female))
+      (place J5 122725 -60025 front 0 (PN Conn_01x12_Female))
+    )
+  )
+  (library
+    (image Custom_Libraries:logo_hukam_technologies
+    )
+    (image "Custom_Libraries:usb_mini_TE_1734328-1"
+      (outline (path signal 50  -5750 1500  5750 1500))
+      (outline (path signal 50  5750 1500  5750 -8750))
+      (outline (path signal 50  5750 -8750  -5750 -8750))
+      (outline (path signal 50  -5750 -8750  -5750 1500))
+      (outline (path signal 200  -1500 200  -1550 113.397  -1650 113.397  -1700 200  -1650 286.603
+            -1550 286.603  -1500 200))
+      (outline (path signal 200  -1500 1700  -1550 1613.4  -1650 1613.4  -1700 1700  -1650 1786.6
+            -1550 1786.6  -1500 1700))
+      (outline (path signal 127  -3850 800  3850 800))
+      (outline (path signal 127  3850 800  3850 -8400))
+      (outline (path signal 127  3850 -8400  -3850 -8400))
+      (outline (path signal 127  -3850 -8400  -3850 800))
+      (outline (path signal 127  -3250 800  -2000 800))
+      (outline (path signal 127  -3850 -1500  -3850 -4000))
+      (outline (path signal 127  -3850 -8400  3850 -8400))
+      (outline (path signal 127  3850 -1500  3850 -4000))
+      (outline (path signal 127  2050 800  3350 800))
+      (outline (path signal 127  -5750 -7750  5750 -7750))
+      (pin Rect[T]Pad_2000x2500_um 8 4450 -5500)
+      (pin Rect[T]Pad_2000x2500_um 7 -4450 -5500)
+      (pin Rect[T]Pad_2000x2500_um 9 4450 0)
+      (pin Rect[T]Pad_2000x2500_um 6 -4450 0)
+      (pin Rect[T]Pad_2300x500_um (rotate 90) 5 1600 100)
+      (pin Rect[T]Pad_2300x500_um (rotate 90) 4 800 100)
+      (pin Rect[T]Pad_2300x500_um (rotate 90) 3 0 100)
+      (pin Rect[T]Pad_2300x500_um (rotate 90) 2 -800 100)
+      (pin Rect[T]Pad_2300x500_um (rotate 90) 1 -1600 100)
+      (keepout "" (circle F.Cu 900 2200 -2500))
+      (keepout "" (circle B.Cu 900 2200 -2500))
+      (keepout "" (circle F.Cu 900 -2200 -2500))
+      (keepout "" (circle B.Cu 900 -2200 -2500))
+    )
+    (image Custom_Libraries:XTAL320X150X90
+      (outline (path signal 127  -1600.2 749.3  1600.2 749.3))
+      (outline (path signal 127  1600.2 749.3  1600.2 -749.3))
+      (outline (path signal 127  1600.2 -749.3  -1600.2 -749.3))
+      (outline (path signal 127  -1600.2 -749.3  -1600.2 749.3))
+      (pin Rect[T]Pad_1092.2x1905_um 2 1219.2 0)
+      (pin Rect[T]Pad_1092.2x1905_um 1 -1219.2 0)
+    )
+    (image "Custom_Libraries:XTAL_ABM7-32.000MHZ-D2Y-T"
+      (outline (path signal 127  -3000 1750  3000 1750))
+      (outline (path signal 127  3000 1750  3000 -1750))
+      (outline (path signal 127  3000 -1750  -3000 -1750))
+      (outline (path signal 127  -3000 -1750  -3000 1750))
+      (outline (path signal 127  -3000 1750  3000 1750))
+      (outline (path signal 127  3000 -1750  -3000 -1750))
+      (outline (path signal 50  -3350 2000  3350 2000))
+      (outline (path signal 50  3350 2000  3350 -2000))
+      (outline (path signal 50  3350 -2000  -3350 -2000))
+      (outline (path signal 50  -3350 -2000  -3350 2000))
+      (pin Rect[T]Pad_1900x2600_um 2 2150 0)
+      (pin Rect[T]Pad_1900x2600_um 1 -2150 0)
+    )
+    (image "Custom_Libraries:NRF52840-QIAA-R"
+      (outline (path signal 200  -4345 2743.2  -4395 2656.6  -4495 2656.6  -4545 2743.2
+            -4495 2829.8  -4395 2829.8  -4345 2743.2))
+      (outline (path signal 127  -3500 3500  3500 3500))
+      (outline (path signal 127  3500 3500  3500 -3500))
+      (outline (path signal 127  3500 -3500  -3500 -3500))
+      (outline (path signal 127  -3500 -3500  -3500 3500))
+      (outline (path signal 127  -3500 3100  -3500 3500))
+      (outline (path signal 127  -3500 3500  -1950 3500))
+      (outline (path signal 127  3150 3500  3500 3500))
+      (outline (path signal 127  3500 3500  3500 3200))
+      (outline (path signal 127  3500 -3150  3500 -3500))
+      (outline (path signal 127  3500 -3500  3150 -3500))
+      (outline (path signal 127  -3150 -3500  -3500 -3500))
+      (outline (path signal 127  -3500 -3500  -3500 -2150))
+      (outline (path signal 200  -4345 2743.2  -4395 2656.6  -4495 2656.6  -4545 2743.2
+            -4495 2829.8  -4395 2829.8  -4345 2743.2))
+      (outline (path signal 50  -4500 4500  -4500 -4500))
+      (outline (path signal 50  -4500 -4500  4500 -4500))
+      (outline (path signal 50  4500 -4500  4500 4500))
+      (outline (path signal 50  4500 4500  -4500 4500))
+      (pin Round[A]Pad_600_um 74_16 1800 -1800)
+      (pin Round[A]Pad_600_um 74_15 600 -1800)
+      (pin Round[A]Pad_600_um 74_14 -600 -1800)
+      (pin Round[A]Pad_600_um 74_13 -1800 -1800)
+      (pin Round[A]Pad_600_um 74_12 1800 -600)
+      (pin Round[A]Pad_600_um 74_11 600 -600)
+      (pin Round[A]Pad_600_um 74_10 -600 -600)
+      (pin Round[A]Pad_600_um 74_9 -1800 -600)
+      (pin Round[A]Pad_600_um 74_8 1800 600)
+      (pin Round[A]Pad_600_um 74_7 600 600)
+      (pin Round[A]Pad_600_um 74_6 -600 600)
+      (pin Round[A]Pad_600_um 74_5 -1800 600)
+      (pin Round[A]Pad_600_um 74_4 1800 1800)
+      (pin Round[A]Pad_600_um 74_3 600 1800)
+      (pin Round[A]Pad_600_um 74_2 -600 1800)
+      (pin Round[A]Pad_600_um 74_1 -1800 1800)
+      (pin Round[T]Pad_275_um AC21 2000 -2750)
+      (pin Round[T]Pad_275_um AC19 1500 -2750)
+      (pin Round[T]Pad_275_um AC17 1000 -2750)
+      (pin Round[T]Pad_275_um AC15 500 -2750)
+      (pin Round[T]Pad_275_um AC13 0 -2750)
+      (pin Round[T]Pad_275_um AC11 -500 -2750)
+      (pin Round[T]Pad_275_um AC9 -1000 -2750)
+      (pin Round[T]Pad_275_um AD23 2750 -3250)
+      (pin Round[T]Pad_275_um AD22 2250 -3250)
+      (pin Round[T]Pad_275_um AD20 1750 -3250)
+      (pin Round[T]Pad_275_um AD18 1250 -3250)
+      (pin Round[T]Pad_275_um AD16 750 -3250)
+      (pin Round[T]Pad_275_um AD14 250 -3250)
+      (pin Round[T]Pad_275_um AD12 -250 -3250)
+      (pin Round[T]Pad_275_um AD10 -750 -3250)
+      (pin Round[T]Pad_275_um AD8 -1250 -3250)
+      (pin Round[T]Pad_275_um AD6 -1750 -3250)
+      (pin Round[T]Pad_275_um AC5 -2000 -2750)
+      (pin Round[T]Pad_275_um AD4 -2250 -3250)
+      (pin Round[T]Pad_275_um AD2 -2750 -3250)
+      (pin Round[T]Pad_275_um AB2 -2750 -2500)
+      (pin Round[T]Pad_275_um Y2 -2750 -2000)
+      (pin Round[T]Pad_275_um W1 -3250 -1750)
+      (pin Round[T]Pad_275_um T2 -2750 -1000)
+      (pin Round[T]Pad_275_um P2 -2750 -500)
+      (pin Round[T]Pad_275_um M2 -2750 0)
+      (pin Round[T]Pad_275_um K2 -2750 500)
+      (pin Round[T]Pad_275_um U1 -3250 -1250)
+      (pin Round[T]Pad_275_um R1 -3250 -750)
+      (pin Round[T]Pad_275_um N1 -3250 -250)
+      (pin Round[T]Pad_275_um L1 -3250 250)
+      (pin Round[T]Pad_275_um J1 -3250 750)
+      (pin Round[T]Pad_275_um H2 -2750 1000)
+      (pin Round[T]Pad_275_um G1 -3250 1250)
+      (pin Round[T]Pad_275_um F2 -2750 1500)
+      (pin Round[T]Pad_275_um D2 -2750 2000)
+      (pin Round[T]Pad_275_um C1 -3250 2250)
+      (pin Round[T]Pad_275_um B24 3250 2750)
+      (pin Round[T]Pad_275_um B19 1500 2750)
+      (pin Round[T]Pad_275_um B17 1000 2750)
+      (pin Round[T]Pad_275_um B15 500 2750)
+      (pin Round[T]Pad_275_um B13 0 2750)
+      (pin Round[T]Pad_275_um B11 -500 2750)
+      (pin Round[T]Pad_275_um B9 -1000 2750)
+      (pin Round[T]Pad_275_um B7 -1500 2750)
+      (pin Round[T]Pad_275_um B5 -2000 2750)
+      (pin Round[T]Pad_275_um B3 -2500 2750)
+      (pin Round[T]Pad_275_um A23 2750 3250)
+      (pin Round[T]Pad_275_um A22 2250 3250)
+      (pin Round[T]Pad_275_um A20 1750 3250)
+      (pin Round[T]Pad_275_um A18 1250 3250)
+      (pin Round[T]Pad_275_um A16 750 3250)
+      (pin Round[T]Pad_275_um A14 250 3250)
+      (pin Round[T]Pad_275_um A12 -250 3250)
+      (pin Round[T]Pad_275_um A10 -750 3250)
+      (pin Round[T]Pad_275_um Y23 2750 -2000)
+      (pin Round[T]Pad_275_um W24 3250 -1750)
+      (pin Round[T]Pad_275_um V23 2750 -1500)
+      (pin Round[T]Pad_275_um U24 3250 -1250)
+      (pin Round[T]Pad_275_um T23 2750 -1000)
+      (pin Round[T]Pad_275_um R24 3250 -750)
+      (pin Round[T]Pad_275_um P23 2750 -500)
+      (pin Round[T]Pad_275_um N24 3250 -250)
+      (pin Round[T]Pad_275_um L24 3250 250)
+      (pin Round[T]Pad_275_um J24 3250 750)
+      (pin Round[T]Pad_275_um H23 2750 1000)
+      (pin Round[T]Pad_275_um F23 2750 1500)
+      (pin Round[T]Pad_275_um E24 3250 1750)
+      (pin Round[T]Pad_275_um D23 2750 2000)
+      (pin Round[T]Pad_275_um B1 -3250 2750)
+      (pin Round[T]Pad_275_um AC24 3250 -2750)
+      (pin Round[T]Pad_275_um AA24 3250 -2250)
+      (pin Round[T]Pad_275_um A8 -1250 3250)
+      (pin Rect[T]Pad_4850x4850_um 74 0 0)
+    )
+    (image Inductors_SMD:L_0805_2012Metric
+      (outline (path signal 100  -1000 -450  -1000 450))
+      (outline (path signal 100  -1000 450  1000 450))
+      (outline (path signal 100  1000 450  1000 -450))
+      (outline (path signal 100  1000 -450  -1000 -450))
+      (outline (path signal 120  -399.622 560  399.622 560))
+      (outline (path signal 120  -399.622 -560  399.622 -560))
+      (outline (path signal 50  -1750 -850  -1750 850))
+      (outline (path signal 50  -1750 850  1750 850))
+      (outline (path signal 50  1750 850  1750 -850))
+      (outline (path signal 50  1750 -850  -1750 -850))
+      (pin RoundRect[T]Pad_875x1200_219.582_um 2 1062.5 0)
+      (pin RoundRect[T]Pad_875x1200_219.582_um 1 -1062.5 0)
+    )
+    (image Capacitors_SMD:C_0805_2012Metric
+      (outline (path signal 100  -1000 -625  -1000 625))
+      (outline (path signal 100  -1000 625  1000 625))
+      (outline (path signal 100  1000 625  1000 -625))
+      (outline (path signal 100  1000 -625  -1000 -625))
+      (outline (path signal 120  -261.252 735  261.252 735))
+      (outline (path signal 120  -261.252 -735  261.252 -735))
+      (outline (path signal 50  -1700 -980  -1700 980))
+      (outline (path signal 50  -1700 980  1700 980))
+      (outline (path signal 50  1700 980  1700 -980))
+      (outline (path signal 50  1700 -980  -1700 -980))
+      (pin RoundRect[T]Pad_1000x1450_250.951_um 2 950 0)
+      (pin RoundRect[T]Pad_1000x1450_250.951_um 1 -950 0)
+    )
+    (image Pin_Headers:PinHeader_1x01_P2.54mm_Vertical
+      (outline (path signal 100  -635 1270  1270 1270))
+      (outline (path signal 100  1270 1270  1270 -1270))
+      (outline (path signal 100  1270 -1270  -1270 -1270))
+      (outline (path signal 100  -1270 -1270  -1270 635))
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 120  -1330 -1330  1330 -1330))
+      (outline (path signal 120  -1330 -1270  -1330 -1330))
+      (outline (path signal 120  1330 -1270  1330 -1330))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 50  -1800 1800  -1800 -1800))
+      (outline (path signal 50  -1800 -1800  1800 -1800))
+      (outline (path signal 50  1800 -1800  1800 1800))
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    )
+    (image Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm
+      (outline (path signal 100  -635 1270  1270 1270))
+      (outline (path signal 100  1270 1270  1270 -11430))
+      (outline (path signal 100  1270 -11430  -1270 -11430))
+      (outline (path signal 100  -1270 -11430  -1270 635))
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 120  -1330 -11490  1330 -11490))
+      (outline (path signal 120  -1330 -1270  -1330 -11490))
+      (outline (path signal 120  1330 -1270  1330 -11490))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 50  -1800 1800  -1800 -11950))
+      (outline (path signal 50  -1800 -11950  1800 -11950))
+      (outline (path signal 50  1800 -11950  1800 1800))
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    )
+    (image "TO_SOT_Packages_SMD:SOT-23-5"
+      (outline (path signal 120  -900 -1610  900 -1610))
+      (outline (path signal 120  900 1610  -1550 1610))
+      (outline (path signal 50  -1900 1800  1900 1800))
+      (outline (path signal 50  1900 1800  1900 -1800))
+      (outline (path signal 50  1900 -1800  -1900 -1800))
+      (outline (path signal 50  -1900 -1800  -1900 1800))
+      (outline (path signal 100  -900 900  -250 1550))
+      (outline (path signal 100  900 1550  -250 1550))
+      (outline (path signal 100  -900 900  -900 -1550))
+      (outline (path signal 100  900 -1550  -900 -1550))
+      (outline (path signal 100  900 1550  900 -1550))
+      (pin Rect[T]Pad_1060x650_um 5 1100 950)
+      (pin Rect[T]Pad_1060x650_um 4 1100 -950)
+      (pin Rect[T]Pad_1060x650_um 3 -1100 -950)
+      (pin Rect[T]Pad_1060x650_um 2 -1100 0)
+      (pin Rect[T]Pad_1060x650_um 1 -1100 950)
+    )
+    (image Pin_Headers:PinHeader_1x12_P2.54mm_Vertical
+      (outline (path signal 100  -635 1270  1270 1270))
+      (outline (path signal 100  1270 1270  1270 -29210))
+      (outline (path signal 100  1270 -29210  -1270 -29210))
+      (outline (path signal 100  -1270 -29210  -1270 635))
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 120  -1330 -29270  1330 -29270))
+      (outline (path signal 120  -1330 -1270  -1330 -29270))
+      (outline (path signal 120  1330 -1270  1330 -29270))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 50  -1800 1800  -1800 -29750))
+      (outline (path signal 50  -1800 -29750  1800 -29750))
+      (outline (path signal 50  1800 -29750  1800 1800))
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (pin Oval[A]Pad_1700x1700_um 12 0 -27940)
+      (pin Oval[A]Pad_1700x1700_um 11 0 -25400)
+      (pin Oval[A]Pad_1700x1700_um 10 0 -22860)
+      (pin Oval[A]Pad_1700x1700_um 9 0 -20320)
+      (pin Oval[A]Pad_1700x1700_um 8 0 -17780)
+      (pin Oval[A]Pad_1700x1700_um 7 0 -15240)
+      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    )
+    (image Pin_Headers:PinHeader_1x12_P2.54mm_Vertical::1
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (outline (path signal 50  1800 -29750  1800 1800))
+      (outline (path signal 50  -1800 -29750  1800 -29750))
+      (outline (path signal 50  -1800 1800  -1800 -29750))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  1330 -1270  1330 -29270))
+      (outline (path signal 120  -1330 -1270  -1330 -29270))
+      (outline (path signal 120  -1330 -29270  1330 -29270))
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 100  -1270 -29210  -1270 635))
+      (outline (path signal 100  1270 -29210  -1270 -29210))
+      (outline (path signal 100  1270 1270  1270 -29210))
+      (outline (path signal 100  -635 1270  1270 1270))
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
+      (pin Oval[A]Pad_1700x1700_um 7 0 -15240)
+      (pin Oval[A]Pad_1700x1700_um 8 0 -17780)
+      (pin Oval[A]Pad_1700x1700_um 9 0 -20320)
+      (pin Oval[A]Pad_1700x1700_um 10 0 -22860)
+      (pin Oval[A]Pad_1700x1700_um 11 0 -25400)
+      (pin Oval[A]Pad_1700x1700_um 12 0 -27940)
+    )
+    (padstack Round[T]Pad_275_um
+      (shape (circle F.Cu 275))
+      (attach off)
+    )
+    (padstack Round[A]Pad_600_um
+      (shape (circle F.Cu 600))
+      (shape (circle B.Cu 600))
+      (attach off)
+    )
+    (padstack Oval[A]Pad_1700x1700_um
+      (shape (path F.Cu 1700  0 0  0 0))
+      (shape (path B.Cu 1700  0 0  0 0))
+      (attach off)
+    )
+    (padstack RoundRect[T]Pad_875x1200_219.582_um
+      (shape (polygon F.Cu 0  256.88 597.496  293.851 587.59  328.541 571.414  359.895 549.46
+            386.96 522.395  408.914 491.041  425.09 456.351  434.996 419.38
+            438.332 381.25  438.332 -381.25  434.996 -419.38  425.09 -456.351
+            408.914 -491.041  386.96 -522.395  359.895 -549.46  328.541 -571.414
+            293.851 -587.59  256.88 -597.496  218.75 -600.832  -218.75 -600.832
+            -256.88 -597.496  -293.851 -587.59  -328.541 -571.414  -359.895 -549.46
+            -386.96 -522.395  -408.914 -491.041  -425.09 -456.351  -434.996 -419.38
+            -438.332 -381.25  -438.332 381.25  -434.996 419.38  -425.09 456.351
+            -408.914 491.041  -386.96 522.395  -359.895 549.46  -328.541 571.414
+            -293.851 587.59  -256.88 597.496  -218.75 600.832  218.75 600.832
+            256.88 597.496))
+      (attach off)
+    )
+    (padstack RoundRect[T]Pad_1000x1450_250.951_um
+      (shape (polygon F.Cu 0  293.577 722.138  335.83 710.817  375.475 692.33  411.308 667.24
+            442.24 636.308  467.33 600.476  485.817 560.83  497.138 518.577
+            500.951 475  500.951 -475  497.138 -518.577  485.817 -560.83
+            467.33 -600.475  442.24 -636.308  411.308 -667.24  375.476 -692.33
+            335.83 -710.817  293.577 -722.138  250 -725.951  -250 -725.951
+            -293.577 -722.138  -335.83 -710.817  -375.475 -692.33  -411.308 -667.24
+            -442.24 -636.308  -467.33 -600.476  -485.817 -560.83  -497.138 -518.577
+            -500.951 -475  -500.951 475  -497.138 518.577  -485.817 560.83
+            -467.33 600.475  -442.24 636.308  -411.308 667.24  -375.476 692.33
+            -335.83 710.817  -293.577 722.138  -250 725.951  250 725.951
+            293.577 722.138))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_2000x2500_um
+      (shape (rect F.Cu -1000 -1250 1000 1250))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_2300x500_um
+      (shape (rect F.Cu -1150 -250 1150 250))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_4850x4850_um
+      (shape (rect F.Cu -2425 -2425 2425 2425))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_1060x650_um
+      (shape (rect F.Cu -530 -325 530 325))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_1092.2x1905_um
+      (shape (rect F.Cu -546.1 -952.5 546.1 952.5))
+      (attach off)
+    )
+    (padstack Rect[A]Pad_1700x1700_um
+      (shape (rect F.Cu -850 -850 850 850))
+      (shape (rect B.Cu -850 -850 850 850))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_1900x2600_um
+      (shape (rect F.Cu -950 -1300 950 1300))
+      (attach off)
+    )
+    (padstack "Via[0-1]_700:400_um"
+      (shape (circle F.Cu 700))
+      (shape (circle B.Cu 700))
+      (attach off)
+    )
+  )
+  (network
+    (net /5V
+      (pins J3-1 C1-1 U1-3 U1-1)
+    )
+    (net "Net-(C8-Pad1)"
+      (pins U2-D23 C8-1)
+    )
+    (net /SWDIO
+      (pins U2-AC24)
+    )
+    (net /SWCLK
+      (pins U2-AA24 J2-3)
+    )
+    (net "Net-(U1-Pad4)"
+      (pins U1-4)
+    )
+    (net /3V3
+      (pins U2-AD23 U2-AD14 U2-AD2 U2-Y2 U2-W1 U2-A22 U2-B1 C11-1 C10-1 C4-1 J2-1
+        U1-5 J6-1)
+    )
+    (net /RF
+      (pins L1-1 C3-1 AE1-1)
+    )
+    (net /B7
+      (pins J3-8 J3-7 J3-9 J3-6 J3-5 J3-4 U2-B7 U2-F23 C14-1 C13-1 C12-1 C11-2 C10-2
+        C9-2 C8-2 C7-2 C6-2 C5-1 C4-2 C3-2 C2-1 C1-2 J2-2 U1-2 J6-3 J6-2)
+    )
+    (net /XL1
+      (pins Y1-1 U2-B24 C2-2)
+    )
+    (net /XL2
+      (pins Y1-2 U2-A23 C5-2)
+    )
+    (net "Net-(C6-Pad1)"
+      (pins U2-H23 L1-2 C6-1)
+    )
+    (net "Net-(C7-Pad1)"
+      (pins U2-C1 C7-1)
+    )
+    (net "Net-(C9-Pad1)"
+      (pins U2-AC5 C9-1)
+    )
+    (net "Net-(C12-Pad2)"
+      (pins U2-B5 L3-2 C12-2)
+    )
+    (net /xyl1
+      (pins Y2-1 U2-D2 C13-2)
+    )
+    (net /xyl2
+      (pins Y2-2 U2-F2 C14-2)
+    )
+    (net /Reset
+      (pins U2-AC13 J2-5)
+    )
+    (net /P0.02
+      (pins U2-A12 J4-12)
+    )
+    (net /P0.03
+      (pins U2-B13 J4-11)
+    )
+    (net /P0.04
+      (pins U2-J1 J4-10)
+    )
+    (net /P0.05
+      (pins U2-K2 J4-9)
+    )
+    (net /P0.06
+      (pins U2-L1 J4-8)
+    )
+    (net /P0.07
+      (pins U2-M2 J4-7)
+    )
+    (net /P0.08
+      (pins U2-N1 J4-6)
+    )
+    (net /P0.09
+      (pins U2-L24 J4-5)
+    )
+    (net /P0.10
+      (pins U2-J24 J4-4)
+    )
+    (net /P0.11
+      (pins U2-T2 J4-3)
+    )
+    (net /P0.12
+      (pins U2-U1 J4-2)
+    )
+    (net /P0.13
+      (pins U2-AD8 J4-1)
+    )
+    (net /P0.14
+      (pins U2-AC9 J1-12)
+    )
+    (net /P0.15
+      (pins U2-AD10 J1-11)
+    )
+    (net /P0.16
+      (pins U2-AC11 J1-10)
+    )
+    (net /P0.17
+      (pins U2-AD12 J1-9)
+    )
+    (net /P0.19
+      (pins U2-AC15 J1-8)
+    )
+    (net /P0.20
+      (pins U2-AD16 J1-7)
+    )
+    (net /P0.21
+      (pins U2-AC17 J1-6)
+    )
+    (net /P0.22
+      (pins U2-AD18 J1-5)
+    )
+    (net /P0.23
+      (pins U2-AC19 J1-4)
+    )
+    (net /P0.24
+      (pins U2-AD20 J1-3)
+    )
+    (net /P0.25
+      (pins U2-AC21 J1-2)
+    )
+    (net /P0.26
+      (pins U2-G1 J1-1)
+    )
+    (net /P0.27
+      (pins U2-H2 J5-12)
+    )
+    (net /P0.28
+      (pins U2-B11 J5-11)
+    )
+    (net /P0.29
+      (pins U2-A10 J5-10)
+    )
+    (net /P0.30
+      (pins U2-B9 J5-9)
+    )
+    (net /P0.31
+      (pins U2-A8 J5-8)
+    )
+    (net /P1.00
+      (pins U2-AD22 J5-7)
+    )
+    (net /P1.01
+      (pins U2-Y23 J5-6)
+    )
+    (net /P1.02
+      (pins U2-W24 J5-5)
+    )
+    (net /P1.03
+      (pins U2-V23 J5-4)
+    )
+    (net /P1.04
+      (pins U2-U24 J5-3)
+    )
+    (net /P1.05
+      (pins U2-T23 J5-2)
+    )
+    (net /P1.06
+      (pins U2-R24 J5-1)
+    )
+    (net /P1.07
+      (pins U2-P23 J6-12)
+    )
+    (net /P1.08
+      (pins U2-P2 J6-11)
+    )
+    (net /P1.09
+      (pins U2-R1 J6-10)
+    )
+    (net /P1.10
+      (pins U2-A20 J6-9)
+    )
+    (net /P1.11
+      (pins U2-B19 J6-8)
+    )
+    (net /P1.12
+      (pins U2-B17 J6-7)
+    )
+    (net /P1.13
+      (pins U2-A16 J6-6)
+    )
+    (net /P1.14
+      (pins U2-B15 J6-5)
+    )
+    (net /P1.15
+      (pins U2-A14 J6-4)
+    )
+    (net "Net-(L2-Pad2)"
+      (pins U2-B3 L2-2)
+    )
+    (net "Net-(L2-Pad1)"
+      (pins L3-1 L2-1)
+    )
+    (net /D+
+      (pins J3-3 U2-AD6)
+    )
+    (net "/D-"
+      (pins J3-2 U2-AD4)
+    )
+    (net "Net-(U2-PadAB2)"
+      (pins U2-AB2)
+    )
+    (net "Net-(U2-PadA18)"
+      (pins U2-A18)
+    )
+    (net "Net-(U2-PadN24)"
+      (pins U2-N24)
+    )
+    (net "Net-(U2-PadE24)"
+      (pins U2-E24)
+    )
+    (net /SWIO
+      (pins J2-4)
+    )
+    (class kicad_default "" /3V3 /5V /B7 /D+ "/D-" /P0.02 /P0.03 /P0.04 /P0.05
+      /P0.06 /P0.07 /P0.08 /P0.09 /P0.10 /P0.11 /P0.12 /P0.13 /P0.14 /P0.15
+      /P0.16 /P0.17 /P0.19 /P0.20 /P0.21 /P0.22 /P0.23 /P0.24 /P0.25 /P0.26
+      /P0.27 /P0.28 /P0.29 /P0.30 /P0.31 /P1.00 /P1.01 /P1.02 /P1.03 /P1.04
+      /P1.05 /P1.06 /P1.07 /P1.08 /P1.09 /P1.10 /P1.11 /P1.12 /P1.13 /P1.14
+      /P1.15 /Reset /SWCLK /SWDIO /SWIO /XL1 /XL2 /xyl1 /xyl2 "Net-(C12-Pad2)"
+      "Net-(C6-Pad1)" "Net-(C7-Pad1)" "Net-(C8-Pad1)" "Net-(C9-Pad1)" "Net-(L2-Pad1)"
+      "Net-(L2-Pad2)" "Net-(U1-Pad4)" "Net-(U2-PadA18)" "Net-(U2-PadAB2)"
+      "Net-(U2-PadE24)" "Net-(U2-PadN24)"
+      (circuit
+        (use_via Via[0-1]_700:400_um)
+      )
+      (rule
+        (width 200)
+        (clearance 150.1)
+      )
+    )
+    (class forAntenna /RF
+      (circuit
+        (use_via Via[0-1]_700:400_um)
+      )
+      (rule
+        (width 800)
+        (clearance 200.1)
+      )
+    )
+  )
+  (wiring
+    (wire (path F.Cu 200  88200 -85450  88200 -86850.3)(net /5V)(type protect))
+    (wire (path F.Cu 200  97190.2 -83650  97190.2 -85268  95396.4 -87061.8  88411.5 -87061.8
+            88200 -86850.3)(net /5V)(type protect))
+    (wire (path F.Cu 200  97190.2 -83650  97580.3 -83650)(net /5V)(type protect))
+    (wire (path F.Cu 200  96800 -83650  97190.2 -83650)(net /5V)(type protect))
+    (wire (path F.Cu 200  97190.2 -81750  96800 -81750)(net /5V)(type protect))
+    (wire (path F.Cu 200  97190.2 -81750  97580.3 -81750)(net /5V)(type protect))
+    (wire (path F.Cu 200  97580.3 -83650  97580.3 -81750  97580.3 -80069.7  98050 -79600)(net /5V)(type protect))
+    (wire (path F.Cu 200  112000 -68750  111128 -68750  109298 -70579.9  108870 -70579.9
+            108700 -70750)(net "Net-(C8-Pad1)")(type protect))
+    (wire (path F.Cu 200  109200 -75000  109401 -75000  110191 -75789.4)(net /SWCLK)(type protect))
+    (wire (path B.Cu 200  106192 -87215.6  106192 -79788.1  110191 -75789.4)(net /SWCLK)(type protect))
+    (wire (path B.Cu 200  89425.1 -53071  91850.3 -50645.8  93751.1 -50645.8  104418 -61313.2
+            104418 -63398.6  104698 -63678)(net /3V3)(type protect))
+    (wire (path F.Cu 200  108200 -69500  108200 -67976.5  105350 -65126.5  105350 -64700)(net /3V3)(type protect))
+    (wire (path F.Cu 200  104698 -63678  105350 -64330.1  105350 -64700)(net /3V3)(type protect))
+    (wire (path B.Cu 200  91694 -68419.9  89950.6 -66676.5  89950.6 -53596.5  89425.1 -53071)(net /3V3)(type protect))
+    (wire (path F.Cu 200  108700 -76000  109102 -76401.7  113755 -76401.7  116464 -73693.4
+            116652 -73693.4  117208 -73136.6  117208 -72431.9  118083 -71557.3
+            123138 -71557.3  123842 -72261.3  123842 -75768.9  123076 -76535
+            118162 -76535  116807 -77890.4)(net /3V3)(type protect))
+    (wire (path F.Cu 200  106200 -76000  106200 -76067.9  108525 -78392.9  115238 -78392.9
+            115588 -78042.6  116573 -78042.6  116725 -77890.4  116806 -77890.4
+            116807 -77890.4  118066 -79150  118709 -79150  119542 -79983.2
+            119542 -85914.3  118784 -86672  113909 -86672  105740 -78502.7
+            100701 -78502.7)(net /3V3)(type protect))
+    (wire (path B.Cu 200  89425.1 -53071  88720.7 -53071  88500 -52850.3)(net /3V3)(type protect))
+    (wire (path F.Cu 200  102700 -70000  102375 -69674.7  99061.9 -69674.7  98837.4 -69899.2
+            96230.5 -69899.2)(net /3V3)(type protect))
+    (wire (path B.Cu 200  97241.9 -79958.4  101112 -83828.5  101112 -87215.6)(net /3V3)(type protect))
+    (wire (path B.Cu 200  91694 -68419.9  91694 -75079.9  92561.6 -75947.5  93231 -75947.5
+            97241.9 -79958.4  101628 -75572.3)(net /3V3)(type protect))
+    (wire (path F.Cu 200  102772 -75572.3  101628 -75572.3)(net /3V3)(type protect))
+    (wire (path F.Cu 200  102772 -75572.3  102772 -75101.8  103124 -74750  103200 -74750)(net /3V3)(type protect))
+    (wire (path F.Cu 200  103200 -76000  102772 -75572.3)(net /3V3)(type protect))
+    (wire (path B.Cu 200  91694 -68419.9  94751.2 -68419.9  96230.5 -69899.2)(net /3V3)(type protect))
+    (wire (path F.Cu 200  100701 -78502.7  100701 -77851.4  99950 -77100)(net /3V3)(type protect))
+    (wire (path F.Cu 200  99780.3 -81750  100701 -80828.9  100701 -78502.7)(net /3V3)(type protect))
+    (wire (path B.Cu 200  88500 -51750  88500 -52850.3)(net /3V3)(type protect))
+    (wire (path F.Cu 200  102700 -74500  102950 -74500  103200 -74750)(net /3V3)(type protect))
+    (wire (path F.Cu 200  99780.3 -81750  100830 -82800  101112 -82800  101850 -82800)(net /3V3)(type protect))
+    (wire (path F.Cu 200  101112 -87215.6  101112 -82800)(net /3V3)(type protect))
+    (wire (path F.Cu 200  99000 -81750  99780.3 -81750)(net /3V3)(type protect))
+    (wire (path F.Cu 800  117250 -51100  117250 -55025  114242 -58033.4  114242 -62762.5
+            114600 -63120.9  114600 -69337.5)(net /RF)(type protect))
+    (wire (path F.Cu 800  124900 -51100  117250 -51100)(net /RF)(type protect))
+    (wire (path F.Cu 200  112000 -70650  111745 -70394.6  110760 -70394.6)(net /B7)(type protect))
+    (wire (path F.Cu 200  104450 -70000  104450 -69843.6  104125 -69518.7  104125 -68320.3
+            105350 -67095.4  105350 -66600)(net /B7)(type protect))
+    (wire (path F.Cu 200  104098 -60400  104098 -65347.6  105350 -66600)(net /B7)(type protect))
+    (wire (path B.Cu 200  112050 -73077.9  112050 -71685  110760 -70394.6)(net /B7)(type protect))
+    (wire (path F.Cu 200  109700 -60400  104098 -60400  100865 -60400)(net /B7)(type protect))
+    (wire (path B.Cu 200  103652 -86115.3  103652 -81475.8  112050 -73077.9)(net /B7)(type protect))
+    (wire (path F.Cu 200  100350 -60350  97930.3 -57930.3  90700.6 -57930.3  89600.3 -56830)(net /B7)(type protect))
+    (wire (path B.Cu 200  112050 -73077.9  114577 -73077.9)(net /B7)(type protect))
+    (wire (path F.Cu 200  114577 -73077.9  114305 -73350  113550 -73350)(net /B7)(type protect))
+    (wire (path F.Cu 200  88157.6 -75903.2  87385.7 -75131.4  87385.7 -74109  88036 -73458.7
+            89249.8 -73458.7  92078.1 -70630.4  93301.3 -70630.4  94684.3 -69247.4
+            94684.3 -67779.9  96530.2 -65934  96530.2 -65519.8  97450 -64600)(net /B7)(type protect))
+    (wire (path F.Cu 200  88157.6 -75903.2  85350 -78710.8  85350 -85550)(net /B7)(type protect))
+    (wire (path F.Cu 200  97750 -74450  96489.7 -75710.3  88350.5 -75710.3  88157.6 -75903.2)(net /B7)(type protect))
+    (wire (path F.Cu 200  100865 -60400  100678 -60400  97450 -63628.4  97450 -64600
+            98902.9 -66052.9  98902.9 -67452.9  100000 -68550)(net /B7)(type protect))
+    (wire (path F.Cu 200  100865 -60400  100400 -60400  100350 -60350)(net /B7)(type protect))
+    (wire (path B.Cu 200  103652 -87215.6  103652 -86115.3)(net /B7)(type protect))
+    (wire (path F.Cu 200  94250 -91050  95500.3 -91050)(net /B7)(type protect))
+    (wire (path F.Cu 200  98534.7 -86765.3  100122 -88352.8  102096 -88352.8  103652 -86797.1
+            103652 -86556.7)(net /B7)(type protect))
+    (wire (path F.Cu 200  99950 -79600  99855.6 -79600  98206.9 -81248.7  98206.9 -86437.6
+            98534.7 -86765.3  95500.3 -89799.7  95500.3 -91050)(net /B7)(type protect))
+    (wire (path F.Cu 200  99950 -79600  98267.6 -77917.5)(net /B7)(type protect))
+    (wire (path F.Cu 200  103750 -82800  104750 -81800  104750 -79500)(net /B7)(type protect))
+    (wire (path F.Cu 200  94250 -91050  85350 -91050)(net /B7)(type protect))
+    (wire (path F.Cu 200  85350 -85550  85350 -91050)(net /B7)(type protect))
+    (wire (path F.Cu 200  98267.6 -77917.5  98267.6 -77317.6  98050 -77100)(net /B7)(type protect))
+    (wire (path F.Cu 200  96019.7 -82700  96019.7 -80165.4  98267.6 -77917.5)(net /B7)(type protect))
+    (wire (path F.Cu 200  96107.3 -82700  96019.7 -82700)(net /B7)(type protect))
+    (wire (path F.Cu 200  96800 -82700  96107.3 -82700)(net /B7)(type protect))
+    (wire (path F.Cu 200  94250 -85550  92999.7 -85550)(net /B7)(type protect))
+    (wire (path F.Cu 200  91400 -84750  92199.7 -84750  92999.7 -85550)(net /B7)(type protect))
+    (wire (path F.Cu 200  91400 -84750  91400 -84049.7)(net /B7)(type protect))
+    (wire (path F.Cu 200  91400 -85450  91400 -84750)(net /B7)(type protect))
+    (wire (path F.Cu 200  90600 -85450  90600 -84049.7  91400 -84049.7)(net /B7)(type protect))
+    (wire (path F.Cu 200  103652 -86556.7  103652 -87215.6)(net /B7)(type protect))
+    (wire (path F.Cu 200  103750 -82800  103652 -82898  103652 -86556.7)(net /B7)(type protect))
+    (wire (path F.Cu 200  112650 -60300  112550 -60400  109700 -60400)(net /B7)(type protect))
+    (wire (path F.Cu 200  115350 -51100  112650 -53800  112650 -60300)(net /B7)(type protect))
+    (wire (path F.Cu 200  94250 -85550  95500.3 -85550)(net /B7)(type protect))
+    (wire (path F.Cu 200  96019.7 -82700  96019.7 -85030.6  95500.3 -85550)(net /B7)(type protect))
+    (wire (path F.Cu 200  88500 -56830  89600.3 -56830)(net /B7)(type protect))
+    (wire (path B.Cu 200  88500 -54290  88500 -56830)(net /B7)(type protect))
+    (wire (path F.Cu 200  112300 -65750  109200 -68849.9  109200 -70000)(net /XL1)(type protect))
+    (wire (path F.Cu 200  112300 -65750  111700 -65750)(net /XL1)(type protect))
+    (wire (path F.Cu 200  112900 -65750  112300 -65750)(net /XL1)(type protect))
+    (wire (path F.Cu 200  109700 -62300  109700 -63750.3  111700 -65750)(net /XL1)(type protect))
+    (wire (path F.Cu 200  108600 -64199.7  108600 -61957.4  109056 -61501.8  111952 -61501.8
+            112650 -62200)(net /XL2)(type protect))
+    (wire (path F.Cu 200  108700 -69500  108700 -67400.3  108600 -67300.3)(net /XL2)(type protect))
+    (wire (path F.Cu 200  108600 -65750  108600 -67300.3)(net /XL2)(type protect))
+    (wire (path F.Cu 200  108600 -64974.8  108600 -65750)(net /XL2)(type protect))
+    (wire (path F.Cu 200  108600 -64974.8  108600 -64199.7)(net /XL2)(type protect))
+    (wire (path F.Cu 200  111650 -71515.1  111650 -73350)(net "Net-(C6-Pad1)")(type protect))
+    (wire (path F.Cu 200  114600 -71462.5  111703 -71462.5  111650 -71515.1  110707 -71515.1
+            110583 -71391.3  109162 -71391.3  108804 -71750  108700 -71750)(net "Net-(C6-Pad1)")(type protect))
+    (wire (path F.Cu 200  100000 -70450  102650 -70450  102700 -70500)(net "Net-(C7-Pad1)")(type protect))
+    (wire (path F.Cu 200  100350 -64637.5  99483.5 -65504  99483.5 -67193.4  99789.2 -67499.1
+            100900 -67499.1  102428 -65970.9  103516 -65970.9  103862 -66317.8
+            103862 -67840  103734 -67967.9  103734 -69655  103950 -69870.5
+            103950 -70000)(net "Net-(C12-Pad2)")(type protect))
+    (wire (path F.Cu 200  100350 -62250  100350 -64637.5)(net "Net-(C12-Pad2)")(type protect))
+    (wire (path F.Cu 200  97450 -66500  97700 -66750  97700 -69080.8)(net /xyl1)(type protect))
+    (wire (path F.Cu 200  97700 -71519.2  98902.8 -71519.2  99220.6 -71201.4  100822 -71201.4
+            100978 -71045.7  102909 -71045.7  103113 -71250  103200 -71250)(net /xyl2)(type protect))
+    (wire (path F.Cu 200  97700 -71547  97700 -71519.2)(net /xyl2)(type protect))
+    (wire (path F.Cu 200  97700 -71547  97700 -72315.6  97700 -72448.7  99650 -74398.7
+            99650 -74450)(net /xyl2)(type protect))
+    (wire (path F.Cu 200  99647 -72000  99893.3 -72246.3  101476 -72246.3  101722 -72000
+            102700 -72000)(net /P0.04)(type protect))
+    (wire (path B.Cu 200  92800 -73509.7  98595 -73509.7  99647 -72457.7  99647 -72000)(net /P0.04)(type protect))
+    (wire (path B.Cu 200  92800 -74610  92800 -73509.7)(net /P0.04)(type protect))
+    (wire (path B.Cu 200  92800 -69530  93900.3 -69530)(net /P0.06)(type protect))
+    (wire (path B.Cu 200  98677.9 -72577.8  96948.1 -72577.8  93900.3 -69530)(net /P0.06)(type protect))
+    (wire (path F.Cu 200  102700 -72500  102600 -72600.4  98700.5 -72600.4  98677.9 -72577.8)(net /P0.06)(type protect))
+    (wire (path B.Cu 200  92800 -64450  93900.3 -64450)(net /P0.08)(type protect))
+    (wire (path F.Cu 200  100230 -73212.2  100442 -73000  102700 -73000)(net /P0.08)(type protect))
+    (wire (path B.Cu 200  93900.3 -64450  100247 -70797.1  100247 -73194.8  100230 -73212.2)(net /P0.08)(type protect))
+    (wire (path B.Cu 200  93900.3 -61910  102844 -70854.2  102844 -76044.6  104453 -77653.3
+            106047 -77653.3  110286 -73414.4  110286 -73191.7)(net /P0.09)(type protect))
+    (wire (path B.Cu 200  92800 -61910  93900.3 -61910)(net /P0.09)(type protect))
+    (wire (path F.Cu 200  110286 -73191.7  110046 -73191.7  109354 -72500  109200 -72500)(net /P0.09)(type protect))
+    (wire (path B.Cu 200  92800 -60470.3  92962.8 -60470.3  103195 -70702.3  103195 -75855
+            104613 -77273.5  105869 -77273.5  108909 -74234  108909 -72934.5
+            109843 -72000)(net /P0.10)(type protect))
+    (wire (path F.Cu 200  109200 -72000  109843 -72000)(net /P0.10)(type protect))
+    (wire (path B.Cu 200  92800 -59370  92800 -60470.3)(net /P0.10)(type protect))
+    (wire (path F.Cu 200  102700 -74000  101940 -74000)(net /P0.12)(type protect))
+    (wire (path B.Cu 200  92800 -55390.3  92662.5 -55390.3  91672.8 -56380  91672.8 -62384.1
+            92468.7 -63180  93609.8 -63180  101940 -71510.5  101940 -74000)(net /P0.12)(type protect))
+    (wire (path B.Cu 200  92800 -54290  92800 -55390.3)(net /P0.12)(type protect))
+    (wire (path B.Cu 200  92800 -52850.3  92937.5 -52850.3  104138 -64050.8  104138 -69085.4
+            104756 -69703.8  104756 -76561.1  104837 -76641.4)(net /P0.13)(type protect))
+    (wire (path F.Cu 200  104700 -76000  104700 -76504.7  104837 -76641.4)(net /P0.13)(type protect))
+    (wire (path B.Cu 200  92800 -51750  92800 -52850.3)(net /P0.13)(type protect))
+    (wire (path F.Cu 200  105200 -76000  105200 -76144  114556 -85500  118400 -85500)(net /P0.15)(type protect))
+    (wire (path F.Cu 200  105700 -76000  105700 -76077.8  110042 -80420  118400 -80420)(net /P0.17)(type protect))
+    (wire (path F.Cu 200  106700 -76000  106700 -76072.5  108670 -78042.6  115028 -78042.6
+            117300 -75770.7  117300 -75340)(net /P0.20)(type protect))
+    (wire (path F.Cu 200  118400 -75340  117300 -75340)(net /P0.20)(type protect))
+    (wire (path F.Cu 200  107200 -76000  107200 -76077  108815 -77692.3  114741 -77692.3
+            116258 -76175.7  116258 -75963.6)(net /P0.22)(type protect))
+    (wire (path B.Cu 200  118400 -71360.3  118262 -71360.3  117300 -72322.9  117300 -74921.7
+            116258 -75963.6)(net /P0.22)(type protect))
+    (wire (path B.Cu 200  118400 -70260  118400 -71360.3)(net /P0.22)(type protect))
+    (wire (path B.Cu 200  114439 -77071.1  115657 -75852.7  115657 -68897.5  118275 -66280.3
+            118400 -66280.3)(net /P0.24)(type protect))
+    (wire (path F.Cu 200  114439 -77071.1  114304 -77206.5  108826 -77206.5  107700 -76080.9
+            107700 -76000)(net /P0.24)(type protect))
+    (wire (path B.Cu 200  118400 -65180  118400 -66280.3)(net /P0.24)(type protect))
+    (wire (path B.Cu 200  101227 -71646  101227 -74311.5  102237 -75322  102237 -75987.2
+            104262 -78012.2  106366 -78012.2  110889 -73489.5  110889 -72172.7
+            110113 -71396.8  110113 -69349.5  118262 -61200.3  118400 -61200.3)(net /P0.26)(type protect))
+    (wire (path B.Cu 200  118400 -60100  118400 -61200.3)(net /P0.26)(type protect))
+    (wire (path F.Cu 200  101227 -71646  101373 -71500  102700 -71500)(net /P0.26)(type protect))
+    (wire (path B.Cu 200  122725 -82885  122725 -81784.7)(net /P0.29)(type protect))
+    (wire (path F.Cu 200  105589 -68859.3  105200 -69248  105200 -69500)(net /P0.29)(type protect))
+    (wire (path B.Cu 200  122725 -81784.7  122587 -81784.7  121625 -80822.1  121625 -63010.8
+            119573 -60959.5  119573 -59174.5  119398 -58999.6  117422 -58999.6
+            107881 -68540.3  107881 -69076  107496 -69461.2  106191 -69461.2
+            105589 -68859.3)(net /P0.29)(type protect))
+    (wire (path F.Cu 200  105059 -62773.1  107808 -62773.1)(net /P0.31)(type protect))
+    (wire (path B.Cu 200  122725 -76704.7  122862 -76704.7  123836 -75731.3  123836 -62075.7
+            122972 -61211.8  121828 -61211.8  120410 -59794.4  120410 -59515.8
+            119520 -58625.4  111956 -58625.4  107808 -62773.1)(net /P0.31)(type protect))
+    (wire (path B.Cu 200  122725 -77805  122725 -76704.7)(net /P0.31)(type protect))
+    (wire (path B.Cu 200  104738 -68836.9  104738 -64529.3  105340 -63928  105340 -63053.8
+            105059 -62773.1)(net /P0.31)(type protect))
+    (wire (path F.Cu 200  104738 -68836.9  104700 -68875.2  104700 -69500)(net /P0.31)(type protect))
+    (wire (path F.Cu 200  108200 -76000  108200 -76072.5  108974 -76847  113814 -76847
+            116438 -74222.9  120583 -74222.9  121625 -75265)(net /P1.00)(type protect))
+    (wire (path F.Cu 200  122725 -75265  121625 -75265)(net /P1.00)(type protect))
+    (wire (path F.Cu 200  109200 -74500  109397 -74500  110023 -75126.6  114535 -75126.6
+            116318 -73343.1  116506 -73343.1  116858 -72991.5  116858 -70170.4
+            117889 -69139.4  120579 -69139.4  121625 -70185)(net /P1.02)(type protect))
+    (wire (path F.Cu 200  122725 -70185  121625 -70185)(net /P1.02)(type protect))
+    (wire (path B.Cu 200  116258 -72742.8  116258 -70835.7  118104 -68990  118729 -68990
+            121016 -66702.9  121016 -65105)(net /P1.04)(type protect))
+    (wire (path F.Cu 200  109200 -74000  109652 -74000  110381 -74729.5  114342 -74729.5
+            116258 -72813.3  116258 -72742.8)(net /P1.04)(type protect))
+    (wire (path F.Cu 200  122725 -65105  121016 -65105)(net /P1.04)(type protect))
+    (wire (path F.Cu 200  109200 -73500  109745 -73500  110578 -74332.4  114218 -74332.4
+            115470 -73081.2  115470 -72494.2  115853 -72110.9  115853 -68709.9
+            118113 -66450  118720 -66450  121625 -63545.1  121625 -62087.9
+            122587 -61125.3  122725 -61125.3)(net /P1.06)(type protect))
+    (wire (path F.Cu 200  122725 -60025  122725 -61125.3)(net /P1.06)(type protect))
+    (wire (path F.Cu 200  88500 -74610  89600.3 -74610  90751.8 -73458.5  98191.1 -73458.5
+            98700 -73967.4  98700 -75001.9  99144 -75445.9  100156 -75445.9
+            101283 -74318.4  101283 -73736.8  101632 -73387.9  102588 -73387.9
+            102700 -73500)(net /P1.09)(type protect))
+    (wire (path B.Cu 200  107204 -68850.5  107204 -62608.8  94154.6 -49559.4  87622.1 -49559.4
+            86666.7 -50514.8  86666.7 -69307.6  88328.8 -70969.7  88500 -70969.7)(net /P1.10)(type protect))
+    (wire (path F.Cu 200  107700 -69500  107700 -69346.5  107204 -68850.5)(net /P1.10)(type protect))
+    (wire (path B.Cu 200  88500 -72070  88500 -70969.7)(net /P1.10)(type protect))
+    (wire (path B.Cu 200  88500 -64450  88500 -63349.7)(net /P1.13)(type protect))
+    (wire (path F.Cu 200  106590 -68100.6  106590 -69390.5  106700 -69500)(net /P1.13)(type protect))
+    (wire (path B.Cu 200  88500 -63349.7  88362.5 -63349.7  87017 -62004.2  87017 -50659.9
+            87767.2 -49909.7  94009.5 -49909.7  106590 -62490.7  106590 -68100.6)(net /P1.13)(type protect))
+    (wire (path F.Cu 200  105608 -67973.7  106200 -68566.1  106200 -69500)(net /P1.15)(type protect))
+    (wire (path B.Cu 200  88500 -58269.7  88345.3 -58269.7  87367.3 -57291.7  87367.3 -50805
+            87912.3 -50260  93864.4 -50260  105690 -62085.5  105690 -67891.4
+            105608 -67973.7)(net /P1.15)(type protect))
+    (wire (path B.Cu 200  88500 -59370  88500 -58269.7)(net /P1.15)(type protect))
+    (wire (path F.Cu 200  102950 -66712.5  102950 -69500  103450 -70000)(net "Net-(L2-Pad2)")(type protect))
+    (wire (path F.Cu 200  102950 -64587.5  100775 -66762.5  100350 -66762.5)(net "Net-(L2-Pad1)")(type protect))
+    (wire (path F.Cu 200  89800 -85450  89800 -84326.4  96482 -77644.4  96482 -77220.7
+            97587.4 -76115.3  100407 -76115.3  101753 -77461.5  101753 -77638.3
+            102105 -77990  102622 -77990  104200 -76412.5  104200 -76000)(net /D+)(type protect))
+    (wire (path F.Cu 200  103700 -76000  103700 -76122.1  102432 -77389.7  102354 -77389.7)(net "/D-")(type protect))
+    (wire (path B.Cu 200  89495.4 -83781.8  94029.6 -88316  102118 -88316  102354 -88080.1
+            102354 -77389.7)(net "/D-")(type protect))
+    (wire (path F.Cu 200  89000 -85450  89000 -84049.7  89227.5 -84049.7  89495.4 -83781.8)(net "/D-")(type protect))
+    (via "Via[0-1]_700:400_um"  110191 -75789.4 (net /SWCLK)(type protect))
+    (via "Via[0-1]_700:400_um"  104698 -63678 (net /3V3)(type protect))
+    (via "Via[0-1]_700:400_um"  101628 -75572.3 (net /3V3)(type protect))
+    (via "Via[0-1]_700:400_um"  96230.5 -69899.2 (net /3V3)(type protect))
+    (via "Via[0-1]_700:400_um"  110760 -70394.6 (net /B7)(type protect))
+    (via "Via[0-1]_700:400_um"  114577 -73077.9 (net /B7)(type protect))
+    (via "Via[0-1]_700:400_um"  99647 -72000 (net /P0.04)(type protect))
+    (via "Via[0-1]_700:400_um"  98677.9 -72577.8 (net /P0.06)(type protect))
+    (via "Via[0-1]_700:400_um"  100230 -73212.2 (net /P0.08)(type protect))
+    (via "Via[0-1]_700:400_um"  110286 -73191.7 (net /P0.09)(type protect))
+    (via "Via[0-1]_700:400_um"  109843 -72000 (net /P0.10)(type protect))
+    (via "Via[0-1]_700:400_um"  101940 -74000 (net /P0.12)(type protect))
+    (via "Via[0-1]_700:400_um"  104837 -76641.4 (net /P0.13)(type protect))
+    (via "Via[0-1]_700:400_um"  116258 -75963.6 (net /P0.22)(type protect))
+    (via "Via[0-1]_700:400_um"  114439 -77071.1 (net /P0.24)(type protect))
+    (via "Via[0-1]_700:400_um"  101227 -71646 (net /P0.26)(type protect))
+    (via "Via[0-1]_700:400_um"  105589 -68859.3 (net /P0.29)(type protect))
+    (via "Via[0-1]_700:400_um"  104738 -68836.9 (net /P0.31)(type protect))
+    (via "Via[0-1]_700:400_um"  105059 -62773.1 (net /P0.31)(type protect))
+    (via "Via[0-1]_700:400_um"  107808 -62773.1 (net /P0.31)(type protect))
+    (via "Via[0-1]_700:400_um"  116258 -72742.8 (net /P1.04)(type protect))
+    (via "Via[0-1]_700:400_um"  121016 -65105 (net /P1.04)(type protect))
+    (via "Via[0-1]_700:400_um"  107204 -68850.5 (net /P1.10)(type protect))
+    (via "Via[0-1]_700:400_um"  106590 -68100.6 (net /P1.13)(type protect))
+    (via "Via[0-1]_700:400_um"  105608 -67973.7 (net /P1.15)(type protect))
+    (via "Via[0-1]_700:400_um"  89495.4 -83781.8 (net "/D-")(type protect))
+    (via "Via[0-1]_700:400_um"  102354 -77389.7 (net "/D-")(type protect))
+  )
+)

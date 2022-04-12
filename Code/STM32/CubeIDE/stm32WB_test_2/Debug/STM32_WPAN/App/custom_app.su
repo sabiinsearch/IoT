@@ -1,0 +1,8 @@
+custom_app.c:97:6:Custom_STM_App_Notification	16	static
+custom_app.c:176:6:Custom_APP_Notification	16	static
+custom_app.c:213:6:Custom_APP_Init	4	static
+custom_app.c:232:6:Custom_Sw_no_Update_Char	8	static
+custom_app.c:244:6:Custom_Sw_no_Send_Notification	8	static
+custom_app.c:264:6:Custom_Pin_no_Update_Char	8	static
+custom_app.c:276:6:Custom_Pin_no_Send_Notification	8	static
+custom_app.c:294:6:Custom_Pin_no_Send_Indication	8	static

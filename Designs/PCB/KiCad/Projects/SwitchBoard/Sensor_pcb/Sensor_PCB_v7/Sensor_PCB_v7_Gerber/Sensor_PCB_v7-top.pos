@@ -1,0 +1,15 @@
+### Module positions - created on Sun Sep  5 21:22:53 2021 ###
+### Printed by Pcbnew version pcbnew 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val        Package                PosX       PosY       Rot  Side
+C10       10uf       C_0805              32.3088   -28.6487    0.0000  top
+D1        Pwr_L.E.D  D_0805              32.8092   -41.0997  270.0000  top
+D3        Pwr_L.E.D  D_0805              32.0650   -51.6153  270.0000  top
+D4        Bat_Low    D_0805              32.0878   -59.4548  270.0000  top
+D6        Pwr_L.E.D  D_0805              42.3367   -82.5602   90.0000  top
+E1        YC0009AA   XCVR_YC0009AA       26.2915   -88.0059  180.0000  top
+R10       1K         R_0805              36.6750   -47.2465    0.0000  top
+SW1       MLL1200S   SW_MLL1200S         24.9707   -28.6360  270.0000  top
+U2        Ra-01      LoRa                32.2047   -80.2564   90.0000  top
+## End

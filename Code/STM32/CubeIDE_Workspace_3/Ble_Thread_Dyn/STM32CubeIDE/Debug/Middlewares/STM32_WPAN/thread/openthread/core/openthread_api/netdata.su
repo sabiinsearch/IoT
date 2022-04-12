@@ -1,0 +1,5 @@
+netdata.c:33:9:otNetDataGet	32	static
+netdata.c:53:9:otNetDataGetNextOnMeshPrefix	32	static
+netdata.c:72:9:otNetDataGetNextRoute	32	static
+netdata.c:91:9:otNetDataGetVersion	24	static
+netdata.c:107:9:otNetDataGetStableVersion	24	static

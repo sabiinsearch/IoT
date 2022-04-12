@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name stm32wb_Dev_v1-rescue)(type Legacy)(uri ${KIPRJMOD}/stm32wb_Dev_v1-rescue.lib)(options "")(descr ""))
+  (lib (name nrf52840_Dev_v1-rescue)(type Legacy)(uri ${KIPRJMOD}/nrf52840_Dev_v1-rescue.lib)(options "")(descr ""))
+)

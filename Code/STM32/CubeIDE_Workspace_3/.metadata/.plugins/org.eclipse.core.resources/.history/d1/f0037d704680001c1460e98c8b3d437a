@@ -1,0 +1,18 @@
+#include "stm32wb55xx.h"
+
+
+
+#define GPIOB_EN 			(1U<<1)
+#define GPIOD_EN 			(1U<<3)
+
+int main(void) {
+
+// Enable clock
+   RCC->AHB2ENR |= GPIOB_EN;
+   RCC->AHB2ENR |= GPIOD_EN;
+
+
+	while(1) {
+
+	}
+}

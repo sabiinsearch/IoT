@@ -1,0 +1,2 @@
+crypto.c:33:6:otCryptoHmacSha256	32	static
+crypto.c:59:6:otCryptoAesCcm	32	static

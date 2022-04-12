@@ -1,0 +1,10 @@
+instance.c:54:13:otInstanceInitSingle	16	static
+instance.c:71:6:otInstanceIsInitialized	24	static
+instance.c:87:6:otInstanceFinalize	24	static
+instance.c:103:9:otSetStateChangedCallback	32	static
+instance.c:123:6:otRemoveStateChangeCallback	32	static
+instance.c:142:6:otInstanceReset	24	static
+instance.c:157:6:otInstanceFactoryReset	24	static
+instance.c:172:9:otInstanceErasePersistentInfo	24	static
+instance.c:189:13:otGetVersionString	16	static
+instance.c:205:13:otGetRadioVersionString	24	static

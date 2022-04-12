@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP M830520
+D Ceramic chip antenna with pin for PCB trace
+K antenna
+F ~
+$ENDCMP
+#
+#End Doc Library

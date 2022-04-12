@@ -1,0 +1,28 @@
+### Module positions - created on Tue May 18 13:12:50 2021 ###
+### Printed by Pcbnew version kicad 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val            Package                PosX       PosY       Rot  Side
+C1        100_nf         C_0805              38.2575   -24.4475  270.0000  bottom
+C2        1.0uf          C_0805              46.4439   -77.3557  180.0000  bottom
+C3        100_nf         C_0805              40.9143   -24.4696  270.0000  bottom
+C4        20pf           C_0805              42.2275   -47.9476   90.0000  bottom
+C5        20pf           C_0805              42.2961   -51.8058   90.0000  bottom
+C6        20pf           C_0805              30.7238   -47.7520   90.0000  bottom
+C7        20pf           C_0805              30.6781   -52.1589  270.0000  bottom
+C11       10uf           C_0805              31.1480   -78.2803    0.0000  bottom
+D2        IN4007         D_1206              28.1737   -34.0970  180.0000  bottom
+D5        SS14           D_1206              44.2951   -36.8148  180.0000  bottom
+IC1       TP4056         SOP-8               31.8719   -73.4746    0.0000  bottom
+R1        510_R          R_0805              28.6385   -21.4401   90.0000  bottom
+R2        10K            R_0805              47.8714   -73.4187  180.0000  bottom
+R3        1M             R_0805              33.3400   -49.5986   90.0000  bottom
+R4        10K            R_0805              51.9252   -26.4897  180.0000  bottom
+R6        1K             R_0805              37.8612   -74.2747    0.0000  bottom
+R7        1K             R_0805              37.8663   -72.2833    0.0000  bottom
+R9        510_R          R_0805              28.4277   -62.9691   90.0000  bottom
+R11       1.2k           R_0805              35.2755   -78.3311    0.0000  bottom
+U1        APK2112.K-3.3  SOT-23-5            34.3713   -31.9100    0.0000  bottom
+U3        STM32          STM32(LQFP48)       38.8061   -60.2158   90.0000  bottom
+U5        BL8530         SOT89               52.0294   -39.9437    0.0000  bottom
+## End

@@ -1,0 +1,9 @@
+udp.c:35:9:otUdpAddReceiver	24	static
+udp.c:52:9:otUdpRemoveReceiver	24	static
+udp.c:69:9:otUdpSendDatagram	32	static
+udp.c:87:12:otUdpNewMessage	24	static
+udp.c:104:9:otUdpOpen	32	static
+udp.c:123:9:otUdpClose	24	static
+udp.c:140:9:otUdpBind	24	static
+udp.c:158:9:otUdpConnect	24	static
+udp.c:176:9:otUdpSend	32	static

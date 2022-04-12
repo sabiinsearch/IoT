@@ -1,0 +1,17 @@
+{
+    "configurations": [
+    {
+        "name": "Win32",
+        "includePath": [
+        "${workspaceFolder}/**"
+        ],
+        "defines": [
+        "USE_FULL_LL_DRIVER",
+        "STM32F103xB"
+        ],
+        "cStandard": "c11",
+        "intelliSenseMode": "msvc-x64"
+    }
+    ],
+    "version": 4
+}

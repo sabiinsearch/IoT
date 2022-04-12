@@ -1,0 +1,10 @@
+03:52:29 **** Incremental Build of configuration Debug for project Ble_Thread_Dyn ****
+make -j4 all 
+arm-none-eabi-size   Ble_Thread_Dyn.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56396	    547	  14331	  71274	  1166a	Ble_Thread_Dyn.elf
+Finished building: default.size.stdout
+ 
+
+03:52:30 Build Finished. 0 errors, 0 warnings. (took 955ms)
+

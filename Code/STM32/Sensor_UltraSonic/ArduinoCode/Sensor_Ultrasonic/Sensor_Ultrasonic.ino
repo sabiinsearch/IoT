@@ -20,12 +20,12 @@
 //#define csPin  PA4          // LoRa radio chip select
 //#define resetPin  PC14       // LoRa radio reset
 //#define irqPin  PA1  // change for your board; must be a hardware interrupt pin
-#define bat_pin PA1   // to get the current Battery Volts
+//#define bat_pin PA1   // to get the current Battery Volts
 #define charge_pin PB14
 
 boolean charge = false;
 
-TwoWire Wire1(PB9,PB8);
+//TwoWire Wire1(PB7,PB6);
 Adafruit_BME280 bme;
 
 String outgoing;  // outgoing message
@@ -55,7 +55,7 @@ void sendMessage(String outgoing) {
 
 
 // returns the distance (cm)
-void measureDistance() {
+void measureSensors() {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH); // We send a 10us pulse
@@ -92,6 +92,7 @@ void measureDistance() {
   sendMessage(output);
 }
 
+/*
 void checkBattery() {
    StaticJsonDocument<200> bat_status;
    //float inputVoltage = (float(analogRead(bat_pin))/4096) * 3.3;
@@ -101,6 +102,7 @@ void checkBattery() {
    sendMessage(output);  
    
 }
+*/
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -110,11 +112,11 @@ void setup() {
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
   pinMode(light_sensor,INPUT);
   pinMode(charge_pin,OUTPUT);
-  pinMode(bat_pin,INPUT);
-  analogWrite(bat_pin,0);
+//  pinMode(bat_pin,INPUT);
+//  analogWrite(bat_pin,0);
   
-  Wire1.begin();
-  Wire1.setClock(400000);
+ // Wire1.begin();
+ // Wire1.setClock(400000);
 
  // LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
  
@@ -133,8 +135,8 @@ void setup() {
 void loop() {
   digitalWrite(LED_BUILTIN_1, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);
-  checkBattery();
-  measureDistance();
+  //checkBattery();
+  measureSensors();
   digitalWrite(LED_BUILTIN_1, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);              // wait for a second
 }

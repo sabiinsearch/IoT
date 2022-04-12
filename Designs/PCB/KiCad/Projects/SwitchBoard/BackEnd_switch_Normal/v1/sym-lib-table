@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name RAC20-05SK_277)(type Legacy)(uri ${MYLIB}/RAC20-05SK_277.lib)(options "")(descr ""))
+)

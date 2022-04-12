@@ -1,0 +1,26 @@
+### Module positions - created on Sun Sep  5 21:22:53 2021 ###
+### Printed by Pcbnew version pcbnew 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val            Package                PosX       PosY       Rot  Side
+C1        100_nf         C_0805              33.7566   -31.2852    0.0000  bottom
+C2        1.0uf          C_0805              44.0842   -69.7611  180.0000  bottom
+C3        100_nf         C_0805              40.8280   -23.8963  270.0000  bottom
+C4        20pf           C_0805              42.2275   -47.9476   90.0000  bottom
+C5        20pf           C_0805              42.2961   -51.8058   90.0000  bottom
+C6        20pf           C_0805              33.5305   -48.1508   90.0000  bottom
+C7        20pf           C_0805              45.1028   -23.5212  270.0000  bottom
+C11       10uf           C_0805              30.1008   -80.2996    0.0000  bottom
+D5        SS14           D_1206              43.0733   -35.8648  180.0000  bottom
+R1        510_R          R_0805              29.6062   -20.7289  180.0000  bottom
+R2        10K            R_0805              50.1802   -69.8246  180.0000  bottom
+R3        1M             R_0805              37.8638   -47.7698   90.0000  bottom
+R4        10K            R_0805              49.7891   -24.2265  180.0000  bottom
+R6        1K             R_0805              37.5640   -72.2071    0.0000  bottom
+R7        1K             R_0805              29.2379   -71.7779    0.0000  bottom
+R9        510_R          R_0805              26.1620   -72.7100   90.0000  bottom
+R11       510R           R_0805              37.2237   -80.4901    0.0000  bottom
+U1        APK2112.K-3.3  SOT-23-5            35.1536   -23.2766    0.0000  bottom
+U3        STM32          STM32(LQFP48)       44.9605   -63.1977   90.0000  bottom
+U5        BL8530         SOT89               52.9185   -40.0690    0.0000  bottom
+## End

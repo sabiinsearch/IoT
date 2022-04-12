@@ -1,0 +1,42 @@
+(export (version D)
+  (design
+    (source /home/sarbjeet/github/IoT/Designs/PCB/KiCad/Projects/SwitchBoard/Sensor_pcb/Modify/Sensor_pcb_v2.sch)
+    (date "Fri May 14 13:48:41 2021")
+    (tool "Eeschema 5.1.7-a382d34a8~88~ubuntu18.04.1")
+    (sheet (number 1) (name /) (tstamps /)
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source Sensor_pcb_v2.sch)
+        (comment (number 1) (value ""))
+        (comment (number 2) (value ""))
+        (comment (number 3) (value ""))
+        (comment (number 4) (value "")))))
+  (components
+    (comp (ref J1)
+      (value 4P2C)
+      (datasheet ~)
+      (libsource (lib Connector) (part 4P2C) (description "RJ connector, 4P2C (4 positions 2 connected)"))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 609E31F0)))
+  (libparts
+    (libpart (lib Connector) (part 4P2C)
+      (description "RJ connector, 4P2C (4 positions 2 connected)")
+      (docs ~)
+      (footprints
+        (fp 4P2C*))
+      (fields
+        (field (name Reference) J)
+        (field (name Value) 4P2C))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive)))))
+  (libraries
+    (library (logical Connector)
+      (uri /usr/share/kicad/library/Connector.lib)))
+  (nets
+    (net (code 1) (name "Net-(J1-Pad1)")
+      (node (ref J1) (pin 1))
+      (node (ref J1) (pin 2)))))

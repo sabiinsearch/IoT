@@ -1,0 +1,26 @@
+### Module positions - created on Mon May 31 17:25:59 2021 ###
+### Printed by Pcbnew version kicad 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val            Package                PosX       PosY       Rot  Side
+C1        100_nf         C_0805              36.4465   -23.2918  270.0000  bottom
+C2        1.0uf          C_0805              47.9356   -74.2848  180.0000  bottom
+C3        100_nf         C_0805              39.4132   -23.4772  270.0000  bottom
+C4        20pf           C_0805              42.2275   -47.9476   90.0000  bottom
+C5        20pf           C_0805              42.2961   -51.8058   90.0000  bottom
+C6        20pf           C_0805              33.5305   -48.1508   90.0000  bottom
+C7        20pf           C_0805              31.2496   -52.7863  270.0000  bottom
+C11       10uf           C_0805              30.6299   -78.4047    0.0000  bottom
+D5        SS14           D_1206              44.2951   -36.8148  180.0000  bottom
+R1        510_R          R_0805              28.6385   -21.4401   90.0000  bottom
+R2        10K            R_0805              48.3514   -71.3842  180.0000  bottom
+R3        1M             R_0805              37.8638   -47.7698   90.0000  bottom
+R4        10K            R_0805              51.9252   -26.4897  180.0000  bottom
+R6        1K             R_0805              39.5478   -74.6176    0.0000  bottom
+R7        1K             R_0805              39.6088   -71.8998    0.0000  bottom
+R9        510_R          R_0805              30.2616   -65.3288   90.0000  bottom
+R11       510R           R_0805              37.3177   -78.7095    0.0000  bottom
+U1        APK2112.K-3.3  SOT-23-5            34.3713   -31.9100    0.0000  bottom
+U3        STM32          STM32(LQFP48)       38.8061   -60.2158   90.0000  bottom
+U5        BL8530         SOT89               52.0294   -39.9437    0.0000  bottom
+## End

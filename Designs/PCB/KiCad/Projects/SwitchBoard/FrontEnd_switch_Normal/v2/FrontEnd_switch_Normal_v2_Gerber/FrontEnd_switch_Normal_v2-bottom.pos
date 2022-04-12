@@ -1,0 +1,9 @@
+### Module positions - created on Thu Dec  9 23:06:59 2021 ###
+### Printed by Pcbnew version pcbnew 5.1.7-a382d34a8~88~ubuntu18.04.1
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val        Package                                           PosX       PosY       Rot  Side
+D3        LED        D_0805_2012Metric_Pad1.15x1.40mm_HandSolder   114.9550  -103.7540    0.0000  bottom
+D4        LED        D_0805_2012Metric_Pad1.15x1.40mm_HandSolder   114.7700   -85.3897    0.0000  bottom
+T1        Touch_Pad  Touch_Pad                                     114.9300  -110.0230    0.0000  bottom
+## End

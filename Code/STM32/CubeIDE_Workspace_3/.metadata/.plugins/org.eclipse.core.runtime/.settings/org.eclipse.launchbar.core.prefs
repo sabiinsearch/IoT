@@ -1,0 +1,13 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ble_Thread_Dyn,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_p2pServer,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_custom Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:custom_bare_metal Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:custom_bare_metal_gpio_output Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_Custom\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_Custom\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_custom\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_custom\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_p2pServer\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_p2pServer\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:BLE_p2pServer/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:custom_bare_metal\ Debug/activeLaunchMode=run

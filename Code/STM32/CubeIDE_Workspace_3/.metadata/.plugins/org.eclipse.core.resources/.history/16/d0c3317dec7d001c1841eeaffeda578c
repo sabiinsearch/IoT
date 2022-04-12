@@ -1,0 +1,7 @@
+// Where is the LED connected
+// LED Blue : PB5
+// LED Green : PB0
+// LED Red : PB1
+
+#define AHB2_PERIPH_BASE	(0x48000000UL)
+#define GPIOA_OFFSET		(0x0000UL)

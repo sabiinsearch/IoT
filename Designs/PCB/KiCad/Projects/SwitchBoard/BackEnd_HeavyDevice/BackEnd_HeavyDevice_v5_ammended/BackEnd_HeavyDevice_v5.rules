@@ -1,0 +1,99 @@
+
+(rules PCB BackEnd_HeavyDevice_v5
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 673)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 350.0)
+    (clear 200.2)
+    (clear 175.0 (type smd_to_turn_gap))
+    (clear 300.2 (type default_AC))
+    (clear 50.0 (type smd_smd))
+    (clear 300.2 (type smd_AC))
+    (clear 300.2 (type "kicad_default"_AC))
+    (clear 300.2 (type AC_AC))
+  )
+  (padstack "Via[0-1]_800:600_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:600_um" "Via[0-1]_800:600_um" default
+  )
+  (via 
+    "Via[0-1]_800:600_um-kicad_default" "Via[0-1]_800:600_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:600_um-AC" "Via[0-1]_800:600_um" AC
+  )
+  (via_rule
+    default "Via[0-1]_800:600_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:600_um-kicad_default"
+  )
+  (via_rule
+    AC "Via[0-1]_800:600_um-AC"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 350.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /5V /GND /3.3V "Net-(D2-Pad2)" /DSW1 "Net-(R2-Pad1)" "Net-(U3-Pad3)" "Net-(U3-Pad6)"
+    "Net-(U4-Pad4)" "/Energy_toStm" "/Energy_frmSensor"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 350.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class AC
+    "/Mains_Live_In" "/Mains_Neutral" "Net-(F1-Pad2)" "/Opto_In" /Out1 "Net-(Q1-Pad3)" "Net-(R7-Pad2)" "/Mains_Live_Out"
+    "Net-(U5-Pad3)" "Net-(U5-Pad5)"
+    (clearance_class AC)
+    (via_rule AC)
+    (rule
+      (width 800.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

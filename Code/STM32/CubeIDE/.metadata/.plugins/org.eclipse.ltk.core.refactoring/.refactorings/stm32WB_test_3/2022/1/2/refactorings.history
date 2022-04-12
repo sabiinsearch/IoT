@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;stm32WB_test_3/stm32WB_test_2.ioc&apos; to &apos;stm32WB_test_3.ioc&apos;" description="Rename resource &apos;stm32WB_test_2.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="stm32WB_test_2.ioc" name="stm32WB_test_3.ioc" stamp="1641140042492" updateReferences="true"/>
+</session>

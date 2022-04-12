@@ -10,7 +10,7 @@
 #include <Adafruit_BME280.h>
 #include <ArduinoJson.h>
 #include <LoRa_STM32.h>
-
+#include "STM32LowPower.h"
 
 #define LED_BUILTIN_1 PB15
 #define echoPin PB10 // attach pin D2 Arduino to pin Echo of HC-SR04
@@ -20,12 +20,15 @@
 //#define csPin  PA4          // LoRa radio chip select
 //#define resetPin  PC14       // LoRa radio reset
 //#define irqPin  PA1  // change for your board; must be a hardware interrupt pin
-#define bat_pin PA1   // to get the current Battery Volts
-#define charge_pin PB14
+//#define bat_pin PA1   // to get the current Battery Volts
+#define sensor_pin PA8
+#define NULL 0
 
 boolean charge = false;
+String address;
+boolean address_set=false;
 
-TwoWire Wire1(PB9,PB8);
+//TwoWire Wire1(PB7,PB6);
 Adafruit_BME280 bme;
 
 String outgoing;  // outgoing message
@@ -37,7 +40,7 @@ byte destination = 0xFF;      // destination to send to
 long lastSendTime = 0;        // last send time
 int interval = 1000;          // interval between sends
 
-void sleep_1(int n) {
+void sleep(int n) {
   while(n-- > 0)
     asm("wfi");
 }
@@ -52,46 +55,71 @@ void sendMessage(String outgoing) {
   // msgCount++;                           // increment message ID
 }
 
+String getAddress() {
+   uint32_t baseAddress = (uint32_t)(0x1ff80050);
+   uint32_t baseAddress_2 = (uint32_t)(0x1ff80054);
+   uint32_t baseAddress_3 = (uint32_t)(0x1ff8064);
+   String address = "";
+   address =+ baseAddress;
+   address =+ baseAddress_2;
+   address =+ baseAddress_3;
+   return address; 
+}
+
+void setAddress() {
+   if (!address_set) {
+    address = getAddress();
+    address_set = true;
+   }
+}
 
 
 // returns the distance (cm)
-void measureDistance() {
+float measureSensors() {
+  float returnValue=0;
+  digitalWrite(sensor_pin, HIGH);
+  delay(100);
   digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
+  delayMicroseconds(3);
   digitalWrite(trigPin, HIGH); // We send a 10us pulse
-  delayMicroseconds(10);
+  delayMicroseconds(20);
   // delay(1);
   digitalWrite(trigPin, LOW);
-
-  uint32_t duration = pulseIn(echoPin, HIGH, 25000); // We wait for the echo to come back, with a timeout of 20ms, which corresponds approximately to 3m
-  // long duration = pulseIn(echoPin, HIGH);
-
-  // pulseIn will only return 0 if it timed out. (or if echoPin was already to 1, but it should not happen)
-  // If we timed out
-  if(duration == 0) {
-    pinMode(echoPin, OUTPUT); // Then we set echo pin to output mode
-    digitalWrite(echoPin, LOW); // We send a LOW pulse to the echo pin
-    delayMicroseconds(200);
-    pinMode(echoPin, INPUT); // And finaly we come back to input mode
+  digitalWrite(sensor_pin, LOW); 
+  long duration;
+  for (int k=0;k<10;k++) {
+           duration += pulseIn(echoPin, HIGH,26000); // We wait for the echo to come back, with a timeout of 20ms, which corresponds approximately to 3m
   }
+  // long duration = pulseIn(echoPin, HIGH);
+   float distance;
+   distance = ((duration/10)*29.1/2); // We calculate the distance (sound speed in air is aprox. 291m/s), /2 because of the pulse going and coming
+//  float distance = duration * 0.034 / 2;
+   distance=returnValue;
+   float *clearing=&distance;
+    clearing=NULL;
+  return returnValue;
 
-  // float distance = (duration/2) / 29.1; // We calculate the distance (sound speed in air is aprox. 291m/s), /2 because of the pulse going and coming
-  float distance = duration * 0.034 / 2;
-  // float distance = duration / 58.138f;
+}
 
-  // String payload = "{\"type\":\"" BOARD_TYPE "\", \"uniqueId\":\"" +BOARD_ID+"\", \"deviceIndex\":1, \"deviceValue\": " +String(sw1Val)+"}";
-  String payload;
+
+void calAndBroadcast(float dis) {
   StaticJsonDocument<200> data;
 //  JsonObject& jsonOut = dataJsonBuffer.createObject();
-  
-  data["distance"] = distance;
+  if(address_set) {
+    data["Id"]= address;
+  }
+  data["distance"] = dis;
   data["light"]=analogRead(light_sensor);
-  data["Temp"]= (bme.readTemperature(),1);
+  data["Temp"]= (bme.readTemperature());
   String output;
   serializeJson(data, output);
   sendMessage(output);
+  
+  String *clearing=&output;
+  clearing=NULL;
 }
 
+/*
 void checkBattery() {
    StaticJsonDocument<200> bat_status;
    //float inputVoltage = (float(analogRead(bat_pin))/4096) * 3.3;
@@ -101,7 +129,11 @@ void checkBattery() {
    sendMessage(output);  
    
 }
-
+*/
+void reboot() {
+   NVIC_SystemReset();
+   while (1);
+}
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin LED_BUILTIN  as an output.
@@ -109,12 +141,14 @@ void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
   pinMode(light_sensor,INPUT);
-  pinMode(charge_pin,OUTPUT);
-  pinMode(bat_pin,INPUT);
-  analogWrite(bat_pin,0);
+  pinMode(sensor_pin,OUTPUT); 
   
-  Wire1.begin();
-  Wire1.setClock(400000);
+//  digitalWrite(sensor_pin, LOW); 
+//  pinMode(bat_pin,INPUT);
+//  analogWrite(bat_pin,0);
+  
+ // Wire1.begin();
+ // Wire1.setClock(400000);
 
  // LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
  
@@ -126,16 +160,25 @@ void setup() {
 
   bme.begin(0x76);   
 //  digitalWrite(charge_pin,HIGH);
-
+  setAddress();
+  LowPower.begin(); // for Low Power Mode
 }
 
 // the loop function runs over and over again forever
 void loop() {
   digitalWrite(LED_BUILTIN_1, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);
-  checkBattery();
-  measureDistance();
+  
+  delay(500);
+  float dis;
+  
+ // while(!(200>dis && dis>20)){
+         dis=measureSensors();
+ // }
+  
+  calAndBroadcast(dis);
   digitalWrite(LED_BUILTIN_1, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);              // wait for a second
-  //sleep_1(1000*60*1);
+  
+  delay(100);              // wait for a second
+  LowPower.deepSleep(2000);
+  reboot();
 }

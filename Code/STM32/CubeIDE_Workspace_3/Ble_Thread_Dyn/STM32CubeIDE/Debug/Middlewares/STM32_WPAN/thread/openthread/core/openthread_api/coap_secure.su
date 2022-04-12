@@ -1,0 +1,17 @@
+coap_secure.c:38:9:otCoapSecureStart	24	static
+coap_secure.c:55:6:otCoapSecureStop	24	static
+coap_secure.c:70:6:otCoapSecureSetPsk	32	static
+coap_secure.c:93:9:otCoapSecureGetPeerCertificateBase64	32	static
+coap_secure.c:115:6:otCoapSecureSetSslAuthMode	24	static
+coap_secure.c:131:6:otCoapSecureSetCertificate	32	static
+coap_secure.c:154:6:otCoapSecureSetCaCertificateChain	32	static
+coap_secure.c:173:9:otCoapSecureConnect	32	static
+coap_secure.c:197:6:otCoapSecureDisconnect	24	static
+coap_secure.c:212:6:otCoapSecureIsConnected	24	static
+coap_secure.c:228:6:otCoapSecureIsConnectionActive	24	static
+coap_secure.c:244:9:otCoapSecureSendRequest	32	static
+coap_secure.c:266:9:otCoapSecureAddResource	24	static
+coap_secure.c:283:6:otCoapSecureRemoveResource	24	static
+coap_secure.c:299:6:otCoapSecureSetDefaultHandler	32	static
+coap_secure.c:318:6:otCoapSecureSetClientConnectedCallback	32	static
+coap_secure.c:339:9:otCoapSecureSendResponse	32	static
