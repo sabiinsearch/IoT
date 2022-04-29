@@ -118,18 +118,25 @@ void checkDataOnRadio(){
     }
 }
 
+
  void check_WT() {
   raw = analogRead(WT_sensor);
 //  if(raw){
   buffer = raw * Vin;
   Vout = (buffer)/1024.0;
-//    Serial.println(Vout);
-   Serial.println(Vout);
+  Serial.print("Raw: ");
+  Serial.print(raw);
+  Serial.print("\t");
+  Serial.print("Vout: ");
+  Serial.println(Vout);
+  String volt_level;
+  volt_level =+ Vout;
+  publishData(volt_level);
  }
 
  void checkTouchDetected(){
   if(digitalRead(touch1) == HIGH){
-        publishData("Hello Wold");
+        //publishData("Hello Wold");
         //Serial.println("TouchDetected & Msg Sent on LoRa");
         check_WT();
         if (sw2Val == 0){
@@ -158,7 +165,7 @@ void setup() {
   pinMode(SW2, OUTPUT);
   pinMode(touch1, INPUT);
   pinMode(WT_sensor, INPUT);
-  initRadio();
+
   //digitalWrite(touch1, 0);
   digitalWrite(SW2, 1);
   // Init Lora
@@ -167,6 +174,7 @@ void setup() {
       SPI.begin(SCK, MISO, MOSI, CS);
       LoRa.setPins(SS, RST, DI0);
       delay(1000);
+      initRadio();
       Serial.print(" Ready to print ");
   }
 
@@ -178,4 +186,8 @@ void setup() {
 void loop() {
     checkDataOnRadio();
     checkTouchDetected();
+    while(1) {
+      check_WT();
+      delay(1000);
+    }
 }
