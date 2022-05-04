@@ -1,0 +1,2 @@
+
+ #$(shell $(CC) --version),, // add these in Line 129 of Makefile.common
