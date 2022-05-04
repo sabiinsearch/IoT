@@ -1,3 +1,2 @@
-# This is a Test Rig to test LoRa modules
+## Code for Water Tank Receiver End
 
-ESP_LoRa_Test
