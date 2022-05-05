@@ -85,10 +85,11 @@ boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
 char* string2char(String str){
-    if(str.length()!=0){
-        char *p = const_cast<char*>(str.c_str());
-        return p;
+  char *p;
+    if(str.length()!=0) {
+        p = const_cast<char*>(str.c_str());
     }
+    return p;
 }
 
 
