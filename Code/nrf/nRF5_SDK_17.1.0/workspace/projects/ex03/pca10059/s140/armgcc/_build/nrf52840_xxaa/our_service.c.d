@@ -1,23 +1,25 @@
 _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
- /usr/lib/gcc/arm-none-eabi/7.3.1/include/stdint.h \
- /usr/arm-none-eabi/include/stdint.h \
- /usr/arm-none-eabi/include/machine/_default_types.h \
- /usr/arm-none-eabi/include/sys/features.h \
- /usr/arm-none-eabi/include/_newlib_version.h \
- /usr/arm-none-eabi/include/sys/_intsup.h \
- /usr/arm-none-eabi/include/sys/_stdint.h \
- /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/_ansi.h \
- /usr/arm-none-eabi/include/newlib.h \
- /usr/arm-none-eabi/include/sys/config.h \
- /usr/arm-none-eabi/include/machine/ieeefp.h \
- /usr/arm-none-eabi/include/sys/reent.h \
- /usr/arm-none-eabi/include/_ansi.h \
- /usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h \
- /usr/arm-none-eabi/include/sys/_types.h \
- /usr/arm-none-eabi/include/machine/_types.h \
- /usr/arm-none-eabi/include/sys/lock.h \
- /usr/arm-none-eabi/include/sys/cdefs.h \
- /usr/arm-none-eabi/include/sys/string.h ../../../our_service.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdint.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/stdint.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/_default_types.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/features.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_newlib_version.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_intsup.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_stdint.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/string.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_ansi.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/newlib.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/config.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/ieeefp.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/reent.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_ansi.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stddef.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_types.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/_types.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/lock.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/cdefs.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/string.h \
+ ../../../our_service.h \
  ../../../../../../components/softdevice/s140/headers/ble.h \
  ../../../../../../components/softdevice/s140/headers/nrf_svc.h \
  ../../../../../../components/softdevice/s140/headers/nrf_error.h \
@@ -43,7 +45,7 @@ _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
  ../../../../../../modules/nrfx/mdk/compiler_abstraction.h \
  ../../../../../../components/softdevice/s140/headers/ble_gatts.h \
  ../../../../../../components/ble/common/ble_srv_common.h \
- /usr/lib/gcc/arm-none-eabi/7.3.1/include/stdbool.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdbool.h \
  ../../../../../../components/softdevice/s140/headers/ble_types.h \
  ../../../../../../components/libraries/util/app_util.h \
  ../../../../../../modules/nrfx/mdk/compiler_abstraction.h \
@@ -53,12 +55,12 @@ _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
  ../../../../../../components/softdevice/s140/headers/ble_gap.h \
  ../../../../../../components/softdevice/s140/headers/ble_gatt.h \
  ../../../../../../components/libraries/util/app_error.h \
- /usr/arm-none-eabi/include/stdio.h \
- /usr/lib/gcc/arm-none-eabi/7.3.1/include/stdarg.h \
- /usr/arm-none-eabi/include/sys/types.h \
- /usr/arm-none-eabi/include/sys/_pthreadtypes.h \
- /usr/arm-none-eabi/include/machine/types.h \
- /usr/arm-none-eabi/include/sys/stdio.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/stdio.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdarg.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/types.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/types.h \
+ /home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/stdio.h \
  ../../../../../../components/libraries/util/sdk_errors.h \
  ../../../../../../components/softdevice/s140/headers/nrf_error.h \
  ../../../../../../components/libraries/util/app_error_weak.h \
@@ -73,45 +75,45 @@ _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
  ../../../../../../components/libraries/util/app_error.h \
  ../config/sdk_config.h
 
-/usr/lib/gcc/arm-none-eabi/7.3.1/include/stdint.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdint.h:
 
-/usr/arm-none-eabi/include/stdint.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/stdint.h:
 
-/usr/arm-none-eabi/include/machine/_default_types.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/_default_types.h:
 
-/usr/arm-none-eabi/include/sys/features.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/features.h:
 
-/usr/arm-none-eabi/include/_newlib_version.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_newlib_version.h:
 
-/usr/arm-none-eabi/include/sys/_intsup.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_intsup.h:
 
-/usr/arm-none-eabi/include/sys/_stdint.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_stdint.h:
 
-/usr/arm-none-eabi/include/string.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/string.h:
 
-/usr/arm-none-eabi/include/_ansi.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_ansi.h:
 
-/usr/arm-none-eabi/include/newlib.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/newlib.h:
 
-/usr/arm-none-eabi/include/sys/config.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/config.h:
 
-/usr/arm-none-eabi/include/machine/ieeefp.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/ieeefp.h:
 
-/usr/arm-none-eabi/include/sys/reent.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/reent.h:
 
-/usr/arm-none-eabi/include/_ansi.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/_ansi.h:
 
-/usr/lib/gcc/arm-none-eabi/7.3.1/include/stddef.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stddef.h:
 
-/usr/arm-none-eabi/include/sys/_types.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_types.h:
 
-/usr/arm-none-eabi/include/machine/_types.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/_types.h:
 
-/usr/arm-none-eabi/include/sys/lock.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/lock.h:
 
-/usr/arm-none-eabi/include/sys/cdefs.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/cdefs.h:
 
-/usr/arm-none-eabi/include/sys/string.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/string.h:
 
 ../../../our_service.h:
 
@@ -165,7 +167,7 @@ _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
 
 ../../../../../../components/ble/common/ble_srv_common.h:
 
-/usr/lib/gcc/arm-none-eabi/7.3.1/include/stdbool.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdbool.h:
 
 ../../../../../../components/softdevice/s140/headers/ble_types.h:
 
@@ -185,17 +187,17 @@ _build/nrf52840_xxaa/our_service.c.o: ../../../our_service.c \
 
 ../../../../../../components/libraries/util/app_error.h:
 
-/usr/arm-none-eabi/include/stdio.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/stdio.h:
 
-/usr/lib/gcc/arm-none-eabi/7.3.1/include/stdarg.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/lib/gcc/arm-none-eabi/6.3.1/include/stdarg.h:
 
-/usr/arm-none-eabi/include/sys/types.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/types.h:
 
-/usr/arm-none-eabi/include/sys/_pthreadtypes.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h:
 
-/usr/arm-none-eabi/include/machine/types.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/machine/types.h:
 
-/usr/arm-none-eabi/include/sys/stdio.h:
+/home/sarbjeet/gnuarmemb/gcc-arm-none-eabi-6-2017-q2-update/arm-none-eabi/include/sys/stdio.h:
 
 ../../../../../../components/libraries/util/sdk_errors.h:
 

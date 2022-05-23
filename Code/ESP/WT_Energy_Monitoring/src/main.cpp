@@ -9,25 +9,6 @@
 #include <LoRa.h>
 #include <PubSubClient.h>
 
-// for Energy Monitoring
-#include <ACS712.h>
-#include <Filters.h>
-
-ACS712 sensor(ACS712_20A, 34);
-char watt[5];
-unsigned long last_time =0;
-unsigned long current_time =0;
-float Wh =0 ;
-String Energy;
-
-// Another reference
-float testFrequency = 60;                     // test signal frequency (Hz)
-float windowLength = 20.0/testFrequency;     // how long to average the signal, for statistist
-int sensorValue = 0;
-float intercept = -0.0700; // to be adjusted based on calibration testing
-float slope = 0.0800; // to be adjusted based on calibration testing
-float current_amps; // estimated actual current in amps
-
 unsigned long printPeriod = 1000; // in milliseconds
 // Track time in milliseconds since last reading
 unsigned long previousMillis = 0;
@@ -69,9 +50,7 @@ int level;
 #define WIFI_LED  32
 #define BLE_LED  33
 
-// varialble for Energy Monitoring
-#define ACS_pin  34  // Energy Sensor
-static float total_energy_consumed;
+
 #define touch1 4 // Pin for capactitive touch sensor
 #define WT_sensor 15
 bool hbLedState = LOW; // Heartbeat LED state
@@ -124,58 +103,6 @@ void initRadio(){
     }else{
        Serial.print("Radio Not Available: >> ");
     }
-}
-
-void ernergy_consumption(void * pvParameters) {
-
-    RunningStatistics inputStats;                 // create statistics to look at the raw test signal
-    inputStats.setWindowSecs( windowLength );
-    Energy = "Energy: ";
-    while( true ) {
-      sensorValue = analogRead(A0);  // read the analog in value:
-      inputStats.input(sensorValue);  // log to Stats function
-
-      if((unsigned long)(millis() - previousMillis) >= printPeriod) {
-        previousMillis = millis();   // update time
-
-        // display current values to the screen
-        //Serial.print( "\n" );
-        // output sigma or variation values associated with the inputValue itsel
-        //Serial.print( "\tsigma: " ); Serial.print( inputStats.sigma() );
-        // convert signal sigma value to current in amps
-        current_amps = intercept + slope * inputStats.sigma();
-        Energy += ( (current_amps*230) *0.95);
-        publishData(Energy);
-        // Serial.print( "\tamps: " ); Serial.print( current_amps );
-        // Serial.print( "\tWatt: " ); Serial.print( (current_amps*230) *0.95);
-      }
-     }
-/*   float value = analogRead(ACS_pin);
-     total_energy_consumed += value;
-     Serial.print("Energy = ");
-     Serial.println(total_energy_consumed);
-*/
-    /**
-    * Logic that runs in Loop
-    */
-/*
-   float V = 230;
-   float I = sensor.getCurrentAC();
-  // Serial.print("Current: ");
-  // Serial.print(I);
-   float P = V * I;
-   last_time = current_time;
-   current_time = millis();
-   Wh = Wh+  P *(( current_time -last_time) /3600000.0) ;
-    dtostrf(Wh, 4, 2, watt);
-    Energy = "Energy: ";
-    Energy += watt;
-    publishData(Energy);
-   Serial.print("  Energy: ");
-   Serial.print(watt);
-   Serial.println();
-   delay(500);
-*/
 }
 
 void checkDataOnRadio(){
@@ -255,9 +182,6 @@ void setup() {
       delay(1000);
       initRadio();
       Serial.print(" Ready to print ");
-
-  // Define Energy Monitoring in Core 2
-  xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
   }
 
 }
@@ -268,9 +192,5 @@ void setup() {
 void loop() {
     checkDataOnRadio();
     checkTouchDetected();
-  //  ernergy_consumption();
-    while(1) {
-      check_WT();
-      delay(1000);
-    }
+    check_WT();
 }
