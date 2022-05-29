@@ -12,6 +12,7 @@
 // for Energy Monitoring
 #include <ACS712.h>
 #include <Filters.h>
+#include <stdio.h>
 
 ACS712 sensor(ACS712_20A, 34);
 char watt[5];
@@ -21,11 +22,11 @@ float Wh =0 ;
 String Energy;
 
 // Another reference
-float testFrequency = 100;                     // test signal frequency (Hz)
-float windowLength = 30.0/testFrequency;     // how long to average the signal, for statistist
+float testFrequency = 55;                     // test signal frequency (Hz)
+float windowLength = 10.0/testFrequency;     // how long to average the signal, for statistist
 int sensorValue = 0;
-float intercept = 0.000001; // to be adjusted based on calibration testing
-float slope = 0.0306999; // to be adjusted based on calibration testing
+double intercept = 0.00000999199919; // to be adjusted based on calibration testing
+float slope = 0.0309999997; // to be adjusted based on calibration testing
 float current_amps; // estimated actual current in amps
 
 unsigned long printPeriod = 1000; // in milliseconds
@@ -145,11 +146,12 @@ void ernergy_consumption(void * pvParameters) {
         // Energy += ( (current_amps*230) *0.95);
         // Serial.print(Energy);
         // Serial.print("\t");
-        Serial.print("Current: ");
-        Serial.print(current_amps);
+        //Serial.print("Current: ");
+        printf("Current = %.3f\n",current_amps);
+       // Serial.println(roundf(current_amps*1000)/1000);
 //        publishData(Energy);
-        publishData((Energy+current_amps));
-        Serial.println();
+ //       publishData((Energy+current_amps));
+ //       printf("%.3lf",current_amps);
       }
      }
 
