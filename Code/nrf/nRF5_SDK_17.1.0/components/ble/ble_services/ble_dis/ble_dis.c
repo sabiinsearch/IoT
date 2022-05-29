@@ -128,8 +128,7 @@ static uint32_t char_add(uint16_t                        uuid,
                          ble_gatts_char_handles_t      * p_handles)
 {
     ble_add_char_params_t add_char_params;
-
-    APP_ERROR_CHECK_BOOL(p_char_value != NULL);
+    
     APP_ERROR_CHECK_BOOL(char_len > 0);
 
     memset(&add_char_params, 0, sizeof(add_char_params));

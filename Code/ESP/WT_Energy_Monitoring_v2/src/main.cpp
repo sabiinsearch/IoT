@@ -12,6 +12,7 @@
 // for Energy Monitoring
 #include <ACS712.h>
 #include <Filters.h>
+#include <stdio.h>
 
 ACS712 sensor(ACS712_20A, 34);
 char watt[5];
@@ -21,11 +22,11 @@ float Wh =0 ;
 String Energy;
 
 // Another reference
-float testFrequency = 60;                     // test signal frequency (Hz)
-float windowLength = 20.0/testFrequency;     // how long to average the signal, for statistist
+float testFrequency = 55;                     // test signal frequency (Hz)
+float windowLength = 10.0/testFrequency;     // how long to average the signal, for statistist
 int sensorValue = 0;
-float intercept = -0.0700; // to be adjusted based on calibration testing
-float slope = 0.0800; // to be adjusted based on calibration testing
+double intercept = 0.00009999199919; // to be adjusted based on calibration testing
+float slope = 0.0316599997; // to be adjusted based on calibration testing
 float current_amps; // estimated actual current in amps
 
 unsigned long printPeriod = 1000; // in milliseconds
@@ -130,26 +131,30 @@ void ernergy_consumption(void * pvParameters) {
 
     RunningStatistics inputStats;                 // create statistics to look at the raw test signal
     inputStats.setWindowSecs( windowLength );
-    Energy = "Energy: ";
+    
     while( true ) {
-      sensorValue = analogRead(A0);  // read the analog in value:
-      inputStats.input(sensorValue);  // log to Stats function
+  //    float I = sensor.getCurrentAC(50);
 
+      Energy = "Current: ";
+      sensorValue = analogRead(ACS_pin);  // read the analog in value:
+      inputStats.input(sensorValue);  // log to Stats function      
+      
+      
       if((unsigned long)(millis() - previousMillis) >= printPeriod) {
-        previousMillis = millis();   // update time
-
-        // display current values to the screen
-        //Serial.print( "\n" );
-        // output sigma or variation values associated with the inputValue itsel
-        //Serial.print( "\tsigma: " ); Serial.print( inputStats.sigma() );
-        // convert signal sigma value to current in amps
+        previousMillis = millis();   // update time      
         current_amps = intercept + slope * inputStats.sigma();
-        Energy += ( (current_amps*230) *0.95);
-        publishData(Energy);
-        // Serial.print( "\tamps: " ); Serial.print( current_amps );
-        // Serial.print( "\tWatt: " ); Serial.print( (current_amps*230) *0.95);
+        // Energy += ( (current_amps*230) *0.95);
+        // Serial.print(Energy);
+        // Serial.print("\t");
+        //Serial.print("Current: ");
+        printf("Current = %.3f\n",current_amps);
+       // Serial.println(roundf(current_amps*1000)/1000);
+//        publishData(Energy);
+ //       publishData((Energy+current_amps));
+ //       printf("%.3lf",current_amps);
       }
      }
+
 /*   float value = analogRead(ACS_pin);
      total_energy_consumed += value;
      Serial.print("Energy = ");
@@ -193,7 +198,7 @@ void checkDataOnRadio(){
 
         // print RSSI of packet
         // Serial.print("' with RSSI ");
-        // Serial.println(LoRa.packetRssi());
+        //// Serial.println(LoRa.packetRssi());
     }
 }
 
@@ -207,16 +212,18 @@ void checkDataOnRadio(){
   Serial.print(raw);
   Serial.print("\t");
   Serial.print("Vout: ");
-  Serial.println(Vout);
+  Serial.print(Vout);
   String volt_level = "Tank_Level";
   volt_level += Vout;
+  Serial.print("\t");
+  Serial.println(volt_level);
   publishData(volt_level);
  }
 
  void checkTouchDetected(){
   if(digitalRead(touch1) == HIGH){
-        //publishData("Hello Wold");
-        //Serial.println("TouchDetected & Msg Sent on LoRa");
+        publishData("pressed");
+        Serial.println("pressed");
         check_WT();
         if (sw2Val == 0){
           digitalWrite(SW2, 1);
@@ -232,7 +239,7 @@ void checkDataOnRadio(){
 
 void setup() {
 
-  Serial.begin(115200);
+  Serial.begin(9800);
   while (!Serial);
   delay(1000);
 	// Send some device info
@@ -244,6 +251,9 @@ void setup() {
   pinMode(SW2, OUTPUT);
   pinMode(touch1, INPUT);
   pinMode(WT_sensor, INPUT);
+  pinMode(A0,INPUT);
+  pinMode(ACS_pin,INPUT);
+  
 
   //digitalWrite(touch1, 0);
   digitalWrite(SW2, 1);
@@ -268,9 +278,9 @@ void setup() {
 void loop() {
     checkDataOnRadio();
     checkTouchDetected();
-  //  ernergy_consumption();
-    while(1) {
-      check_WT();
+    //ernergy_consumption();
+    //while(1) {
+    //  check_WT();
       delay(1000);
-    }
+    //}
 }
