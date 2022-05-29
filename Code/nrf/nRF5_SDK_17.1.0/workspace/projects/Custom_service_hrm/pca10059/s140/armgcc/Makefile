@@ -77,6 +77,7 @@ SRC_FILES += \
   $(SDK_ROOT)/components/libraries/crypto/nrf_crypto_init.c \
   $(SDK_ROOT)/components/libraries/crypto/nrf_crypto_rng.c \
   $(SDK_ROOT)/components/libraries/crypto/nrf_crypto_shared.c \
+  $(PROJ_DIR)/my_cust_service.c \
   $(PROJ_DIR)/main.c \
   $(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
   $(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \

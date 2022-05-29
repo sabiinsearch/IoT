@@ -8,7 +8,7 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/include",
+                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/lib",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/lib/pubsubclient-2.3/src",
@@ -227,7 +227,7 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/include",
+                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/lib",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring/lib/pubsubclient-2.3/src",
