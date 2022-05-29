@@ -198,7 +198,7 @@ void checkDataOnRadio(){
 
         // print RSSI of packet
         // Serial.print("' with RSSI ");
-        // Serial.println(LoRa.packetRssi());
+        //// Serial.println(LoRa.packetRssi());
     }
 }
 
