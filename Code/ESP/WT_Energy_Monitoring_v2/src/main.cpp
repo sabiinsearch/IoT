@@ -25,8 +25,8 @@ String Energy;
 float testFrequency = 55;                     // test signal frequency (Hz)
 float windowLength = 10.0/testFrequency;     // how long to average the signal, for statistist
 int sensorValue = 0;
-double intercept = 0.00000999199919; // to be adjusted based on calibration testing
-float slope = 0.0309999997; // to be adjusted based on calibration testing
+double intercept = 0.00009999199919; // to be adjusted based on calibration testing
+float slope = 0.0316599997; // to be adjusted based on calibration testing
 float current_amps; // estimated actual current in amps
 
 unsigned long printPeriod = 1000; // in milliseconds
