@@ -88,7 +88,6 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
  ../../../../../../components/ble/ble_services/ble_hrs/ble_hrs.h \
  ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h \
  ../../../../../../components/ble/ble_services/ble_dis/ble_dis.h \
- ../../../my_cust_service.h \
  ../../../../../../components/ble/common/ble_conn_params.h \
  ../../../../../../components/ble/common/ble_srv_common.h \
  ../../../../../../components/libraries/sensorsim/sensorsim.h \
@@ -326,8 +325,6 @@ _build/nrf52840_xxaa/main.c.o: ../../../main.c \
 ../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h:
 
 ../../../../../../components/ble/ble_services/ble_dis/ble_dis.h:
-
-../../../my_cust_service.h:
 
 ../../../../../../components/ble/common/ble_conn_params.h:
 
