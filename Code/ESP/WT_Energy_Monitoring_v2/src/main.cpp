@@ -48,7 +48,7 @@ unsigned long previousMillis = 0;
 
 //static int taskCore = 0;
 bool radioAvailable = false;
-bool enableRadio = true;
+bool enableRadio = false;
 bool enableBLE = true;
 bool enableWiFi = true;
 bool enableMQTT = false;
@@ -65,10 +65,22 @@ float buffer = 0;
 int level;
 
 
-// #define HEARTBEAT_LED  32
-#define HEARTBEAT_LED  25
-#define WIFI_LED  32
-#define BLE_LED  33
+// #define RGB LEDs
+#define HEARTBEAT_LED  5
+#define WIFI_LED  17
+#define BLE_LED  16
+
+// # define Level LEDs
+#define LED1_U   32
+#define LED1_D   33
+#define LED2_U   25
+#define LED2_D   26
+#define LED3_U   27 
+#define LED3_D   14 
+#define LED4_U   12 
+#define LED4_D   13 
+#define LED5_U   2 
+#define LED5_D   18 
 
 // varialble for Energy Monitoring
 #define ACS_pin  34  // Energy Sensor
@@ -77,22 +89,13 @@ static float total_energy_consumed;
 #define WT_sensor 15
 bool hbLedState = LOW; // Heartbeat LED state
 
-int SW2 = 16;
+int SW2 = 19;
 
 int sw2Val = 1;
 
 boolean lastState2 = LOW;
 
 bool usePrimAP = true; // use primary or secondary WiFi network
-
-char* string2char(String str){
-  char *p;
-    if(str.length()!=0) {
-        p = const_cast<char*>(str.c_str());
-    }
-    return p;
-}
-
 
 void initRadio(){
   if(enableRadio){
@@ -108,6 +111,101 @@ void initRadio(){
         }
       }while(!radioAvailable && radioTryCount < 3);
   }
+}
+// Setting the Tank LEDs accordingly
+void LED_allOff() {
+   digitalWrite(LED1_U,HIGH);
+   digitalWrite(LED1_D,HIGH);
+   digitalWrite(LED2_U,HIGH);
+   digitalWrite(LED2_D,HIGH);
+   digitalWrite(LED3_U,HIGH);
+   digitalWrite(LED3_D,HIGH);
+   digitalWrite(LED4_U,HIGH);
+   digitalWrite(LED4_D,HIGH);
+   digitalWrite(LED5_U,HIGH);
+   digitalWrite(LED5_D,HIGH);
+}
+
+void LED_allOn() {
+   digitalWrite(LED1_U,LOW);
+   digitalWrite(LED1_D,LOW);
+   digitalWrite(LED2_U,LOW);
+   digitalWrite(LED2_D,LOW);
+   digitalWrite(LED3_U,LOW);
+   digitalWrite(LED3_D,LOW);
+   digitalWrite(LED4_U,LOW);
+   digitalWrite(LED4_D,LOW);
+   digitalWrite(LED5_U,LOW);
+   digitalWrite(LED5_D,LOW);
+}
+
+void initRGB(){
+  digitalWrite(HEARTBEAT_LED,HIGH);
+  digitalWrite(WIFI_LED,HIGH);
+  digitalWrite(BLE_LED,HIGH);
+  delay(1000);
+  digitalWrite(HEARTBEAT_LED,LOW);
+  digitalWrite(WIFI_LED,LOW);
+  digitalWrite(BLE_LED,LOW);
+ }
+
+void setup() {
+
+  Serial.begin(9800);
+  while (!Serial);
+  delay(1000);
+	// Send some device info
+	Serial.print("Build: ");
+
+  pinMode(HEARTBEAT_LED, OUTPUT);
+  pinMode(WIFI_LED, OUTPUT);
+  pinMode(BLE_LED, OUTPUT);
+  pinMode(SW2, OUTPUT);
+  pinMode(touch1, INPUT);
+  pinMode(WT_sensor, INPUT);
+  pinMode(A0,INPUT);
+  pinMode(ACS_pin,INPUT);
+
+  // setting Tank level LEDs
+  pinMode(LED1_U,OUTPUT);
+  pinMode(LED1_D,OUTPUT);
+  pinMode(LED2_U,OUTPUT);
+  pinMode(LED2_D,OUTPUT);
+  pinMode(LED3_U,OUTPUT);
+  pinMode(LED3_D,OUTPUT);
+  pinMode(LED4_U,OUTPUT);
+  pinMode(LED4_D,OUTPUT);
+  pinMode(LED5_U,OUTPUT);
+  pinMode(LED5_D,OUTPUT);
+
+  LED_allOff();
+  //digitalWrite(touch1, 0);
+  digitalWrite(SW2, 1);
+
+  // Init RGB
+  initRGB();
+
+  // Init Lora
+  if(enableRadio){
+
+      SPI.begin(SCK, MISO, MOSI, CS);
+      LoRa.setPins(SS, RST, DI0);
+      delay(1000);
+      initRadio();
+      Serial.print(" Ready to print ");
+
+  // Define Energy Monitoring in Core 2
+  //xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+  }
+
+}
+
+char* string2char(String str){
+  char *p;
+    if(str.length()!=0) {
+        p = const_cast<char*>(str.c_str());
+    }
+    return p;
 }
 
  void publishData(String data){
@@ -227,50 +325,19 @@ void checkDataOnRadio(){
         check_WT();
         if (sw2Val == 0){
           digitalWrite(SW2, 1);
+          Serial.println("Motor On");
           sw2Val = 1;
+          LED_allOn();
         } else {
           digitalWrite(SW2, 0);
+          Serial.println("Motor Off");
           sw2Val = 0;
+          LED_allOff();
         }
 
         delay(500);
   }
  }
-
-void setup() {
-
-  Serial.begin(9800);
-  while (!Serial);
-  delay(1000);
-	// Send some device info
-	Serial.print("Build: ");
-
-  pinMode(HEARTBEAT_LED, OUTPUT);
-  pinMode(WIFI_LED, OUTPUT);
-  pinMode(BLE_LED, OUTPUT);
-  pinMode(SW2, OUTPUT);
-  pinMode(touch1, INPUT);
-  pinMode(WT_sensor, INPUT);
-  pinMode(A0,INPUT);
-  pinMode(ACS_pin,INPUT);
-  
-
-  //digitalWrite(touch1, 0);
-  digitalWrite(SW2, 1);
-  // Init Lora
-  if(enableRadio){
-
-      SPI.begin(SCK, MISO, MOSI, CS);
-      LoRa.setPins(SS, RST, DI0);
-      delay(1000);
-      initRadio();
-      Serial.print(" Ready to print ");
-
-  // Define Energy Monitoring in Core 2
-  xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
-  }
-
-}
 
 /**
  * Logic that runs in Loop
@@ -278,9 +345,10 @@ void setup() {
 void loop() {
     checkDataOnRadio();
     checkTouchDetected();
+   // checkLevel();
     //ernergy_consumption();
     //while(1) {
     //  check_WT();
-      delay(1000);
+    //  delay(1000);
     //}
 }
