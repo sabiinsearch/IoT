@@ -1,6 +1,5 @@
 // Default Arduino includes
 #include <Arduino.h>
-#include <WiFi.h>
 #include <nvs.h>
 #include <nvs_flash.h>
 #include <ArduinoJson.h>
@@ -8,6 +7,9 @@
 #include <SPI.h>
 #include <LoRa.h>
 #include <PubSubClient.h>
+
+#include <WiFi.h>   // for WiFi
+#include <WiFiManager.h>  
 
 // for Energy Monitoring
 #include <ACS712.h>
@@ -94,8 +96,41 @@ int SW2 = 19;
 int sw2Val = 1;
 
 boolean lastState2 = LOW;
-
 bool usePrimAP = true; // use primary or secondary WiFi network
+
+WiFiManager wm; // WiFi Manager 
+
+void initWiFi() {
+  WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
+}
+
+void reconnectWiFi(){
+  bool res;
+  wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+  res = wm.autoConnect("Tank_Board"); // anonymous ap
+    if(!res) {
+        Serial.println("Failed to connect");
+        // ESP.restart();
+    } 
+    else {
+        //if you get here you have connected to the WiFi    
+        Serial.println("connected...yeey :)");
+    }
+}
+
+void connectWiFi(){
+  bool res;
+  res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
+    if(!res) {
+        reconnectWiFi();
+    } 
+    else {
+        //if you get here you have connected to the WiFi    
+        Serial.println("connected...yeey :)");
+    }
+
+}
+
 
 void initRadio(){
   if(enableRadio){
@@ -184,7 +219,12 @@ void setup() {
 
   // Init RGB
   initRGB();
-
+  
+  // Init WiFi
+  if(enableWiFi) {
+       initWiFi();
+       connectWiFi();
+  }
   // Init Lora
   if(enableRadio){
 
@@ -193,10 +233,9 @@ void setup() {
       delay(1000);
       initRadio();
       Serial.print(" Ready to print ");
-
+  }
   // Define Energy Monitoring in Core 2
   //xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
-  }
 
 }
 
@@ -320,22 +359,40 @@ void checkDataOnRadio(){
 
  void checkTouchDetected(){
   if(digitalRead(touch1) == HIGH){
-        publishData("pressed");
-        Serial.println("pressed");
-        check_WT();
-        if (sw2Val == 0){
-          digitalWrite(SW2, 1);
-          Serial.println("Motor On");
-          sw2Val = 1;
-          LED_allOn();
-        } else {
-          digitalWrite(SW2, 0);
-          Serial.println("Motor Off");
-          sw2Val = 0;
-          LED_allOff();
-        }
+        long press_start = millis();
+        long press_end = press_start;
+        int count_press = 0;
 
-        delay(500);
+        while (digitalRead(touch1) == HIGH) {
+          press_end = millis();
+          count_press = press_end-press_start;
+           if(count_press>3000) {
+            wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            connectWiFi();
+            break;
+           }  
+        } 
+        
+        
+        publishData("pressed");
+        Serial.print("pressed for ");
+        Serial.println(count_press);
+
+        if(count_press<2500) {
+          check_WT();
+          if (sw2Val == 0){
+            digitalWrite(SW2, 1);
+            Serial.println("Motor Off");
+            sw2Val = 1;
+            LED_allOff();
+          } else {
+            digitalWrite(SW2, 0);
+            Serial.println("Motor On");
+            sw2Val = 0;
+            LED_allOn();
+          }
+          delay(100);             
+        }
   }
  }
 
