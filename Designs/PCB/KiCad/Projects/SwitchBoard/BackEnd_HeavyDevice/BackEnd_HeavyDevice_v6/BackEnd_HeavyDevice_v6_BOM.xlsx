@@ -1,0 +1,18 @@
+Ref,Qnty,Value,Footprint
+"C1, C2, ",2,100nf,603
+"C3, ",1,2.2uf,603
+"D1, ",1,IN14007,D_0805
+"F1, ",1,Fuse_Small,Fuse_Small
+"J1, ",1,Screw_Terminal_01x02,Screw_Terminal_01x02
+"J2, J3, J4, J5, ",4,Conn_01x01_Female,Conn_01x01_Female
+"J6, ",1,Screw_Terminal_01x02,Screw_Terminal_01x02
+"PS1, ",1,HLK-PM01,Custom_Libraries:277
+"Q1, ",1,BT41,Custom_Libraries:GN27120BN
+"R1, R2, ",2,5K,603
+"R3, ",1,470E,603
+"R4, ",1,100E,603
+"R5, ",1,220K,603
+"U1, ",1,ACS712-20,Custom_Libraries:ACS712_20
+"U2, ",1,MOC3021,Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads
+"U3, ",1,4N35,Housings_DIP:DIP-6_W8.89mm_SMDSocket_LongPads
+"U4, ",1,AP2112K-3.3,TO_SOT_Packages_SMD:SOT-23-5_HandSoldering
