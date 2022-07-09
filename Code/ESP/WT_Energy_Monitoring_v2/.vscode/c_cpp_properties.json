@@ -8,7 +8,7 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib",
+                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
@@ -228,7 +228,7 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib",
+                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
@@ -447,7 +447,7 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=60002",
+                "PLATFORMIO=60100",
                 "ARDUINO_ESP32_DEV",
                 "HAVE_CONFIG_H",
                 "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"",
