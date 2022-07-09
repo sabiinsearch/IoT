@@ -52,7 +52,7 @@ unsigned long previousMillis = 0;
 bool radioAvailable = false;
 bool enableRadio = false;
 bool enableBLE = true;
-bool enableWiFi = true;
+bool enableWiFi = false;
 bool enableMQTT = false;
 
 unsigned long interval = 5; // the time we need to wait
@@ -184,6 +184,63 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
+// Energy Consumption
+void ernergy_consumption(void * pvParameters) {
+
+    RunningStatistics inputStats;                 // create statistics to look at the raw test signal
+    inputStats.setWindowSecs( windowLength );
+    
+    while( true ) {
+  //    float I = sensor.getCurrentAC(50);
+
+      Energy = "Current: ";
+      sensorValue = analogRead(ACS_pin);  // read the analog in value:
+      inputStats.input(sensorValue);  // log to Stats function      
+      
+      
+      if((unsigned long)(millis() - previousMillis) >= printPeriod) {
+        previousMillis = millis();   // update time      
+        current_amps = intercept + slope * inputStats.sigma();
+        // Energy += ( (current_amps*230) *0.95);
+        // Serial.print(Energy);
+        // Serial.print("\t");
+        //Serial.print("Current: ");
+        printf("Current = %.3f\n",current_amps);
+       // Serial.println(roundf(current_amps*1000)/1000);
+//        publishData(Energy);
+ //       publishData((Energy+current_amps));
+ //  //     printf("%.3lf",current_amps);
+      }
+     }
+
+/*   float value = analogRead(ACS_pin);
+     total_energy_consumed += value;
+     Serial.print("Energy = ");
+     Serial.println(total_energy_consumed);
+*/
+
+/*
+   float V = 230;
+   float I = sensor.getCurrentAC();
+  // Serial.print("Current: ");
+  // Serial.print(I);
+   float P = V * I;
+   last_time = current_time;
+   current_time = millis();
+   Wh = Wh+  P *(( current_time -last_time) /3600000.0) ;
+    dtostrf(Wh, 4, 2, watt);
+    Energy = "Energy: ";
+    Energy += watt;
+    publishData(Energy);
+   Serial.print("  Energy: ");
+   Serial.print(watt);
+   Serial.println();
+   delay(500);
+*/
+}
+
+// setup
+
 void setup() {
 
   Serial.begin(9800);
@@ -235,7 +292,7 @@ void setup() {
       Serial.print(" Ready to print ");
   }
   // Define Energy Monitoring in Core 2
-  //xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+  xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
 }
 
@@ -262,62 +319,6 @@ char* string2char(String str){
     }else{
        Serial.print("Radio Not Available: >> ");
     }
-}
-
-void ernergy_consumption(void * pvParameters) {
-
-    RunningStatistics inputStats;                 // create statistics to look at the raw test signal
-    inputStats.setWindowSecs( windowLength );
-    
-    while( true ) {
-  //    float I = sensor.getCurrentAC(50);
-
-      Energy = "Current: ";
-      sensorValue = analogRead(ACS_pin);  // read the analog in value:
-      inputStats.input(sensorValue);  // log to Stats function      
-      
-      
-      if((unsigned long)(millis() - previousMillis) >= printPeriod) {
-        previousMillis = millis();   // update time      
-        current_amps = intercept + slope * inputStats.sigma();
-        // Energy += ( (current_amps*230) *0.95);
-        // Serial.print(Energy);
-        // Serial.print("\t");
-        //Serial.print("Current: ");
-        printf("Current = %.3f\n",current_amps);
-       // Serial.println(roundf(current_amps*1000)/1000);
-//        publishData(Energy);
- //       publishData((Energy+current_amps));
- //       printf("%.3lf",current_amps);
-      }
-     }
-
-/*   float value = analogRead(ACS_pin);
-     total_energy_consumed += value;
-     Serial.print("Energy = ");
-     Serial.println(total_energy_consumed);
-*/
-    /**
-    * Logic that runs in Loop
-    */
-/*
-   float V = 230;
-   float I = sensor.getCurrentAC();
-  // Serial.print("Current: ");
-  // Serial.print(I);
-   float P = V * I;
-   last_time = current_time;
-   current_time = millis();
-   Wh = Wh+  P *(( current_time -last_time) /3600000.0) ;
-    dtostrf(Wh, 4, 2, watt);
-    Energy = "Energy: ";
-    Energy += watt;
-    publishData(Energy);
-   Serial.print("  Energy: ");
-   Serial.print(watt);
-   Serial.println();
-   delay(500);
-*/
 }
 
 void checkDataOnRadio(){
