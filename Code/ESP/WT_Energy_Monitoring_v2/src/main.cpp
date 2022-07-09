@@ -209,7 +209,7 @@ void ernergy_consumption(void * pvParameters) {
        // Serial.println(roundf(current_amps*1000)/1000);
 //        publishData(Energy);
  //       publishData((Energy+current_amps));
- //       printf("%.3lf",current_amps);
+ //  //     printf("%.3lf",current_amps);
       }
      }
 
