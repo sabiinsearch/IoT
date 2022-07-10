@@ -53,78 +53,17 @@ float Vout = 0.0;
 float buffer = 0;
 int level;
 
-
-// #define RGB LEDs
-#define HEARTBEAT_LED  5
-#define WIFI_LED  17
-#define BLE_LED  16
-
-// # define Level LEDs
-#define LED1_U   32
-#define LED1_D   33
-#define LED2_U   25
-#define LED2_D   26
-#define LED3_U   27 
-#define LED3_D   14 
-#define LED4_U   12 
-#define LED4_D   13 
-#define LED5_U   2 
-#define LED5_D   18 
-
 // varialble for Energy Monitoring
-#define ACS_pin  34  // Energy Sensor
 static float total_energy_consumed;
-#define touch1 4 // Pin for capactitive touch sensor
-#define WT_sensor 15
 bool hbLedState = LOW; // Heartbeat LED state
 
-int SW2 = 19;
 
 int sw2Val = 1;
 
 boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
-// Setting the Tank LEDs accordingly
-void LED_allOff() {
-   digitalWrite(LED1_U,HIGH);
-   digitalWrite(LED1_D,HIGH);
-   digitalWrite(LED2_U,HIGH);
-   digitalWrite(LED2_D,HIGH);
-   digitalWrite(LED3_U,HIGH);
-   digitalWrite(LED3_D,HIGH);
-   digitalWrite(LED4_U,HIGH);
-   digitalWrite(LED4_D,HIGH);
-   digitalWrite(LED5_U,HIGH);
-   digitalWrite(LED5_D,HIGH);
-   getMyMsg();
-   print_communication();
-}
 
-void LED_allOn() {
-   digitalWrite(LED1_U,LOW);
-   digitalWrite(LED1_D,LOW);
-   digitalWrite(LED2_U,LOW);
-   digitalWrite(LED2_D,LOW);
-   digitalWrite(LED3_U,LOW);
-   digitalWrite(LED3_D,LOW);
-   digitalWrite(LED4_U,LOW);
-   digitalWrite(LED4_D,LOW);
-   digitalWrite(LED5_U,LOW);
-   digitalWrite(LED5_D,LOW);
-   getMyMsg();
-   print_communication();
-}
-
-void initRGB(){
-  digitalWrite(HEARTBEAT_LED,HIGH);
-  digitalWrite(WIFI_LED,HIGH);
-  digitalWrite(BLE_LED,HIGH);
-  delay(1000);
-  digitalWrite(HEARTBEAT_LED,LOW);
-  digitalWrite(WIFI_LED,LOW);
-  digitalWrite(BLE_LED,LOW);
- }
 
 // Energy Consumption
 void ernergy_consumption(void * pvParameters) {
@@ -194,7 +133,7 @@ void setup() {
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
   pinMode(BLE_LED, OUTPUT);
-  pinMode(SW2, OUTPUT);
+  pinMode(SW_pin, OUTPUT);
   pinMode(touch1, INPUT);
   pinMode(WT_sensor, INPUT);
   pinMode(A0,INPUT);
@@ -214,7 +153,7 @@ void setup() {
 
   LED_allOff();
   //digitalWrite(touch1, 0);
-  digitalWrite(SW2, 1);
+  digitalWrite(SW_pin, 1);
 
   // Init RGB
   initRGB();
@@ -276,12 +215,12 @@ void setup() {
         if(count_press<2500) {
           check_WT();
           if (sw2Val == 0){
-            digitalWrite(SW2, 1);
+            digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
             sw2Val = 1;
             LED_allOff();
           } else {
-            digitalWrite(SW2, 0);
+            digitalWrite(SW_pin, 0);
             Serial.println("Motor On");
             sw2Val = 0;
             LED_allOn();
