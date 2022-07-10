@@ -5,11 +5,9 @@
 #include <ArduinoJson.h>
 #include <stdlib.h>
 #include <SPI.h>
-#include <LoRa.h>
 #include <PubSubClient.h>
 
-#include <WiFi.h>   // for WiFi
-#include <WiFiManager.h>  
+#include "myCommon.h"
 
 // for Energy Monitoring
 #include <ACS712.h>
@@ -37,18 +35,7 @@ unsigned long previousMillis = 0;
 
 #include <Preferences.h>
 
-#define BAND    433E6
-#define SCK     5
-#define MISO    19
-#define MOSI    27
-#define CS      18
-
-#define SS      18
-#define RST     14
-#define DI0     26
-
-
-//static int taskCore = 0;
+// //static int taskCore = 0;
 bool radioAvailable = false;
 bool enableRadio = false;
 bool enableBLE = true;
@@ -98,55 +85,6 @@ int sw2Val = 1;
 boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
-WiFiManager wm; // WiFi Manager 
-
-void initWiFi() {
-  WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
-}
-
-void reconnectWiFi(){
-  bool res;
-  wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
-  res = wm.autoConnect("Tank_Board"); // anonymous ap
-    if(!res) {
-        Serial.println("Failed to connect");
-        // ESP.restart();
-    } 
-    else {
-        //if you get here you have connected to the WiFi    
-        Serial.println("connected...yeey :)");
-    }
-}
-
-void connectWiFi(){
-  bool res;
-  res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
-    if(!res) {
-        reconnectWiFi();
-    } 
-    else {
-        //if you get here you have connected to the WiFi    
-        Serial.println("connected...yeey :)");
-    }
-
-}
-
-
-void initRadio(){
-  if(enableRadio){
-      int radioTryCount = 0;
-      do{
-        radioAvailable = LoRa.begin(BAND);
-        radioTryCount++;
-        if(!radioAvailable){
-          Serial.printf("Starting Radio failed!, Try Count: %d\n", radioTryCount);
-          delay(3000);
-        }else{
-          Serial.println("Radio Initialized Successfully...");
-        }
-      }while(!radioAvailable && radioTryCount < 3);
-  }
-}
 // Setting the Tank LEDs accordingly
 void LED_allOff() {
    digitalWrite(LED1_U,HIGH);
@@ -159,6 +97,8 @@ void LED_allOff() {
    digitalWrite(LED4_D,HIGH);
    digitalWrite(LED5_U,HIGH);
    digitalWrite(LED5_D,HIGH);
+   getMyMsg();
+   print_communication();
 }
 
 void LED_allOn() {
@@ -172,6 +112,8 @@ void LED_allOn() {
    digitalWrite(LED4_D,LOW);
    digitalWrite(LED5_U,LOW);
    digitalWrite(LED5_D,LOW);
+   getMyMsg();
+   print_communication();
 }
 
 void initRGB(){
@@ -284,60 +226,12 @@ void setup() {
   }
   // Init Lora
   if(enableRadio){
-
-      SPI.begin(SCK, MISO, MOSI, CS);
-      LoRa.setPins(SS, RST, DI0);
-      delay(1000);
-      initRadio();
+      initRadio(enableRadio);
       Serial.print(" Ready to print ");
   }
   // Define Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
-}
-
-char* string2char(String str){
-  char *p;
-    if(str.length()!=0) {
-        p = const_cast<char*>(str.c_str());
-    }
-    return p;
-}
-
- void publishData(String data){
-    bool published = false;
-
-    if(radioAvailable && !published){
-        LoRa.beginPacket();
-
-        LoRa.print(data);
-        LoRa.print("\n");
-        LoRa.endPacket();
-
-        delay(1);
-        LoRa.flush();
-    }else{
-       Serial.print("Radio Not Available: >> ");
-    }
-}
-
-void checkDataOnRadio(){
-  String receivedText;
-  // try to parse packet
-    int packetSize = LoRa.parsePacket();
-    if (packetSize) {
-        // received a packet
-        // Serial.print("Received packet '");
-        // read packet
-        while (LoRa.available()) {
-          receivedText = (char)LoRa.read();
-          Serial.print(receivedText);
-        }
-
-        // print RSSI of packet
-        // Serial.print("' with RSSI ");
-        //// Serial.println(LoRa.packetRssi());
-    }
 }
 
 
@@ -355,7 +249,7 @@ void checkDataOnRadio(){
   volt_level += Vout;
   Serial.print("\t");
   Serial.println(volt_level);
-  publishData(volt_level);
+  publishData(volt_level, radioAvailable);
  }
 
  void checkTouchDetected(){
@@ -368,14 +262,14 @@ void checkDataOnRadio(){
           press_end = millis();
           count_press = press_end-press_start;
            if(count_press>3000) {
-            wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
             connectWiFi();
             break;
            }  
         } 
         
         
-        publishData("pressed");
+        publishData("pressed",true);
         Serial.print("pressed for ");
         Serial.println(count_press);
 

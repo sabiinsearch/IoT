@@ -10,6 +10,7 @@
             "includePath": [
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
+                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/FS/src",
@@ -200,6 +201,7 @@
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/EEPROM",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/RFM69",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/SPIFlash",
+                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/myCust_lib",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",
@@ -230,6 +232,7 @@
                 "path": [
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
+                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/FS/src",
@@ -420,6 +423,7 @@
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/EEPROM",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/RFM69",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/SPIFlash",
+                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/myCust_lib",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",
