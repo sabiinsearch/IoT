@@ -5,11 +5,9 @@
 #include <ArduinoJson.h>
 #include <stdlib.h>
 #include <SPI.h>
-#include <LoRa.h>
 #include <PubSubClient.h>
 
-#include <WiFi.h>   // for WiFi
-#include <WiFiManager.h>  
+#include "myCommon.h"
 
 // for Energy Monitoring
 #include <ACS712.h>
@@ -37,18 +35,7 @@ unsigned long previousMillis = 0;
 
 #include <Preferences.h>
 
-#define BAND    433E6
-#define SCK     5
-#define MISO    19
-#define MOSI    27
-#define CS      18
-
-#define SS      18
-#define RST     14
-#define DI0     26
-
-
-//static int taskCore = 0;
+// //static int taskCore = 0;
 bool radioAvailable = false;
 bool enableRadio = false;
 bool enableBLE = true;
@@ -66,123 +53,17 @@ float Vout = 0.0;
 float buffer = 0;
 int level;
 
-
-// #define RGB LEDs
-#define HEARTBEAT_LED  5
-#define WIFI_LED  17
-#define BLE_LED  16
-
-// # define Level LEDs
-#define LED1_U   32
-#define LED1_D   33
-#define LED2_U   25
-#define LED2_D   26
-#define LED3_U   27 
-#define LED3_D   14 
-#define LED4_U   12 
-#define LED4_D   13 
-#define LED5_U   2 
-#define LED5_D   18 
-
 // varialble for Energy Monitoring
-#define ACS_pin  34  // Energy Sensor
 static float total_energy_consumed;
-#define touch1 4 // Pin for capactitive touch sensor
-#define WT_sensor 15
 bool hbLedState = LOW; // Heartbeat LED state
 
-int SW2 = 19;
 
 int sw2Val = 1;
 
 boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
-WiFiManager wm; // WiFi Manager 
 
-void initWiFi() {
-  WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
-}
-
-void reconnectWiFi(){
-  bool res;
-  wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
-  res = wm.autoConnect("Tank_Board"); // anonymous ap
-    if(!res) {
-        Serial.println("Failed to connect");
-        // ESP.restart();
-    } 
-    else {
-        //if you get here you have connected to the WiFi    
-        Serial.println("connected...yeey :)");
-    }
-}
-
-void connectWiFi(){
-  bool res;
-  res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
-    if(!res) {
-        reconnectWiFi();
-    } 
-    else {
-        //if you get here you have connected to the WiFi    
-        Serial.println("connected...yeey :)");
-    }
-
-}
-
-
-void initRadio(){
-  if(enableRadio){
-      int radioTryCount = 0;
-      do{
-        radioAvailable = LoRa.begin(BAND);
-        radioTryCount++;
-        if(!radioAvailable){
-          Serial.printf("Starting Radio failed!, Try Count: %d\n", radioTryCount);
-          delay(3000);
-        }else{
-          Serial.println("Radio Initialized Successfully...");
-        }
-      }while(!radioAvailable && radioTryCount < 3);
-  }
-}
-// Setting the Tank LEDs accordingly
-void LED_allOff() {
-   digitalWrite(LED1_U,HIGH);
-   digitalWrite(LED1_D,HIGH);
-   digitalWrite(LED2_U,HIGH);
-   digitalWrite(LED2_D,HIGH);
-   digitalWrite(LED3_U,HIGH);
-   digitalWrite(LED3_D,HIGH);
-   digitalWrite(LED4_U,HIGH);
-   digitalWrite(LED4_D,HIGH);
-   digitalWrite(LED5_U,HIGH);
-   digitalWrite(LED5_D,HIGH);
-}
-
-void LED_allOn() {
-   digitalWrite(LED1_U,LOW);
-   digitalWrite(LED1_D,LOW);
-   digitalWrite(LED2_U,LOW);
-   digitalWrite(LED2_D,LOW);
-   digitalWrite(LED3_U,LOW);
-   digitalWrite(LED3_D,LOW);
-   digitalWrite(LED4_U,LOW);
-   digitalWrite(LED4_D,LOW);
-   digitalWrite(LED5_U,LOW);
-   digitalWrite(LED5_D,LOW);
-}
-
-void initRGB(){
-  digitalWrite(HEARTBEAT_LED,HIGH);
-  digitalWrite(WIFI_LED,HIGH);
-  digitalWrite(BLE_LED,HIGH);
-  delay(1000);
-  digitalWrite(HEARTBEAT_LED,LOW);
-  digitalWrite(WIFI_LED,LOW);
-  digitalWrite(BLE_LED,LOW);
- }
 
 // Energy Consumption
 void ernergy_consumption(void * pvParameters) {
@@ -252,7 +133,7 @@ void setup() {
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
   pinMode(BLE_LED, OUTPUT);
-  pinMode(SW2, OUTPUT);
+  pinMode(SW_pin, OUTPUT);
   pinMode(touch1, INPUT);
   pinMode(WT_sensor, INPUT);
   pinMode(A0,INPUT);
@@ -272,7 +153,7 @@ void setup() {
 
   LED_allOff();
   //digitalWrite(touch1, 0);
-  digitalWrite(SW2, 1);
+  digitalWrite(SW_pin, 1);
 
   // Init RGB
   initRGB();
@@ -284,60 +165,12 @@ void setup() {
   }
   // Init Lora
   if(enableRadio){
-
-      SPI.begin(SCK, MISO, MOSI, CS);
-      LoRa.setPins(SS, RST, DI0);
-      delay(1000);
-      initRadio();
+      initRadio(enableRadio);
       Serial.print(" Ready to print ");
   }
   // Define Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
-}
-
-char* string2char(String str){
-  char *p;
-    if(str.length()!=0) {
-        p = const_cast<char*>(str.c_str());
-    }
-    return p;
-}
-
- void publishData(String data){
-    bool published = false;
-
-    if(radioAvailable && !published){
-        LoRa.beginPacket();
-
-        LoRa.print(data);
-        LoRa.print("\n");
-        LoRa.endPacket();
-
-        delay(1);
-        LoRa.flush();
-    }else{
-       Serial.print("Radio Not Available: >> ");
-    }
-}
-
-void checkDataOnRadio(){
-  String receivedText;
-  // try to parse packet
-    int packetSize = LoRa.parsePacket();
-    if (packetSize) {
-        // received a packet
-        // Serial.print("Received packet '");
-        // read packet
-        while (LoRa.available()) {
-          receivedText = (char)LoRa.read();
-          Serial.print(receivedText);
-        }
-
-        // print RSSI of packet
-        // Serial.print("' with RSSI ");
-        //// Serial.println(LoRa.packetRssi());
-    }
 }
 
 
@@ -355,7 +188,7 @@ void checkDataOnRadio(){
   volt_level += Vout;
   Serial.print("\t");
   Serial.println(volt_level);
-  publishData(volt_level);
+  publishData(volt_level, radioAvailable);
  }
 
  void checkTouchDetected(){
@@ -368,26 +201,26 @@ void checkDataOnRadio(){
           press_end = millis();
           count_press = press_end-press_start;
            if(count_press>3000) {
-            wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
             connectWiFi();
             break;
            }  
         } 
         
         
-        publishData("pressed");
+        publishData("pressed",true);
         Serial.print("pressed for ");
         Serial.println(count_press);
 
         if(count_press<2500) {
           check_WT();
           if (sw2Val == 0){
-            digitalWrite(SW2, 1);
+            digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
             sw2Val = 1;
             LED_allOff();
           } else {
-            digitalWrite(SW2, 0);
+            digitalWrite(SW_pin, 0);
             Serial.println("Motor On");
             sw2Val = 0;
             LED_allOn();
