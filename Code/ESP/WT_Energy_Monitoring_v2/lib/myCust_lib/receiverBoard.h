@@ -25,14 +25,11 @@
 #define touch1             4       // Pin for capactitive touch sensor
 #define WT_sensor          15      // pin from water sensor
 
-int SwitchValue;
-
-
    void initRGB();
    void LED_allOn();
    void LED_allOff();
 
   // void check_WT();
-   void checkTouchDetected(bool, int);
+   int checkTouchDetected(bool, int);
 
 #endif

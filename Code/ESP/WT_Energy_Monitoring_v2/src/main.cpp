@@ -21,6 +21,7 @@ unsigned long interval = 5; // the time we need to wait
 //unsigned long previousMillis = 0;
 unsigned long previousTouchMillis = 0;
 
+int switch_val;
 
 
 boolean lastState2 = LOW;
@@ -60,7 +61,7 @@ void setup() {
   delay(1000);
 	// Send some device info
 	Serial.print("Build: ");
-  SwitchValue = 0;     // Initiate Switch
+  switch_val = 0;     // Initiate Switch
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
   pinMode(BLE_LED, OUTPUT);
@@ -111,7 +112,7 @@ void setup() {
  */
 void loop() {
     checkDataOnRadio();
-    checkTouchDetected(enableRadio,SwitchValue);
+    switch_val = checkTouchDetected(enableRadio,switch_val);
    // checkLevel();
     //ernergy_consumption();
     //while(1) {

@@ -4,6 +4,8 @@
 #include "Communication.h"
 #include "receiverBoard.h"
 
+int SwitchValue;   
+
 // Setting the Tank LEDs accordingly
 void LED_allOff() {
    digitalWrite(LED1_U,HIGH);
@@ -45,7 +47,7 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
- void checkTouchDetected(bool radioAvailability, int SwitchValue) {
+ int checkTouchDetected(bool radioAvailability, int switch_value) {
   if(digitalRead(touch1) == HIGH){
         long press_start = millis();
         long press_end = press_start;
@@ -68,7 +70,7 @@ void initRGB(){
 
         if(count_press<2500) {
          // check_WT();
-          if (SwitchValue == 0){
+          if (switch_value == 0){
             digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
             SwitchValue = 1;
@@ -82,6 +84,7 @@ void initRGB(){
           delay(100);             
         }
   }
+  return SwitchValue;
  }
 
 
