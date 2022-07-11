@@ -23,8 +23,6 @@ unsigned long previousTouchMillis = 0;
 
 
 
-int sw2Val = 1;
-
 boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
@@ -53,45 +51,6 @@ bool enableMQTT = false;
   publishData(volt_level, enableRadio);
  }
 
- void checkTouchDetected() {
-  if(digitalRead(touch1) == HIGH){
-        long press_start = millis();
-        long press_end = press_start;
-        int count_press = 0;
-
-        while (digitalRead(touch1) == HIGH) {
-          press_end = millis();
-          count_press = press_end-press_start;
-           if(count_press>3000) {
-            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
-            connectWiFi();
-            break;
-           }  
-        } 
-        
-        
-        publishData("pressed",enableRadio);
-        Serial.print("pressed for ");
-        Serial.println(count_press);
-
-        if(count_press<2500) {
-          check_WT();
-          if (sw2Val == 0){
-            digitalWrite(SW_pin, 1);
-            Serial.println("Motor Off");
-            sw2Val = 1;
-            LED_allOff();
-          } else {
-            digitalWrite(SW_pin, 0);
-            Serial.println("Motor On");
-            sw2Val = 0;
-            LED_allOn();
-          }
-          delay(100);             
-        }
-  }
- }
-
 // setup
 
 void setup() {
@@ -101,7 +60,7 @@ void setup() {
   delay(1000);
 	// Send some device info
 	Serial.print("Build: ");
-
+  SwitchValue = 0;     // Initiate Switch
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
   pinMode(BLE_LED, OUTPUT);
@@ -152,7 +111,7 @@ void setup() {
  */
 void loop() {
     checkDataOnRadio();
-    checkTouchDetected();
+    checkTouchDetected(enableRadio,SwitchValue);
    // checkLevel();
     //ernergy_consumption();
     //while(1) {

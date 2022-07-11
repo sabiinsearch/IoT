@@ -45,4 +45,43 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
+ void checkTouchDetected(bool radioAvailability, int SwitchValue) {
+  if(digitalRead(touch1) == HIGH){
+        long press_start = millis();
+        long press_end = press_start;
+        int count_press = 0;
+
+        while (digitalRead(touch1) == HIGH) {
+          press_end = millis();
+          count_press = press_end-press_start;
+           if(count_press>3000) {
+            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            connectWiFi();
+            break;
+           }  
+        } 
+        
+        
+        publishData("pressed",radioAvailability);
+        Serial.print("pressed for ");
+        Serial.println(count_press);
+
+        if(count_press<2500) {
+         // check_WT();
+          if (SwitchValue == 0){
+            digitalWrite(SW_pin, 1);
+            Serial.println("Motor Off");
+            SwitchValue = 1;
+            LED_allOff();
+          } else {
+            digitalWrite(SW_pin, 0);
+            Serial.println("Motor On");
+            SwitchValue = 0;
+            LED_allOn();
+          }
+          delay(100);             
+        }
+  }
+ }
+
 
