@@ -4,8 +4,8 @@
 
 #include "receiverBoard.h"
 #include "Communication.h"
-#include "Energy_Monitoring.h"
+#include "EnergyMonitoring.h"
 
-  void getMyMsg();
+ void getMyMsg();
   
 #endif

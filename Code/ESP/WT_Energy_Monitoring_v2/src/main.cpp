@@ -10,27 +10,17 @@
 
 #include "myCommon.h"
 
-
-
-// //static int taskCore = 0;
-bool radioAvailable = false;
-bool enableRadio = false;
-bool enableBLE = true;
-bool enableWiFi = false;
-bool enableMQTT = false;
-
-unsigned long interval = 5; // the time we need to wait
-//unsigned long previousMillis = 0;
-unsigned long previousTouchMillis = 0;
-
 // variables for Water Tank
 int raw;
 int Vin = 3.3;
 float Vout = 0.0;
 float buffer = 0;
 int level;
-
 bool hbLedState = LOW; // Heartbeat LED state
+unsigned long interval = 5; // the time we need to wait
+//unsigned long previousMillis = 0;
+unsigned long previousTouchMillis = 0;
+
 
 
 int sw2Val = 1;
@@ -38,6 +28,69 @@ int sw2Val = 1;
 boolean lastState2 = LOW;
 bool usePrimAP = true; // use primary or secondary WiFi network
 
+
+// //static int taskCore = 0;
+bool enableRadio = false;
+bool enableBLE = true;
+bool enableWiFi = false;
+bool enableMQTT = false;
+
+
+ void check_WT() {
+  raw = analogRead(WT_sensor);
+//  if(raw){
+  buffer = raw * Vin;
+  Vout = (buffer)/1024.0;
+  Serial.print("Raw: ");
+  Serial.print(raw);
+  Serial.print("\t");
+  Serial.print("Vout: ");
+  Serial.print(Vout);
+  String volt_level = "Tank_Level";
+  volt_level += Vout;
+  Serial.print("\t");
+  Serial.println(volt_level);
+  publishData(volt_level, enableRadio);
+ }
+
+ void checkTouchDetected() {
+  if(digitalRead(touch1) == HIGH){
+        long press_start = millis();
+        long press_end = press_start;
+        int count_press = 0;
+
+        while (digitalRead(touch1) == HIGH) {
+          press_end = millis();
+          count_press = press_end-press_start;
+           if(count_press>3000) {
+            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            connectWiFi();
+            break;
+           }  
+        } 
+        
+        
+        publishData("pressed",enableRadio);
+        Serial.print("pressed for ");
+        Serial.println(count_press);
+
+        if(count_press<2500) {
+          check_WT();
+          if (sw2Val == 0){
+            digitalWrite(SW_pin, 1);
+            Serial.println("Motor Off");
+            sw2Val = 1;
+            LED_allOff();
+          } else {
+            digitalWrite(SW_pin, 0);
+            Serial.println("Motor On");
+            sw2Val = 0;
+            LED_allOn();
+          }
+          delay(100);             
+        }
+  }
+ }
 
 // setup
 
@@ -88,66 +141,11 @@ void setup() {
       Serial.print(" Ready to print ");
   }
   // Define Energy Monitoring in Core 2
-  xTaskCreatePinnedToCore(ernergy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
 }
 
 
- void check_WT() {
-  raw = analogRead(WT_sensor);
-//  if(raw){
-  buffer = raw * Vin;
-  Vout = (buffer)/1024.0;
-  Serial.print("Raw: ");
-  Serial.print(raw);
-  Serial.print("\t");
-  Serial.print("Vout: ");
-  Serial.print(Vout);
-  String volt_level = "Tank_Level";
-  volt_level += Vout;
-  Serial.print("\t");
-  Serial.println(volt_level);
-  publishData(volt_level, radioAvailable);
- }
-
- void checkTouchDetected(){
-  if(digitalRead(touch1) == HIGH){
-        long press_start = millis();
-        long press_end = press_start;
-        int count_press = 0;
-
-        while (digitalRead(touch1) == HIGH) {
-          press_end = millis();
-          count_press = press_end-press_start;
-           if(count_press>3000) {
-            reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
-            connectWiFi();
-            break;
-           }  
-        } 
-        
-        
-        publishData("pressed",true);
-        Serial.print("pressed for ");
-        Serial.println(count_press);
-
-        if(count_press<2500) {
-          check_WT();
-          if (sw2Val == 0){
-            digitalWrite(SW_pin, 1);
-            Serial.println("Motor Off");
-            sw2Val = 1;
-            LED_allOff();
-          } else {
-            digitalWrite(SW_pin, 0);
-            Serial.println("Motor On");
-            sw2Val = 0;
-            LED_allOn();
-          }
-          delay(100);             
-        }
-  }
- }
 
 /**
  * Logic that runs in Loop

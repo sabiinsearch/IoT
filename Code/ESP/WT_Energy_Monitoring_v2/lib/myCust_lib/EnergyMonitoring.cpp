@@ -1,11 +1,15 @@
+#include "EnergyMonitoring.h"
+
 #include "Arduino.h"
+
+#include "receiverBoard.h"      // for using cust_board pins
 
 // for Energy Monitoring
 #include <ACS712.h>
 #include <Filters.h>
 #include <stdio.h>
 
-ACS712 sensor(ACS712_20A, 34);
+ACS712 sensor(ACS712_20A, ACS_pin);
 char watt[5];
 unsigned long last_time =0;
 unsigned long current_time =0;
@@ -29,7 +33,8 @@ static float total_energy_consumed;
 
 
 // Energy Consumption
-void ernergy_consumption(void * pvParameters) {
+void energy_consumption(void * pvParameters) { 
+
 
     RunningStatistics inputStats;                 // create statistics to look at the raw test signal
     inputStats.setWindowSecs( windowLength );
@@ -57,6 +62,7 @@ void ernergy_consumption(void * pvParameters) {
       }
      }
 
+
 /*   float value = analogRead(ACS_pin);
      total_energy_consumed += value;
      Serial.print("Energy = ");
@@ -82,4 +88,7 @@ void ernergy_consumption(void * pvParameters) {
    delay(500);
 */
 }
+
+
+
 

@@ -8,7 +8,7 @@
    void connectWiFi();
    void reset_wifi();
 
-   void initRadio(bool);
+   bool initRadio(bool);
    void checkDataOnRadio();
    void publishData(String,bool);
 
