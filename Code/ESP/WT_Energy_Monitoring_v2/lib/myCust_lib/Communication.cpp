@@ -57,13 +57,13 @@ void reset_wifi() {
     wm.resetSettings();
 }
 
-void initRadio(bool enableRadioablity){
+bool initRadio(bool enableRadioablity){
+  bool radioAvailablity ;
   SPI.begin(SCK, MISO, MOSI, CS);
   LoRa.setPins(SS, RST, DI0);
       delay(1000);
   if(enableRadioablity){
-      int radioTryCount = 0;
-      bool radioAvailablity ;
+      int radioTryCount = 0;      
       do{
         radioAvailablity = LoRa.begin(BAND);
         radioTryCount++;
@@ -75,6 +75,7 @@ void initRadio(bool enableRadioablity){
         }
       }while(!radioAvailablity && radioTryCount < 3);
   }
+  return radioAvailablity;
 }
 
 char* string2char(String str){
