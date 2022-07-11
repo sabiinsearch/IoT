@@ -10,58 +10,29 @@
 
 #include "myCommon.h"
 
-// variables for Water Tank
-int raw;
-int Vin = 3.3;
-float Vout = 0.0;
-float buffer = 0;
-int level;
-bool hbLedState = LOW; // Heartbeat LED state
-unsigned long interval = 5; // the time we need to wait
-//unsigned long previousMillis = 0;
-unsigned long previousTouchMillis = 0;
-
+// Variable to hold switch value
 int switch_val;
 
-
-boolean lastState2 = LOW;
-bool usePrimAP = true; // use primary or secondary WiFi network
-
-
-// //static int taskCore = 0;
+// Set flags for Communication
 bool enableRadio = false;
 bool enableBLE = true;
-bool enableWiFi = false;
+bool enableWiFi = true;
 bool enableMQTT = false;
 
-
- void check_WT() {
-  raw = analogRead(WT_sensor);
-//  if(raw){
-  buffer = raw * Vin;
-  Vout = (buffer)/1024.0;
-  Serial.print("Raw: ");
-  Serial.print(raw);
-  Serial.print("\t");
-  Serial.print("Vout: ");
-  Serial.print(Vout);
-  String volt_level = "Tank_Level";
-  volt_level += Vout;
-  Serial.print("\t");
-  Serial.println(volt_level);
-  publishData(volt_level, enableRadio);
- }
-
-// setup
-
+// setup function
 void setup() {
 
   Serial.begin(9800);
   while (!Serial);
   delay(1000);
-	// Send some device info
+	
+  // Send some device info
 	Serial.print("Build: ");
-  switch_val = 0;     // Initiate Switch
+  
+  // Initiate Switch
+  switch_val = 0;    
+  
+  // Configuring Board pins
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
   pinMode(BLE_LED, OUTPUT);
@@ -85,38 +56,34 @@ void setup() {
 
   LED_allOff();
   //digitalWrite(touch1, 0);
+
+  // Initial setting of Switch
   digitalWrite(SW_pin, 1);
 
   // Init RGB
   initRGB();
   
   // Init WiFi
+  /*
   if(enableWiFi) {
        initWiFi();
        connectWiFi();
   }
+  */
   // Init Lora
   if(enableRadio){
       initRadio(enableRadio);
       Serial.print(" Ready to print ");
   }
-  // Define Energy Monitoring in Core 2
+
+  // Run Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
 }
-
-
-
 /**
  * Logic that runs in Loop
  */
 void loop() {
     checkDataOnRadio();
-    switch_val = checkTouchDetected(enableRadio,switch_val);
-   // checkLevel();
-    //ernergy_consumption();
-    //while(1) {
-    //  check_WT();
-    //  delay(1000);
-    //}
+    switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
 }

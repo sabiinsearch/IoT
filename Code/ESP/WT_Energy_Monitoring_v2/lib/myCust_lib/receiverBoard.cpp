@@ -6,6 +6,18 @@
 
 int SwitchValue;   
 
+// variables for Water Tank
+int raw;
+int Vin = 3.3;
+float Vout = 0.0;
+float buffer = 0;
+int level;
+bool hbLedState = LOW; // Heartbeat LED state
+unsigned long interval = 5; // the time we need to wait
+//unsigned long previousMillis = 0;
+unsigned long previousTouchMillis = 0;
+
+
 // Setting the Tank LEDs accordingly
 void LED_allOff() {
    digitalWrite(LED1_U,HIGH);
@@ -47,7 +59,25 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
- int checkTouchDetected(bool radioAvailability, int switch_value) {
+ void check_WT(bool radio_status) {
+  raw = analogRead(WT_sensor);
+//  if(raw){
+  buffer = raw * Vin;
+  Vout = (buffer)/1024.0;
+  Serial.print("Raw: ");
+  Serial.print(raw);
+  Serial.print("\t");
+  Serial.print("Vout: ");
+  Serial.print(Vout);
+  String volt_level = "Tank_Level";
+  volt_level += Vout;
+  Serial.print("\t");
+  Serial.println(volt_level);
+  publishData(volt_level, radio_status);
+ }
+
+
+ int checkTouchDetected(bool radioAvailability, bool wifiAvailability, int switch_value) {
   if(digitalRead(touch1) == HIGH){
         long press_start = millis();
         long press_end = press_start;
@@ -56,7 +86,7 @@ void initRGB(){
         while (digitalRead(touch1) == HIGH) {
           press_end = millis();
           count_press = press_end-press_start;
-           if(count_press>3000) {
+           if((count_press>3000) && (wifiAvailability)) {
             reset_wifi(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
             connectWiFi();
             break;
@@ -69,7 +99,7 @@ void initRGB(){
         Serial.println(count_press);
 
         if(count_press<2500) {
-         // check_WT();
+          check_WT(radioAvailability);
           if (switch_value == 0){
             digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");

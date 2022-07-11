@@ -29,7 +29,7 @@
    void LED_allOn();
    void LED_allOff();
 
-  // void check_WT();
-   int checkTouchDetected(bool, int);
+   void check_WT(bool);
+   int checkTouchDetected(bool, bool, int);
 
 #endif
