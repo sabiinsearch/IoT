@@ -117,4 +117,8 @@ void initRGB(){
   return SwitchValue;
  }
 
+ void getBoard_ID() {
+   Serial.println(ESP.getEfuseMac());
+ }
+
 

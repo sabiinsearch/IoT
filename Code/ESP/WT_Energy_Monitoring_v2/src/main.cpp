@@ -27,7 +27,10 @@ void setup() {
   delay(1000);
 	
   // Send some device info
-	Serial.print("Build: ");
+	Serial.println("Build: ");
+  
+  Serial.print("Board ID: WT-");
+  getBoard_ID();
   
   // Initiate Switch
   switch_val = 0;    
