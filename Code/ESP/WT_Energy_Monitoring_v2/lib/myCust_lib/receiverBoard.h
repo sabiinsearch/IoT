@@ -31,5 +31,6 @@
 
    void check_WT(bool);
    int checkTouchDetected(bool, bool, int);
+   void getBoard_ID();
 
 #endif
