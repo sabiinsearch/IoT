@@ -13,15 +13,16 @@ ACS712 sensor(ACS712_20A, ACS_pin);
 char watt[5];
 unsigned long last_time =0;
 unsigned long current_time =0;
+float Volt_In = 240;
 float Wh =0 ;
 String Energy;
 
 // Another reference
-float testFrequency = 55;                     // test signal frequency (Hz)
+float testFrequency = 70;                     // test signal frequency (Hz)
 float windowLength = 10.0/testFrequency;     // how long to average the signal, for statistist
 int sensorValue = 0;
-double intercept = -0.0599009; // to be adjusted based on calibration testing
-float slope = 0.0966599997; // to be adjusted based on calibration testing
+double intercept = -0.0579009; // to be adjusted based on calibration testing
+float slope = 0.0975599997; // to be adjusted based on calibration testing
 float current_amps; // estimated actual current in amps
 
 unsigned long printPeriod = 1000; // in milliseconds
@@ -50,11 +51,13 @@ void energy_consumption(void * pvParameters) {
       if((unsigned long)(millis() - previousMillis) >= printPeriod) {
         previousMillis = millis();   // update time      
         current_amps = intercept + slope * inputStats.sigma();
+        current_amps = sqrt(current_amps*current_amps);
         // Energy += ( (current_amps*230) *0.95);
         // Serial.print(Energy);
         // Serial.print("\t");
         //Serial.print("Current: ");
-        printf("Current = %.3f\n",current_amps);
+        printf("Current = %.3f\t Watt = %i\n",current_amps,(Volt_In*current_amps));
+        //printf("Watt = %f\n"(Volt_In*current_amps));
        // Serial.println(roundf(current_amps*1000)/1000);
 //        publishData(Energy);
  //       publishData((Energy+current_amps));
