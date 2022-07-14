@@ -18,10 +18,10 @@ float Wh =0 ;
 String Energy;
 
 // Another reference
-float testFrequency = 70;                     // test signal frequency (Hz)
-float windowLength = 10.0/testFrequency;     // how long to average the signal, for statistist
+float testFrequency = 40;                     // test signal frequency (Hz)
+float windowLength = 90.0/testFrequency;     // how long to average the signal, for statistist
 int sensorValue = 0;
-double intercept = -0.0579009; // to be adjusted based on calibration testing
+double intercept = -0.0529009; // to be adjusted based on calibration testing
 float slope = 0.0975599997; // to be adjusted based on calibration testing
 float current_amps; // estimated actual current in amps
 
@@ -52,11 +52,11 @@ void energy_consumption(void * pvParameters) {
         previousMillis = millis();   // update time      
         current_amps = intercept + slope * inputStats.sigma();
         current_amps = sqrt(current_amps*current_amps);
-        // Energy += ( (current_amps*230) *0.95);
-        // Serial.print(Energy);
-        // Serial.print("\t");
-        //Serial.print("Current: ");
-        printf("Current = %.3f\t Watt = %i\n",current_amps,(Volt_In*current_amps));
+
+        float cur = (int)(current_amps*10);
+        cur = (float)cur/10;
+        printf("Current = %.2f, Watt = %.0f\n", cur,(Volt_In*cur));
+       // printf("Current = %.3f\t Watt = %.0f\n",current_amps,(Volt_In*current_amps));
         //printf("Watt = %f\n"(Volt_In*current_amps));
        // Serial.println(roundf(current_amps*1000)/1000);
 //        publishData(Energy);
