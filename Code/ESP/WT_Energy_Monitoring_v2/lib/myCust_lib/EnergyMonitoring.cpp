@@ -15,7 +15,9 @@ unsigned long last_time =0;
 unsigned long current_time =0;
 float Volt_In = 240;
 float Wh =0 ;
-String Energy;
+float Energy;
+unsigned long publish_time = 300000L;     // time in Minutes * sec in a min * milliseconds in sec
+unsigned long prev_pub_time = 0 ;
 
 // Another reference
 float testFrequency = 40;                     // test signal frequency (Hz)
@@ -42,26 +44,28 @@ void energy_consumption(void * pvParameters) {
     
     while( true ) {
   //    float I = sensor.getCurrentAC(50);
-
-      Energy = "Current: ";
       sensorValue = analogRead(ACS_pin);  // read the analog in value:
-      inputStats.input(sensorValue);  // log to Stats function      
-      
-      
+      inputStats.input(sensorValue);  // log to Stats function            
       if((unsigned long)(millis() - previousMillis) >= printPeriod) {
         previousMillis = millis();   // update time      
         current_amps = intercept + slope * inputStats.sigma();
-        current_amps = sqrt(current_amps*current_amps);
-
+        current_amps = sqrt(current_amps*current_amps);        
         float cur = (int)(current_amps*10);
         cur = (float)cur/10;
-        printf("Current = %.2f, Watt = %.0f\n", cur,(Volt_In*cur));
+        Energy = cur*Volt_In/3600;
+        total_energy_consumed += Energy;
+        //printf("Current = %.2f, Watt = %.0f\n", cur,(Volt_In*cur));
        // printf("Current = %.3f\t Watt = %.0f\n",current_amps,(Volt_In*current_amps));
         //printf("Watt = %f\n"(Volt_In*current_amps));
        // Serial.println(roundf(current_amps*1000)/1000);
 //        publishData(Energy);
  //       publishData((Energy+current_amps));
  //  //     printf("%.3lf",current_amps);
+          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
+              prev_pub_time = millis();
+              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",total_energy_consumed);
+              total_energy_consumed = 0;
+          }
       }
      }
 
