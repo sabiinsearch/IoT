@@ -1,0 +1,78 @@
+# Copyright (c) 2021 Project CHIP Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Auto-generated scripts for harness use only, please review before automation. The endpoints and cluster names are currently set to default
+
+name:
+    3.3.10. [TC-DD-3.10] Commissioning Flow - Custom Flow = 2 [DUT -
+    Commissioner]
+
+config:
+    nodeId: 0x12344321
+    cluster: "Basic"
+    endpoint: 0
+
+tests:
+    - label:
+          "DUT receives Onboarding Payload from the TH with Custom Flow field
+          set to value 2"
+      verification: |
+          1. Parse the TH Onboarding Payload using the DUT commissioner
+
+          Example using chip-too as a DUT:
+          $ ./out/chip-tool/chip-tool payload parse-setup-payload MT:-24J029Q00KA0648G00
+          [1651077458589] [91233:65331701] CHIP: [SPL] Parsing base38Representation: MT:-24J029Q00KA0648G00
+          [1651077458590] [91233:65331701] CHIP: [SPL] CommissioningFlow: 2
+          [1651077458590] [91233:65331701] CHIP: [SPL] VendorID: 65521
+          [1651077458590] [91233:65331701] CHIP: [SPL] Version: 0
+          [1651077458590] [91233:65331701] CHIP: [SPL] ProductID: 32769
+          [1651077458590] [91233:65331701] CHIP: [SPL] Discriminator: 3840
+          [1651077458590] [91233:65331701] CHIP: [SPL] SetUpPINCode: 20202021
+          [1651077458590] [91233:65331701] CHIP: [SPL] RendezvousInformation: 4
+
+          2. Verify that the Commissioning Flow is set to 2 (Custom Flow)
+      disabled: true
+
+    - label:
+          "DUT fetches commissioning data from DCL using VID and PID from
+          Onboarding Payload"
+      verification: |
+          1. Observe the TH's DCL on the DUT
+      disabled: true
+
+    - label:
+          "Using the instructions located at the CommissioningCustomFlowURL from
+          the DCL, DUT guides the user in next steps to prepare the commissionee
+          (TH) for commisssioning"
+      verification: |
+          1. Follow instructions for commissioning using the URL contained in the DCL
+      disabled: true
+
+    - label: "DUT commissions TH"
+      verification: |
+          1. Verify commissioning was successful
+
+          TH all-clusters-app:
+          [1651103591.176135][8940:8940] CHIP:SVR: Commissioning completed successfully
+          [1651103591.176179][8940:8940] CHIP:DIS: Updating services using commissioning mode 0
+
+          DUT chip-tool:
+          $ ./out/chip-tool/chip-tool pairing qrcode 1  MT:-24J029Q00KA0648G00
+
+          [1651103591085] [94586:65580481] CHIP: [CTL] Received CommissioningComplete response
+          [1651103591085] [94586:65580481] CHIP: [CTL] Successfully finished commissioning step 'SendComplete'
+          [1651103591085] [94586:65580481] CHIP: [CTL] Commissioning stage next step: 'SendComplete' -> 'Cleanup'
+          [1651103591085] [94586:65580481] CHIP: [CTL] Performing next commissioning step 'Cleanup'
+          [1651103591085] [94586:65580481] CHIP: [CTL] Successfully finished commissioning step 'Cleanup'
+          [1651103591085] [94586:65580481] CHIP: [TOO] Device commissioning completed with success
+      disabled: true

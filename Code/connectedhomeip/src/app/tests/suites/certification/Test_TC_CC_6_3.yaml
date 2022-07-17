@@ -1,0 +1,210 @@
+# Copyright (c) 2021 Project CHIP Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name:
+    27.2.14. [TC-CC-6.3] Color Temperature Step functionality with server as DUT
+
+config:
+    nodeId: 0x12344321
+    cluster: "Color Control"
+    endpoint: 1
+
+tests:
+    - label: "Wait for the commissioned device to be retrieved"
+      cluster: "DelayCommands"
+      command: "WaitForCommissionee"
+      arguments:
+          values:
+              - name: "nodeId"
+                value: nodeId
+
+    - label: "Turn on light for color control tests"
+      cluster: "On/Off"
+      command: "on"
+
+    - label: "Check on/off attribute value is true after on command"
+      cluster: "On/Off"
+      command: "readAttribute"
+      attribute: "OnOff"
+      response:
+          value: 1
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Step up color temperature command"
+      PICS: CC.S.C4C.Rsp
+      command: "StepColorTemperature"
+      arguments:
+          values:
+              - name: "StepMode"
+                value: 1
+              - name: "StepSize"
+                value: 5
+              - name: "TransitionTime"
+                value: 50
+              - name: "ColorTemperatureMinimumMireds"
+                value: 5
+              - name: "ColorTemperatureMaximumMireds"
+                value: 100
+              - name: "OptionsMask"
+                value: 0
+              - name: "OptionsOverride"
+                value: 0
+
+    - label: "Wait 40ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 40
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Wait 45ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 45
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Wait 50ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 50
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Step down color temperature command"
+      PICS: CC.S.C4C.Rsp
+      command: "StepColorTemperature"
+      arguments:
+          values:
+              - name: "StepMode"
+                value: 3
+              - name: "StepSize"
+                value: 5
+              - name: "TransitionTime"
+                value: 50
+              - name: "ColorTemperatureMinimumMireds"
+                value: 5
+              - name: "ColorTemperatureMaximumMireds"
+                value: 100
+              - name: "OptionsMask"
+                value: 0
+              - name: "OptionsOverride"
+                value: 0
+
+    - label: "Wait 40ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 40
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Wait 45ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 45
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Wait 50ms"
+      cluster: "DelayCommands"
+      command: "WaitForMs"
+      arguments:
+          values:
+              - name: "ms"
+                value: 50
+
+    - label: "Read current color temprature"
+      PICS: CC.S.A0007
+      command: "readAttribute"
+      attribute: "ColorTemperature"
+      response:
+          constraints:
+              type: uint16
+              minValue: 0
+              maxValue: 65279
+
+    - label: "Turn off light that we turned on"
+      cluster: "On/Off"
+      command: "off"
+
+    - label: "Check on/off attribute value is false after off command"
+      cluster: "On/Off"
+      command: "readAttribute"
+      attribute: "OnOff"
+      response:
+          value: 0
