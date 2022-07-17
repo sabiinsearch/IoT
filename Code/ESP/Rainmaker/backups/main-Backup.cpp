@@ -3,6 +3,7 @@
 #include "RMaker.h"
 #include "WiFi.h"
 #include "WiFiProv.h"
+#include "DHT.h"
 #include <SimpleTimer.h>
 
 // BLE Credentials
@@ -10,17 +11,20 @@ const char *service_name = "PROV_12345";
 const char *pop = "1234567";
 
 static uint8_t gpio_reset = 0;
-static uint8_t switch_pin = 19;
-bool switch_pin_state = false;
+static uint8_t DHTPIN = 33;
+static uint8_t led_pin = 32;
+bool led_pin_state = false;
 
 bool wifi_connected = 0;
 
+DHT dht(DHTPIN, DHT22);
 
 SimpleTimer Timer;
 
  //declare devices
-
-static Switch button("Motor", &switch_pin);
+static TemperatureSensor temperature("Temperature");
+static TemperatureSensor humidity("Humidity");
+static Switch button("LED", &led_pin);
 
 void sysProvEvent(arduino_event_t *sys_event)
 {
@@ -56,13 +60,13 @@ void write_callback(Device *device, Param *param, const param_val_t val, void *p
   Serial.println(device_name);
   const char *param_name = param->getParamName();
 
-  if (strcmp(device_name, "Motor") == 0)
+  if (strcmp(device_name, "LED") == 0)
   {
     if (strcmp(param_name, "Power") == 0)
     {
       Serial.printf("Received value = %s for %s - %s\n", val.val.b ? "true" : "false", device_name, param_name);
-      switch_pin_state = val.val.b;
-      (switch_pin_state == false) ? digitalWrite(switch_pin, LOW) : digitalWrite(switch_pin, HIGH);
+      led_pin_state = val.val.b;
+      (led_pin_state == false) ? digitalWrite(led_pin, LOW) : digitalWrite(led_pin, HIGH);
       param->updateAndReport(val);
     }
   }
@@ -74,17 +78,20 @@ void setup()
   Serial.begin(115200);
   
   pinMode(gpio_reset, INPUT);
-  pinMode(switch_pin, OUTPUT);
-  digitalWrite(switch_pin,LOW);
+  pinMode(led_pin, OUTPUT);
+  digitalWrite(led_pin,LOW);
+  
+  dht.begin();
   
   //declare node
   Node my_node;
-  my_node = RMaker.initNode("HukamTank");
+  my_node = RMaker.initNode("Microcontrollerslab");
 
   button.addCb(write_callback);
 
   //Add devices
-
+  my_node.addDevice(temperature);
+  my_node.addDevice(humidity);
   my_node.addDevice(button);
 
 
@@ -97,8 +104,11 @@ void setup()
   RMaker.enableTZService();
   RMaker.enableSchedule();
 
-  Serial.printf("\nStarting Hukam - Water Tank Module\n");
+  Serial.printf("\nStarting ESP-RainMaker\n");
   RMaker.start();
+
+  // Timer for Sending Sensor Data
+  Timer.setInterval(5000);
 
   WiFi.onEvent(sysProvEvent);
 
@@ -113,7 +123,22 @@ void setup()
 
 void loop()
 {
-  /*
+  if (Timer.isReady() && wifi_connected) {                    
+    Serial.println("Sending Sensor Data");
+
+    float hum = dht.readHumidity();
+    float temp = dht.readTemperature();
+
+    Serial.print("Temperature: "); 
+    Serial.println(temp);
+    Serial.print("Humidity: "); 
+    Serial.println(hum);
+
+    temperature.updateAndReportParam("Temperature", temp);
+    humidity.updateAndReportParam("Temperature", hum);
+    Timer.reset();                        
+  }
+
   // Read GPIO0 (external button to reset device
   if (digitalRead(gpio_reset) == LOW) { //Push button pressed
     Serial.printf("Reset Button Pressed!\n");
@@ -136,5 +161,4 @@ void loop()
     }
   }
   delay(100);
-  */
 }
