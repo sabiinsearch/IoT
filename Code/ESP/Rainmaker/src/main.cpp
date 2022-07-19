@@ -71,7 +71,7 @@ void write_callback(Device *device, Param *param, const param_val_t val, void *p
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   
   pinMode(gpio_reset, INPUT);
   pinMode(switch_pin, OUTPUT);
