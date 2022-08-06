@@ -1,0 +1,250 @@
+# Copyright (c) 2021 Project CHIP Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Auto-generated scripts for harness use only, please review before automation. The endpoints and cluster names are currently set to default
+
+name: 3.2.13. [TC-CC-5.4] Color functionality with client as DUT
+
+config:
+    nodeId: 0x12344321
+    cluster: "Basic"
+    endpoint: 0
+
+tests:
+    - label:
+          "DUT sends MoveToColor command to TH a Color with TransitionTime 300."
+      PICS: CC.C.C07.Rsp
+      verification: |
+          ./chip-tool colorcontrol move-to-color 400 500 300 0 0 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099701.285127][4162:4167] CHIP:DMG: InvokeResponseMessage =
+          [1657099701.285157][4162:4167] CHIP:DMG: {
+          [1657099701.285185][4162:4167] CHIP:DMG:         suppressResponse = false,
+          [1657099701.285213][4162:4167] CHIP:DMG:         InvokeResponseIBs =
+          [1657099701.285249][4162:4167] CHIP:DMG:         [
+          [1657099701.285277][4162:4167] CHIP:DMG:                 InvokeResponseIB =
+          [1657099701.285314][4162:4167] CHIP:DMG:                 {
+          [1657099701.285343][4162:4167] CHIP:DMG:                         CommandStatusIB =
+          [1657099701.285383][4162:4167] CHIP:DMG:                         {
+          [1657099701.285418][4162:4167] CHIP:DMG:                                 CommandPathIB =
+          [1657099701.285456][4162:4167] CHIP:DMG:                                 {
+          [1657099701.285499][4162:4167] CHIP:DMG:                                         EndpointId = 0x1,
+          [1657099701.285540][4162:4167] CHIP:DMG:                                         ClusterId = 0x300,
+          [1657099701.285579][4162:4167] CHIP:DMG:                                         CommandId = 0x7,
+          [1657099701.285617][4162:4167] CHIP:DMG:                                 },
+          [1657099701.285659][4162:4167] CHIP:DMG:
+          [1657099701.285693][4162:4167] CHIP:DMG:                                 StatusIB =
+          [1657099701.285731][4162:4167] CHIP:DMG:                                 {
+          [1657099701.285769][4162:4167] CHIP:DMG:                                         status = 0x00 (SUCCESS),
+          [1657099701.285811][4162:4167] CHIP:DMG:                                 },
+          [1657099701.285848][4162:4167] CHIP:DMG:
+          [1657099701.285880][4162:4167] CHIP:DMG:                         },
+          [1657099701.285922][4162:4167] CHIP:DMG:
+          [1657099701.285952][4162:4167] CHIP:DMG:                 },
+          [1657099701.285987][4162:4167] CHIP:DMG:
+          [1657099701.286013][4162:4167] CHIP:DMG:         ],
+          [1657099701.286047][4162:4167] CHIP:DMG:
+          [1657099701.286074][4162:4167] CHIP:DMG:         InteractionModelRevision = 1
+          [1657099701.286100][4162:4167] CHIP:DMG: },
+          [1657099701.286166][4162:4167] CHIP:DMG: Received Command Response Status for Endpoint=1 Cluster=0x0000_0300 Command=0x0000_0007 Status=0x0
+          [1657099701.286211][4162:4167] CHIP:DMG: ICR moving to [AwaitingDe]
+      disabled: true
+
+    - label: "Over TransitionTime, DUT reads CurrentX attribute from TH."
+      PICS: CC.C.A0003
+      verification: |
+          ./chip-tool colorcontrol read current-x 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099727.553289][4170:4175] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0003 DataVersion: 1806818891
+          [1657099727.553359][4170:4175] CHIP:TOO:   CurrentX: 3590
+      disabled: true
+
+    - label: "Over TransitionTime, DUT reads CurrentY attribute from TH."
+      PICS: CC.C.A0004
+      verification: |
+          ./chip-tool colorcontrol read current-y 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099748.490709][4176:4181] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0004 DataVersion: 1806819047
+          [1657099748.490778][4176:4181] CHIP:TOO:   CurrentY: 500
+      disabled: true
+
+    - label: "DUT sends MoveColor command to TH"
+      PICS: CC.C.C08.Rsp
+      verification: |
+          ./chip-tool colorcontrol move-color 10 20 0 0 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099771.368436][4184:4189] CHIP:DMG: InvokeResponseMessage =
+          [1657099771.368464][4184:4189] CHIP:DMG: {
+          [1657099771.368491][4184:4189] CHIP:DMG:         suppressResponse = false,
+          [1657099771.368519][4184:4189] CHIP:DMG:         InvokeResponseIBs =
+          [1657099771.368555][4184:4189] CHIP:DMG:         [
+          [1657099771.368583][4184:4189] CHIP:DMG:                 InvokeResponseIB =
+          [1657099771.368620][4184:4189] CHIP:DMG:                 {
+          [1657099771.368649][4184:4189] CHIP:DMG:                         CommandStatusIB =
+          [1657099771.368688][4184:4189] CHIP:DMG:                         {
+          [1657099771.368722][4184:4189] CHIP:DMG:                                 CommandPathIB =
+          [1657099771.368763][4184:4189] CHIP:DMG:                                 {
+          [1657099771.368803][4184:4189] CHIP:DMG:                                         EndpointId = 0x1,
+          [1657099771.368843][4184:4189] CHIP:DMG:                                         ClusterId = 0x300,
+          [1657099771.368885][4184:4189] CHIP:DMG:                                         CommandId = 0x8,
+          [1657099771.368922][4184:4189] CHIP:DMG:                                 },
+          [1657099771.368965][4184:4189] CHIP:DMG:
+          [1657099771.369003][4184:4189] CHIP:DMG:                                 StatusIB =
+          [1657099771.369041][4184:4189] CHIP:DMG:                                 {
+          [1657099771.369079][4184:4189] CHIP:DMG:                                         status = 0x00 (SUCCESS),
+          [1657099771.369115][4184:4189] CHIP:DMG:                                 },
+          [1657099771.369154][4184:4189] CHIP:DMG:
+          [1657099771.369187][4184:4189] CHIP:DMG:                         },
+          [1657099771.369225][4184:4189] CHIP:DMG:
+          [1657099771.369254][4184:4189] CHIP:DMG:                 },
+          [1657099771.369288][4184:4189] CHIP:DMG:
+          [1657099771.369315][4184:4189] CHIP:DMG:         ],
+          [1657099771.369349][4184:4189] CHIP:DMG:
+          [1657099771.369376][4184:4189] CHIP:DMG:         InteractionModelRevision = 1
+          [1657099771.369403][4184:4189] CHIP:DMG: },
+          [1657099771.369469][4184:4189] CHIP:DMG: Received Command Response Status for Endpoint=1 Cluster=0x0000_0300 Command=0x0000_0008 Status=0x0
+          [1657099771.369514][4184:4189] CHIP:DMG: ICR moving to [AwaitingDe]
+      disabled: true
+
+    - label: "DUT reads CurrentX attribute from TH."
+      PICS: CC.C.A0003
+      verification: |
+          ./chip-tool colorcontrol read current-x 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099796.765576][4191:4196] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0003 DataVersion: 1806820056
+          [1657099796.765663][4191:4196] CHIP:TOO:   CurrentX: 652
+      disabled: true
+
+    - label: "DUT reads CurrentY attribute from TH."
+      PICS: CC.C.A0004
+      verification: |
+          ./chip-tool colorcontrol read current-y 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099818.536813][4199:4204] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0004 DataVersion: 1806820924
+          [1657099818.536886][4199:4204] CHIP:TOO:   CurrentY: 1439
+      disabled: true
+
+    - label: "DUT sends StepColor command to TH"
+      PICS: CC.C.C09.Rsp
+      verification: |
+          ./chip-tool colorcontrol step-color 100 100 200 0 0 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+
+          [1657099841.988019][4205:4210] CHIP:DMG: InvokeResponseMessage =
+          [1657099841.988053][4205:4210] CHIP:DMG: {
+          [1657099841.988084][4205:4210] CHIP:DMG:         suppressResponse = false,
+          [1657099841.988115][4205:4210] CHIP:DMG:         InvokeResponseIBs =
+          [1657099841.988154][4205:4210] CHIP:DMG:         [
+          [1657099841.988184][4205:4210] CHIP:DMG:                 InvokeResponseIB =
+          [1657099841.988225][4205:4210] CHIP:DMG:                 {
+          [1657099841.988257][4205:4210] CHIP:DMG:                         CommandStatusIB =
+          [1657099841.988300][4205:4210] CHIP:DMG:                         {
+          [1657099841.988337][4205:4210] CHIP:DMG:                                 CommandPathIB =
+          [1657099841.988382][4205:4210] CHIP:DMG:                                 {
+          [1657099841.988424][4205:4210] CHIP:DMG:                                         EndpointId = 0x1,
+          [1657099841.988468][4205:4210] CHIP:DMG:                                         ClusterId = 0x300,
+          [1657099841.988510][4205:4210] CHIP:DMG:                                         CommandId = 0x9,
+          [1657099841.988549][4205:4210] CHIP:DMG:                                 },
+          [1657099841.988592][4205:4210] CHIP:DMG:
+          [1657099841.988628][4205:4210] CHIP:DMG:                                 StatusIB =
+          [1657099841.988672][4205:4210] CHIP:DMG:                                 {
+          [1657099841.988714][4205:4210] CHIP:DMG:                                         status = 0x00 (SUCCESS),
+          [1657099841.988757][4205:4210] CHIP:DMG:                                 },
+          [1657099841.988798][4205:4210] CHIP:DMG:
+          [1657099841.988833][4205:4210] CHIP:DMG:                         },
+          [1657099841.988872][4205:4210] CHIP:DMG:
+          [1657099841.988906][4205:4210] CHIP:DMG:                 },
+          [1657099841.988942][4205:4210] CHIP:DMG:
+          [1657099841.988972][4205:4210] CHIP:DMG:         ],
+          [1657099841.989008][4205:4210] CHIP:DMG:
+          [1657099841.989037][4205:4210] CHIP:DMG:         InteractionModelRevision = 1
+          [1657099841.989068][4205:4210] CHIP:DMG: },
+          [1657099841.989137][4205:4210] CHIP:DMG: Received Command Response Status for Endpoint=1 Cluster=0x0000_0300 Command=0x0000_0009 Status=0x0
+          [1657099841.989186][4205:4210] CHIP:DMG: ICR moving to [AwaitingDe]
+      disabled: true
+
+    - label: "Over TransitionTime, DUT reads CurrentX attribute from TH."
+      PICS: CC.C.A0003
+      verification: |
+          ./chip-tool colorcontrol read current-x 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099868.222275][4211:4216] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0003 DataVersion: 1806822657
+          [1657099868.222338][4211:4216] CHIP:TOO:   CurrentX: 1202
+      disabled: true
+
+    - label: "Over TransitionTime, DUT reads CurrentY attribute from TH."
+      PICS: CC.C.A0004
+      verification: |
+          ./chip-tool colorcontrol read current-y 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099888.236645][4219:4224] CHIP:TOO: Endpoint: 1 Cluster: 0x0000_0300 Attribute 0x0000_0004 DataVersion: 1806822657
+          [1657099888.236717][4219:4224] CHIP:TOO:   CurrentY: 2005
+      disabled: true
+
+    - label: "DUT sends StopMoveStep command to TH."
+      PICS: CC.C.C47.Rsp
+      verification: |
+          ./chip-tool colorcontrol stop-move-step 0 0 1 1
+
+          verify on Reference app receives the right response for the data sent in the above commands
+
+          [1657099908.880877][4226:4231] CHIP:DMG: InvokeResponseMessage =
+          [1657099908.880917][4226:4231] CHIP:DMG: {
+          [1657099908.880956][4226:4231] CHIP:DMG:         suppressResponse = false,
+          [1657099908.880996][4226:4231] CHIP:DMG:         InvokeResponseIBs =
+          [1657099908.881046][4226:4231] CHIP:DMG:         [
+          [1657099908.881086][4226:4231] CHIP:DMG:                 InvokeResponseIB =
+          [1657099908.881138][4226:4231] CHIP:DMG:                 {
+          [1657099908.881180][4226:4231] CHIP:DMG:                         CommandStatusIB =
+          [1657099908.881234][4226:4231] CHIP:DMG:                         {
+          [1657099908.881282][4226:4231] CHIP:DMG:                                 CommandPathIB =
+          [1657099908.881336][4226:4231] CHIP:DMG:                                 {
+          [1657099908.881391][4226:4231] CHIP:DMG:                                         EndpointId = 0x1,
+          [1657099908.881448][4226:4231] CHIP:DMG:                                         ClusterId = 0x300,
+          [1657099908.881509][4226:4231] CHIP:DMG:                                         CommandId = 0x47,
+          [1657099908.881561][4226:4231] CHIP:DMG:                                 },
+          [1657099908.881618][4226:4231] CHIP:DMG:
+          [1657099908.881666][4226:4231] CHIP:DMG:                                 StatusIB =
+          [1657099908.881720][4226:4231] CHIP:DMG:                                 {
+          [1657099908.881775][4226:4231] CHIP:DMG:                                         status = 0x00 (SUCCESS),
+          [1657099908.881828][4226:4231] CHIP:DMG:                                 },
+          [1657099908.881880][4226:4231] CHIP:DMG:
+          [1657099908.881926][4226:4231] CHIP:DMG:                         },
+          [1657099908.881966][4226:4231] CHIP:DMG:
+          [1657099908.882000][4226:4231] CHIP:DMG:                 },
+          [1657099908.882039][4226:4231] CHIP:DMG:
+          [1657099908.882068][4226:4231] CHIP:DMG:         ],
+          [1657099908.882104][4226:4231] CHIP:DMG:
+          [1657099908.882133][4226:4231] CHIP:DMG:         InteractionModelRevision = 1
+          [1657099908.882162][4226:4231] CHIP:DMG: },
+          [1657099908.882230][4226:4231] CHIP:DMG: Received Command Response Status for Endpoint=1 Cluster=0x0000_0300 Command=0x0000_0047 Status=0x0
+          [1657099908.882278][4226:4231] CHIP:DMG: ICR moving to [AwaitingDe]
+      disabled: true
