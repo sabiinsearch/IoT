@@ -1,0 +1,220 @@
+I (0) cpu_start: App cpu up.
+I (712) cpu_start: Pro cpu start user code
+I (712) cpu_start: cpu freq: 160000000
+I (712) cpu_start: Application information:
+I (716) cpu_start: Project name:     chip-all-clusters-app
+I (723) cpu_start: App version:      TE9-1258-gc73263019
+I (729) cpu_start: Compile time:     Jul 22 2022 05:09:44
+I (735) cpu_start: ELF file SHA256:  6c461e63bfacd12f...
+I (741) cpu_start: ESP-IDF:          v4.4.1
+I (746) heap_init: Initializing. RAM available for dynamic allocation:
+I (753) heap_init: At 3FFAFF10 len 000000F0 (0 KiB): DRAM
+I (759) heap_init: At 3FFB6388 len 00001C78 (7 KiB): DRAM
+I (765) heap_init: At 3FFB9A20 len 00004108 (16 KiB): DRAM
+I (771) heap_init: At 3FFD56D8 len 0000A928 (42 KiB): DRAM
+I (777) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (784) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (790) heap_init: At 4009C98C len 00003674 (13 KiB): IRAM
+I (797) spi_flash: detected chip: generic
+I (801) spi_flash: flash io: dio
+I (808) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+I (838) all-clusters-app: ==================================================
+I (838) all-clusters-app: chip-esp32-all-cluster-demo starting
+I (848) all-clusters-app: ==================================================
+I (1038) wifi:wifi driver task: 3ffdc940, prio:23, stack:6656, core=0
+I (1038) system_api: Base MAC address is not set
+I (1038) system_api: read default base MAC address from EFUSE
+                                                                               I (1048) wifi:wifi firmware version: 63017e0
+I (1048) wifi:wifi certification version: v7.0
+I (1058) wifi:config NVS flash: enabled
+I (1058) wifi:config nano formating: disabled
+I (1058) wifi:Init data frame dynamic rx buffer num: 32
+I (1068) wifi:Init management frame dynamic rx buffer num: 32
+I (1078) wifi:Init management short buffer num: 32
+I (1078) wifi:Init dynamic tx buffer num: 32
+I (1088) wifi:Init static rx buffer size: 1600
+I (1088) wifi:Init static rx buffer num: 10
+I (1088) wifi:Init dynamic rx buffer num: 32
+I (1088) wifi_init: rx ba win: 6
+I (1108) wifi_init: tcpip mbox: 32
+I (1108) wifi_init: udp mbox: 6
+I (1108) wifi_init: tcp mbox: 6
+I (1108) wifi_init: tcp tx win: 5744
+I (1118) wifi_init: tcp rx win: 5744
+I (1118) wifi_init: tcp mss: 1440
+I (1118) wifi_init: WiFi IRAM OP enabled
+> I (1138) wifi_init: WiFi RX IRAM OP enabled
+I (1138) chip[DL]: NVS set: chip-counters/reboot-count = 1 (0x1)
+I (1148) chip[DL]: NVS set: chip-counters/total-hours = 0 (0x0)
+I (1148) chip[DL]: NVS set: chip-factory/unique-id = "108E52DD7128DEB4"
+I (1158) chip[DL]: Changing ESP WiFi mode: AP -> STA+AP
+I (1168) chip[DL]: Changing ESP WiFi mode: STA+AP -> STA
+I (1168) chip[DL]: Real time clock set to 946684800 (0100/00/01 00:00:00 UTC)
+I (1178) all-clusters-app: ------------------------Starting App Task---------------------------
+I (1178) app-task: This is ESP32 chip with 2 CPU cores, WiFi/BT/BLE, 
+I (1198) app-task: silicon revision 1, 
+I (1198) app-task: 4MB external flash
+
+I (1208) chip[SVR]: SetupQRCode: [MT:-24J042C00KA0648G00]
+I (1178) BTDM_INIT: BT controller compile version [5688ed5]
+I (1208) chip[SVR]: Copy/paste the below URL in a browser to see the QR Code:
+I (1218) chip[SVR]: https://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3A-24J042C00KA0648G00
+I (1238) chip[SVR]: Manual pairing code: [34970112332]
+I (1238) app-task: App Task started
+I (1228) phy_init: phy_version 4670,719f9f6,Feb 18 2021,17:07:07
+W (1248) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration
+I (1688) CHIP[DL]: BLE host-controller synced
+I (2198) chip[DL]: Configuring CHIPoBLE advertising (interval 25 ms, connectable, device name MATTER-3840)
+I (2198) NimBLE: GAP procedure initiated: advertise; 
+I (2208) NimBLE: disc_mode=2
+I (2208) NimBLE:  adv_channel_map=0 own_addr_type=1 adv_filter_policy=0 adv_itvl_min=40 adv_itvl_max=40
+I (2228) NimBLE: 
+
+I (2228) chip[DL]: CHIPoBLE advertising started
+E (2228) chip[DL]: Long dispatch time: 1052 ms, for event type 2
+I (2238) chip[DL]: Starting ESP WiFi layer
+I (2248) wifi:mode : sta (58:bf:25:98:11:00)
+I (2248) wifi:enable tsf
+W (2248) wifi:Haven't to connect to a suitable AP now!
+I (2248) chip[DL]: Done driving station state, nothing else to do...
+W (2268) wifi:Haven't to connect to a suitable AP now!
+I (2268) chip[DL]: Done driving station state, nothing else to do...
+I (2278) chip[SVR]: Server initializing...
+I (2278) chip[TS]: Last Known Good Time: [unknown]
+I (2278) chip[TS]: Setting Last Known Good Time to firmware build time 2022-07-22T05:13:09
+I (2298) chip[DMG]: AccessControl: initializing
+I (2298) chip[DMG]: Examples::AccessControlDelegate::Init
+I (2298) chip[DMG]: AccessControl: setting
+I (2308) chip[DMG]: DefaultAclStorage: initializing
+I (2308) chip[DMG]: DefaultAclStorage: 0 entries loaded
+I (2328) chip[ZCL]: Using ZAP configuration...
+I (2358) chip[DMG]: AccessControlCluster: initializing
+I (2358) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0030', EndPoint ID: '0x00', Attribute ID: '0x0000'
+I (2368) app-devicecallbacks: Unhandled cluster ID: 48
+I (2368) app-devicecallbacks: Current free heap: 87796
+
+I (2388) chip[ZCL]: Initiating Admin Commissioning cluster.
+I (2388) chip[ZCL]: Door Lock server initialized
+I (2388) chip[ZCL]: Initialize PCC Plugin Server Cluster.
+I (2398) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0003', EndPoint ID: '0x00', Attribute ID: '0x0001'
+I (2408) app-devicecallbacks: Current free heap: 87760
+
+I (2418) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x00', Attribute ID: '0x0000'
+I (2428) app-devicecallbacks: Unhandled cluster ID: 4
+I (2438) app-devicecallbacks: Current free heap: 87760
+
+I (2438) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x00', Attribute ID: '0xfffc'
+I (2448) app-devicecallbacks: Unhandled cluster ID: 4
+I (2448) app-devicecallbacks: Current free heap: 87760
+
+I (2468) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x002b', EndPoint ID: '0x00', Attribute ID: '0x0000'
+I (2468) app-devicecallbacks: Unhandled cluster ID: 43
+I (2478) app-devicecallbacks: Current free heap: 87760
+
+I (2488) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0003', EndPoint ID: '0x01', Attribute ID: '0x0001'
+I (2498) app-devicecallbacks: Current free heap: 87760
+
+I (2508) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x01', Attribute ID: '0x0000'
+I (2518) app-devicecallbacks: Unhandled cluster ID: 4
+I (2518) app-devicecallbacks: Current free heap: 87760
+
+I (2528) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x01', Attribute ID: '0xfffc'
+I (2538) app-devicecallbacks: Unhandled cluster ID: 4
+I (2548) app-devicecallbacks: Current free heap: 87760
+
+I (2548) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0005', EndPoint ID: '0x01', Attribute ID: '0x0000'
+I (2558) app-devicecallbacks: Unhandled cluster ID: 5
+I (2568) app-devicecallbacks: Current free heap: 87760
+
+I (2578) chip[ZCL]: On/Off set value: 1 0
+I (2578) chip[ZCL]: On/off already set to new value
+I (2588) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0008', EndPoint ID: '0x01', Attribute ID: '0x0000'
+I (2598) app-devicecallbacks: Current free heap: 87632
+
+I (2608) chip[ZCL]: Window Covering Cluster init
+I (2608) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0102', EndPoint ID: '0x01', Attribute ID: '0x0007'
+I (2618) app-devicecallbacks: Unhandled cluster ID: 258
+I (2628) app-devicecallbacks: Current free heap: 87632
+
+I (2638) chip[ZCL]: WC POST ATTRIBUTE=7
+I (2638) chip[ZCL]: ConfigStatus 0x1B Operational=1 OnlineReserved=1
+I (2648) chip[ZCL]: Lift(PA=1 Encoder=0 Reversed=0) Tilt(PA=1 Encoder=0)
+I (2648) chip[ZCL]: Initialize PCC Server Cluster [EP:1]
+I (2658) chip[ZCL]: Constant Pressure Supported
+I (2658) chip[ZCL]: PCC Server: Constant Proportional Pressure Supported
+I (2678) chip[ZCL]: PCC Server: Constant Flow Supported
+I (2678) chip[ZCL]: PCC Server: Constant Temperature Supported
+I (2688) chip[ZCL]: PCC Server: Constant Speed Supported
+I (2688) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0300', EndPoint ID: '0x01', Attribute ID: '0x0007'
+I (2698) app-devicecallbacks: Unhandled cluster ID: 768
+I (2698) app-devicecallbacks: Current free heap: 87632
+
+I (2718) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0300', EndPoint ID: '0x01', Attribute ID: '0x0008'
+I (2728) app-devicecallbacks: Unhandled cluster ID: 768
+I (2728) app-devicecallbacks: Current free heap: 87632
+
+I (2738) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0300', EndPoint ID: '0x01', Attribute ID: '0x4001'
+I (2748) app-devicecallbacks: Unhandled cluster ID: 768
+I (2758) app-devicecallbacks: Current free heap: 87632
+
+I (2768) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0406', EndPoint ID: '0x01', Attribute ID: '0x0001'
+I (2768) app-devicecallbacks: Unhandled cluster ID: 1030
+I (2778) app-devicecallbacks: Current free heap: 87632
+
+I (2778) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0406', EndPoint ID: '0x01', Attribute ID: '0x0002'
+I (2798) app-devicecallbacks: Unhandled cluster ID: 1030
+I (2808) app-devicecallbacks: Current free heap: 87632
+
+I (2808) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x02', Attribute ID: '0x0000'
+I (2818) app-devicecallbacks: Unhandled cluster ID: 4
+I (2828) app-devicecallbacks: Current free heap: 87632
+
+I (2828) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0004', EndPoint ID: '0x02', Attribute ID: '0xfffc'
+I (2848) app-devicecallbacks: Unhandled cluster ID: 4
+I (2848) app-devicecallbacks: Current free heap: 87632
+
+I (2858) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0406', EndPoint ID: '0x02', Attribute ID: '0x0001'
+I (2868) app-devicecallbacks: Unhandled cluster ID: 1030
+I (2868) app-devicecallbacks: Current free heap: 87632
+
+I (2888) app-devicecallbacks: PostAttributeChangeCallback - Cluster ID: '0x0406', EndPoint ID: '0x02', Attribute ID: '0x0002'
+I (2898) app-devicecallbacks: Unhandled cluster ID: 1030
+I (2898) app-devicecallbacks: Current free heap: 87632
+
+I (2908) chip[DIS]: Updating services using commissioning mode 1
+I (2918) chip[DIS]: CHIP minimal mDNS started advertising.
+I (2918) chip[DIS]: Advertise commission parameter vendorID=65521 productID=32769 discriminator=3840/15
+I (2928) chip[DIS]: CHIP minimal mDNS configured as 'Commissionable node device'.
+I (2938) chip[DIS]: mDNS service published: _matterc._udp
+I (2948) chip[IN]: CASE Server enabling CASE session setups
+I (2948) chip[SVR]: Joining Multicast groups
+I (2958) chip[SVR]: Server Listening...
+E (2958) chip[DL]: Long dispatch time: 683 ms, for event type 2
+I (2958) app-devicecallbacks: Current free heap: 86904
+
+I (2978) chip[DL]: WIFI_EVENT_STA_START
+W (2978) wifi:Haven't to connect to a suitable AP now!
+I (2978) chip[DL]: Done driving station state, nothing else to do...
+I (2988) app-devicecallbacks: Current free heap: 86904
+
+I (2988) chip[DL]: Configuring CHIPoBLE advertising (interval 25 ms, connectable, device name MATTER-3840)
+I (3008) chip[DL]: Device already advertising, stop active advertisement and restart
+I (3018) NimBLE: GAP procedure initiated: stop advertising.
+
+I (3018) NimBLE: GAP procedure initiated: advertise; 
+I (3018) NimBLE: disc_mode=2
+I (3028) NimBLE:  adv_channel_map=0 own_addr_type=1 adv_filter_policy=0 adv_itvl_min=40 adv_itvl_max=40
+I (3038) NimBLE: 
+
+I (3048) chip[SVR]: Cannot load binding table: a0
+I (32918) chip[DL]: Configuring CHIPoBLE advertising (interval 500 ms, connectable, device name MATTER-3840)
+I (32918) chip[DL]: Device already advertising, stop active advertisement and restart
+I (32928) NimBLE: GAP procedure initiated: stop advertising.
+
+I (32928) NimBLE: GAP procedure initiated: advertise; 
+I (32938) NimBLE: disc_mode=2
+I (32948) NimBLE:  adv_channel_map=0 own_addr_type=1 adv_filter_policy=0 adv_itvl_min=800 adv_itvl_max=800
+I (32958) NimBLE: 
+
+
