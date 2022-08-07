@@ -1,5 +1,5 @@
 #include "EnergyMonitoring.h"
-
+#include "Energy_config.h"
 #include "Arduino.h"
 
 #include "receiverBoard.h"      // for using cust_board pins
@@ -13,10 +13,10 @@ ACS712 sensor(ACS712_20A, ACS_pin);
 char watt[5];
 unsigned long last_time =0;
 unsigned long current_time =0;
-float Volt_In = 240;
+float Volt_In = VOLTAGE_IN;
 float Wh =0 ;
 float Energy;
-unsigned long publish_time = 300000L;     // time in Minutes * sec in a min * milliseconds in sec
+unsigned long publish_time = PUBLISH_INTERVAL;     // from app_config.h
 unsigned long prev_pub_time = 0 ;
 
 // Another reference
@@ -43,7 +43,6 @@ void energy_consumption(void * pvParameters) {
     inputStats.setWindowSecs( windowLength );
     
     while( true ) {
-  //    float I = sensor.getCurrentAC(50);
       sensorValue = analogRead(ACS_pin);  // read the analog in value:
       inputStats.input(sensorValue);  // log to Stats function            
       if((unsigned long)(millis() - previousMillis) >= printPeriod) {
@@ -54,13 +53,7 @@ void energy_consumption(void * pvParameters) {
         cur = (float)cur/10;
         Energy = cur*Volt_In/3600;
         total_energy_consumed += Energy;
-        //printf("Current = %.2f, Watt = %.0f\n", cur,(Volt_In*cur));
-       // printf("Current = %.3f\t Watt = %.0f\n",current_amps,(Volt_In*current_amps));
-        //printf("Watt = %f\n"(Volt_In*current_amps));
-       // Serial.println(roundf(current_amps*1000)/1000);
-//        publishData(Energy);
- //       publishData((Energy+current_amps));
- //  //     printf("%.3lf",current_amps);
+
           if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
               prev_pub_time = millis();
               printf("Total Energy consumed in last 5 min = %0.2f Joules\n",total_energy_consumed);
@@ -69,31 +62,6 @@ void energy_consumption(void * pvParameters) {
       }
      }
 
-
-/*   float value = analogRead(ACS_pin);
-     total_energy_consumed += value;
-     Serial.print("Energy = ");
-     Serial.println(total_energy_consumed);
-*/
-
-/*
-   float V = 230;
-   float I = sensor.getCurrentAC();
-  // Serial.print("Current: ");
-  // Serial.print(I);
-   float P = V * I;
-   last_time = current_time;
-   current_time = millis();
-   Wh = Wh+  P *(( current_time -last_time) /3600000.0) ;
-    dtostrf(Wh, 4, 2, watt);
-    Energy = "Energy: ";
-    Energy += watt;
-    publishData(Energy);
-   Serial.print("  Energy: ");
-   Serial.print(watt);
-   Serial.println();
-   delay(500);
-*/
 }
 
 

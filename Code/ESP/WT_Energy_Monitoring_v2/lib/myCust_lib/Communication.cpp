@@ -86,7 +86,7 @@ char* string2char(String str){
     return p;
 }
 
- void publishData(String data, bool radioAvailability){
+ void publishOnRadio(String data, bool radioAvailability){
     bool published = false;
 
     if(radioAvailability && !published){
@@ -122,6 +122,9 @@ void checkDataOnRadio(){
     }
 }
 
+void publishOnMqtt(bool enbMqtt) {
+
+}
 void print_communication() {
      Serial.println("from Communication_lib");
   }
