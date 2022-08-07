@@ -10,8 +10,8 @@
 
    bool initRadio(bool);
    void checkDataOnRadio();
-   void publishData(String,bool);
-
+   void publishOnRadio(String,bool);
+   void publishOnMqtt(bool);
    char* string2char(String);
   
 #endif

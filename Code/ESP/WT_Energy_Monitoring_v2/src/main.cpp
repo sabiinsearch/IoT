@@ -8,16 +8,17 @@
 #include <PubSubClient.h>
 #include <Preferences.h>
 
-#include "myCommon.h"
+#include "myCommon.h"                    // to import all my custom libraries
 
 // Variable to hold switch value
 int switch_val;
 
-// Set flags for Communication
-bool enableRadio = false;
-bool enableBLE = true;
-bool enableWiFi = true;
-bool enableMQTT = false;
+// Set flags for Communication and getting values from app_config.h
+     bool enableRadio = RADIO_AVAILABILITY;    
+     bool enableBLE = BLE_AVAILIBILITY;
+     bool enableWiFi = WIFI_AVAILABILITY;
+     bool enableMQTT = MQTT_AVAILABILITY;
+
 
 // setup function
 void setup() {
@@ -67,12 +68,12 @@ void setup() {
   initRGB();
   
   // Init WiFi
-  /*
+  
   if(enableWiFi) {
        initWiFi();
        connectWiFi();
   }
-  */
+  
   // Init Lora
   if(enableRadio){
       initRadio(enableRadio);
