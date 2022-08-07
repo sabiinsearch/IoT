@@ -2,6 +2,7 @@
 
 #include <WiFi.h>   // for WiFi
 #include <WiFiManager.h> 
+#include "app_config.h"
 
 #include <LoRa.h>
 
@@ -122,9 +123,19 @@ void checkDataOnRadio(){
     }
 }
 
-void publishOnMqtt(bool enbMqtt) {
+void publishOnMqtt(String data, bool enbMqtt) {
 
 }
+
+void publishData(String data) {
+
+     publishOnRadio(data,RADIO_AVAILABILITY);
+     
+     publishOnMqtt(data,MQTT_AVAILABILITY);
+
+}
+
+
 void print_communication() {
      Serial.println("from Communication_lib");
   }
