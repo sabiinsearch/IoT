@@ -5,13 +5,18 @@
 #include <ArduinoJson.h>
 #include <stdlib.h>
 #include <SPI.h>
-#include <PubSubClient.h>
 #include <Preferences.h>
-
 #include "myCommon.h"                    // to import all my custom libraries
 
 // Variable to hold switch value
 int switch_val;
+
+/** Connection status */
+volatile bool wifiConnected = false;
+volatile bool mqttConnected = false;
+
+/** Connection change status */
+bool connStatusChanged = false;
 
 // Set flags for Communication and getting values from app_config.h
      bool enableRadio = RADIO_AVAILABILITY;    
@@ -34,7 +39,7 @@ void setup() {
   getBoard_ID();
   
   // Initiate Switch
-  switch_val = 0;    
+  switch_val = switch_value;    
   
   // Configuring Board pins
   pinMode(HEARTBEAT_LED, OUTPUT);
@@ -68,7 +73,6 @@ void setup() {
   initRGB();
   
   // Init WiFi
-  
   if(enableWiFi) {
        initWiFi();
        connectWiFi();
@@ -88,6 +92,6 @@ void setup() {
  * Logic that runs in Loop
  */
 void loop() {
-    checkDataOnRadio();
     switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
+    checkDataOnRadio();
 }

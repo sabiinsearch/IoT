@@ -20,10 +20,13 @@
 #define LED5_U             2 
 #define LED5_D             18 
 
+// DECLARE OTHER PARTS OF RECEIVER BOARD
+
 #define SW_pin             19
 #define ACS_pin            34      // Energy Sensor
 #define touch1             4       // Pin for capactitive touch sensor
 #define WT_sensor          15      // pin from water sensor
+#define switch_value        0
 
    void initRGB();
    void LED_allOn();

@@ -2,7 +2,11 @@
 
 #include <WiFi.h>   // for WiFi
 #include <WiFiManager.h> 
-#include "app_config.h"
+
+#include <PubSubClient.h>   // for Mqtt
+#include <ArduinoJson.h>
+#include "app_config.h"     // for Custom Configration
+#include "receiverBoard.h"
 
 #include <LoRa.h>
 
@@ -20,8 +24,14 @@
 #define RST     14
 #define DI0     26
 
-
+// Variables
+String BOARD_ID;
+WiFiClient wifiClient;
+// PubSubClient client(server, 1883, NULL, wifiClient);
+PubSubClient client(wifiClient);
 WiFiManager wm; // WiFi Manager 
+
+
 
 void initWiFi() {
   WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
@@ -121,6 +131,91 @@ void checkDataOnRadio(){
         // Serial.print("' with RSSI ");
         //// Serial.println(LoRa.packetRssi());
     }
+}
+
+//  mqtt methods
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message arrived in topic [");
+  Serial.print(topic);
+  Serial.print("] ");
+
+  StaticJsonBuffer<200> mqttDataBuffer;
+  JsonObject& jsonData = mqttDataBuffer.parseObject(payload);
+  Serial.print(" >>> type: ");
+  Serial.print(jsonData["type"].as<String>());
+  Serial.print(", uniqueId: ");
+  Serial.print(jsonData["uniqueId"].as<String>());
+  Serial.print(", deviceIndex: ");
+  Serial.print(jsonData["deviceIndex"].as<int>());
+  Serial.print(", deviceValue: ");
+  Serial.println(jsonData["deviceValue"].as<int>());
+
+  if(jsonData["type"].as<String>() == BOARD_TYPE && jsonData["uniqueId"].as<String>() == BOARD_ID){
+    Serial.println("<<<< SWITCH ACTION ON BOARD MATCHES >>>>");
+    int deviceIndex = jsonData["deviceIndex"].as<int>();
+    int deviceValue = jsonData["deviceValue"].as<int>();
+
+    int deviceAction = 1;
+    if(deviceValue == 1){
+      deviceAction = 0;
+    }
+
+    switch (deviceIndex) {
+      case 1:
+          digitalWrite(SW_pin, deviceAction);          
+          // switch_value = deviceAction;
+        break;
+      default:
+        Serial.println("Device index not matched .... ");
+      }
+   }
+   mqttDataBuffer.clear();
+}
+
+/**
+ * Create unique device name from MAC address
+ **/
+/*
+void createName() {
+	uint8_t baseMac[6];
+	// Get MAC address for WiFi station
+	esp_read_mac(baseMac, ESP_MAC_WIFI_STA);
+	// Write unique name into apName
+	sprintf(apName, "SB_MICRO-%02X%02X%02X%02X%02X%02X", baseMac[0], baseMac[1], baseMac[2], baseMac[3], baseMac[4], baseMac[5]);
+
+  BOARD_ID = String(apName);
+  // pub_topic = PUBSUB_PREFIX + BOARD_ID +"/evt/cloud/fmt/json";
+  // sub_topic = PUBSUB_PREFIX + BOARD_ID +"/cmd/device/fmt/json";
+  // strcat(sub_topic, BOARD_ID.c_str() );
+  // strcat(pub_topic, BOARD_ID.c_str() );
+}
+*/
+
+/**
+ * Connect to MQTT Server
+ */
+static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
+  if(wifiConnected && !mqttConnected){
+    if(BOARD_ID == ""){
+      BOARD_ID = String(apName);
+    }
+     String clientId = "d:" ORG ":" BOARD_TYPE ":" +BOARD_ID;
+     // String clientId = BOARD_ID;
+     Serial.print("Connecting MQTT client: ");
+     Serial.println(clientId);
+     // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
+     mqttConnected = client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
+     if(mqttConnected){
+       client.subscribe(sub_topic.c_str());
+       Serial.print("Subscribed to : >>  ");
+       Serial.println(sub_topic);
+     }
+     Serial.print("MQTT Status: >>> ");
+     Serial.print(client.state());
+     // Serial.println(mqttConnected);
+  }else{
+    Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
+  }
 }
 
 void publishOnMqtt(String data, bool enbMqtt) {
