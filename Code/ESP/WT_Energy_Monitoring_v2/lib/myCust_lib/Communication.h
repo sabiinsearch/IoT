@@ -5,9 +5,9 @@
 
    void print_communication(); 
    void initWiFi();
+   void connectMQTT(bool,bool);
    void connectWiFi();
    void reset_wifi();
-   void connectMQTT(bool,bool);
    bool initRadio(bool);
    void checkDataOnRadio();
    void mqttCallback(char*, byte*, unsigned int);

@@ -28,13 +28,50 @@
 String BOARD_ID;
 WiFiClient wifiClient;
 // PubSubClient client(server, 1883, NULL, wifiClient);
-PubSubClient client(wifiClient);
+PubSubClient pub_sub_client(wifiClient);
 WiFiManager wm; // WiFi Manager 
 
+String sub_topic = SUB_TOPIC;
+String pub_topic = PUB_TOPIC;
+char server[] = SERVER;
+char apName[] = APNAME;
+char mqttUser[] = MQTT_USER;
+char mqttPassword[] = MQTT_PASSWORD;
+
+/** Connection status */
+volatile bool wifi_connected = false;
+volatile bool mqtt_connected = false;
 
 
 void initWiFi() {
   WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
+}
+/**
+ * Connect to MQTT Server
+ */
+static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
+  if(wifiConnected && !mqttConnected){
+    if(BOARD_ID == ""){
+      BOARD_ID = String(apName);
+    }
+     String clientId = "d:" ORG ":" BOARD_TYPE ":" +BOARD_ID;
+     // String clientId = BOARD_ID;
+     Serial.print("Connecting MQTT client: ");
+     Serial.println(clientId);
+     // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
+     mqttConnected = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
+     if(mqttConnected){
+       pub_sub_client.subscribe(sub_topic.c_str());
+       Serial.print("Subscribed to : >>  ");
+       Serial.println(sub_topic);
+     }
+     Serial.print("MQTT Status: >>> ");
+     Serial.print(pub_sub_client.state());
+     mqtt_connected = true;
+     // Serial.println(mqttConnected);
+  }else{
+    Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
+  }
 }
 
 void reconnectWiFi(){
@@ -58,7 +95,8 @@ void connectWiFi(){
         reconnectWiFi();
     } 
     else {
-        //if you get here you have connected to the WiFi    
+        //if you get here you have connected to the WiFi 
+        wifi_connected = true;   
         Serial.println("connected...yeey :)");
     }
 
@@ -89,6 +127,7 @@ bool initRadio(bool enableRadioablity){
   return radioAvailablity;
 }
 
+
 char* string2char(String str){
   char *p;
     if(str.length()!=0) {
@@ -96,7 +135,6 @@ char* string2char(String str){
     }
     return p;
 }
-
  void publishOnRadio(String data, bool radioAvailability){
     bool published = false;
 
@@ -191,42 +229,34 @@ void createName() {
 }
 */
 
-/**
- * Connect to MQTT Server
- */
-static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
-  if(wifiConnected && !mqttConnected){
-    if(BOARD_ID == ""){
-      BOARD_ID = String(apName);
-    }
-     String clientId = "d:" ORG ":" BOARD_TYPE ":" +BOARD_ID;
-     // String clientId = BOARD_ID;
-     Serial.print("Connecting MQTT client: ");
-     Serial.println(clientId);
-     // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
-     mqttConnected = client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
-     if(mqttConnected){
-       client.subscribe(sub_topic.c_str());
-       Serial.print("Subscribed to : >>  ");
-       Serial.println(sub_topic);
-     }
-     Serial.print("MQTT Status: >>> ");
-     Serial.print(client.state());
-     // Serial.println(mqttConnected);
-  }else{
-    Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
-  }
-}
+
 
 void publishOnMqtt(String data, bool enbMqtt) {
 
+   bool published = false;
+   if (enbMqtt) {
+     if(pub_sub_client.publish(pub_topic.c_str(), (char*) data.c_str())){
+       Serial.print("Published payload to Topic[");
+       Serial.print(pub_topic);
+       Serial.print("]: ");
+       Serial.println(data);
+       published = true;
+     }else{
+       Serial.println("Publish failed: ");
+          if (!!!pub_sub_client.connected() && enbMqtt) {
+            connectMQTT(wifi_connected,mqtt_connected);
+          }
+       // Serial.println(data);
+     }
+  
+   }
 }
 
 void publishData(String data) {
 
      publishOnRadio(data,RADIO_AVAILABILITY);
      
-     publishOnMqtt(data,MQTT_AVAILABILITY);
+     publishOnMqtt(data,mqtt_connected);
 
 }
 

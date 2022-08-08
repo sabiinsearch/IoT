@@ -39,7 +39,7 @@ void setup() {
   getBoard_ID();
   
   // Initiate Switch
-  switch_val = switch_value;    
+  switch_val = 0;    
   
   // Configuring Board pins
   pinMode(HEARTBEAT_LED, OUTPUT);
@@ -78,6 +78,11 @@ void setup() {
        connectWiFi();
   }
   
+  // Init Mqtt
+  if(enableMQTT) {
+    connectMQTT(wifiConnected,enableMQTT);
+  }
+  
   // Init Lora
   if(enableRadio){
       initRadio(enableRadio);
@@ -94,4 +99,10 @@ void setup() {
 void loop() {
     switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
     checkDataOnRadio();
+
+    if (wifiConnected && enableMQTT && (!!!mqttCallback )) {
+       Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
+       mqttConnected = false;
+       connectMQTT(wifiConnected,enableMQTT);
+    }
 }
