@@ -1,7 +1,7 @@
 #include "EnergyMonitoring.h"
-#include "Energy_config.h"
 #include "Arduino.h"
 
+#include "app_config.h"
 #include "receiverBoard.h"      // for using cust_board pins
 
 // for Energy Monitoring

@@ -5,13 +5,18 @@
 #include <ArduinoJson.h>
 #include <stdlib.h>
 #include <SPI.h>
-#include <PubSubClient.h>
 #include <Preferences.h>
-
 #include "myCommon.h"                    // to import all my custom libraries
 
 // Variable to hold switch value
 int switch_val;
+
+/** Connection status */
+volatile bool wifiConnected = false;
+volatile bool mqttConnected = false;
+
+/** Connection change status */
+bool connStatusChanged = false;
 
 // Set flags for Communication and getting values from app_config.h
      bool enableRadio = RADIO_AVAILABILITY;    
@@ -68,10 +73,20 @@ void setup() {
   initRGB();
   
   // Init WiFi
-  
   if(enableWiFi) {
        initWiFi();
-       connectWiFi();
+       wifiConnected = connectWiFi();
+       if(wifiConnected) {
+           Serial.println("Wifi connected");
+       }
+  }
+
+  // Init Mqtt
+  if(enableMQTT) {
+    mqttConnected = connectMQTT(wifiConnected,mqttConnected);
+           if(mqttConnected) {
+           Serial.println("mqtt connected");
+       }
   }
   
   // Init Lora
@@ -88,6 +103,16 @@ void setup() {
  * Logic that runs in Loop
  */
 void loop() {
-    checkDataOnRadio();
     switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
+
+    if(enableRadio) {
+      checkDataOnRadio();
+    }
+
+    if (wifiConnected && enableMQTT && (!!!mqttCallback )) {
+       Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
+       mqttConnected = false;
+       mqttConnected = connectMQTT(wifiConnected,mqttConnected);
+    }
+       
 }

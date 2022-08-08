@@ -50,6 +50,7 @@ void LED_allOn() {
 }
 
 void initRGB(){
+  Serial.println("InitRGB");
   digitalWrite(HEARTBEAT_LED,HIGH);
   digitalWrite(WIFI_LED,HIGH);
   digitalWrite(BLE_LED,HIGH);
@@ -59,7 +60,7 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
- void check_WT(bool radio_status) {
+ void check_WT(bool radio_status,bool Mqtt_status) {
   raw = analogRead(WT_sensor);
 //  if(raw){
   buffer = raw * Vin;
@@ -73,7 +74,7 @@ void initRGB(){
   volt_level += Vout;
   Serial.print("\t");
   Serial.println(volt_level);
-  publishData(volt_level, radio_status);
+  publishData(volt_level);
  }
 
 
@@ -94,12 +95,12 @@ void initRGB(){
         } 
         
         
-        publishData("pressed",radioAvailability);
+        publishData("pressed");   //,radioAvailability,MQTT_AVAILABILITY);
         Serial.print("pressed for ");
         Serial.println(count_press);
 
         if(count_press<2500) {
-          check_WT(radioAvailability);
+          check_WT(RADIO_AVAILABILITY,MQTT_AVAILABILITY);
           if (switch_value == 0){
             digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
