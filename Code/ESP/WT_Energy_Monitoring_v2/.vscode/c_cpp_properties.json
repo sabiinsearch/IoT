@@ -10,7 +10,6 @@
             "includePath": [
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
-                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/pubsubclient-2.3/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/myCust_lib",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
@@ -20,6 +19,7 @@
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/DNSServer/src",
                 "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
+                "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/pubsubclient-2.3/src",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/Filters",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/ACS712",
                 "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/LoRa/src",
@@ -232,7 +232,6 @@
                 "path": [
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/include",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/src",
-                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/pubsubclient-2.3/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/myCust_lib",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/WiFiManager",
@@ -242,6 +241,7 @@
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/DNSServer/src",
                     "/home/sarbjeet/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
+                    "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/pubsubclient-2.3/src",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/Filters",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/ACS712",
                     "/home/sarbjeet/gitHub/IoT/Code/ESP/WT_Energy_Monitoring_v2/lib/LoRa/src",
