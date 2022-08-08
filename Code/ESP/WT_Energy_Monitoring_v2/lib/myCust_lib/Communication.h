@@ -5,8 +5,8 @@
 
    void print_communication(); 
    void initWiFi();
-   void connectMQTT(bool,bool);
-   void connectWiFi();
+   bool connectMQTT(bool,bool);
+   bool connectWiFi();
    void reset_wifi();
    bool initRadio(bool);
    void checkDataOnRadio();
@@ -14,7 +14,7 @@
    // void publishData(String,bool,bool);
    void publishData(String);
    void publishOnRadio(String,bool);
-   void publishOnMqtt(String,bool);
+   void publishOnMqtt(String);
    char* string2char(String);
 
 

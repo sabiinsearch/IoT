@@ -25,6 +25,14 @@
 #define DI0     26
 
 // Variables
+
+// Set flags for Communication and getting values from app_config.h
+     bool Radio_status = RADIO_AVAILABILITY;    
+     bool BLE_status = BLE_AVAILIBILITY;
+     bool WiFi_status = WIFI_AVAILABILITY;
+     bool MQTT_status = MQTT_AVAILABILITY;
+
+
 String BOARD_ID;
 WiFiClient wifiClient;
 // PubSubClient client(server, 1883, NULL, wifiClient);
@@ -49,8 +57,9 @@ void initWiFi() {
 /**
  * Connect to MQTT Server
  */
-static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
-  if(wifiConnected && !mqttConnected){
+ bool connectMQTT(bool wifi_connection_status, bool mqtt_connection_status) {
+  
+  if(wifi_connection_status && !mqtt_connection_status){
     if(BOARD_ID == ""){
       BOARD_ID = String(apName);
     }
@@ -59,8 +68,9 @@ static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
      Serial.print("Connecting MQTT client: ");
      Serial.println(clientId);
      // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
-     mqttConnected = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
-     if(mqttConnected){
+     mqtt_connected = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
+     if(mqtt_connected){
+       digitalWrite(BLE_LED,HIGH);   
        pub_sub_client.subscribe(sub_topic.c_str());
        Serial.print("Subscribed to : >>  ");
        Serial.println(sub_topic);
@@ -70,8 +80,10 @@ static void connectMQTT(boolean wifiConnected, boolean mqttConnected) {
      mqtt_connected = true;
      // Serial.println(mqttConnected);
   }else{
+    digitalWrite(BLE_LED,LOW);
     Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
   }
+    return mqtt_connected;
 }
 
 void reconnectWiFi(){
@@ -83,23 +95,27 @@ void reconnectWiFi(){
         // ESP.restart();
     } 
     else {
-        //if you get here you have connected to the WiFi    
+        //if you get here you have connected to the WiFi  
+        digitalWrite(WIFI_LED,HIGH);  
+        wifi_connected = true;   
         Serial.println("connected...yeey :)");
     }
 }
 
-void connectWiFi(){
+bool connectWiFi() {
   bool res;
   res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
     if(!res) {
-        reconnectWiFi();
-    } 
-    else {
-        //if you get here you have connected to the WiFi 
-        wifi_connected = true;   
-        Serial.println("connected...yeey :)");
+        digitalWrite(WIFI_LED,LOW);   
+        reconnectWiFi();        
     }
-
+    else {
+        //if you get here you have connected to the WiFi         
+        wifi_connected = true;
+        digitalWrite(WIFI_LED,HIGH);   
+        Serial.println("connected...yeey :)");        
+    }
+     return res;
 }
 
 void reset_wifi() {
@@ -231,10 +247,10 @@ void createName() {
 
 
 
-void publishOnMqtt(String data, bool enbMqtt) {
+void publishOnMqtt(String data) {
 
    bool published = false;
-   if (enbMqtt) {
+   
      if(pub_sub_client.publish(pub_topic.c_str(), (char*) data.c_str())){
        Serial.print("Published payload to Topic[");
        Serial.print(pub_topic);
@@ -242,21 +258,26 @@ void publishOnMqtt(String data, bool enbMqtt) {
        Serial.println(data);
        published = true;
      }else{
-       Serial.println("Publish failed: ");
-          if (!!!pub_sub_client.connected() && enbMqtt) {
-            connectMQTT(wifi_connected,mqtt_connected);
+       Serial.print("Publish failed: \t");
+          if (!!!pub_sub_client.connected() && MQTT_status) {
+            Serial.print(" Wifi : ");
+            Serial.print(wifi_connected);
+            Serial.print("\t");
+            Serial.print(" mqtt : ");
+            Serial.println(mqtt_connected);
+
+            mqtt_connected = connectMQTT(wifi_connected,mqtt_connected);
           }
        // Serial.println(data);
      }
   
-   }
 }
 
 void publishData(String data) {
 
      publishOnRadio(data,RADIO_AVAILABILITY);
      
-     publishOnMqtt(data,mqtt_connected);
+     publishOnMqtt(data);
 
 }
 

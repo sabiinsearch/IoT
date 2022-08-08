@@ -50,6 +50,7 @@ void LED_allOn() {
 }
 
 void initRGB(){
+  Serial.println("InitRGB");
   digitalWrite(HEARTBEAT_LED,HIGH);
   digitalWrite(WIFI_LED,HIGH);
   digitalWrite(BLE_LED,HIGH);

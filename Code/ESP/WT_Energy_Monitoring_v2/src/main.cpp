@@ -75,12 +75,18 @@ void setup() {
   // Init WiFi
   if(enableWiFi) {
        initWiFi();
-       connectWiFi();
+       wifiConnected = connectWiFi();
+       if(wifiConnected) {
+           Serial.println("Wifi connected");
+       }
   }
-  
+
   // Init Mqtt
   if(enableMQTT) {
-    connectMQTT(wifiConnected,enableMQTT);
+    mqttConnected = connectMQTT(wifiConnected,mqttConnected);
+           if(mqttConnected) {
+           Serial.println("mqtt connected");
+       }
   }
   
   // Init Lora
@@ -98,11 +104,15 @@ void setup() {
  */
 void loop() {
     switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
-    checkDataOnRadio();
+
+    if(enableRadio) {
+      checkDataOnRadio();
+    }
 
     if (wifiConnected && enableMQTT && (!!!mqttCallback )) {
        Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
        mqttConnected = false;
-       connectMQTT(wifiConnected,enableMQTT);
+       mqttConnected = connectMQTT(wifiConnected,mqttConnected);
     }
+       
 }
