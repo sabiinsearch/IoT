@@ -6,12 +6,15 @@
 #include <stdlib.h>
 #include <SPI.h>
 #include <Preferences.h>
+
+#include "appManager.h"
 #include "myCommon.h"                    // to import all my custom libraries
+
 
 // Variable to hold switch value
 int switch_val;
 
-/** Connection status */
+
 volatile bool wifiConnected = false;
 volatile bool mqttConnected = false;
 
@@ -79,28 +82,6 @@ void setup() {
   // Init RGB
   initRGB();
   
-  // Init WiFi
-  if(enableWiFi) {
-       initWiFi();
-       wifiConnected = connectWiFi();
-       if(wifiConnected) {
-           Serial.println("Wifi connected");
-       }
-  }
-
-  // Init Mqtt
-  if(enableMQTT) {
-    mqttConnected = connectMQTT(wifiConnected,mqttConnected);
-           if(mqttConnected) {
-           Serial.println("mqtt connected");
-       }
-  }
-  
-  // Init Lora
-  if(enableRadio){
-      initRadio(enableRadio);
-      Serial.print(" Ready to print ");
-  }
 
   // Run Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
