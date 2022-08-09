@@ -84,10 +84,6 @@ void setup() {
   initRGB();
   
 
-
-
-  
-
   // Run Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
