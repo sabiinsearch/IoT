@@ -24,6 +24,13 @@ bool connStatusChanged = false;
      bool enableWiFi = WIFI_AVAILABILITY;
      bool enableMQTT = MQTT_AVAILABILITY;
 
+unsigned long printPeriod = 1000; // in milliseconds
+// Track time in milliseconds since last reading
+unsigned long previousMillis = 0;
+
+unsigned long publish_time = PUBLISH_INTERVAL;     // from app_config.h
+unsigned long prev_pub_time = 0 ;
+
 
 // setup function
 void setup() {
@@ -98,6 +105,7 @@ void setup() {
   // Run Energy Monitoring in Core 2
   xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
+
 }
 /**
  * Logic that runs in Loop
@@ -114,5 +122,14 @@ void loop() {
        mqttConnected = false;
        mqttConnected = connectMQTT(wifiConnected,mqttConnected);
     }
-       
+
+    
+          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
+              prev_pub_time = millis();
+              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",getEngergy());  
+              Serial.print("Total Energy reset : ");
+              Serial.println(getEngergy());            
+          }
+          
+
 }
