@@ -6,15 +6,14 @@
 #include <stdlib.h>
 #include <SPI.h>
 #include <Preferences.h>
+
+#include "appManager.h"
 #include "myCommon.h"                    // to import all my custom libraries
 
-#include "connectionManager.h"
 
 // Variable to hold switch value
 int switch_val;
 
-/** Connection status */
-connectionManager conManagerr;
 
 volatile bool wifiConnected = false;
 volatile bool mqttConnected = false;
