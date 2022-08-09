@@ -85,14 +85,6 @@ void setup() {
   
 
 
-  // Init Mqtt
-  if(enableMQTT) {
-    mqttConnected = connectMQTT(wifiConnected,mqttConnected);
-           if(mqttConnected) {
-           Serial.println("mqtt connected");
-       }
-  }
-  
 
   
 
