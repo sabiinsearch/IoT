@@ -37,7 +37,5 @@
     // String sub_topic = "evt/sb_micro/board/";
     #define MQTT_USER             "use-token-auth"
     #define MQTT_PASSWORD         "1SatnamW" // Auth token of Device registered on Watson IoT Platform
-    // char mqttUser[] = "IdawJwQIHs0LuzfZKYWvXFwUeV0bbiAJlA3TUJpp0fYkE39cPTyAmUkqD9pFfPcp";
-    // char mqttPassword[] = "";
-
+    
 #endif

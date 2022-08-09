@@ -4,7 +4,9 @@
 
     #include "Arduino.h"
 
-        void energy_consumption(void * pvParameters);
-    
+        void  energy_consumption(void * pvParameters);
+        void  setEnergy();
+        float getEngergy();
+        
 
 #endif
