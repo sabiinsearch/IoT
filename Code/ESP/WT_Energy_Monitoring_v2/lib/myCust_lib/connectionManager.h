@@ -5,8 +5,9 @@
 
 /*Connection Manager's attributes*/
 
-typedef struct {
 
+typedef struct {
+  
   bool radio_status;  
   bool ble_status;
   bool Wifi_status;
@@ -16,7 +17,7 @@ typedef struct {
 
 /*Connection Manager's operations*/
  
-   connectionManager * const  connectionManager_ctor(connectionManager * const me );     // Constructor
+   connectionManager * const  connectionManager_ctor(connectionManager * const me);     // Constructor
 
    void print_communication(); 
    void initWiFi();

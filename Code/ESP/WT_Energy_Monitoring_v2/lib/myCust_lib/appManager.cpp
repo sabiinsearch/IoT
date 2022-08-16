@@ -1,32 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// Custom Libraries
+#include "app_config.h"
 #include "appManager.h"
 #include "connectionManager.h"
-
-#include "myCommon.h"
+#include "EnergyMonitoring.h"
 #include "receiverBoard.h"
-
-
-// variables for Water Tank
-int raw;
-int Vin = 3.3;
-float Vout = 0.0;
-float buffer = 0;
-int level;
-bool hbLedState = LOW; // Heartbeat LED state
-unsigned long interval = 5; // the time we need to wait
-//unsigned long previousMillis = 0;
-unsigned long previousTouchMillis = 0;
-
 
 connectionManager conManagerr;
 
 /* constructor implementation */
 
 void appManager_ctor(appManager * const me, int sw_val) {
+  initBoard();
   me->conManager = connectionManager_ctor(&conManagerr);
   me->switch_val = sw_val;
+  broadcast_appMgr(me);
 }
 
 /* Function Implementation */
+
 
 // Setting the Tank LEDs accordingly
 void LED_allOff() {
@@ -40,7 +35,6 @@ void LED_allOff() {
    digitalWrite(LED4_D,HIGH);
    digitalWrite(LED5_U,HIGH);
    digitalWrite(LED5_D,HIGH);
-   getMyMsg();
 }
 
 void LED_allOn() {
@@ -54,27 +48,24 @@ void LED_allOn() {
    digitalWrite(LED4_D,LOW);
    digitalWrite(LED5_U,LOW);
    digitalWrite(LED5_D,LOW);
-   getMyMsg();
 }
 
 void initRGB(){
-  Serial.println("InitRGB");
+  pinMode(HEARTBEAT_LED, OUTPUT);
+  pinMode(WIFI_LED, OUTPUT);
+  pinMode(BLE_LED, OUTPUT);
+  
   digitalWrite(HEARTBEAT_LED,HIGH);
   digitalWrite(WIFI_LED,HIGH);
   digitalWrite(BLE_LED,HIGH);
-  delay(1000);
-  digitalWrite(HEARTBEAT_LED,LOW);
-  digitalWrite(WIFI_LED,LOW);
-  digitalWrite(BLE_LED,LOW);
+
+  Serial.println("InitRGB : appManager.cpp");
  }
 
  void initBoard() {
   
-   
   // Configuring Board pins
-  pinMode(HEARTBEAT_LED, OUTPUT);
-  pinMode(WIFI_LED, OUTPUT);
-  pinMode(BLE_LED, OUTPUT);
+  initRGB();
   pinMode(SW_pin, OUTPUT);
   pinMode(touch1, INPUT);
   pinMode(WT_sensor, INPUT);
@@ -93,29 +84,77 @@ void initRGB(){
   pinMode(LED5_U,OUTPUT);
   pinMode(LED5_D,OUTPUT);
 
+ }
+ 
+ void broadcast_appMgr(appManager * appMgr) {
+  
+   char data[] = {"{"};  // for JSON
+   char s1[] = "\"Board\" : ";
+   char * msg = strcat(data,s1);
+   char buffer[100];
+   char *num;
 
-   initRGB();
+   if (asprintf(&num, "%d", getBoard_ID) == -1) {
+        perror("asprintf");
+    } else {
+  //      printf(strcat(s1,num));
+  //      free(num);
+    }
+
+  // char s2[] = appMgr->energy;
+  //char buff[20];
+   //int totalEnergy;
+/*
+   // formatting JSON to publish
+   data = "{\"Board\" : ";
+   data += "\""+getBoard_ID();
+   data += "\",";
+
+   data += "\"Switch Value\" : ";
+   data += "\" "+appMgr->switch_val;
+   data += "\",";
+
+   data += "\"Water Level\" : ";
+   data += "\" "+appMgr->waterLevel;
+   data += "\"}";
+  
+   // for setting float value to sting JSON
+   /* 
+   data += "\"Total Energy\" : ";
+   gcvt(totalEnergy, 6, buff);
+   data += "\""+buff;
+   data += "\"}";
+   */
+   //printf(strcat(msg,num));
+   Serial.println(msg); 
+  
  }
 
- void check_WT(bool radio_status,bool Mqtt_status, appManager * appMgr) {
+ void check_WT(appManager * appMgr) {
+
+  uint32_t raw; 
+  uint32_t Vin = 3.3;
+  float Vout = 0.0;
+  float buffer = 0;
   raw = analogRead(WT_sensor);
 //  if(raw){
   buffer = raw * Vin;
   Vout = (buffer)/1024.0;
-  Serial.print("Raw: ");
-  Serial.print(raw);
-  Serial.print("\t");
-  Serial.print("Vout: ");
-  Serial.print(Vout);
+  // Serial.print("Raw: ");
+  // Serial.print(raw);
+  // Serial.print("\t");
+  // Serial.print("Vout: ");
+  // Serial.print(Vout);
   String volt_level = "Tank_Level";
   volt_level += Vout;
-  Serial.print("\t");
-  Serial.println(volt_level);
+  // Serial.print("\t");
+  // Serial.println(volt_level);
   publishData(volt_level,appMgr->conManager);
+  //broadcast_appMgr(appMgr);
  }
 
 
- int checkTouchDetected(appManager* appMgr, int switch_value) {
+ int checkTouchDetected(appManager* appMgr) {
   if(digitalRead(touch1) == HIGH){
         long press_start = millis();
         long press_end = press_start;
@@ -132,13 +171,14 @@ void initRGB(){
         } 
         
         
-        publishData("pressed", appMgr->conManager);   //,radioAvailability,MQTT_AVAILABILITY);
+        //publishData("pressed", appMgr->conManager);   //,radioAvailability,MQTT_AVAILABILITY);
+        //broadcast_appMgr(appMgr);
         Serial.print("pressed for ");
         Serial.println(count_press);
 
         if(count_press<2500) {
-          check_WT(RADIO_AVAILABILITY,MQTT_AVAILABILITY, appMgr);
-          if (switch_value == 0){
+          check_WT(appMgr);
+          if (appMgr->switch_val == 0){
             digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
             appMgr->switch_val= 1;
@@ -154,3 +194,25 @@ void initRGB(){
   }
   return appMgr->switch_val;
  }
+
+ void eMonitorig(appManager* appMgr) {
+    
+   do{    // when switch is ON
+      unsigned long prev_pub_time = 0 ;
+
+        if((unsigned long)(millis() - prev_pub_time) >= PUBLISH_INTERVAL) { 
+              prev_pub_time = millis();
+              //broadCast(appMgr);
+           /*   
+              Serial.print(" Energy Consumed in ");
+              Serial.print(PUBLISH_INTERVAL);
+              printf(" = %0.2f Joules\n",getEngergy());  
+              Serial.print("Total Energy reset : ");
+              Serial.println(getEngergy());            
+           */   
+          }
+    
+    }while((appMgr->switch_val==1));
+ }
+
+ 

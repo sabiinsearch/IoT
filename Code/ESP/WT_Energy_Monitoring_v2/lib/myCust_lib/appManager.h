@@ -10,18 +10,21 @@ typedef struct {
 
      connectionManager* conManager;
 //   energyMonitoringManager eManager;
-     int switch_val; 
+     float energy;
+     uint32_t switch_val;
+     uint32_t waterLevel; 
 
 } appManager;
 
 void appManager_ctor(appManager * const me, int sw_val); // constructor
 
 void initBoard();   
-void initRGB();
 void LED_allOn();
 void LED_allOff();
+void broadcast_appMgr(appManager*);
+void eMonitorig(appManager*);
+void check_WT(appManager*);
+int  checkTouchDetected(appManager*);
 
-void check_WT(bool,bool, appManager*);
-int  checkTouchDetected(connectionManager* con, int);
 
 #endif

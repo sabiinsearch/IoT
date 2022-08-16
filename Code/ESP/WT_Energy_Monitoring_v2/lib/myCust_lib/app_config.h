@@ -6,9 +6,9 @@
    
 // Set flags for Communication
      #define RADIO_AVAILABILITY  false
-     #define BLE_AVAILIBILITY    true
-     #define WIFI_AVAILABILITY   true
-     #define MQTT_AVAILABILITY   true
+     #define BLE_AVAILIBILITY    false
+     #define WIFI_AVAILABILITY   false
+     #define MQTT_AVAILABILITY   false
 
 
 // Energy Monitoring configrations

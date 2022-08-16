@@ -4,9 +4,9 @@
 #define __RECEIVER_BOARD_H__
 
 // #define RGB LEDs
-#define HEARTBEAT_LED      5
-#define WIFI_LED           17
-#define BLE_LED            16
+#define HEARTBEAT_LED      17         // Red
+#define WIFI_LED           16         // Blue
+#define BLE_LED            5          // Green
 
 // # define Level LEDs
 #define LED1_U             32
@@ -29,6 +29,6 @@
 
 
 
-   void getBoard_ID();
+   int getBoard_ID();
 
 #endif

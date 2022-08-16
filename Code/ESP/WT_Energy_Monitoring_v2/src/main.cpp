@@ -7,19 +7,17 @@
 #include <SPI.h>
 #include <Preferences.h>
 
+// to import all my custom libraries
+
 #include "app_config.h"
+#include "receiverBoard.h"
 #include "connectionManager.h"
 #include "appManager.h"
-#include "myCommon.h"                    // to import all my custom libraries
+#include "EnergyMonitoring.h"
+                  
 
 // my Managers
 appManager managr;
-
-unsigned long printPeriod = 1000; // in milliseconds
-// Track time in milliseconds since last reading
-unsigned long previousMillis = 0;
-
-unsigned long prev_pub_time = 0 ;
 
 
 // setup function
@@ -33,7 +31,7 @@ void setup() {
 	Serial.println("Build: ");
   
   Serial.print("Board ID: WT-");
-  getBoard_ID();
+  Serial.println(getBoard_ID());
 
   LED_allOff();
   //digitalWrite(touch1, 0);
@@ -46,7 +44,7 @@ void setup() {
 
 
   // Run Energy Monitoring in Core 2
-  //xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
 
 
 }
@@ -54,28 +52,17 @@ void setup() {
  * Logic that runs in Loop
  */
 void loop() { 
-  /*
-    switch_val = checkTouchDetected(managr.conManager, switch_val);
+    managr.switch_val = checkTouchDetected(&managr);
 
     if(RADIO_AVAILABILITY) {
       checkDataOnRadio();
     }
 
-    if (managr.conManager.Wifi_status && MQTT_AVAILABILITY && (!!!mqttCallback )) {
+    if (managr.conManager->Wifi_status && MQTT_AVAILABILITY && (!!!mqttCallback )) {
        Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
-       mqttConnected = false;
-       mqttConnected = connectMQTT(managr.conManager);
+       managr.conManager->mqtt_status = false;
+       
+       managr.conManager->mqtt_status = connectMQTT(managr.conManager);
+       
     }
-
-    
-          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
-              prev_pub_time = millis();
-              Serial.print(" Energy Consumed in ");
-              Serial.print(PUBLISH_INTERVAL);
-              printf(" = %0.2f Joules\n",getEngergy());  
-              Serial.print("Total Energy reset : ");
-              Serial.println(getEngergy());            
-          }
-          
-  */
 }

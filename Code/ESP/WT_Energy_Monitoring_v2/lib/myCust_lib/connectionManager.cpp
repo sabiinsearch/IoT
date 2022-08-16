@@ -1,10 +1,11 @@
+#include <ArduinoJson.h>
 #include "connectionManager.h"
 
 #include <WiFi.h>   // for WiFi
 #include <WiFiManager.h> 
 #include <LoRa.h>
 #include <PubSubClient.h>   // for Mqtt
-#include <ArduinoJson.h>
+
 #include "app_config.h"     // for Custom Configration
 #include "receiverBoard.h"
 
@@ -20,13 +21,6 @@
 #define SS      18
 #define RST     14
 #define DI0     26
-
-/* Communication Variables*/
-
-  bool radio_status;  
-  bool ble_status;
-  bool wifi_status;
-  bool mqtt_status;
 
 /*  */
 
@@ -48,7 +42,7 @@ char mqttPassword[] = MQTT_PASSWORD;
 
 connectionManager * const connectionManager_ctor(connectionManager * const me ) {
 
-    me->ble_status = ble_status;
+   // me->ble_status = ble_status;
     
       // Init Lora
 
@@ -79,6 +73,7 @@ connectionManager * const connectionManager_ctor(connectionManager * const me ) 
 }
 
 /* Function implementation */
+
 
 void initWiFi() {
   WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP  
@@ -123,6 +118,7 @@ void reconnectWiFi(connectionManager  * con){
     if(!res) {
 
         con->Wifi_status = false;
+        digitalWrite(WIFI_LED,LOW);
         Serial.println("Failed to connect");
         // ESP.restart();
     } 
@@ -130,28 +126,30 @@ void reconnectWiFi(connectionManager  * con){
         //if you get here you have connected to the WiFi  
         digitalWrite(WIFI_LED,HIGH);  
         con->Wifi_status = true;   
-        Serial.println("connected...yeey :)");
+       // Serial.println("connected...yeey :)");
     }
 }
 
 void connectWiFi(connectionManager * con) {
   bool res;
+  digitalWrite(HEARTBEAT_LED,LOW);  
   res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
-    if(!res) {
-        digitalWrite(WIFI_LED,LOW);   
+    if(!res) { 
         reconnectWiFi(con);        
     }
     else {
         //if you get here you have connected to the WiFi         
         con->Wifi_status = true;
-        digitalWrite(WIFI_LED,HIGH);   
-        Serial.println("connected...yeey :)");        
+        digitalWrite(HEARTBEAT_LED,HIGH);
+        digitalWrite(WIFI_LED,LOW);   
+        //Serial.println("connected...yeey :)");        
     }
 }
 
 void resetWifi(connectionManager * con) {
     con->Wifi_status = false;
-    wm.resetSettings();
+    digitalWrite(WIFI_LED,LOW);
+    reconnectWiFi(con);
 }
 
 void initRadio(connectionManager * con){
@@ -173,7 +171,6 @@ void initRadio(connectionManager * con){
 
 }
 
-
 char* string2char(String str){
   char *p;
     if(str.length()!=0) {
@@ -181,6 +178,7 @@ char* string2char(String str){
     }
     return p;
 }
+
  void publishOnRadio(String data, connectionManager * con){
     bool published = false;
 
