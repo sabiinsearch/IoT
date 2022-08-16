@@ -22,18 +22,11 @@
 #define DI0     26
 
 /* Communication Variables*/
-  connectionManager cm;
+
   bool radio_status;  
   bool ble_status;
   bool wifi_status;
   bool mqtt_status;
-
-/* Set flags for Communication and getting values from app_config.h  */
-
-   bool Radio_flag = RADIO_AVAILABILITY;    
-   bool BLE_flag = BLE_AVAILIBILITY;
-   bool WiFi_flag = WIFI_AVAILABILITY;
-   bool MQTT_flag = MQTT_AVAILABILITY;
 
 /*  */
 
@@ -53,39 +46,36 @@ char mqttPassword[] = MQTT_PASSWORD;
 
 /* constructor implementation */
 
-connectionManager connectionManager_ctor(connectionManager * const me ) {
-
-   
-    cm = connectionManager_ctor(me);
+connectionManager * const connectionManager_ctor(connectionManager * const me ) {
 
     me->ble_status = ble_status;
     
       // Init Lora
 
-   if(Radio_flag){
-      initRadio(cm);
+   if(RADIO_AVAILABILITY){
+      initRadio(me);
       Serial.print(" Ready to print ");
    }
 
 
    // Init WiFi
-   if(WiFi_flag) {
+   if(WIFI_AVAILABILITY) {
        initWiFi();
-       connectWiFi(cm);
-       if(cm.Wifi_status) {
+       connectWiFi(me);
+       if(me->Wifi_status) {
            Serial.println("Wifi connected");
        }
    }
 
   // Init Mqtt
-  if(MQTT_flag) {
-    connectMQTT(cm);
-    if(cm.mqtt_status) {
+  if(MQTT_AVAILABILITY) {
+    connectMQTT(me);
+    if(me->mqtt_status) {
         Serial.println("mqtt connected");
     }
   }
   
-   return cm;
+   return me;
 }
 
 /* Function implementation */
@@ -97,9 +87,9 @@ void initWiFi() {
 /**
  * Connect to MQTT Server
  */
- bool connectMQTT(connectionManager con) {
+ bool connectMQTT(connectionManager * con) {
   
-  if(con.Wifi_status && !con.mqtt_status){
+  if(con->Wifi_status && !con->mqtt_status){
     if(BOARD_ID == ""){
       BOARD_ID = String(apName);
     }
@@ -108,8 +98,8 @@ void initWiFi() {
      Serial.print("Connecting MQTT client: ");
      Serial.println(clientId);
      // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
-     con.mqtt_status = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
-     if(con.mqtt_status){
+     con->mqtt_status = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
+     if(con->mqtt_status){
        digitalWrite(BLE_LED,HIGH);   
        pub_sub_client.subscribe(sub_topic.c_str());
        Serial.print("Subscribed to : >>  ");
@@ -117,32 +107,34 @@ void initWiFi() {
      }
      Serial.print("MQTT Status: >>> ");
      Serial.print(pub_sub_client.state());
-     con.mqtt_status = true;
+     con->mqtt_status = true;
      // Serial.println(mqttConnected);
   }else{
     digitalWrite(BLE_LED,LOW);
     Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
   }
-  return con.mqtt_status;
+  return con->mqtt_status;
 }
 
-void reconnectWiFi(connectionManager con){
+void reconnectWiFi(connectionManager  * con){
   bool res;
   wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
   res = wm.autoConnect("Tank_Board"); // anonymous ap
     if(!res) {
+
+        con->Wifi_status = false;
         Serial.println("Failed to connect");
         // ESP.restart();
     } 
     else {
         //if you get here you have connected to the WiFi  
         digitalWrite(WIFI_LED,HIGH);  
-        con.Wifi_status = true;   
+        con->Wifi_status = true;   
         Serial.println("connected...yeey :)");
     }
 }
 
-void connectWiFi(connectionManager con) {
+void connectWiFi(connectionManager * con) {
   bool res;
   res = wm.autoConnect("Tank_Board"); // auto generated AP name from chipid
     if(!res) {
@@ -151,33 +143,33 @@ void connectWiFi(connectionManager con) {
     }
     else {
         //if you get here you have connected to the WiFi         
-        con.Wifi_status = true;
+        con->Wifi_status = true;
         digitalWrite(WIFI_LED,HIGH);   
         Serial.println("connected...yeey :)");        
     }
 }
 
-void resetWifi(connectionManager con) {
-    con.Wifi_status = false;
+void resetWifi(connectionManager * con) {
+    con->Wifi_status = false;
     wm.resetSettings();
 }
 
-void initRadio(connectionManager con){
+void initRadio(connectionManager * con){
   SPI.begin(SCK, MISO, MOSI, CS);
   LoRa.setPins(SS, RST, DI0);
       delay(1000);
 
       int radioTryCount = 0;      
       do{
-        con.radio_status = LoRa.begin(BAND);
+        con->radio_status = LoRa.begin(BAND);
         radioTryCount++;
-        if(!con.radio_status){
+        if(!con->radio_status){
           Serial.printf("Starting Radio failed!, Try Count: %d\n", radioTryCount);
           delay(3000);
         }else{
           Serial.println("Radio Initialized Successfully...");
         }
-      }while(!con.radio_status && radioTryCount < 3);
+      }while(!con->radio_status && radioTryCount < 3);
 
 }
 
@@ -189,10 +181,10 @@ char* string2char(String str){
     }
     return p;
 }
- void publishOnRadio(String data, connectionManager con){
+ void publishOnRadio(String data, connectionManager * con){
     bool published = false;
 
-    if(con.radio_status && !published){
+    if(con->radio_status && !published){
         LoRa.beginPacket();
 
         LoRa.print(data);
@@ -285,7 +277,7 @@ void createName() {
 
 
 
-void publishOnMqtt(String data, connectionManager con) {
+void publishOnMqtt(String data, connectionManager * con) {
 
    bool published = false;
    
@@ -297,12 +289,12 @@ void publishOnMqtt(String data, connectionManager con) {
        published = true;
      }else{
        Serial.print("Publish failed: \t");
-          if (!!!pub_sub_client.connected() && MQTT_flag) {
+          if (!!!pub_sub_client.connected() && MQTT_AVAILABILITY) {
             Serial.print(" Wifi : ");
-            Serial.print(wifi_status);
+            Serial.print(con->Wifi_status);
             Serial.print("\t");
             Serial.print(" mqtt : ");
-            Serial.println(mqtt_status);
+            Serial.println(con->mqtt_status);
 
             connectMQTT(con);
           }
@@ -311,7 +303,7 @@ void publishOnMqtt(String data, connectionManager con) {
   
 }
 
-void publishData(String data, connectionManager con) {
+void publishData(String data, connectionManager * con) {
 
      publishOnRadio(data,con);
      

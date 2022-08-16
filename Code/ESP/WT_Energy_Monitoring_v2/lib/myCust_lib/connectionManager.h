@@ -16,20 +16,20 @@ typedef struct {
 
 /*Connection Manager's operations*/
  
-   connectionManager connectionManager_ctor(connectionManager * const me );     // Constructor
+   connectionManager * const  connectionManager_ctor(connectionManager * const me );     // Constructor
 
    void print_communication(); 
    void initWiFi();
-   bool connectMQTT(connectionManager);
-   void connectWiFi(connectionManager);
-   void reconnectWiFi(connectionManager);
-   void resetWifi(connectionManager);
-   void initRadio(connectionManager);
+   bool connectMQTT(connectionManager*);
+   void connectWiFi(connectionManager*);
+   void reconnectWiFi(connectionManager*);
+   void resetWifi(connectionManager*);
+   void initRadio(connectionManager*);
    void checkDataOnRadio();
    void mqttCallback(char*, byte*, unsigned int);
-   void publishData(String, connectionManager);
-   void publishOnRadio(String,connectionManager);
-   void publishOnMqtt(String, connectionManager);
+   void publishData(String, connectionManager*);
+   void publishOnRadio(String,connectionManager*);
+   void publishOnMqtt(String, connectionManager*);
    char* string2char(String);
 
 #endif

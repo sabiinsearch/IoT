@@ -8,19 +8,20 @@
 
 typedef struct {
 
-     connectionManager conManager;
+     connectionManager* conManager;
 //   energyMonitoringManager eManager;
+     int switch_val; 
 
 } appManager;
 
-void appManager_ctor(appManager * const me, connectionManager conManager); // constructor
+void appManager_ctor(appManager * const me, int sw_val); // constructor
 
-   
+void initBoard();   
 void initRGB();
 void LED_allOn();
 void LED_allOff();
 
-void check_WT(bool,bool);
-int  checkTouchDetected(connectionManager * con, int);
+void check_WT(bool,bool, appManager*);
+int  checkTouchDetected(connectionManager* con, int);
 
 #endif

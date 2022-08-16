@@ -4,8 +4,6 @@
 #include "myCommon.h"
 #include "receiverBoard.h"
 
-// Variables
-int SwitchValue;   
 
 // variables for Water Tank
 int raw;
@@ -23,8 +21,9 @@ connectionManager conManagerr;
 
 /* constructor implementation */
 
-void appManager_ctor(appManager * const me, connectionManager conManager) {
-  me->conManager = conManagerr;
+void appManager_ctor(appManager * const me, int sw_val) {
+  me->conManager = connectionManager_ctor(&conManagerr);
+  me->switch_val = sw_val;
 }
 
 /* Function Implementation */
@@ -69,7 +68,36 @@ void initRGB(){
   digitalWrite(BLE_LED,LOW);
  }
 
- void check_WT(bool radio_status,bool Mqtt_status) {
+ void initBoard() {
+  
+   
+  // Configuring Board pins
+  pinMode(HEARTBEAT_LED, OUTPUT);
+  pinMode(WIFI_LED, OUTPUT);
+  pinMode(BLE_LED, OUTPUT);
+  pinMode(SW_pin, OUTPUT);
+  pinMode(touch1, INPUT);
+  pinMode(WT_sensor, INPUT);
+  pinMode(A0,INPUT);
+  pinMode(ACS_pin,INPUT);
+
+  // setting Tank level LEDs
+  pinMode(LED1_U,OUTPUT);
+  pinMode(LED1_D,OUTPUT);
+  pinMode(LED2_U,OUTPUT);
+  pinMode(LED2_D,OUTPUT);
+  pinMode(LED3_U,OUTPUT);
+  pinMode(LED3_D,OUTPUT);
+  pinMode(LED4_U,OUTPUT);
+  pinMode(LED4_D,OUTPUT);
+  pinMode(LED5_U,OUTPUT);
+  pinMode(LED5_D,OUTPUT);
+
+
+   initRGB();
+ }
+
+ void check_WT(bool radio_status,bool Mqtt_status, appManager * appMgr) {
   raw = analogRead(WT_sensor);
 //  if(raw){
   buffer = raw * Vin;
@@ -83,11 +111,11 @@ void initRGB(){
   volt_level += Vout;
   Serial.print("\t");
   Serial.println(volt_level);
-  publishData(volt_level,conManagerr);
+  publishData(volt_level,appMgr->conManager);
  }
 
 
- int checkTouchDetected(connectionManager * const con, int switch_value) {
+ int checkTouchDetected(appManager* appMgr, int switch_value) {
   if(digitalRead(touch1) == HIGH){
         long press_start = millis();
         long press_end = press_start;
@@ -97,32 +125,32 @@ void initRGB(){
           press_end = millis();
           count_press = press_end-press_start;
            if((count_press>3000) && (WIFI_AVAILABILITY)) {
-            resetWifi(conManagerr); // reset settings - wipe stored credentials for testing, these are stored by the esp library
-            connectWiFi(conManagerr);
+            resetWifi(appMgr->conManager); // reset settings - wipe stored credentials for testing, these are stored by the esp library
+            connectWiFi(appMgr->conManager);
             break;
            }  
         } 
         
         
-        publishData("pressed", conManagerr);   //,radioAvailability,MQTT_AVAILABILITY);
+        publishData("pressed", appMgr->conManager);   //,radioAvailability,MQTT_AVAILABILITY);
         Serial.print("pressed for ");
         Serial.println(count_press);
 
         if(count_press<2500) {
-          check_WT(RADIO_AVAILABILITY,MQTT_AVAILABILITY);
+          check_WT(RADIO_AVAILABILITY,MQTT_AVAILABILITY, appMgr);
           if (switch_value == 0){
             digitalWrite(SW_pin, 1);
             Serial.println("Motor Off");
-            SwitchValue = 1;
+            appMgr->switch_val= 1;
             LED_allOff();
           } else {
             digitalWrite(SW_pin, 0);
             Serial.println("Motor On");
-            SwitchValue = 0;
+            appMgr->switch_val = 0;
             LED_allOn();
           }
           delay(100);             
         }
   }
-  return SwitchValue;
+  return appMgr->switch_val;
  }
