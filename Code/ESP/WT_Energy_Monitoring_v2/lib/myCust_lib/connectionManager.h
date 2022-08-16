@@ -20,7 +20,7 @@ typedef struct {
 
    void print_communication(); 
    void initWiFi();
-   void connectMQTT(connectionManager);
+   bool connectMQTT(connectionManager);
    void connectWiFi(connectionManager);
    void reconnectWiFi(connectionManager);
    void resetWifi(connectionManager);

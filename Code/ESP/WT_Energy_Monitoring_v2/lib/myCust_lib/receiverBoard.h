@@ -28,14 +28,7 @@
 #define WT_sensor          15      // pin from water sensor
 
 
-   void initRGB();
-   void LED_allOn();
-   void LED_allOff();
-   void getBoard_ID();
 
-   
-   void check_WT(bool,bool);
-   int  checkTouchDetected(bool, bool, int);
- 
+   void getBoard_ID();
 
 #endif

@@ -56,7 +56,7 @@ char mqttPassword[] = MQTT_PASSWORD;
 connectionManager connectionManager_ctor(connectionManager * const me ) {
 
    
-    cm = connectionManager(*me);
+    cm = connectionManager_ctor(me);
 
     me->ble_status = ble_status;
     
@@ -97,7 +97,7 @@ void initWiFi() {
 /**
  * Connect to MQTT Server
  */
- void connectMQTT(connectionManager con) {
+ bool connectMQTT(connectionManager con) {
   
   if(con.Wifi_status && !con.mqtt_status){
     if(BOARD_ID == ""){
@@ -123,6 +123,7 @@ void initWiFi() {
     digitalWrite(BLE_LED,LOW);
     Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
   }
+  return con.mqtt_status;
 }
 
 void reconnectWiFi(connectionManager con){
@@ -156,7 +157,7 @@ void connectWiFi(connectionManager con) {
     }
 }
 
-void reset_wifi(connectionManager con) {
+void resetWifi(connectionManager con) {
     con.Wifi_status = false;
     wm.resetSettings();
 }

@@ -7,6 +7,8 @@
 #include <SPI.h>
 #include <Preferences.h>
 
+#include "app_config.h"
+#include "connectionManager.h"
 #include "appManager.h"
 #include "myCommon.h"                    // to import all my custom libraries
 
@@ -18,14 +20,13 @@ int switch_val;
 volatile bool wifiConnected = false;
 volatile bool mqttConnected = false;
 
+// my Managers
+appManager managr;
+connectionManager conMgr;
+
 /** Connection change status */
 bool connStatusChanged = false;
 
-// Set flags for Communication and getting values from app_config.h
-     bool enableRadio = RADIO_AVAILABILITY;    
-     bool enableBLE = BLE_AVAILIBILITY;
-     bool enableWiFi = WIFI_AVAILABILITY;
-     bool enableMQTT = MQTT_AVAILABILITY;
 
 unsigned long printPeriod = 1000; // in milliseconds
 // Track time in milliseconds since last reading
@@ -79,6 +80,11 @@ void setup() {
   // Initial setting of Switch
   digitalWrite(SW_pin, 1);
 
+  // Initiating Managers
+
+  //connectionManager_ctor(&conMgr);
+  //appManager_ctor(&managr,conMgr);
+
   // Init RGB
   initRGB();
   
@@ -92,22 +98,24 @@ void setup() {
  * Logic that runs in Loop
  */
 void loop() {
-    switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
+    switch_val = checkTouchDetected(&conMgr, switch_val);
 
-    if(enableRadio) {
+    if(RADIO_AVAILABILITY) {
       checkDataOnRadio();
     }
 
-    if (wifiConnected && enableMQTT && (!!!mqttCallback )) {
+    if (managr.conManager.Wifi_status && MQTT_AVAILABILITY && (!!!mqttCallback )) {
        Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
        mqttConnected = false;
-       mqttConnected = connectMQTT(wifiConnected,mqttConnected);
+       mqttConnected = connectMQTT(conMgr);
     }
 
     
           if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
               prev_pub_time = millis();
-              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",getEngergy());  
+              Serial.print(" Energy Consumed in ");
+              Serial.print(PUBLISH_INTERVAL);
+              printf(" = %0.2f Joules\n",getEngergy());  
               Serial.print("Total Energy reset : ");
               Serial.println(getEngergy());            
           }
