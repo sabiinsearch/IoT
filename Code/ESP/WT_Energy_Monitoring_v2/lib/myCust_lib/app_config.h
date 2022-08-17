@@ -12,8 +12,9 @@
 
 
 // Energy Monitoring configrations
-    #define PUBLISH_INTERVAL    30000L    // time in Minutes * sec in a min * milliseconds in sec
-    #define VOLTAGE_IN          240       // Input Voltage
+    #define PUBLISH_INTERVAL_ON      1000L    // time in Minutes * sec in a min * milliseconds in sec
+    #define PUBLISH_INTERVAL_OFF     10000L    // time in Minutes * sec in a min * milliseconds in sec
+    #define VOLTAGE_IN               240       // Input Voltage
 
 
 //  Mqtt Configurations

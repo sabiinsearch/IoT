@@ -102,10 +102,13 @@ void initRGB(){
   jsonOut["uniqueId"] = getBoard_ID();
   jsonOut["Switch Value"] = appMgr->switch_val;
   jsonOut["Water Level"] = appMgr->waterLevel;
-  jsonOut["Energy"] = appMgr->energy;
+  if (appMgr->switch_val==1) {
+     jsonOut["Energy"] = appMgr->energy;
+  }
   // Convert JSON object into a string
   jsonOut.printTo(payload);
-   Serial.println(payload);
+   Serial.print(payload);
+   Serial.println("\n"); 
   dataJsonBuffer.clear();
  }
 

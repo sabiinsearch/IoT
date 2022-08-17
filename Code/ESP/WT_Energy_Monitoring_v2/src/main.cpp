@@ -41,7 +41,7 @@ void setup() {
 
   // Initiating Manager
   Serial.println("Initializing App Manager..");
-  appManager_ctor(&managr,1);
+  appManager_ctor(&managr,0);
 
 
   // Run Energy Monitoring in Core 2
