@@ -47,7 +47,7 @@ volatile unsigned long total_energy_consumed;
 // Energy Consumption
 
  void eMonitorig(appManager* appMgr) {
-    unsigned long prev_pub_time = 0 ;
+    
    do{    // when switch is ON
         broadcast_appMgr(appMgr);
         setEnergy();   
