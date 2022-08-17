@@ -1,7 +1,8 @@
 #include <ArduinoJson.h>
 #include "connectionManager.h"
 
-#include <WiFi.h>   // for WiFi
+// for WiFi, LoRa and mqtt
+
 #include <WiFiManager.h> 
 #include <LoRa.h>
 #include <PubSubClient.h>   // for Mqtt
