@@ -4,7 +4,7 @@
 #include "receiverBoard.h"
 
 
-   int getBoard_ID() {
+   unsigned long int getBoard_ID() {
      return ESP.getEfuseMac();
    }
 

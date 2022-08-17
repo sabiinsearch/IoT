@@ -28,10 +28,10 @@ void setup() {
   delay(1000);
 	
   // Send some device info
-	Serial.println("Build: ");
+	// Serial.println("Build: ");
   
-  Serial.print("Board ID: WT-");
-  Serial.println(getBoard_ID());
+  // Serial.print("Board ID: WT-");
+  // Serial.println(getBoard_ID());
 
   LED_allOff();
   //digitalWrite(touch1, 0);
@@ -40,12 +40,14 @@ void setup() {
   digitalWrite(SW_pin, 1);
 
   // Initiating Manager
-  appManager_ctor(&managr,0);
+  Serial.println("Initializing App Manager..");
+  appManager_ctor(&managr,1);
 
 
   // Run Energy Monitoring in Core 2
-  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
-
+//  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+    xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, &managr, 1, NULL,  1);
+    Serial.println("Energy Monitor set..");
 
 }
 /**
@@ -61,8 +63,7 @@ void loop() {
     if (managr.conManager->Wifi_status && MQTT_AVAILABILITY && (!!!mqttCallback )) {
        Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
        managr.conManager->mqtt_status = false;
-       
-       managr.conManager->mqtt_status = connectMQTT(managr.conManager);
-       
+       managr.conManager->mqtt_status = connectMQTT(managr.conManager); 
     }
+
 }

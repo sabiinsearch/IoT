@@ -29,6 +29,6 @@
 
 
 
-   int getBoard_ID();
+   unsigned long int getBoard_ID();
 
 #endif

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ArduinoJson.h>
 
 // Custom Libraries
 #include "app_config.h"
@@ -15,9 +16,12 @@ connectionManager conManagerr;
 
 void appManager_ctor(appManager * const me, int sw_val) {
   initBoard();
+  Serial.println("Board Initialized..");
   me->conManager = connectionManager_ctor(&conManagerr);
+  Serial.println("Connection Manager set with App Manager");
   me->switch_val = sw_val;
-  broadcast_appMgr(me);
+  //broadcast_appMgr(me);
+  Serial.println("AppManager set..");
 }
 
 /* Function Implementation */
@@ -59,7 +63,7 @@ void initRGB(){
   digitalWrite(WIFI_LED,HIGH);
   digitalWrite(BLE_LED,HIGH);
 
-  Serial.println("InitRGB : appManager.cpp");
+  //Serial.println("InitRGB : appManager.cpp");
  }
 
  void initBoard() {
@@ -88,46 +92,21 @@ void initRGB(){
  
  void broadcast_appMgr(appManager * appMgr) {
   
-   char data[] = {"{"};  // for JSON
-   char s1[] = "\"Board\" : ";
-   char * msg = strcat(data,s1);
-   char buffer[100];
-   char *num;
+  String payload;
+  StaticJsonBuffer<200> dataJsonBuffer;
+  JsonObject& jsonOut = dataJsonBuffer.createObject();
 
-   if (asprintf(&num, "%d", getBoard_ID) == -1) {
-        perror("asprintf");
-    } else {
-  //      printf(strcat(s1,num));
-  //      free(num);
-    }
-
-  // char s2[] = appMgr->energy;
-  //char buff[20];
-   //int totalEnergy;
-/*
-   // formatting JSON to publish
-   data = "{\"Board\" : ";
-   data += "\""+getBoard_ID();
-   data += "\",";
-
-   data += "\"Switch Value\" : ";
-   data += "\" "+appMgr->switch_val;
-   data += "\",";
-
-   data += "\"Water Level\" : ";
-   data += "\" "+appMgr->waterLevel;
-   data += "\"}";
+  //char* boardID = getBoard_ID();
   
-   // for setting float value to sting JSON
-   /* 
-   data += "\"Total Energy\" : ";
-   gcvt(totalEnergy, 6, buff);
-   data += "\""+buff;
-   data += "\"}";
-   */
-   //printf(strcat(msg,num));
-   Serial.println(msg); 
-  
+  jsonOut["type"] = BOARD_TYPE;
+  jsonOut["uniqueId"] = getBoard_ID();
+  jsonOut["Switch Value"] = appMgr->switch_val;
+  jsonOut["Water Level"] = appMgr->waterLevel;
+  jsonOut["Energy"] = appMgr->energy;
+  // Convert JSON object into a string
+  jsonOut.printTo(payload);
+   Serial.println(payload);
+  dataJsonBuffer.clear();
  }
 
  void check_WT(appManager * appMgr) {
@@ -149,7 +128,7 @@ void initRGB(){
   volt_level += Vout;
   // Serial.print("\t");
   // Serial.println(volt_level);
-  publishData(volt_level,appMgr->conManager);
+  //publishData(volt_level,appMgr->conManager);
   //broadcast_appMgr(appMgr);
  }
 
@@ -164,55 +143,34 @@ void initRGB(){
           press_end = millis();
           count_press = press_end-press_start;
            if((count_press>3000) && (WIFI_AVAILABILITY)) {
+            Serial.println("Wifi Resetting.."); 
             resetWifi(appMgr->conManager); // reset settings - wipe stored credentials for testing, these are stored by the esp library
             connectWiFi(appMgr->conManager);
             break;
            }  
         } 
         
-        
-        //publishData("pressed", appMgr->conManager);   //,radioAvailability,MQTT_AVAILABILITY);
-        //broadcast_appMgr(appMgr);
-        Serial.print("pressed for ");
-        Serial.println(count_press);
 
         if(count_press<2500) {
           check_WT(appMgr);
-          if (appMgr->switch_val == 0){
+          if (appMgr->switch_val == 1){
+            Serial.println("Energy Monitoring Off..");
             digitalWrite(SW_pin, 1);
-            Serial.println("Motor Off");
-            appMgr->switch_val= 1;
             LED_allOff();
+            appMgr->switch_val= 0;
           } else {
+            Serial.println("Energy Monitoring On..");
             digitalWrite(SW_pin, 0);
-            Serial.println("Motor On");
-            appMgr->switch_val = 0;
             LED_allOn();
+            appMgr->switch_val = 1;
           }
           delay(100);             
-        }
+        } 
+        broadcast_appMgr(appMgr);
   }
   return appMgr->switch_val;
  }
 
- void eMonitorig(appManager* appMgr) {
-    
-   do{    // when switch is ON
-      unsigned long prev_pub_time = 0 ;
 
-        if((unsigned long)(millis() - prev_pub_time) >= PUBLISH_INTERVAL) { 
-              prev_pub_time = millis();
-              //broadCast(appMgr);
-           /*   
-              Serial.print(" Energy Consumed in ");
-              Serial.print(PUBLISH_INTERVAL);
-              printf(" = %0.2f Joules\n",getEngergy());  
-              Serial.print("Total Energy reset : ");
-              Serial.println(getEngergy());            
-           */   
-          }
-    
-    }while((appMgr->switch_val==1));
- }
 
  

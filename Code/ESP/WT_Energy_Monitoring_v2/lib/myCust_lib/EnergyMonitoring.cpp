@@ -2,6 +2,7 @@
 #include "Arduino.h"
 
 #include "app_config.h"
+#include "appManager.h"
 #include "receiverBoard.h"      // for using cust_board pins
 
 // for Energy Monitoring
@@ -32,14 +33,34 @@ float current_amps; // estimated actual current in amps
    // unsigned long previousMillis = 0;
 
 // varialble for Energy Monitoring
-volatile float total_energy_consumed;
+volatile unsigned long total_energy_consumed;
+
+
+
+  unsigned long getEngergy() {
+    
+    unsigned long totalEnergyTillNow = total_energy_consumed;
+    setEnergy();
+    return totalEnergyTillNow;
+}
 
 // Energy Consumption
- void energy_consumption(void * pvParameters) { 
 
+ void eMonitorig(appManager* appMgr) {
+    unsigned long prev_pub_time = 0 ;
+   do{    // when switch is ON
+        broadcast_appMgr(appMgr);
+        setEnergy();   
+    }while((appMgr->switch_val==1));
+ }
+
+ void energy_consumption(void * pvParameters) { 
+    
+    appManager* appMgr = (appManager*)pvParameters; 
     RunningStatistics inputStats;                 // create statistics to look at the raw test signal
     inputStats.setWindowSecs( windowLength );
-    
+    unsigned long prev_pub_time;
+
     while( true ) {
       sensorValue = analogRead(ACS_pin);  // read the analog in value:
       inputStats.input(sensorValue);  // log to Stats function            
@@ -51,27 +72,21 @@ volatile float total_energy_consumed;
         cur = (float)cur/10;
         Energy = cur*Volt_In/3600;
         total_energy_consumed += Energy;
-        
-        /*
-          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
-              prev_pub_time = millis();
-              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",total_energy_consumed);
-              total_energy_consumed = 0;              
+        appMgr->energy = total_energy_consumed;
+          if( (appMgr->switch_val==1) && ((unsigned long)(millis() - prev_pub_time) >= PUBLISH_INTERVAL)) { 
+                  eMonitorig(appMgr); 
+                  prev_pub_time = millis();            
           }
-          */
+          
       // }
      }
 
 }
 
 void setEnergy() {
-  total_energy_consumed = 0;
+  //total_energy_consumed = 0;
 }
-float getEngergy() {
-    float totalEnergyTillNow = total_energy_consumed;
-    setEnergy();
-    return totalEnergyTillNow;
-}
+
 
 
 
