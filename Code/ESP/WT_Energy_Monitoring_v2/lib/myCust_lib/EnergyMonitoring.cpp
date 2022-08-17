@@ -2,6 +2,7 @@
 #include "Arduino.h"
 
 #include "app_config.h"
+#include "appManager.h"
 #include "receiverBoard.h"      // for using cust_board pins
 
 // for Energy Monitoring
@@ -9,37 +10,40 @@
 #include <Filters.h>
 #include <stdio.h>
 
-ACS712 sensor(ACS712_20A, ACS_pin);
-char watt[5];
-unsigned long last_time =0;
-unsigned long current_time =0;
-float Volt_In = VOLTAGE_IN;
-float Wh =0 ;
-float Energy;
-// unsigned long publish_time = PUBLISH_INTERVAL;     // from app_config.h
-// unsigned long prev_pub_time = 0 ;
-
-// Another reference
-float testFrequency = 40;                     // test signal frequency (Hz)
-float windowLength = 90.0/testFrequency;     // how long to average the signal, for statistist
-int sensorValue = 0;
-double intercept = -0.0529009; // to be adjusted based on calibration testing
-float slope = 0.0975599997; // to be adjusted based on calibration testing
-float current_amps; // estimated actual current in amps
-
-   // unsigned long printPeriod = 1000; // in milliseconds
-// Track time in milliseconds since last reading
-   // unsigned long previousMillis = 0;
 
 // varialble for Energy Monitoring
-volatile float total_energy_consumed;
+volatile unsigned long total_energy_consumed;
 
-// Energy Consumption
- void energy_consumption(void * pvParameters) { 
-
-    RunningStatistics inputStats;                 // create statistics to look at the raw test signal
-    inputStats.setWindowSecs( windowLength );
+  unsigned long getEngergy(appManager* appMgr) {
     
+    resetEnergy(appMgr);
+    return appMgr->energy;
+}
+// Energy Consumption
+
+ void eMonitorig(appManager* appMgr) {
+       // when switch is ON
+        broadcast_appMgr(appMgr);
+        resetEnergy(appMgr);   
+ }
+
+ void energy_consumption(void * pvParameters) { 
+    
+    appManager* appMgr = (appManager*)pvParameters; 
+    RunningStatistics inputStats;                 // create statistics to look at the raw test signal
+    float Volt_In = VOLTAGE_IN;
+    // Another reference
+   float testFrequency = 40;                     // test signal frequency (Hz)
+   float windowLength = 90.0/testFrequency;     // how long to average the signal, for statistist
+   int sensorValue = 0;
+   double intercept = -0.0529009; // to be adjusted based on calibration testing
+   float slope = 0.0975599997; // to be adjusted based on calibration testing
+   float current_amps; // estimated actual current in amps
+
+    inputStats.setWindowSecs( windowLength );
+    float Energy;
+    unsigned long prev_pub_time;
+
     while( true ) {
       sensorValue = analogRead(ACS_pin);  // read the analog in value:
       inputStats.input(sensorValue);  // log to Stats function            
@@ -51,27 +55,23 @@ volatile float total_energy_consumed;
         cur = (float)cur/10;
         Energy = cur*Volt_In/3600;
         total_energy_consumed += Energy;
-        
-        /*
-          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
-              prev_pub_time = millis();
-              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",total_energy_consumed);
-              total_energy_consumed = 0;              
+        appMgr->energy = total_energy_consumed;
+
+          if( (appMgr->switch_val==1) && ((unsigned long)(millis() - prev_pub_time) >= PUBLISH_INTERVAL)) { 
+                  Serial.println(appMgr->energy);
+                  eMonitorig(appMgr); 
+                  prev_pub_time = millis();            
           }
-          */
+          
       // }
      }
 
 }
 
-void setEnergy() {
-  total_energy_consumed = 0;
+void resetEnergy(appManager* appMgr) {
+  appMgr->energy = 0;
 }
-float getEngergy() {
-    float totalEnergyTillNow = total_energy_consumed;
-    setEnergy();
-    return totalEnergyTillNow;
-}
+
 
 
 

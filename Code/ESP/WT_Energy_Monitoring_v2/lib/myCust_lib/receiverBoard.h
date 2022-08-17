@@ -4,9 +4,9 @@
 #define __RECEIVER_BOARD_H__
 
 // #define RGB LEDs
-#define HEARTBEAT_LED      5
-#define WIFI_LED           17
-#define BLE_LED            16
+#define HEARTBEAT_LED      17         // Red
+#define WIFI_LED           16         // Blue
+#define BLE_LED            5          // Green
 
 // # define Level LEDs
 #define LED1_U             32
@@ -28,14 +28,7 @@
 #define WT_sensor          15      // pin from water sensor
 
 
-   void initRGB();
-   void LED_allOn();
-   void LED_allOff();
-   void getBoard_ID();
 
-   
-   void check_WT(bool,bool);
-   int  checkTouchDetected(bool, bool, int);
- 
+   unsigned long int getBoard_ID();
 
 #endif

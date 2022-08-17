@@ -3,10 +3,12 @@
     #define __ENERGYMONITORING_H__
 
     #include "Arduino.h"
-
+    #include "appManager.h"
+        
+        void eMonitorig(appManager*);
         void  energy_consumption(void * pvParameters);
-        void  setEnergy();
-        float getEngergy();
+        void  resetEnergy(appManager*);
+        unsigned long getEngergy(appManager*);
         
 
 #endif

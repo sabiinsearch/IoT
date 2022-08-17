@@ -7,32 +7,17 @@
 #include <SPI.h>
 #include <Preferences.h>
 
+// to import all my custom libraries
+
+#include "app_config.h"
+#include "receiverBoard.h"
+#include "connectionManager.h"
 #include "appManager.h"
-#include "myCommon.h"                    // to import all my custom libraries
+#include "EnergyMonitoring.h"
+                  
 
-
-// Variable to hold switch value
-int switch_val;
-
-
-volatile bool wifiConnected = false;
-volatile bool mqttConnected = false;
-
-/** Connection change status */
-bool connStatusChanged = false;
-
-// Set flags for Communication and getting values from app_config.h
-     bool enableRadio = RADIO_AVAILABILITY;    
-     bool enableBLE = BLE_AVAILIBILITY;
-     bool enableWiFi = WIFI_AVAILABILITY;
-     bool enableMQTT = MQTT_AVAILABILITY;
-
-unsigned long printPeriod = 1000; // in milliseconds
-// Track time in milliseconds since last reading
-unsigned long previousMillis = 0;
-
-unsigned long publish_time = PUBLISH_INTERVAL;     // from app_config.h
-unsigned long prev_pub_time = 0 ;
+// my Managers
+appManager managr;
 
 
 // setup function
@@ -43,35 +28,10 @@ void setup() {
   delay(1000);
 	
   // Send some device info
-	Serial.println("Build: ");
+	// Serial.println("Build: ");
   
-  Serial.print("Board ID: WT-");
-  getBoard_ID();
-  
-  // Initiate Switch
-  switch_val = 0;    
-  
-  // Configuring Board pins
-  pinMode(HEARTBEAT_LED, OUTPUT);
-  pinMode(WIFI_LED, OUTPUT);
-  pinMode(BLE_LED, OUTPUT);
-  pinMode(SW_pin, OUTPUT);
-  pinMode(touch1, INPUT);
-  pinMode(WT_sensor, INPUT);
-  pinMode(A0,INPUT);
-  pinMode(ACS_pin,INPUT);
-
-  // setting Tank level LEDs
-  pinMode(LED1_U,OUTPUT);
-  pinMode(LED1_D,OUTPUT);
-  pinMode(LED2_U,OUTPUT);
-  pinMode(LED2_D,OUTPUT);
-  pinMode(LED3_U,OUTPUT);
-  pinMode(LED3_D,OUTPUT);
-  pinMode(LED4_U,OUTPUT);
-  pinMode(LED4_D,OUTPUT);
-  pinMode(LED5_U,OUTPUT);
-  pinMode(LED5_D,OUTPUT);
+  // Serial.print("Board ID: WT-");
+  // Serial.println(getBoard_ID());
 
   LED_allOff();
   //digitalWrite(touch1, 0);
@@ -79,38 +39,31 @@ void setup() {
   // Initial setting of Switch
   digitalWrite(SW_pin, 1);
 
-  // Init RGB
-  initRGB();
-  
+  // Initiating Manager
+  Serial.println("Initializing App Manager..");
+  appManager_ctor(&managr,1);
+
 
   // Run Energy Monitoring in Core 2
-  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
-
+//  xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, NULL, 1, NULL,  1);
+    xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, &managr, 1, NULL,  1);
+    Serial.println("Energy Monitor set..");
 
 }
 /**
  * Logic that runs in Loop
  */
-void loop() {
-    switch_val = checkTouchDetected(enableRadio,enableWiFi, switch_val);
+void loop() { 
+    managr.switch_val = checkTouchDetected(&managr);
 
-    if(enableRadio) {
+    if(RADIO_AVAILABILITY) {
       checkDataOnRadio();
     }
 
-    if (wifiConnected && enableMQTT && (!!!mqttCallback )) {
+    if (managr.conManager->Wifi_status && MQTT_AVAILABILITY && (!!!mqttCallback )) {
        Serial.println("MQTT Connection Lost, RECONNECTING AGAIN.......");
-       mqttConnected = false;
-       mqttConnected = connectMQTT(wifiConnected,mqttConnected);
+       managr.conManager->mqtt_status = false;
+       managr.conManager->mqtt_status = connectMQTT(managr.conManager); 
     }
-
-    
-          if((unsigned long)(millis() - prev_pub_time) >= publish_time) { 
-              prev_pub_time = millis();
-              printf("Total Energy consumed in last 5 min = %0.2f Joules\n",getEngergy());  
-              Serial.print("Total Energy reset : ");
-              Serial.println(getEngergy());            
-          }
-          
 
 }
