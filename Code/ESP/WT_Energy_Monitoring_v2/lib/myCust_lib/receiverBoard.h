@@ -25,7 +25,7 @@
 #define SW_pin             19
 #define ACS_pin            34      // Energy Sensor
 #define touch1             4       // Pin for capactitive touch sensor
-#define WT_sensor          15      // pin from water sensor
+#define WT_sensor          35      // pin from water sensor
 
 
 

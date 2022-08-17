@@ -160,12 +160,12 @@ void initRGB(){
           if (appMgr->switch_val == 1){
             Serial.println("Energy Monitoring Off..");
             digitalWrite(SW_pin, 1);
-            LED_allOff();
+            //LED_allOff();
             appMgr->switch_val= 0;
           } else {
             Serial.println("Energy Monitoring On..");
             digitalWrite(SW_pin, 0);
-            LED_allOn();
+            //LED_allOn();
             appMgr->switch_val = 1;
           }
           delay(100);             
@@ -173,6 +173,125 @@ void initRGB(){
         broadcast_appMgr(appMgr);
   }
   return appMgr->switch_val;
+ }
+
+ /*
+    // # define Level LEDs
+#define LED1_U             32
+#define LED1_D             33
+#define LED2_U             25
+#define LED2_D             26
+#define LED3_U             27 
+#define LED3_D             14 
+#define LED4_U             12 
+#define LED4_D             13 
+#define LED5_U             2 
+#define LED5_D             18 
+ */
+
+ void setWaterLevel_indicators(appManager* appMgr) {
+    int level = analogRead(WT_sensor);     
+    if(level<=10) {
+       appMgr->waterLevel = 0;      // set the water level in appManager
+    }
+
+       switch(appMgr->waterLevel) {
+
+         case 1:
+           digitalWrite(LED1_U,LOW);
+           digitalWrite(LED2_U,HIGH);
+           digitalWrite(LED3_U,HIGH);
+           digitalWrite(LED4_U,HIGH);
+           digitalWrite(LED5_U,HIGH);
+
+           digitalWrite(LED1_D,HIGH);          
+           digitalWrite(LED2_D,LOW);          
+           digitalWrite(LED3_D,LOW);           
+           digitalWrite(LED4_D,LOW);           
+           digitalWrite(LED5_D,LOW);
+            break;
+
+         case 2:
+
+           digitalWrite(LED1_U,LOW);
+           digitalWrite(LED2_U,LOW);
+           digitalWrite(LED3_U,HIGH);
+           digitalWrite(LED4_U,HIGH);
+           digitalWrite(LED5_U,HIGH);
+
+           digitalWrite(LED1_D,HIGH);          
+           digitalWrite(LED2_D,HIGH);          
+           digitalWrite(LED3_D,LOW);           
+           digitalWrite(LED4_D,LOW);           
+           digitalWrite(LED5_D,LOW);
+
+            break;
+
+         case 3:
+
+           digitalWrite(LED1_U,LOW);
+           digitalWrite(LED2_U,LOW);
+           digitalWrite(LED3_U,LOW);
+           digitalWrite(LED4_U,HIGH);
+           digitalWrite(LED5_U,HIGH);
+
+           digitalWrite(LED1_D,HIGH);          
+           digitalWrite(LED2_D,HIGH);          
+           digitalWrite(LED3_D,HIGH);           
+           digitalWrite(LED4_D,LOW);           
+           digitalWrite(LED5_D,LOW);
+
+            break;
+
+         case 4:
+
+           digitalWrite(LED1_U,LOW);
+           digitalWrite(LED2_U,LOW);
+           digitalWrite(LED3_U,LOW);
+           digitalWrite(LED4_U,LOW);
+           digitalWrite(LED5_U,HIGH);
+
+           digitalWrite(LED1_D,HIGH);          
+           digitalWrite(LED2_D,HIGH);          
+           digitalWrite(LED3_D,HIGH);           
+           digitalWrite(LED4_D,HIGH);           
+           digitalWrite(LED5_D,LOW);
+
+            break;
+
+         case 5:
+
+           digitalWrite(LED1_U,LOW);
+           digitalWrite(LED2_U,LOW);
+           digitalWrite(LED3_U,LOW);
+           digitalWrite(LED4_U,LOW);
+           digitalWrite(LED5_U,LOW);
+
+           digitalWrite(LED1_D,HIGH);          
+           digitalWrite(LED2_D,HIGH);          
+           digitalWrite(LED3_D,HIGH);           
+           digitalWrite(LED4_D,HIGH);           
+           digitalWrite(LED5_D,HIGH);
+
+            break;
+
+         default:
+
+           digitalWrite(LED1_U,HIGH);
+           digitalWrite(LED2_U,HIGH);
+           digitalWrite(LED3_U,HIGH);
+           digitalWrite(LED4_U,HIGH);
+           digitalWrite(LED5_U,HIGH);
+
+           digitalWrite(LED1_D,LOW);          
+           digitalWrite(LED2_D,LOW);          
+           digitalWrite(LED3_D,LOW);           
+           digitalWrite(LED4_D,LOW);           
+           digitalWrite(LED5_D,LOW);
+
+            break;               
+
+       }
  }
 
 

@@ -49,6 +49,9 @@ void setup() {
     xTaskCreatePinnedToCore(energy_consumption, "Task2", 10000, &managr, 1, NULL,  1);
     Serial.println("Energy Monitor set..");
 
+    setWaterLevel_indicators(&managr);     // Set Water Tank Level
+    Serial.println("Water_Level indicators set...");
+
 }
 /**
  * Logic that runs in Loop
@@ -65,5 +68,5 @@ void loop() {
        managr.conManager->mqtt_status = false;
        managr.conManager->mqtt_status = connectMQTT(managr.conManager); 
     }
-
+   setWaterLevel_indicators(&managr);
 }
