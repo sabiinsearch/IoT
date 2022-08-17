@@ -7,8 +7,8 @@
         
         void eMonitorig(appManager*);
         void  energy_consumption(void * pvParameters);
-        void  setEnergy();
-        unsigned long getEngergy();
+        void  resetEnergy(appManager*);
+        unsigned long getEngergy(appManager*);
         
 
 #endif
