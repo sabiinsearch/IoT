@@ -25,5 +25,13 @@ void broadcast_appMgr(appManager*);
 void check_WT(appManager*);
 int  checkTouchDetected(appManager*);
 
+// functions to set LEDs as per status
+
+/*
+
+HEARTBEAT_LED             // Red
+WIFI_LED                  // Blue
+BLE_LED                   // Green
+*/
 
 #endif

@@ -4,9 +4,9 @@
 #define __RECEIVER_BOARD_H__
 
 // #define RGB LEDs
-#define HEARTBEAT_LED      17         // Red
-#define WIFI_LED           16         // Blue
-#define BLE_LED            5          // Green
+#define HEARTBEAT_LED       17         // Red
+#define WIFI_LED             5         // Green
+#define MQTT_LED            16         // Blue
 
 // # define Level LEDs
 #define LED1_U             32

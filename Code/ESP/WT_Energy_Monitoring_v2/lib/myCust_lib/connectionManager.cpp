@@ -95,17 +95,19 @@ void initWiFi() {
      // mqttConnected = client.connect((char*) clientId.c_str(), token, "");
      con->mqtt_status = pub_sub_client.connect((char*) clientId.c_str(), mqttUser, mqttPassword);
      if(con->mqtt_status){
-       digitalWrite(BLE_LED,HIGH);   
+       digitalWrite(MQTT_LED,LOW);   
        pub_sub_client.subscribe(sub_topic.c_str());
        Serial.print("Subscribed to : >>  ");
        Serial.println(sub_topic);
+     }else {
+       digitalWrite(MQTT_LED,HIGH);
      }
      Serial.print("MQTT Status: >>> ");
      Serial.print(pub_sub_client.state());
      con->mqtt_status = true;
      // Serial.println(mqttConnected);
   }else{
-    digitalWrite(BLE_LED,LOW);
+    digitalWrite(MQTT_LED,HIGH);
     Serial.println("Cannot connect to MQTT as WiFi is not Connected !!");
   }
   return con->mqtt_status;
@@ -116,15 +118,14 @@ void reconnectWiFi(connectionManager  * con){
   wm.resetSettings(); // reset settings - wipe stored credentials for testing, these are stored by the esp library
   res = wm.autoConnect("Tank_Board"); // anonymous ap
     if(!res) {
-
         con->Wifi_status = false;
-        digitalWrite(WIFI_LED,LOW);
+        digitalWrite(WIFI_LED,HIGH);
         Serial.println("Failed to connect");
         // ESP.restart();
     } 
     else {
         //if you get here you have connected to the WiFi  
-        digitalWrite(WIFI_LED,HIGH);  
+        digitalWrite(WIFI_LED,LOW);  
         con->Wifi_status = true;   
        // Serial.println("connected...yeey :)");
     }
@@ -148,7 +149,7 @@ void connectWiFi(connectionManager * con) {
 
 void resetWifi(connectionManager * con) {
     con->Wifi_status = false;
-    digitalWrite(WIFI_LED,LOW);
+    digitalWrite(WIFI_LED,HIGH);
     reconnectWiFi(con);
 }
 
