@@ -10,7 +10,6 @@
      #define WIFI_AVAILABILITY   true
      #define MQTT_AVAILABILITY   true
 
-
 // Energy Monitoring configrations
     #define PUBLISH_INTERVAL_ON      1000L    // time in Minutes * sec in a min * milliseconds in sec
     #define PUBLISH_INTERVAL_OFF     10000L    // time in Minutes * sec in a min * milliseconds in sec
@@ -38,5 +37,6 @@
     // String sub_topic = "evt/sb_micro/board/";
     #define MQTT_USER             "use-token-auth"
     #define MQTT_PASSWORD         "1SatnamW" // Auth token of Device registered on Watson IoT Platform
+
     
 #endif

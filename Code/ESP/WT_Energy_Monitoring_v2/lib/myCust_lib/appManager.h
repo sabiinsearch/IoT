@@ -24,6 +24,7 @@ void LED_allOff();
 void broadcast_appMgr(appManager*);
 void check_WT(appManager*);
 int  checkTouchDetected(appManager*);
+void updateConfig(appManager*);
 
 // functions to set LEDs as per status
 

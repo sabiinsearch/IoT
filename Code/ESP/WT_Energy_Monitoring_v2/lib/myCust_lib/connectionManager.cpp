@@ -63,6 +63,8 @@ connectionManager * const connectionManager_ctor(connectionManager * const me ) 
 
   // Init Mqtt
   if(MQTT_AVAILABILITY) {
+    pub_sub_client.setServer(server, 1883);
+    pub_sub_client.setCallback(mqttCallback);
     connectMQTT(me);
     if(me->mqtt_status) {
         Serial.println("mqtt connected");
@@ -234,24 +236,33 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
   Serial.println(jsonData["deviceValue"].as<int>());
 
   if(jsonData["type"].as<String>() == BOARD_TYPE && jsonData["uniqueId"].as<String>() == BOARD_ID){
-    Serial.println("<<<< SWITCH ACTION ON BOARD MATCHES >>>>");
-    int deviceIndex = jsonData["deviceIndex"].as<int>();
-    int deviceValue = jsonData["deviceValue"].as<int>();
+     Serial.println("<<<< MQTT Instruction ON BOARD MATCHES >>>>");
 
-    int deviceAction = 1;
-    if(deviceValue == 1){
-      deviceAction = 0;
-    }
+     int switchValue = jsonData["switchValue"].as<int>();
+     String instruction = jsonData["instruction"].as<String>();
+     int instVal =  jsonData["instValue"].as<int>();
+     
+     if(instruction== "Switch") {
+       if(switchValue == 1) {
+           Serial.println("Switch On");   
+       }else { 
+          if(switchValue == 0) {
+             Serial.println("Switch off");
+          }
+        }
+     } 
 
-    switch (deviceIndex) {
-      case 1:
-          digitalWrite(SW_pin, deviceAction);          
-          // switch_value = deviceAction;
-        break;
-      default:
-        Serial.println("Device index not matched .... ");
-      }
-   }
+     if(instruction== "CONFIG_PUBLISH_INTERVAL_ON") {
+       PUBLISH_INTERVAL_ON = instVal;
+     } 
+
+     if(instruction== "CONFIG_PUBLISH_INTERVAL_OFF") {
+
+     } 
+     
+
+
+  }
    mqttDataBuffer.clear();
 }
 

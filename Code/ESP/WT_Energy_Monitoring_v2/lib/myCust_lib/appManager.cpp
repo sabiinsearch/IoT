@@ -89,6 +89,10 @@ void initRGB(){
 
  }
  
+ void updateConfig(appManager*) {
+   
+ }
+
  void broadcast_appMgr(appManager * appMgr) {
   
   String payload;
