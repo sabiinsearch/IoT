@@ -58,6 +58,7 @@ volatile unsigned long total_energy_consumed;
         appMgr->energy = total_energy_consumed;
 
           if( (appMgr->switch_val==1) && ((unsigned long)(millis() - prev_pub_time) >= PUBLISH_INTERVAL)) { 
+                  Serial.println(appMgr->energy);
                   eMonitorig(appMgr); 
                   prev_pub_time = millis();            
           }
