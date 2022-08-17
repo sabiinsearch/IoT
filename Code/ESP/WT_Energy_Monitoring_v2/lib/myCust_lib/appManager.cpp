@@ -26,7 +26,6 @@ void appManager_ctor(appManager * const me, int sw_val) {
 
 /* Function Implementation */
 
-
 // Setting the Tank LEDs accordingly
 void LED_allOff() {
    digitalWrite(LED1_U,HIGH);
@@ -57,11 +56,11 @@ void LED_allOn() {
 void initRGB(){
   pinMode(HEARTBEAT_LED, OUTPUT);
   pinMode(WIFI_LED, OUTPUT);
-  pinMode(BLE_LED, OUTPUT);
+  pinMode(MQTT_LED, OUTPUT);
   
   digitalWrite(HEARTBEAT_LED,HIGH);
   digitalWrite(WIFI_LED,HIGH);
-  digitalWrite(BLE_LED,HIGH);
+  digitalWrite(MQTT_LED,HIGH);
 
   //Serial.println("InitRGB : appManager.cpp");
  }
@@ -147,6 +146,8 @@ void initRGB(){
           count_press = press_end-press_start;
            if((count_press>3000) && (WIFI_AVAILABILITY)) {
             Serial.println("Wifi Resetting.."); 
+            digitalWrite(WIFI_LED,HIGH);
+            digitalWrite(HEARTBEAT_LED,LOW);
             resetWifi(appMgr->conManager); // reset settings - wipe stored credentials for testing, these are stored by the esp library
             connectWiFi(appMgr->conManager);
             break;
