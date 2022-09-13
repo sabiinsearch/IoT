@@ -102,7 +102,7 @@ void initRGB(){
   jsonOut["Switch Value"] = appMgr->switch_val;
   jsonOut["Water Level"] = appMgr->waterLevel;
   if (appMgr->switch_val==1) {
-     jsonOut["Energy"] = appMgr->energy;
+     jsonOut["Energy"] = getEngergy(appMgr);
   }
   // Convert JSON object into a string
   jsonOut.printTo(payload);
