@@ -1,0 +1,25 @@
+,,,,
+Item,Qty,Reference(s),Value,Footprint
+1,1,AE1,Antenna_Dipole,RF_Antenna:Texas_SWRA117D_2.4GHz_Left
+2,3,"C1, C2, C4",1pf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+3,5,"C3, C5, C6, C20, C21",12pf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+4,1,C7,1uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+5,11,"C8, C9, C11, C12, C13, C14, C15, C16, C17, C18, C19",0.1uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+6,1,C10,2.2uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+7,1,D1,LED,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+8,1,D2,LED_1,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+9,1,D3,LED_2,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+10,1,FB1,FerriteBead,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder
+11,1,J1,JTAG_Conn,Connector_Samtec_HPM_THT:Samtec_HPM-07-01-x-S_Straight_1x07_Pitch5.08mm
+12,1,J2,UART_Conn,Connector_Samtec_HPM_THT:Samtec_HPM-05-01-x-S_Straight_1x05_Pitch5.08mm
+13,1,J3,Headers,Connector_Samtec_HPM_THT:Samtec_HPM-10-01-x-S_Straight_1x10_Pitch5.08mm
+14,2,"L1, L2",3.7nH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+15,2,"L3, L4",3.4nH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+16,1,L5,6.8uH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+17,3,"R1, R4, R5",1K,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+18,1,R2,0E,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+19,1,R3,100K,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+20,1,U1,AP2112K-3.3,Package_TO_SOT_SMD:SOT-23-5
+21,1,U2,cc2652R7,cc2652R7:cc2652R7
+22,1,Y1,48MHz,Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm_HandSoldering
+23,1,Y2,32.768KHz,Crystal:Crystal_DS10_D1.0mm_L4.3mm_Horizontal
