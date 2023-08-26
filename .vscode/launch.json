@@ -12,9 +12,9 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/home/sarbjeet/gitHub/IoT/.pio/build/esp32dev/firmware.elf",
+            "executable": "/home/sarbjeetsingh/github/IoT/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/sarbjeet/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "/home/sarbjeetsingh/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
                 "type": "PlatformIO",
@@ -25,18 +25,18 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/home/sarbjeet/gitHub/IoT/.pio/build/esp32dev/firmware.elf",
+            "executable": "/home/sarbjeetsingh/github/IoT/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/sarbjeet/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "/home/sarbjeetsingh/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "/home/sarbjeet/gitHub/IoT/.pio/build/esp32dev/firmware.elf",
+            "executable": "/home/sarbjeetsingh/github/IoT/.pio/build/esp32dev/firmware.elf",
             "projectEnvName": "esp32dev",
-            "toolchainBinDir": "/home/sarbjeet/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "/home/sarbjeetsingh/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "loadMode": "manual"
         }
