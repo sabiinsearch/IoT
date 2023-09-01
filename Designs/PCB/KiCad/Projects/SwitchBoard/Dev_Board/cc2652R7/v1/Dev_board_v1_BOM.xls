@@ -13,8 +13,8 @@ Item,Qty,Reference(s),Value,Footprint
 11,1,J1,JTAG_Conn,Connector_Samtec_HPM_THT:Samtec_HPM-07-01-x-S_Straight_1x07_Pitch5.08mm
 12,1,J2,UART_Conn,Connector_Samtec_HPM_THT:Samtec_HPM-05-01-x-S_Straight_1x05_Pitch5.08mm
 13,1,J3,Headers,Connector_Samtec_HPM_THT:Samtec_HPM-10-01-x-S_Straight_1x10_Pitch5.08mm
-14,2,"L1, L2",3.7nH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
-15,2,"L3, L4",3.4nH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+14,2,"L1, L2",3.7nH,Inductor_SMD:L_0402_1608Metric_Pad1.05x0.95mm_HandSolder
+15,2,"L3, L4",3.4nH,Inductor_SMD:L_0402_1608Metric_Pad1.05x0.95mm_HandSolder
 16,1,L5,6.8uH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
 17,3,"R1, R4, R5",1K,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
 18,1,R2,0E,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
