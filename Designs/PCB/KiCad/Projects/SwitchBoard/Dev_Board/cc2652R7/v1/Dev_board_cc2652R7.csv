@@ -1,0 +1,25 @@
+Reference(s),Value,Footprint
+"C1, C9, C10",1pf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+"C2, C3, C4, C14, C15, C16, C17, C18, C19, C20",0.1uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+"C5, C6, C8, C11, C12",12pf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+C7,1uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+C13,22uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+C22,2.2uf,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder
+D1,LED_1,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+D2,LED_2,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+FB1,FerriteBead,Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder
+H1,JTAG_Conn,Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical
+H2,Headers,Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
+H3,UART_Conn,Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical
+"L4, L5",3.7nH,Inductor_SMD:L_0402_1005Metric_Pad0.77x0.64mm_HandSolder
+"L6, L7",3.4nH,Inductor_SMD:L_0402_1005Metric_Pad0.77x0.64mm_HandSolder
+L8,6.8uH,Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+PWR1,LED,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder
+"R1, R3, R5",1K,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+R2,100K,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+R4,0E,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder
+U1,Antenna_Dipole,RF_Antenna:Texas_SWRA117D_2.4GHz_Left
+U2,cc2652R7,cc2652R7:cc2652R7
+U4,AP2112K-3.3,Package_TO_SOT_SMD:SOT-23-5
+X1,32.768KHz,Crystal:Crystal_C38-LF_D3.0mm_L8.0mm_Vertical
+X2,48MHz,Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm_HandSoldering
