@@ -1,3 +1,5 @@
 (sym_lib_table
-  (lib (name RAC20-05SK_277)(type Legacy)(uri ${MYLIB}/RAC20-05SK_277.lib)(options "")(descr ""))
+  (version 7)
+  (lib (name "RAC20-05SK_277")(type "Legacy")(uri "${MYLIB}/RAC20-05SK_277.lib")(options "")(descr ""))
+  (lib (name "BackEnd_switch_Normal_v1-rescue")(type "KiCad")(uri "${KIPRJMOD}/BackEnd_switch_Normal_v1-rescue.kicad_sym")(options "")(descr ""))
 )
